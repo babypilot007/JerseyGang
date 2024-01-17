@@ -1,7 +1,6 @@
 import './App.css';
 // import { Route, Routes } from "react-router-dom";
 import { useState } from 'react';
-import Create_event from './create_event';
 import Events from './events';
 
 function App() {
@@ -55,7 +54,7 @@ var eventInfo = Events()
           
          </div>: null }
 
-         {<div>  {event ? <div className = 'event_create'>{Create_event()}</div>:null}</div> 
+         {<div>  {event ? <div className = 'event_create'>{}</div>:null}</div> 
 }
 
          
