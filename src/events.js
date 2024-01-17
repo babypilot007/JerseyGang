@@ -8,6 +8,9 @@ const[data, getData] = useState('')
 
 useEffect(()=>{
 
+
+    
+
     const fetchData = async ()=>{
 
       try {
@@ -27,9 +30,14 @@ useEffect(()=>{
     fetchData()
   }, [])
 
+  
+
+
+
   if(data){
 
 
+          
 
 var details = data.data
 
@@ -49,8 +57,11 @@ var details = data.data
 
                 return(
                     <div className='event_hover'>
+                        <div key = {info.id}>
                         Event Name -{info.attributes.EventName}
-                        {console.log(info.attributes.EventName)}
+                        {console.log(info.id)}
+
+                        </div>
                     </div>
                 )
             }))

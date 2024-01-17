@@ -4,7 +4,8 @@
   "info": {
     "singularName": "jersey-gang-event",
     "pluralName": "jersey-gang-events",
-    "displayName": "JerseyGangEvents"
+    "displayName": "JerseyGangEvents",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -24,14 +25,15 @@
       "type": "password"
     },
     "UserPhoto": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "UserInformation": {
       "type": "json"
@@ -41,6 +43,9 @@
     },
     "UserAvailable": {
       "type": "boolean"
+    },
+    "ToRent": {
+      "type": "string"
     }
   }
 }

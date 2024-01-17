@@ -156,26 +156,40 @@ padding: 5px
 }
 
 .event_backdrop{
+  display: grid;
   background-color: rgba(46, 40, 40, 0.281);
   position: relative;
-  display: flex;
   padding: 10px;
+border:solid rgb(26, 13, 13);
+overflow: auto;
+scroll-behavior: smooth;
+text-wrap: none;
+height: 300px;
+justify-content: center;
+display: grid;
+grid-template-columns: repeat(auto-fit, 250px);
+grid-row-gap: 5px;
+grid-column-gap: 5px;
+justify-content: center;
+width: 90%;
+margin: 0 auto;
+list-style: none;
+
+
 }
 
 .event_hover{
-
+  text-align: left;
   background-color: rgb(46, 40, 40);
   color: aliceblue;
-  width: max-content;
-  height: fit-content;
   border-radius: 10px ;
-  padding: 10px;
+  padding: 20px;
   line-height: 30px;
-  font-size: large;
-  box-shadow: 0 0 20px rgba(157, 153, 176, 0.546);
-  position: relative;
-  display: flex;
-  margin: 5px;
+  box-shadow: 0 0 10px rgba(157, 153, 176, 0.546);
+  margin: 10px;
+  width: 200px;
+  height: 200px;
+  text-wrap: nowrap;
 
   :hover{
       cursor: pointer;

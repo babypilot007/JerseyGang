@@ -369,6 +369,7 @@ export interface ApiJerseyGangEventJerseyGangEvent
     singularName: 'jersey-gang-event';
     pluralName: 'jersey-gang-events';
     displayName: 'JerseyGangEvents';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -382,6 +383,7 @@ export interface ApiJerseyGangEventJerseyGangEvent
     UserInformation: Attribute.JSON;
     UserDecription: Attribute.Text;
     UserAvailable: Attribute.Boolean;
+    ToRent: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

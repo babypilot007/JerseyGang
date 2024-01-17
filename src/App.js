@@ -2,6 +2,7 @@ import './App.css';
 // import { Route, Routes } from "react-router-dom";
 import { useState } from 'react';
 import Events from './events';
+import PostIt from './PostIt';
 
 function App() {
 
@@ -10,10 +11,10 @@ const [eventBtn, setEventBtn] = useState(true)
 const [header, setHeader] = useState(true)
 const [homeBtn, setHomeBtn] = useState(true)
 
+const [name, setName] = useState('')
+
+
 var eventInfo = Events()
-
-   
-
    
  
 
@@ -68,16 +69,22 @@ var eventInfo = Events()
 
         <div className='forms'> 
         <form>
-        <div className='titles'> <h3> Event Name <span><input name="query" /></span></h3></div>
-        <div className='titles'> <h3> Event Type <span><input name="query" /></span></h3></div>
-        <div className='titles'> <h3> Event Location <span><input name="query" /></span></h3></div>
-        <div className='titles'> <h3> Event Date <span><input name="query" /></span></h3></div>
+            <div className='titles' > <h3> Event Name <span><input name="query" onChange={(e) => setName(e.target.value)}/></span></h3></div>
+            <div className='titles'> <h3> Event Type <span><input name="query" /></span></h3></div>
+            <div className='titles'> <h3> Event Location <span><input name="query" /></span></h3></div>
+            <div className='titles'> <h3> Event Date <span><input name="query" /></span></h3></div>
 
         </form>
         </div>
 
 
-          <div className='add_btn'><button type='submit' onClick = {()=>{setHomeBtn(true);setEvent(false);setEventBtn(true)}}>Add Event</button></div>
+          <div className='add_btn'><button type='submit' onClick = {()=>{
+
+            setHomeBtn(true);setEvent(false);setEventBtn(true)
+            PostIt(name); window.location.reload(false)
+            
+            }}>Add Event</button></div>
+
 
 
         
