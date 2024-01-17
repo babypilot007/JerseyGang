@@ -164,7 +164,7 @@ border:solid rgb(26, 13, 13);
 overflow: auto;
 scroll-behavior: smooth;
 text-wrap: none;
-height: 300px;
+height: 55vh;
 justify-content: center;
 display: grid;
 grid-template-columns: repeat(auto-fit, 250px);
@@ -188,7 +188,7 @@ list-style: none;
   box-shadow: 0 0 10px rgba(157, 153, 176, 0.546);
   margin: 10px;
   width: 200px;
-  height: 200px;
+  height: 150px;
   text-wrap: nowrap;
 
   :hover{

@@ -1,14 +1,20 @@
 
 
 
-const PostIt = (eventname) => {
+const PostIt = (eventname, eventDescription, eventLocation) => {
 
 
+        console.log(eventDescription)
+        console.log(eventLocation)
 
 
         let body = {
             data: {
-          EventName: eventname           }
+
+            EventName: eventname,
+            EventLocation  : eventLocation,
+            EventDescription  : eventDescription   
+        }
         };
      
         fetch(`http://localhost:2000/api/jersey-gang-events`, {

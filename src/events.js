@@ -59,7 +59,9 @@ var details = data.data
                     <div className='event_hover'>
                         <div key = {info.id}>
                         Event Name -{info.attributes.EventName}
-                        {console.log(info.id)}
+                        <br></br>Event Description - {info.attributes.EventDescription}
+                       <br></br> Event Location- {info.attributes.EventLocation}
+
 
                         </div>
                     </div>

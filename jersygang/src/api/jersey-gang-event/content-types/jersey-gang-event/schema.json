@@ -46,6 +46,12 @@
     },
     "ToRent": {
       "type": "string"
+    },
+    "EventDescription": {
+      "type": "text"
+    },
+    "EventLocation": {
+      "type": "text"
     }
   }
 }

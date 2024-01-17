@@ -384,6 +384,8 @@ export interface ApiJerseyGangEventJerseyGangEvent
     UserDecription: Attribute.Text;
     UserAvailable: Attribute.Boolean;
     ToRent: Attribute.String;
+    EventDescription: Attribute.Text;
+    EventLocation: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
