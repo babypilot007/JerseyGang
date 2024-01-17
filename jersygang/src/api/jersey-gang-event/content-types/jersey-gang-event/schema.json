@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jersey_gang_events",
+  "info": {
+    "singularName": "jersey-gang-event",
+    "pluralName": "jersey-gang-events",
+    "displayName": "JerseyGangEvents"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "EventName": {
+      "type": "string"
+    },
+    "EventDate": {
+      "type": "datetime"
+    },
+    "UserEmail": {
+      "type": "email"
+    },
+    "UserPassword": {
+      "type": "password"
+    },
+    "UserPhoto": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "UserInformation": {
+      "type": "json"
+    },
+    "UserDecription": {
+      "type": "text"
+    },
+    "UserAvailable": {
+      "type": "boolean"
+    }
+  }
+}
