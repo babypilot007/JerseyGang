@@ -61,7 +61,7 @@ var eventInfo = Events()
         <button type="submit" onClick ={()=>{
 
           setEvent(true); setEventBtn(false);setHeader(false);setHomeBtn(false);
-          setEventConsol(false)
+            setEventConsol(false)
 
           
           }} >
@@ -70,7 +70,7 @@ var eventInfo = Events()
           
          </div>: null }
 
-         {<div>  {event ? <div className = 'event_create'>{}</div>:null}</div> 
+         {<div>  {eventConsol ? <div className = 'event_create'>{}</div>:null}</div> 
 }
 
          

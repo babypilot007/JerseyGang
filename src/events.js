@@ -20,7 +20,6 @@ useEffect(()=>{
 
           getData(json)
 
-          console.log(json.data)
         
       } catch (error) {
 
@@ -32,27 +31,24 @@ useEffect(()=>{
   }, [])
 
   
+  console.log()
 
 
 
-  if(data){
+  if(data != []){
+            var details = data.data
 
+            var len = details.length
+         }
 
-          
+    console.log(len)
 
-var details = data.data
-
-    
-
-
-
-    // data.map(()=>{})
-
-
-  }
   
-  if(data){
+  if(len){
+
+   
     return ( 
+
             details.map((info)=>{
                 return(
                     <div className='event_hover'>
