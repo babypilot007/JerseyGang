@@ -40,8 +40,8 @@ var eventInfo = Events()
       
       <h1>Jersey City Gang</h1>
 
-
-          { eventInfo ? <h2>{eventInfo}</h2> : null}
+        
+          { eventInfo ? <div className='event_backdrop'>{eventInfo}</div> : null}
         
       
       <div >

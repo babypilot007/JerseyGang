@@ -155,6 +155,13 @@ padding: 5px
    
 }
 
+.event_backdrop{
+  background-color: rgba(46, 40, 40, 0.281);
+  position: relative;
+  display: flex;
+  padding: 10px;
+}
+
 .event_hover{
 
   background-color: rgb(46, 40, 40);
@@ -166,8 +173,9 @@ padding: 5px
   line-height: 30px;
   font-size: large;
   box-shadow: 0 0 20px rgba(157, 153, 176, 0.546);
-
-
+  position: relative;
+  display: flex;
+  margin: 5px;
 
   :hover{
       cursor: pointer;

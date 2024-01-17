@@ -28,20 +28,33 @@ useEffect(()=>{
   }, [])
 
   if(data){
-  var email = data.data[0].attributes.UserEmail
-  var eventDate = data.data[0].attributes.EventDate
+
+
+
+var details = data.data
+
+    
+
+
+
+    // data.map(()=>{})
+
 
   }
   
   if(data){
-  return (
-        <div className='event_hover'>
+ 
+    return ( 
+            details.map((info)=>{
 
-            <span> Email - {email}</span>
-            <br></br><span> Event Date - {eventDate}</span>
+                return(
+                    <div className='event_hover'>
+                        Event Name -{info.attributes.EventName}
+                        {console.log(info.attributes.EventName)}
+                    </div>
+                )
+            }))
 
-       </div>
-  )
 }else return ( <div  className='event_details'>No Events</div>)
 }
 export default Events
