@@ -10,6 +10,8 @@ const [event, setEvent] = useState(false)
 const [eventBtn, setEventBtn] = useState(true)
 const [header, setHeader] = useState(true)
 const [homeBtn, setHomeBtn] = useState(true)
+const [eventConsol, setEventConsol] = useState(true)
+
 
 const [name, setName] = useState('')
 const [description, setDescription] = useState('')
@@ -21,6 +23,7 @@ var eventInfo = Events()
    
  
   console.log(eventInfo)
+  
   return (
 
 
@@ -45,14 +48,23 @@ var eventInfo = Events()
       <h1>Jersey City Gang</h1>
 
         
-          { eventInfo ? <div className='event_backdrop'>{eventInfo}</div> : null}
-        
+          { eventConsol ? <div className='event_backdrop'>{eventInfo}</div> : null}
+
+
+        {  console.log(eventInfo)
+}
       
       <div >
         
         {eventBtn ? <div className = 'event'> 
 
-        <button type="submit" onClick ={()=>{setEvent(true); setEventBtn(false);setHeader(false);setHomeBtn(false) }} >
+        <button type="submit" onClick ={()=>{
+
+          setEvent(true); setEventBtn(false);setHeader(false);setHomeBtn(false);
+          setEventConsol(false)
+
+          
+          }} >
           <h2>Create Event</h2></button>
 
           
@@ -88,7 +100,7 @@ var eventInfo = Events()
             PostIt(name, description, location); 
             
             window.location.reload(false)
- 
+            
             
             }}>Add Event</button></div>
 

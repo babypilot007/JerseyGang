@@ -1,5 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
+import DeleteEvents from './DeleteEvents';
 
 
 const Events = () => {
@@ -51,10 +52,8 @@ var details = data.data
   }
   
   if(data){
- 
     return ( 
             details.map((info)=>{
-
                 return(
                     <div className='event_hover'>
                         <div key = {info.id}>
@@ -62,12 +61,16 @@ var details = data.data
                         <br></br>Event Description - {info.attributes.EventDescription}
                        <br></br> Event Location- {info.attributes.EventLocation}
 
+                        <button onClick = {()=>{
+                            DeleteEvents(info.id)
+                             window.location.reload(false)
 
+                        }}>Delete Event</button>
                         </div>
                     </div>
                 )
             }))
 
-}else return ( <div  className='event_details'>No Events</div>)
+}else return  <div  className='event_details'>No Events</div>
 }
 export default Events

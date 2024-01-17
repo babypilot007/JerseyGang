@@ -151,7 +151,9 @@ padding: 5px
   border-radius: 10px;
   font-size: 18px;
   line-height: 30px;
-
+  height: fit-content;
+  position: relative;
+  justify-content:  center ;
    
 }
 
@@ -164,7 +166,7 @@ border:solid rgb(26, 13, 13);
 overflow: auto;
 scroll-behavior: smooth;
 text-wrap: none;
-height: 55vh;
+height: 50vh;
 justify-content: center;
 display: grid;
 grid-template-columns: repeat(auto-fit, 250px);
@@ -189,7 +191,6 @@ list-style: none;
   margin: 10px;
   width: 200px;
   height: 150px;
-  text-wrap: nowrap;
 
   :hover{
       cursor: pointer;
