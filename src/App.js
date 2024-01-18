@@ -86,10 +86,10 @@ var eventInfo = Events()
             <div className='titles' > 
 
              <h3> <span><input placeholder = 'Event Name' name="query" onChange={(e) => setName(e.target.value)}/></span></h3>
-             <h3>  <span><input placeholder = 'Event Details' name="query" onChange={(e) => setDescription(e.target.value)} /></span></h3>
-             <h3>  <span><input placeholder = 'Event Location' name="query" onChange={(e) => setLocation(e.target.value)}/></span></h3>
              <h3> <span><input placeholder = 'Event Type' name="query" onChange={(e) => setName(e.target.value)}/></span></h3>
-            <h3> <span><textarea name="description" placeholder = 'Describe the Event'></textarea></span> </h3>
+             <h3>  <span><input placeholder = 'Event Location' name="query" onChange={(e) => setLocation(e.target.value)}/></span></h3>
+             <h3> <span><textarea name="description" placeholder = 'Describe the Event' onChange={(e) => setDescription(e.target.value)}></textarea></span> </h3>
+       
         </div>
         </form>
         </div>

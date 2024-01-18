@@ -56,8 +56,9 @@ useEffect(()=>{
                         <div key = {info.id}>
                         
                         <h1>{info.attributes.EventName}</h1>
-                        <p> {info.attributes.EventDescription}</p>
                         <p>{info.attributes.EventLocation}</p>
+                        <p>{info.attributes.EventDescription}</p>
+
 
                     <div className='btn_grp'>
 

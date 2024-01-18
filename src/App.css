@@ -7,13 +7,19 @@
 
 .App-header {
   background-color: #282c34;
-  align-items: center;
   font-size: calc(10px + 2vmin);
   color: white;
   position: relative;
-  display: flex;
   justify-content: right;
-  margin: 10px;
+  margin: 5px;
+  text-wrap: nowrap;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+
+  button{
+    width: 100px;
+  }
 }
 
 body {
@@ -63,7 +69,7 @@ button {
   border-radius: 4px;
   font-weight: 600;
   margin: 0 10px;
-  width: 200px;
+  width: 150px;
   padding: 10px 0;
   box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
   transition: 0.4s;
