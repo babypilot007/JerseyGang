@@ -35,13 +35,12 @@ useEffect(()=>{
 
 
 
-  if(data != []){
+  if(data){
             var details = data.data
 
             var len = details.length
          }
 
-    console.log(len)
 
   
   if(len){
@@ -51,18 +50,41 @@ useEffect(()=>{
 
             details.map((info)=>{
                 return(
+                    
                     <div className='event_hover'>
+
                         <div key = {info.id}>
-                        Event Name -{info.attributes.EventName}
-                        <br></br>Event Description - {info.attributes.EventDescription}
-                       <br></br> Event Location- {info.attributes.EventLocation}
+                        
+                        <h1>{info.attributes.EventName}</h1>
+                        <p> {info.attributes.EventDescription}</p>
+                        <p>{info.attributes.EventLocation}</p>
 
-                        <button onClick = {()=>{
-                            DeleteEvents(info.id)
+                    <div className='btn_grp'>
+
+                        <button className='delete' onClick = {()=>{
+                             
                              window.location.reload(false)
+                            
+                                DeleteEvents(info.id)
 
-                        }}>Delete Event</button>
+                        }}>Delete</button>
+
+                         <button className='edit' onClick = {()=>{
+                             
+                             window.location.reload(false)
+                            
+                                DeleteEvents(info.id)
+
+                        }}>Edit</button>
+
+                        <button className='details' onClick = {()=>{
+                             window.location.reload(false)
+                                DeleteEvents(info.id)
+                        }}>Details</button>
+
+                     </div>   
                         </div>
+                    
                     </div>
                 )
             }))

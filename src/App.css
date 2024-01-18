@@ -32,20 +32,21 @@ body {
   text-align: center;
 }
 
-h1{
+.header h1{
+
+ 
   text-align: center;
   justify-content: center;
   font-size: calc(30px + 2vmin);
   color: white;
   text-shadow: 0.05em 0.1em #4b5d83;
   backdrop-filter: blur(10px) saturate(70%)
-}
 
+}
 
 p {
   position: relative;
-  top: 30px;
-  
+
 }
 
 p a {
@@ -128,25 +129,40 @@ button:hover {
   font-weight: lighter;
 }
 
-.forms button{
-  position: relative;
-  text-align: center;
-  margin-top: 10px;
-  padding: 20px;
-  width: fit-content;
-}
+
 
 .titles{
-  display: flex;
-  justify-content: space-evenly;
-padding: 5px
+padding: 5px;
+border: solid rgb(41, 35, 35);
+background-color: #24211ba7;
+width: 300px;
+line-height: 40px;
+border-radius: 20px;
+font-size: medium;
+
+ 
 }
+
+input{
+  padding: 5px;
+  text-align: left;
+ }
+
+ textarea{
+border-radius: 20px;
+height: 20vh;
+width: 85%;
+padding: 10px;
+font-size: 20px;  
+font-weight: 600;
+
+ }
+
 
 .event_details{
 
   background-color: rgb(28, 26, 26);
   color: rgb(255, 243, 243);
-  width: fit-content;
   padding: 10px;
   border-radius: 10px;
   font-size: 18px;
@@ -154,6 +170,7 @@ padding: 5px
   height: fit-content;
   position: relative;
   justify-content:  center ;
+  text-align: center;
    
 }
 
@@ -165,34 +182,73 @@ padding: 5px
 border:solid rgb(26, 13, 13);
 overflow: auto;
 scroll-behavior: smooth;
-text-wrap: none;
-height: 50vh;
-justify-content: center;
-display: grid;
 grid-template-columns: repeat(auto-fit, 250px);
-grid-row-gap: 5px;
-grid-column-gap: 5px;
-justify-content: center;
-width: 90%;
-margin: 0 auto;
+grid-row-gap: 10px;
+grid-column-gap: 50px;
 list-style: none;
 
 
 }
 
 .event_hover{
-  text-align: left;
+  position: relative;
+  justify-content: left;
   background-color: rgb(46, 40, 40);
   color: aliceblue;
   border-radius: 10px ;
   padding: 20px;
-  line-height: 30px;
   box-shadow: 0 0 10px rgba(157, 153, 176, 0.546);
-  margin: 10px;
-  width: 200px;
-  height: 150px;
+  width: 100%;
+  height: fit-content;
+  line-height: 10px;
+
 
   :hover{
       cursor: pointer;
   }
+
+ h1 {
+  font-size: 25px;
+ }
+
+
+
+ 
+}
+
+
+
+.btn_grp{
+  position: relative;
+  display: flex;
+  justify-content: left;
+  width:fit-content ;
+ }
+
+.delete{
+  width: fit-content;
+  font-weight: 900;
+  padding: 5px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: solid red;
+  text-wrap: nowrap;
+}
+
+.edit{
+  width: fit-content;
+  font-weight: 900;
+  padding: 5px;
+  font-size: 15px;
+  border-radius: 10px;
+  text-wrap: nowrap;
+}
+
+.details{
+  width: fit-content;
+  font-weight: 900;
+  padding: 5px;
+  font-size: 15px;
+  border-radius: 10px;
+  text-wrap: nowrap;
 }

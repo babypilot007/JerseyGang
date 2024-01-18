@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Events from './events';
 import PostIt from './PostIt';
 
+
 function App() {
 
 const [event, setEvent] = useState(false)
@@ -20,14 +21,14 @@ const [location, setLocation] = useState('')
 
 
 var eventInfo = Events()
-   
- 
-  console.log(eventInfo)
   
   return (
 
 
     <div className="App">
+        {/* <Routes>
+            <Route path = 'eventDetails' element ={<EventDetails />} />
+        </Routes> */}
 
         {homeBtn ? 
         <div>
@@ -44,15 +45,13 @@ var eventInfo = Events()
         </div> :null}
 
 
-      
-      <h1>Jersey City Gang</h1>
-
+      <div className='header'>
+          <h1>Jersey City Gang</h1>
+      </div>
         
           { eventConsol ? <div className='event_backdrop'>{eventInfo}</div> : null}
 
 
-        {  console.log(eventInfo)
-}
       
       <div >
         
@@ -61,7 +60,7 @@ var eventInfo = Events()
         <button type="submit" onClick ={()=>{
 
           setEvent(true); setEventBtn(false);setHeader(false);setHomeBtn(false);
-            setEventConsol(false)
+            setEventConsol(false);
 
           
           }} >
@@ -84,11 +83,14 @@ var eventInfo = Events()
 
         <div className='forms'> 
         <form>
-            <div className='titles' > <h3> Event Name <span><input name="query" onChange={(e) => setName(e.target.value)}/></span></h3></div>
-            <div className='titles'> <h3> Event Description <span><input name="query" onChange={(e) => setDescription(e.target.value)} /></span></h3></div>
-            <div className='titles'> <h3> Event Location <span><input name="query" onChange={(e) => setLocation(e.target.value)}/></span></h3></div>
-            <div className='titles'> <h3> Event Date <span><input name="query" onChange={(e) => setName(e.target.value)}/></span></h3></div>
+            <div className='titles' > 
 
+             <h3> <span><input placeholder = 'Event Name' name="query" onChange={(e) => setName(e.target.value)}/></span></h3>
+             <h3>  <span><input placeholder = 'Event Details' name="query" onChange={(e) => setDescription(e.target.value)} /></span></h3>
+             <h3>  <span><input placeholder = 'Event Location' name="query" onChange={(e) => setLocation(e.target.value)}/></span></h3>
+             <h3> <span><input placeholder = 'Event Type' name="query" onChange={(e) => setName(e.target.value)}/></span></h3>
+            <h3> <span><textarea name="description" placeholder = 'Describe the Event'></textarea></span> </h3>
+        </div>
         </form>
         </div>
 
@@ -104,8 +106,6 @@ var eventInfo = Events()
             
             }}>Add Event</button></div>
 
-{ console.log(description)}
-  {console.log(location)}
 
 
         
