@@ -63,15 +63,7 @@ function App() {
         
 
 
-          <div className='add_btn'><button type='submit' onClick = {()=>{
-
-            
-            
-            window.location.reload(false)
-            
-            
-            }}>Add Event</button></div>
-
+         
 
 
         

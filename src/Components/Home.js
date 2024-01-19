@@ -4,7 +4,6 @@ import Events from '../events';
 
 
 
-
 const Home = () => {
 var eventInfo = Events()
 

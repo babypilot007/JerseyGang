@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import {  useNavigate} from 'react-router-dom';
-
+import { supabase } from './supabaseClient';
 
 
 const Events = () => {
@@ -10,38 +10,23 @@ const Events = () => {
     const navigate = useNavigate()
     const[data, getData] = useState('')
     
-   
-
 
 useEffect(()=>{
 
     const fetchData = async ()=>{
 
       try {
-        const response = await fetch('http://localhost:1337/api/jersey-gang-events?populate=*')
-        const json = await response.json()
-
-          getData(json)
-
-
-
+        const response = await supabase.from('new').select('*')
+            getData(response)
+            console.log(response)
       } catch (error) {
-
       }
-    
     }
 
     fetchData()
   }, [])
-
   
-
-
             var details = data.data
-
-
-
-
   
   if(details){
    
