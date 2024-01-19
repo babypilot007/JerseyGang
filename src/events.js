@@ -16,11 +16,16 @@ useEffect(()=>{
     const fetchData = async ()=>{
 
       try {
-        const response = await supabase.from('new').select('*')
-            getData(response)
-            console.log(response)
+        const response = await supabase.from('event').select('*')
+            console.log(response.data)
+
+
+
+
       } catch (error) {
+
       }
+    
     }
 
     fetchData()
