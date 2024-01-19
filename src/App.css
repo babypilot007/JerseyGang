@@ -2,7 +2,6 @@
   min-height: 100vh;
   background-color: #282c34;
   padding: 5px;
-
 }
 
 .App-header {
@@ -190,10 +189,8 @@ font-weight: 600;
   overflow: auto;
   scroll-behavior: smooth;
   list-style: none;
-  height: 80vh;
+  height: 100%;
   border-radius: 10px ;
-
-
 }
 
 .event_header{
@@ -201,16 +198,17 @@ font-weight: 600;
   position: relative;
   justify-content: space-between;
   align-content: center;
+  background-color: rgba(48, 27, 25, 0.459);
+  border-radius: 10px;
+  padding-left: 10px;
+
+
     h1{
     font-size: calc(12px + 2vmin);
 
   }
 
-  h2{
-  text-align: center;
-  font-size: calc(10px + 2vmin);
-
-  }
+ 
 
 }
 
@@ -220,11 +218,17 @@ font-weight: 600;
   background-color: rgb(46, 40, 40);
   color: aliceblue;
   border-radius: 10px ;
-  padding: 20px;
+  padding: 10px;
   box-shadow: 0 0 10px rgba(157, 153, 176, 0.546);
   height: fit-content;
   line-height: 10px;
   margin-top: 10px;
+
+  p{
+    font-size: calc(12px + 2vmin);
+  padding-left: 10px;
+    
+  }
 
  
 
@@ -241,9 +245,31 @@ font-weight: 600;
 .btn_grp{
   position: relative;
   display: flex;
-  justify-content: left;
-  width:fit-content ;
-  margin-top: 20px;
+  justify-content: space-between;
+  width:100% ;
+  height: fit-content;
+
+
+  div{
+    position: relative;
+    width: fit-content;
+line-height: 20px;
+    
+  }
+
+  h2{
+    font-size: calc(10px + 2vmin);
+    position: relative;
+    text-align: right;
+
+
+    
+    span{
+      font-size: small;
+
+    }
+  
+    }
  }
 
 .delete{
@@ -267,9 +293,39 @@ font-weight: 600;
 
 .details{
   width: fit-content;
+  margin-top: 20px;
   font-weight: 900;
   padding: 5px;
   font-size: 15px;
   border-radius: 10px;
   text-wrap: nowrap;
+  height: fit-content;
+  border: solid rgb(113, 42, 42);
+
 }
+
+
+.evnt_details{
+    line-height: 15px;
+
+   
+        h1{
+          text-align: center;
+          font-size: calc(15px + 2vmin);
+        }
+
+        h2{
+          font-size: calc(18px + 2vmin);
+          background-color: rgba(48, 27, 25, 0.459);
+          padding: 10px;
+          border-radius: 10px;
+          width: 100%;
+
+        }
+
+        p{
+          font-size: calc(10px + 2vmin);
+         
+        }
+}
+

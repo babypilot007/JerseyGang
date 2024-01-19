@@ -50,10 +50,19 @@ const [data, getData] = useState('')
                         { details.map((info)=>{
 
                         return(
-                                     <div>
+                                     <div className='evnt_details'>
+
                                         <h1>Event Details</h1>
+
                                         <h2>{info.EventName}</h2>
-                                        <p>{info.EventLocation}</p>
+
+                                        <p>Location : {info.EventLocation}</p>
+                                        <p>Date : {info.EventDate}</p>
+                                        <p>Time : {info.EventTime}</p>
+
+
+                                        <p>Event Created by : {info.UserName}</p>
+
                                         { console.log(info.EventName)}
                                     </div>
                         )
