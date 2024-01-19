@@ -33,7 +33,6 @@ useEffect(()=>{
   
             var details = data.data
 
-            console.log(details)
 
   
   if(details){
@@ -46,14 +45,12 @@ useEffect(()=>{
 
                 return(
                     
-                    <div className='event_hover'>
+                    <div className='event_hover' key = {info.id}>
 
-                        <div key = {info.id}>
-                        <p>{info.id}</p>
+                        <div >
                             
-                        {/* <div className='event_header'><h1>{info.attributes.EventName}</h1> <span>{info.attributes.EventHost}</span></div>
-                        <p>{info.attributes.EventDescription}</p>
-                        <p>{info.attributes.EventLocation}</p> */}
+                        <div className='event_header'><h1>{info.EventName}</h1> <span>{info.UserName}</span></div>
+                        <p>{info.EventLocation}</p>
 
 
                     <div className='btn_grp'>
