@@ -296,11 +296,11 @@ font-weight: 600;
   margin-top: 20px;
   font-weight: 900;
   padding: 5px;
-  font-size: 15px;
   border-radius: 10px;
   text-wrap: nowrap;
   height: fit-content;
   border: solid rgb(113, 42, 42);
+  font-size: calc(8px + 2vmin);
 
 }
 
