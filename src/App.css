@@ -315,11 +315,9 @@ font-weight: 600;
         }
 
         h2{
-          font-size: calc(18px + 2vmin);
           background-color: rgba(48, 27, 25, 0.459);
           padding: 10px;
           border-radius: 10px;
-          width: 100%;
 
         }
 
