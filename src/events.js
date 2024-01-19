@@ -10,6 +10,7 @@ const Events = () => {
     const navigate = useNavigate()
     const[data, getData] = useState('')
     
+    getData()
 
 useEffect(()=>{
 
