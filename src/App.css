@@ -324,5 +324,12 @@ font-weight: 600;
           font-size: calc(10px + 2vmin);
          
         }
+
+        div{
+          background-color: rgba(36, 21, 21, 0.304) ;
+          padding: 10px;
+          border: solid rgba(69, 36, 36, 0.523);
+          border-radius: 10px;
+        }
 }
 
