@@ -1,13 +1,14 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
+import { supabase } from './supabaseClient';
 
 const EventDetails = () => {
 
 const navigate = useNavigate()
 
-
 const location = useLocation()
+
 var id = location.state
 
 const [data, getData] = useState('')
@@ -18,13 +19,12 @@ const [data, getData] = useState('')
             async function fetchData() {
                 try {
 
-                    const response = await fetch('http://localhost:1337/api/jersey-gang-events/' + id)
-                    const json =  await response.json()
+                    const response = await supabase.from('event').select('*').eq('id',id)
 
-                    getData(json)
+                    getData(response)
 
-
-                    
+                    if(response){
+                    console.log(response.data)}
                 } catch (err) {
                     console.log(err);
                 }
@@ -35,35 +35,34 @@ const [data, getData] = useState('')
 
         }, [id]);
 
-
-
         var details = data.data
 
-console.log(details)
+
+
         
         if(details){
-
-
-        var more = details.attributes
-
+        console.log(details);
 
             
             return (
                <div className='event_hover'>
 
-                        {/* { more.map(()=>{})  } */}
+                        { details.map((info)=>{
 
+                        return(
+                                     <div>
+                                        <h1>Event Details</h1>
+                                        <h2>{info.EventName}</h2>
+                                        <p>{info.EventLocation}</p>
+                                        { console.log(info.EventName)}
+                                    </div>
+                        )
+                        })  }
 
-                        <h1>{more.EventName}</h1>
-                        <p> {more.EventDescription}</p>
-                        <p>{more.EventLocation}</p>
+                      
 
-
-
-
-                        </div>
+                </div>
             )
-                
     
     }else return  <div  className='event_details'>Redirecting ...
                 {navigate("/")}

@@ -47,9 +47,9 @@ useEffect(()=>{
                     
                     <div className='event_hover' key = {info.id}>
 
-                        <div >
-                            
-                        <div className='event_header'><h1>{info.EventName}</h1> <span>{info.UserName}</span></div>
+
+                        <div className='event_header'><h1>{info.EventName}</h1> <h2>{info.UserName}</h2></div>
+                        
                         <p>{info.EventLocation}</p>
 
 
@@ -81,7 +81,6 @@ useEffect(()=>{
                             
                         </div>
                     
-                    </div>
                 )
             }))
             

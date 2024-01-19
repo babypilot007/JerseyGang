@@ -200,7 +200,17 @@ font-weight: 600;
   display: flex;
   position: relative;
   justify-content: space-between;
-  line-height: 30px;
+  align-content: center;
+    h1{
+    font-size: calc(12px + 2vmin);
+
+  }
+
+  h2{
+  text-align: center;
+  font-size: calc(10px + 2vmin);
+
+  }
 
 }
 
@@ -214,20 +224,14 @@ font-weight: 600;
   box-shadow: 0 0 10px rgba(157, 153, 176, 0.546);
   height: fit-content;
   line-height: 10px;
+  margin-top: 10px;
 
-  span{
-    margin-top: 20px;
-    font-size: large;
-    }
-
+ 
 
   :hover{
       cursor: pointer;
   }
 
- h1 {
-  font-size: 25px;
- }
 
  
 }
