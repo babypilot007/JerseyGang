@@ -10,7 +10,6 @@ const Events = () => {
     const navigate = useNavigate()
     const[data, getData] = useState('')
     
-    getData()
 
 useEffect(()=>{
 
@@ -20,7 +19,7 @@ useEffect(()=>{
         const response = await supabase.from('event').select('*')
             console.log(response.data)
 
-
+            getData(response)
 
 
       } catch (error) {
@@ -33,6 +32,9 @@ useEffect(()=>{
   }, [])
   
             var details = data.data
+
+            console.log(details)
+
   
   if(details){
    
@@ -47,10 +49,11 @@ useEffect(()=>{
                     <div className='event_hover'>
 
                         <div key = {info.id}>
+                        <p>{info.id}</p>
                             
-                        <div className='event_header'><h1>{info.attributes.EventName}</h1> <span>{info.attributes.EventHost}</span></div>
+                        {/* <div className='event_header'><h1>{info.attributes.EventName}</h1> <span>{info.attributes.EventHost}</span></div>
                         <p>{info.attributes.EventDescription}</p>
-                        <p>{info.attributes.EventLocation}</p>
+                        <p>{info.attributes.EventLocation}</p> */}
 
 
                     <div className='btn_grp'>
