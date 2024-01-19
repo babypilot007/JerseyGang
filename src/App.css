@@ -299,8 +299,8 @@ font-weight: 600;
   border-radius: 10px;
   text-wrap: nowrap;
   height: fit-content;
-  border: solid rgb(113, 42, 42);
-  font-size: calc(30px + 2vmin);
+  border: 3px solid  rgb(113, 42, 42);
+  font-size: calc(18px + 2vmin);
 }
 
 
