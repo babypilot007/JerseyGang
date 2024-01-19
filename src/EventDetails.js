@@ -18,7 +18,7 @@ const [data, getData] = useState('')
             async function fetchData() {
                 try {
 
-                    const response = await fetch('http://localhost:2000/api/jersey-gang-events/' + id)
+                    const response = await fetch('http://localhost:1337/api/jersey-gang-events/' + id)
                     const json =  await response.json()
 
                     getData(json)

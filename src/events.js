@@ -18,7 +18,7 @@ useEffect(()=>{
     const fetchData = async ()=>{
 
       try {
-        const response = await fetch('http://localhost:2000/api/jersey-gang-events?populate=*')
+        const response = await fetch('http://localhost:1337/api/jersey-gang-events?populate=*')
         const json = await response.json()
 
           getData(json)
@@ -44,18 +44,12 @@ useEffect(()=>{
 
   
   if(details){
-
-
    
     return ( 
 
             details.map((info)=>{
 
-                    if(info.attributes.UserPhoto.data != null){
-
-                            var picUrl = info.attributes.UserPhoto.data
-                            console.log(picUrl.attributes.url)
-                    }
+            
 
                 return(
                     

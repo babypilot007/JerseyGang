@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jersey_gang_events",
+  "info": {
+    "singularName": "jersey-gang-event",
+    "pluralName": "jersey-gang-events",
+    "displayName": "JerseyGangEvents"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "EventName": {
+      "type": "string"
+    },
+    "EventDescription": {
+      "type": "string"
+    },
+    "EventLocation": {
+      "type": "string"
+    },
+    "EventHost": {
+      "type": "string"
+    }
+  }
+}
