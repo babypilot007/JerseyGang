@@ -225,8 +225,8 @@ font-weight: 600;
   margin-top: 10px;
 
   p{
-    font-size: calc(12px + 2vmin);
-  padding-left: 10px;
+    font-size: calc(15px + 2vmin);
+    padding-left: 10px;
     
   }
 
