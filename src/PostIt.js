@@ -1,19 +1,17 @@
 
 
 
-const PostIt = (eventname, eventDescription, eventLocation) => {
+const PostIt = (name, email) => {
 
 
-        console.log(eventDescription)
-        console.log(eventLocation)
-
+        
+        
 
         let body = {
-            data: {
 
-            EventName: eventname,
-            EventLocation  : eventLocation,
-            EventDescription  : eventDescription   
+            data: {
+            EventLocation  : email,
+            UserName : name
         }
         };
      
@@ -21,6 +19,7 @@ const PostIt = (eventname, eventDescription, eventLocation) => {
 
           method: "POST",
           headers: {
+            
             'Content-type': 'application/json'
           },
           body: JSON.stringify(body)

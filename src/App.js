@@ -1,66 +1,45 @@
 import './App.css';
-// import { Route, Routes } from "react-router-dom";
-import { useState } from 'react';
-import Events from './events';
-import PostIt from './PostIt';
+import { Route, Routes} from 'react-router-dom';
+import EventDetails from './EventDetails';
+import Home from './Components/Home';
+import Login from './Login';
+import {SignUp} from './Components/SignUp';
 
 
 function App() {
 
-const [event, setEvent] = useState(false)
-const [eventBtn, setEventBtn] = useState(true)
-const [header, setHeader] = useState(true)
-const [homeBtn, setHomeBtn] = useState(true)
-const [eventConsol, setEventConsol] = useState(true)
 
-
-const [name, setName] = useState('')
-const [description, setDescription] = useState('')
-const [location, setLocation] = useState('')
-
-
-
-var eventInfo = Events()
   
   return (
 
 
     <div className="App">
-        {/* <Routes>
+        <Routes>
+          <Route path='/' element = {<Home />}></Route>
             <Route path = 'eventDetails' element ={<EventDetails />} />
-        </Routes> */}
-
-        {homeBtn ? 
-        <div>
-
-                <header className="App-header">
-
-                        {header ? <div>
-                        <button className="log">Login</button>
-                        <button className="reg">Sign up</button>
-                        </div> :null}
-                
-                </header> 
-                
-        </div> :null}
+            <Route path = 'login' element ={<Login />} />
+            <Route path = 'signup' element ={<SignUp />} />
+            <Route path = 'details' element ={<EventDetails />} />
 
 
-      <div className='header'>
-          <h1>Jersey City Gang</h1>
-      </div>
-        
-          { eventConsol ? <div className='event_backdrop'>{eventInfo}</div> : null}
+        </Routes>
+
+      
 
 
       
-      <div >
+        
+
+
+      
+      {/* <div >
         
         {eventBtn ? <div className = 'event'> 
 
         <button type="submit" onClick ={()=>{
 
           setEvent(true); setEventBtn(false);setHeader(false);setHomeBtn(false);
-            setEventConsol(false);
+            setEventConsol(false); navigate('login')
 
           
           }} >
@@ -74,32 +53,19 @@ var eventInfo = Events()
 
          
 
-      </div>
+      </div> */}
 
 
-      {event ?   <div className='event'>
+      <div className='event'>
           <div className='event_create'>
 
 
-        <div className='forms'> 
-        <form>
-            <div className='titles' > 
-
-             <h3> <span><input placeholder = 'Event Name' name="query" onChange={(e) => setName(e.target.value)}/></span></h3>
-             <h3> <span><input placeholder = 'Event Type' name="query" onChange={(e) => setName(e.target.value)}/></span></h3>
-             <h3>  <span><input placeholder = 'Event Location' name="query" onChange={(e) => setLocation(e.target.value)}/></span></h3>
-             <h3> <span><textarea name="description" placeholder = 'Describe the Event' onChange={(e) => setDescription(e.target.value)}></textarea></span> </h3>
-       
-        </div>
-        </form>
-        </div>
+        
 
 
           <div className='add_btn'><button type='submit' onClick = {()=>{
 
-            setHomeBtn(true);setEvent(false);setEventBtn(true)
             
-            PostIt(name, description, location); 
             
             window.location.reload(false)
             
@@ -110,7 +76,7 @@ var eventInfo = Events()
 
         
     </div>
-    </div>:null}
+    </div>
 
      
 

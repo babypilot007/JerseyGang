@@ -52,6 +52,12 @@
     },
     "EventLocation": {
       "type": "text"
+    },
+    "UserName": {
+      "type": "string"
+    },
+    "EventHost": {
+      "type": "string"
     }
   }
 }

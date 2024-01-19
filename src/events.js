@@ -1,16 +1,19 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-import DeleteEvents from './DeleteEvents';
+import {  useNavigate} from 'react-router-dom';
+
 
 
 const Events = () => {
+    
+    
+    const navigate = useNavigate()
+    const[data, getData] = useState('')
+    
+   
 
-const[data, getData] = useState('')
 
 useEffect(()=>{
-
-
-    
 
     const fetchData = async ()=>{
 
@@ -20,7 +23,8 @@ useEffect(()=>{
 
           getData(json)
 
-        
+
+
       } catch (error) {
 
       }
@@ -31,38 +35,44 @@ useEffect(()=>{
   }, [])
 
   
-  console.log()
 
 
-
-  if(data){
             var details = data.data
 
-            var len = details.length
-         }
+
 
 
   
-  if(len){
+  if(details){
+
 
    
     return ( 
 
             details.map((info)=>{
+
+                    if(info.attributes.UserPhoto.data != null){
+
+                            var picUrl = info.attributes.UserPhoto.data
+                            console.log(picUrl.attributes.url)
+                    }
+
                 return(
                     
                     <div className='event_hover'>
 
                         <div key = {info.id}>
-                        
+                            
                         <h1>{info.attributes.EventName}</h1>
                         <p>{info.attributes.EventLocation}</p>
                         <p>{info.attributes.EventDescription}</p>
+                        <p></p>
+                        <p>{info.id}</p>
 
 
                     <div className='btn_grp'>
 
-                        <button className='delete' onClick = {()=>{
+                        {/* <button className='delete' onClick = {()=>{
                              
                              window.location.reload(false)
                             
@@ -76,20 +86,26 @@ useEffect(()=>{
                             
                                 DeleteEvents(info.id)
 
-                        }}>Edit</button>
+                        }}>Edit</button> */}
 
-                        <button className='details' onClick = {()=>{
-                             window.location.reload(false)
-                                DeleteEvents(info.id)
-                        }}>Details</button>
+                       
 
                      </div>   
+                     <button className='details' onClick = {()=>{
+                            console.log(info.id)
+                            navigate('details',{state:info.id})
+
+                        }}>Details  IdQS - {info.id}</button>
                         </div>
                     
                     </div>
                 )
             }))
+            
 
-}else return  <div  className='event_details'>No Events</div>
+}else return  (
+
+        <div  className='event_details'>No Events
+        </div>)
 }
 export default Events

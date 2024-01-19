@@ -362,48 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiJerseyGangEventJerseyGangEvent
-  extends Schema.CollectionType {
-  collectionName: 'jersey_gang_events';
-  info: {
-    singularName: 'jersey-gang-event';
-    pluralName: 'jersey-gang-events';
-    displayName: 'JerseyGangEvents';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    EventName: Attribute.String;
-    EventDate: Attribute.DateTime;
-    UserEmail: Attribute.Email;
-    UserPassword: Attribute.Password;
-    UserPhoto: Attribute.Media;
-    UserInformation: Attribute.JSON;
-    UserDecription: Attribute.Text;
-    UserAvailable: Attribute.Boolean;
-    ToRent: Attribute.String;
-    EventDescription: Attribute.Text;
-    EventLocation: Attribute.Text;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::jersey-gang-event.jersey-gang-event',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::jersey-gang-event.jersey-gang-event',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -810,6 +768,72 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiJerseyGangEventJerseyGangEvent
+  extends Schema.CollectionType {
+  collectionName: 'jersey_gang_events';
+  info: {
+    singularName: 'jersey-gang-event';
+    pluralName: 'jersey-gang-events';
+    displayName: 'JerseyGangEvents';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    EventName: Attribute.String;
+    EventDate: Attribute.DateTime;
+    UserEmail: Attribute.Email;
+    UserPassword: Attribute.Password;
+    UserPhoto: Attribute.Media;
+    UserInformation: Attribute.JSON;
+    UserDecription: Attribute.Text;
+    UserAvailable: Attribute.Boolean;
+    ToRent: Attribute.String;
+    EventDescription: Attribute.Text;
+    EventLocation: Attribute.Text;
+    UserName: Attribute.String;
+    EventHost: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::jersey-gang-event.jersey-gang-event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::jersey-gang-event.jersey-gang-event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTestTest extends Schema.CollectionType {
+  collectionName: 'tests';
+  info: {
+    singularName: 'test';
+    pluralName: 'tests';
+    displayName: 'test';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    UserName: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -820,7 +844,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::jersey-gang-event.jersey-gang-event': ApiJerseyGangEventJerseyGangEvent;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -829,6 +852,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::jersey-gang-event.jersey-gang-event': ApiJerseyGangEventJerseyGangEvent;
+      'api::test.test': ApiTestTest;
     }
   }
 }

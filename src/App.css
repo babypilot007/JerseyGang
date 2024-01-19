@@ -181,17 +181,15 @@ font-weight: 600;
 }
 
 .event_backdrop{
-  display: grid;
   background-color: rgba(46, 40, 40, 0.281);
   position: relative;
   padding: 10px;
-border:solid rgb(26, 13, 13);
-overflow: auto;
-scroll-behavior: smooth;
-grid-template-columns: repeat(auto-fit, 250px);
-grid-row-gap: 10px;
-grid-column-gap: 50px;
-list-style: none;
+  border:solid 1px rgb(26, 13, 13);
+  overflow: auto;
+  scroll-behavior: smooth;
+  list-style: none;
+  height: 80vh;
+  border-radius: 10px ;
 
 
 }
@@ -204,9 +202,9 @@ list-style: none;
   border-radius: 10px ;
   padding: 20px;
   box-shadow: 0 0 10px rgba(157, 153, 176, 0.546);
-  width: 100%;
   height: fit-content;
   line-height: 10px;
+  margin-top: 15px;
 
 
   :hover{
