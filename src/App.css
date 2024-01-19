@@ -300,8 +300,7 @@ font-weight: 600;
   text-wrap: nowrap;
   height: fit-content;
   border: solid rgb(113, 42, 42);
-  font-size: calc(8px + 2vmin);
-
+  color: red;
 }
 
 
