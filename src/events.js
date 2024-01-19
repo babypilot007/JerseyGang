@@ -57,11 +57,9 @@ useEffect(()=>{
 
                         <div key = {info.id}>
                             
-                        <h1>{info.attributes.EventName}</h1>
-                        <p>{info.attributes.EventLocation}</p>
+                        <div className='event_header'><h1>{info.attributes.EventName}</h1> <span>{info.attributes.EventHost}</span></div>
                         <p>{info.attributes.EventDescription}</p>
-                        <p></p>
-                        <p>{info.id}</p>
+                        <p>{info.attributes.EventLocation}</p>
 
 
                     <div className='btn_grp'>
@@ -82,14 +80,14 @@ useEffect(()=>{
 
                         }}>Edit</button> */}
 
-                       
+<button className='details' onClick = {()=>{
+                                    console.log(info.id)
+                                    navigate('details',{state:info.id})
+
+                        }}>Details</button>
 
                      </div>   
-                     <button className='details' onClick = {()=>{
-                            console.log(info.id)
-                            navigate('details',{state:info.id})
-
-                        }}>Details  IdQS - {info.id}</button>
+                            
                         </div>
                     
                     </div>

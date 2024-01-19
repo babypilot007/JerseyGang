@@ -99,6 +99,8 @@ button:hover {
   margin-top: 10%;
   color: white;
 
+   
+
 }
 
 .event_create{
@@ -194,6 +196,14 @@ font-weight: 600;
 
 }
 
+.event_header{
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+
+
+}
+
 .event_hover{
   position: relative;
   justify-content: left;
@@ -206,6 +216,11 @@ font-weight: 600;
   line-height: 10px;
   margin-top: 15px;
 
+  span{
+    margin-top: 20px;
+    font-size: large;
+    }
+
 
   :hover{
       cursor: pointer;
@@ -214,8 +229,6 @@ font-weight: 600;
  h1 {
   font-size: 25px;
  }
-
-
 
  
 }
@@ -227,6 +240,7 @@ font-weight: 600;
   display: flex;
   justify-content: left;
   width:fit-content ;
+  margin-top: 20px;
  }
 
 .delete{
