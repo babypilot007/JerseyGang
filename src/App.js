@@ -4,6 +4,8 @@ import EventDetails from './EventDetails';
 import Home from './Components/Home';
 import Login from './Login';
 import {SignUp} from './Components/SignUp';
+import React from 'react'
+
 
 
 function App() {

@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react';
-import PostIt from '../PostIt';
 
 
 export const SignUp = () => {
@@ -19,7 +18,6 @@ export const SignUp = () => {
             <button onClick={()=>{
 console.log(name)
 console.log(email)
-                PostIt(name, email)
 
             }}>Sign up</button>
                 </div>
