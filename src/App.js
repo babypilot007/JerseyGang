@@ -2,9 +2,9 @@ import './App.css';
 import { Route, Routes} from 'react-router-dom';
 import EventDetails from './EventDetails';
 import Home from './Components/Home';
-import Login from './Login';
-import {SignUp} from './Components/SignUp';
 import React from 'react'
+import Auth from './Auth';
+import SignUp from './Components/SignUp';
 
 
 
@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route path='/' element = {<Home />}></Route>
             <Route path = 'eventDetails' element ={<EventDetails />} />
-            <Route path = 'login' element ={<Login />} />
+            <Route path = 'auth' element ={<Auth />} />
             <Route path = 'signup' element ={<SignUp />} />
             <Route path = 'details' element ={<EventDetails />} />
 

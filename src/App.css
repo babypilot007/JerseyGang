@@ -333,3 +333,66 @@ font-weight: 600;
         }
 }
 
+
+
+.signupform{
+  position: relative;
+  margin-left: calc(20px + 10vw);
+  margin-right: calc(20px + 10vw);
+
+  background-color: rgba(254, 254, 254, 0.758);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.498);
+
+
+  form{
+    border: solid red;
+    position: relative;
+    justify-content: center;
+    width: fit-content;
+    width: 100%;
+    background-color: wheat;
+
+
+  }
+
+  input{
+    margin-top: calc(5px + 5vw);
+    margin-bottom: calc(5px + 2vw);
+
+    margin-left: calc(5px + 5vw);
+    margin-right: calc(5px + 5vw);
+
+
+
+    border-radius: 10px;
+    width: 70%;
+    height: 3vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.498);
+
+    font-weight: 900;
+    padding: 10px;
+
+  }
+
+  button{
+    margin-left: 30%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.498);
+    margin-bottom: 30px;
+    width: calc(40%);
+    font-size: calc(8px + 1vw);
+    padding: 10px;
+  }
+
+
+}
+
+
+
+.signuphead{
+  position: relative;
+  display: block;
+  justify-content: center;
+
+}
+

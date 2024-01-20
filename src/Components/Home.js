@@ -20,7 +20,7 @@ const navigate = useNavigate()
                 <header className="App-header">
 
                         <div>
-                        <button className="log" onClick={()=>{navigate('login')}}>Login</button>
+                        <button className="log" onClick={()=>{navigate('auth')}}>Login</button>
                         <button className="reg" onClick={()=>{navigate('signup')}}>Sign up</button>
                        
                         </div>

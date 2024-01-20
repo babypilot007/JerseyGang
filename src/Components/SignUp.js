@@ -1,25 +1,79 @@
+import { useState } from 'react'
 import React from 'react'
-import { useState } from 'react';
+import { supabase } from '../supabaseClient'
 
 
-export const SignUp = () => {
+export default function SignUp() {
+  const [loading, setLoading] = useState(false)
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
+
+  const handleLogin = async (event) => {
+    event.preventDefault()
+
+    setLoading(true)
+    const {error } = await supabase.auth.signUp({ 
+        email: 'skypirateee@gmail.com',
+        password:'Qazsedc@007' })
+
+    if (error) {
+      alert(error.error_description || error.message)
+    } else {
+      alert('Check your email for the login link!')
+    }
+    setLoading(false)
+  }
 
   return (
-    <div className='header'>
-                        <h1>Sign up</h1>
+    <>
+     
 
-            <p className='forms'>Name -  <input onChange={(e)=>{setName(e.target.value)}}></input></p>
-            <p className='forms'>Email -  <input onChange={(e)=>{setEmail(e.target.value)}}></input></p>
+     <div className='signuphead'>
 
-            
-            <button onClick={()=>{
-console.log(name)
-console.log(email)
 
-            }}>Sign up</button>
-                </div>
+     <div className='header'>
+                        <h1>Sign Up</h1>
+      </div>
+
+        <form className="signupform" onSubmit={handleLogin}>
+
+           <input
+              className="inputField"
+              type="email"
+              placeholder="Your email"
+              value={email}
+              required={true}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+         
+          <br></br>
+
+          <input
+              className="inputField"
+              type="password"
+              placeholder="password"
+              value={password}
+              required={true}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+  <br></br>
+  <br></br>
+
+  
+         
+            <button className='form_btn' disabled={loading}>
+              {loading ? <span>Loading</span> : <span>Sign me Up</span>}
+            </button>
+
+          
+        </form>
+     
+     
+     </div>
+
+        
+     
+    </>
   )
 }
