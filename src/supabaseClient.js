@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 
-const url = 'https://ksnndffenzweodzwxwrq.supabase.co'
-const key =  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtzbm5kZmZlbnp3ZW9kend4d3JxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcwNTYyMjU4OCwiZXhwIjoyMDIxMTk4NTg4fQ.d3nHaWmiESHVh-pKz2vlrmZNOxHIaFSOIRYxiVHjRsM'
+const url = 'https://lueaeybeheiinzprakua.supabase.co'
+const key =  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1ZWFleWJlaGVpaW56cHJha3VhIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcwNjIzMTQwNCwiZXhwIjoyMDIxODA3NDA0fQ.3IP2QV0ZJLNLFJf-0C4YxhNG149mkWHWszJh_k6z1Hc'
 
 console.log(process.env.REACT_APP_SUPABASE_ANON_KEY)
 console.log(process.env.REACT_APP_SUPEBASE_URL)

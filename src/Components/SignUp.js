@@ -5,17 +5,31 @@ import { supabase } from '../supabaseClient'
 
 export default function SignUp() {
   const [loading, setLoading] = useState(false)
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [getEmail, setEmail] = useState('')
+  const [getPassword, setPassword] = useState('')
+  const [getName, setName] = useState('')
+
 
 
   const handleLogin = async (event) => {
     event.preventDefault()
 
     setLoading(true)
+
     const {error } = await supabase.auth.signUp({ 
-        email: 'skypirateee@gmail.com',
-        password:'Qazsedc@007' })
+        email: getEmail,
+        password:getPassword,
+        name : '2016545586'
+
+        },
+        {
+          data: { 
+            username: getName,
+          }
+        })
+
+   
+
 
     if (error) {
       alert(error.error_description || error.message)
@@ -23,7 +37,13 @@ export default function SignUp() {
       alert('Check your email for the login link!')
     }
     setLoading(false)
+
   }
+
+ 
+
+
+
 
   return (
     <>
@@ -38,11 +58,21 @@ export default function SignUp() {
 
         <form className="signupform" onSubmit={handleLogin}>
 
+          <input
+              className="inputField"
+              type="name"
+              placeholder="Name"
+              value={getName}
+              required={true}
+              onChange={(e) => setName(e.target.value)}
+            />
+        <br></br>
+
            <input
               className="inputField"
               type="email"
               placeholder="Your email"
-              value={email}
+              value={getEmail}
               required={true}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -53,7 +83,7 @@ export default function SignUp() {
               className="inputField"
               type="password"
               placeholder="password"
-              value={password}
+              value={getPassword}
               required={true}
               onChange={(e) => setPassword(e.target.value)}
             />
