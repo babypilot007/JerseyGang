@@ -1,34 +1,59 @@
 import { supabase } from "./supabaseClient"
+import { useNavigate} from 'react-router-dom';
+
 import React from 'react'
 import {useState} from 'react'
 
 
 export default function Auth(){
 
+const navigate = useNavigate()
+
+
   const [loading, setLoading] = useState(false)
   const [getEmail, setEmail] = useState('')
   const [getPassword, setPassword] = useState('')
+
+  const [loginStat, setLoginStat] = useState(false)
 
 
 
   const handleLogin = async (event) => {
     event.preventDefault()
 
-    setLoading(true)
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email: 'skypirateee@gmail.com',
-      password: 'Qazsedc@007'
-    })
-    
 
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: getEmail,
+      password: getPassword
+      
+    })
+
+
+    
+    
     if (error) {
-      alert(error.error_description || error.message)
+      
+      setLoading(false)
+
+
     } else {
-      alert('Log in successfull!')
+    setLoading(true)
+
     }
-    setLoading(false)
+
+  
+
 
     console.log(data)
+
+    setLoading(false)
+    setLoginStat(true)
+
+
+    if(loginStat)
+    {
+    navigate('/auth/userhome')
+    }
 
   }
 

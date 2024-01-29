@@ -5,7 +5,7 @@ import Home from './Components/Home';
 import React from 'react'
 import Auth from './Auth';
 import SignUp from './Components/SignUp';
-
+import UserHome from './Components/UserHome';
 
 
 function App() {
@@ -18,10 +18,12 @@ function App() {
     <div className="App">
         <Routes>
           <Route path='/' element = {<Home />}></Route>
-            <Route path = 'eventDetails' element ={<EventDetails />} />
-            <Route path = 'auth' element ={<Auth />} />
-            <Route path = 'signup' element ={<SignUp />} />
-            <Route path = 'details' element ={<EventDetails />} />
+            <Route path = '/eventDetails' element ={<EventDetails />} />
+            <Route path = '/auth' element ={<Auth />} />
+            <Route path = '/signup' element ={<SignUp />} />
+            <Route path = '/details' element ={<EventDetails />} />
+            <Route path = '/auth/userhome' element ={<UserHome />} />
+
 
 
         </Routes>

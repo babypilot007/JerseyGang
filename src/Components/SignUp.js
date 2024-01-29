@@ -7,7 +7,13 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false)
   const [getEmail, setEmail] = useState('')
   const [getPassword, setPassword] = useState('')
-  const [getName, setName] = useState('')
+  const [getFirstName, setFirstName] = useState('')
+  const [getLastName, setLastName] = useState('')
+  const [getphone, setphone] = useState('')
+
+
+
+
 
 
 
@@ -16,17 +22,20 @@ export default function SignUp() {
 
     setLoading(true)
 
-    const {error } = await supabase.auth.signUp({ 
+    const {error } = await supabase.auth.signUp(
+      
+      { 
         email: getEmail,
         password:getPassword,
-        name : '2016545586'
 
-        },
-        {
-          data: { 
-            username: getName,
+        options: {
+          data: {
+           firstName: getFirstName,
+            lastName: getLastName,
+            // phone : 7892,
           }
-        })
+        }}
+        )
 
    
 
@@ -35,6 +44,7 @@ export default function SignUp() {
       alert(error.error_description || error.message)
     } else {
       alert('Check your email for the login link!')
+
     }
     setLoading(false)
 
@@ -60,11 +70,29 @@ export default function SignUp() {
 
           <input
               className="inputField"
-              type="name"
-              placeholder="Name"
-              value={getName}
+              type="firstname"
+              placeholder="First Name"
+              value={getFirstName}
               required={true}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+        <br></br>
+        <input
+              className="inputField"
+              type="lastname"
+              placeholder="Last Name"
+              value={getLastName}
+              required={true}
+              onChange={(e) => setLastName(e.target.value)}
+            />
+        <br></br>
+        <input
+              className="inputField"
+              type="Phone"
+              placeholder="phone"
+              value={getphone}
+              required={true}
+              onChange={(e) => setphone(e.target.value)}
             />
         <br></br>
 
