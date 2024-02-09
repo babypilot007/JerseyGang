@@ -12,9 +12,8 @@ const UserHome = () => {
   const[info, setInfo] = useState('')
   const[eventName, getEventName] = useState('')
 
-  // const[location, getLocation] = useState('')
+  const[location, getLocation] = useState('')
   // const[eventDescp, getdescp] = useState('')
-  // const[userName, getUserName] = useState('')
   // const[date, getDate] = useState('')
   // const[time, getTine] = useState('')
 
@@ -64,10 +63,9 @@ const UserHome = () => {
     try {
       const {data: {user},} = await supabase.from('event').insert([
         {
-          // EventLocation : location,
+          EventLocation : location,
           UserId : getId,
           // UserName : userName,
-          EventName : eventName,
           // eventDescp : eventDescp
         }
       ])
@@ -98,7 +96,11 @@ const UserHome = () => {
              
              return(
                <div className='event_hover' key = {info.id}>
-                        <div className='event_header'><h1>{inf.EventName}</h1> </div>
+                        <div className='event_header'>
+                          <h1>{inf.EventName}</h1>                          
+                           </div>
+                          <h3>{inf.EventLocation}</h3>
+
                     <div className='btn_grp'>
                         <button className='details'>Details</button> 
                      </div>   
@@ -120,47 +122,15 @@ const UserHome = () => {
     onChange={(e) => getEventName(e.target.value)}
   />
 <br></br>
-{/* <input
-    className="inputField"
-    type="lastname"
-    placeholder="Last Name"
-    value={getLastName}
-    required={true}
-    onChange={(e) => setLastName(e.target.value)}
-  />
-<br></br>
 <input
     className="inputField"
-    type="Phone"
-    placeholder="phone"
-    value={getphone}
+    type="Username"
+    placeholder="Event Location"
+    value={location}
     required={true}
-    onChange={(e) => setphone(e.target.value)}
+    onChange={(e) => getLocation(e.target.value)}
   />
 <br></br>
-
- <input
-    className="inputField"
-    type="email"
-    placeholder="Your email"
-    value={getEmail}
-    required={true}
-    onChange={(e) => setEmail(e.target.value)}
-  />
-
-<br></br>
-
-<input
-    className="inputField"
-    type="password"
-    placeholder="password"
-    value={getPassword}
-    required={true}
-    onChange={(e) => setPassword(e.target.value)}
-  />
-<br></br>
-<br></br> */}
-
 
 
  
