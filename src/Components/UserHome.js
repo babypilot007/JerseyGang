@@ -2,12 +2,15 @@
 import { useState, useEffect} from 'react'
 import React from 'react'
 import { supabase } from '../supabaseClient'
+import { useNavigate} from 'react-router-dom';
+
 
 
 
 
 const UserHome = () => {
 
+  const navigate = useNavigate()
 
 
   const[getId, setId] = useState('')
@@ -42,11 +45,14 @@ const UserHome = () => {
           setId(user.id)
 
       } catch (error) {
+        if(error){
+              navigate('/')
+        }
       }
     }
     loggedIn()
 
-  }, [])
+  }, [navigate])
 
   useEffect(()=>{
     const fetchData = async ()=>{

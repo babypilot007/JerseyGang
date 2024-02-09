@@ -6,7 +6,7 @@ import React from 'react'
 import Auth from './Auth';
 import SignUp from './Components/SignUp';
 import UserHome from './Components/UserHome';
-
+import Rsvp from './Components/Rsvp';
 
 function App() {
 
@@ -23,6 +23,8 @@ function App() {
             <Route path = '/signup' element ={<SignUp />} />
             <Route path = '/details' element ={<EventDetails />} />
             <Route path = '/userhome' element ={<UserHome />} />
+            <Route path = '/rsvp' element ={<Rsvp />} />
+
 
         </Routes>
 

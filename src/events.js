@@ -35,7 +35,11 @@ useEffect(()=>{
                         <button className='details' onClick = {()=>{
                                     console.log(info.id)
                                     navigate('details',{state:info.id})
-                        }}>Details</button> <div><h2><span>Created By:</span><br />{info.UserName}</h2></div>
+                        }}>Details</button> 
+                        <button className='details' onClick = {()=>{
+                                    console.log(info.id)
+                                    navigate('/rsvp')
+                        }}>RSVP</button><div><h2><span>Created By:</span><br />{info.UserName}</h2></div>
                      </div>   
                         </div>
                 )
