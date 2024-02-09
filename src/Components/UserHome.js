@@ -36,8 +36,8 @@ const UserHome = () => {
       try {
         const {data: {user},} = await supabase.auth.getUser()
         
-             setUserInfo([user.user_metadata.firstName])
-          console.log(user.user_metadata.lastName)
+             setUserInfo(user.user_metadata.firstName)
+          console.log(user.user_metadata.firstName)
 
           setId(user.id)
 
@@ -57,6 +57,7 @@ const UserHome = () => {
 
             if(response.data !== null){
             setInfo(response.data)
+
             // getName(name)
             }
             else setInfo(null)
@@ -76,7 +77,7 @@ const UserHome = () => {
         {
           EventLocation : location,
           UserId : getId,
-          // UserName : userName,
+          UserName : userInfo,
           // eventDescp : eventDescp
           EventName : eventName
         }
