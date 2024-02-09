@@ -5,7 +5,10 @@ import { supabase } from '../supabaseClient'
 
 
 
+
 const UserHome = () => {
+
+
 
   const[getId, setId] = useState('')
   // const[name, getName] = useState('')
@@ -13,6 +16,8 @@ const UserHome = () => {
   const[userInfo, setUserInfo] = useState('')
   const[info, setInfo] = useState('')
   const[eventName, getEventName] = useState('')
+
+  const[eventId, getEventId] = useState('')
 
   const[location, getLocation] = useState('')
   // const[eventDescp, getdescp] = useState('')
@@ -31,7 +36,7 @@ const UserHome = () => {
       try {
         const {data: {user},} = await supabase.auth.getUser()
         
-             setUserInfo([user.user_metadata.lastName])
+             setUserInfo([user.user_metadata.firstName])
           console.log(user.user_metadata.lastName)
 
           setId(user.id)
@@ -73,7 +78,7 @@ const UserHome = () => {
           UserId : getId,
           // UserName : userName,
           // eventDescp : eventDescp
-          EventName : 'ada'
+          EventName : eventName
         }
       ])
       
@@ -84,7 +89,14 @@ const UserHome = () => {
     }
   }
 
+  const deleteEvent = async () =>{
 
+    try {
+      const {data: {user}} = await supabase.from('event').delete().eq('id', eventId)
+        console.log(user)
+    } catch (error) {
+    }
+  }
  
 
 
@@ -105,13 +117,22 @@ const UserHome = () => {
                <div className='event_hover' key = {info.id}>
                         <div className='event_header'>
                           <h1>{inf.EventName}</h1>
-                          <h1>{inf.UserName}</h1>                          
+                          <h1>{inf.UserName}</h1>
+                          <h1>{}</h1>                          
+
 
                            </div>
                           <h3>{inf.EventLocation}</h3>
 
                     <div className='btn_grp'>
                         <button className='details'>Details</button> 
+                        <button className='details' onClick = {()=>{
+                                    getEventId(inf.id)
+                                    console.log(eventId)
+                                    deleteEvent()
+
+                        }}>Delete</button> 
+
                      </div>   
                         </div>
               )

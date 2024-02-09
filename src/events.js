@@ -12,7 +12,7 @@ const Events = () => {
 useEffect(()=>{
     const fetchData = async ()=>{
       try {
-        const response = await supabase.from('events').select('*')
+        const response = await supabase.from('event').select('*')
             console.log(response.data)
             getData(response)
       } catch (error) {
