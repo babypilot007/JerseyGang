@@ -52,7 +52,7 @@ const navigate = useNavigate()
 
     if(loginStat)
     {
-    navigate('/auth/userhome')
+    navigate('/userhome')
     }
 
   }

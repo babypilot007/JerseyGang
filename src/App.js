@@ -22,9 +22,7 @@ function App() {
             <Route path = '/auth' element ={<Auth />} />
             <Route path = '/signup' element ={<SignUp />} />
             <Route path = '/details' element ={<EventDetails />} />
-            <Route path = '/auth/userhome' element ={<UserHome />} />
-
-
+            <Route path = '/userhome' element ={<UserHome />} />
 
         </Routes>
 
@@ -62,21 +60,8 @@ function App() {
 
       <div className='event'>
           <div className='event_create'>
-
-
-        
-
-
-         
-
-
-        
     </div>
     </div>
-
-     
-
-
     </div>
   );
 }

@@ -11,6 +11,7 @@ const location = useLocation()
 
 var id = location.state
 
+
 const [data, getData] = useState('')
 
 
