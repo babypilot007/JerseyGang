@@ -28,13 +28,14 @@ export default function SignUp() {
         email: getEmail,
         password:getPassword,
 
-        options: {
-          data: {
-          //  firstName: getFirstName,
-            lastName: 'getLastName',
-            // phone : 7892,
-          }
-        }}
+        // options: {
+        //   data: {
+        //   //  firstName: getFirstName,
+        //     // lastName: getLastName,
+        //     // phone : 7892,
+        //   }
+        // }
+      }
         )
 
    

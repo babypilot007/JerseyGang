@@ -67,12 +67,13 @@ const UserHome = () => {
   const createEvent = async () =>{
 
     try {
-      const {data: {user},} = await supabase.from('event').insert([
+      const {data: {user}} = await supabase.from('event').insert([
         {
           EventLocation : location,
           UserId : getId,
           // UserName : userName,
           // eventDescp : eventDescp
+          EventName : 'ada'
         }
       ])
       
