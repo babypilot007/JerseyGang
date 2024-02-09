@@ -31,7 +31,7 @@ export default function SignUp() {
         options: {
           data: {
           //  firstName: getFirstName,
-            lastName: getLastName,
+            lastName: 'getLastName',
             // phone : 7892,
           }
         }}

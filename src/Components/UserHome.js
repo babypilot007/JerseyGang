@@ -8,6 +8,8 @@ import { supabase } from '../supabaseClient'
 const UserHome = () => {
 
   const[getId, setId] = useState('')
+  // const[name, getName] = useState('')
+
   const[userInfo, setUserInfo] = useState('')
   const[info, setInfo] = useState('')
   const[eventName, getEventName] = useState('')
@@ -46,8 +48,12 @@ const UserHome = () => {
       try {
         if(getId){
         const response = await supabase.from('event').select('*').eq('UserId',getId)
+        // const Uname = await supabase.from('event').select('*').eq('UserName',name)
+
             if(response.data !== null){
-            setInfo(response.data)}
+            setInfo(response.data)
+            // getName(name)
+            }
             else setInfo(null)
 
         } 
@@ -97,7 +103,9 @@ const UserHome = () => {
              return(
                <div className='event_hover' key = {info.id}>
                         <div className='event_header'>
-                          <h1>{inf.EventName}</h1>                          
+                          <h1>{inf.EventName}</h1>
+                          <h1>{inf.UserName}</h1>                          
+
                            </div>
                           <h3>{inf.EventLocation}</h3>
 
