@@ -3,6 +3,7 @@ import { useState, useEffect} from 'react'
 import React from 'react'
 import { supabase } from '../supabaseClient'
 import { useNavigate} from 'react-router-dom';
+import Events from '../events';
 
 
 
@@ -11,6 +12,11 @@ import { useNavigate} from 'react-router-dom';
 const UserHome = () => {
 
   const navigate = useNavigate()
+var eventInfo = Events()
+
+
+  const[myEvent, setMyEvent] = useState(true)
+  const[allEvents, setAllEvent] = useState(false)
 
 
   const[getId, setId] = useState('')
@@ -115,7 +121,11 @@ const UserHome = () => {
       
       <h1>Welcome, {userInfo}</h1>
       
-     
+    <div> <button onClick={()=>{setMyEvent(true);setAllEvent(false)}}>My Events</button> <button onClick={()=>{setMyEvent(false);setAllEvent(true)}}>All Events</button> </div>
+    
+    {myEvent ? 
+    
+    <div>
       {info ?  <div className='event_details'>Your Events
             {  
             info.map((inf)=>{
@@ -145,10 +155,11 @@ const UserHome = () => {
               )
             })
         }  
+      
+        
         </div> : <div  className='event_details'>No Events
         </div>}
-
- <form className="signupform" onSubmit={createEvent}>
+        <form className="signupform" onSubmit={createEvent}>
 
 <input
     className="inputField"
@@ -168,19 +179,15 @@ const UserHome = () => {
     onChange={(e) => getLocation(e.target.value)}
   />
 <br></br>
-
-
- 
-
-
 </form>
-
-         
-     
 
     <button className='form_btn' onClick={createEvent}>
              <span>create an Event</span>
           </button>
+      </div> :null}
+ 
+      {allEvents ? <div className='event_details'> <p>All Events</p>
+      <p>{eventInfo}</p></div>:null}
     </div>
   )
 }
