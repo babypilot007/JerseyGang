@@ -126,7 +126,7 @@ var eventInfo = Events()
     {myEvent ? 
     
     <div>
-      {info ?  <div className='event_details'>Your Events
+      {info ?  <div className='event_details'>
             {  
             info.map((inf)=>{
              
@@ -186,7 +186,7 @@ var eventInfo = Events()
           </button>
       </div> :null}
  
-      {allEvents ? <div className='event_details'> <p>All Events</p>
+      {allEvents ? <div className='event_details'>
       <p>{eventInfo}</p></div>:null}
     </div>
   )
