@@ -4,6 +4,7 @@ import React from 'react'
 import { supabase } from '../supabaseClient'
 import { useNavigate} from 'react-router-dom';
 import Events from '../events';
+// import Rsvp from './Rsvp';
 
 
 
@@ -30,8 +31,6 @@ var eventInfo = Events()
 
   const[location, getLocation] = useState('')
   // const[eventDescp, getdescp] = useState('')
-  // const[date, getDate] = useState('')
-  // const[time, getTine] = useState('')
 
 
 
@@ -65,12 +64,10 @@ var eventInfo = Events()
       try {
         if(getId){
         const response = await supabase.from('event').select('*').eq('UserId',getId)
-        // const Uname = await supabase.from('event').select('*').eq('UserName',name)
 
             if(response.data !== null){
             setInfo(response.data)
 
-            // getName(name)
             }
             else setInfo(null)
 
@@ -91,7 +88,8 @@ var eventInfo = Events()
           UserId : getId,
           UserName : userInfo,
           // eventDescp : eventDescp
-          EventName : eventName
+          EventName : eventName,
+          Rsvp : 0
         }
       ])
       
@@ -101,7 +99,21 @@ var eventInfo = Events()
     } catch (error) {
     }
   }
+  // const rsvp = async () =>{
 
+  //   try {
+  //     const {data: {user}} = await supabase.from('event').insert([
+  //       {
+  //         Rsvp : Rsvp + 1
+  //       }
+        
+  //     ]).eq('id', eventId)
+  //     console.log(user)
+      
+  //   } catch (error) {
+  //   }
+  // }
+// rsvp()
   const deleteEvent = async () =>{
 
     try {
@@ -134,12 +146,8 @@ var eventInfo = Events()
                <div className='event_hover' key = {info.id}>
                         <div className='event_header'>
                           <h1>{inf.EventName}</h1>
-                          <h1>{inf.UserName}</h1>
-                          <h1>{}</h1>                          
-
-
                            </div>
-                          <h3>{inf.EventLocation}</h3>
+                          <p>RSVP'd : {inf.Rsvp}</p>                          
 
                     <div className='btn_grp'>
                         <button className='details'>Details</button> 
@@ -187,7 +195,8 @@ var eventInfo = Events()
       </div> :null}
  
       {allEvents ? <div className='event_details'>
-      <p>{eventInfo}</p></div>:null}
+      <p>{eventInfo}</p>
+      </div>:null}
     </div>
   )
 }

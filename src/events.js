@@ -31,6 +31,8 @@ useEffect(()=>{
                     <div className='event_hover' key = {info.id}>
                         <div className='event_header'><h1>{info.EventName}</h1> </div>
                         <p>{info.EventLocation}</p>
+                        RSVP'd : {info.Rsvp}
+
                     <div className='btn_grp'>
                         <button className='details' onClick = {()=>{
                                     console.log(info.id)
