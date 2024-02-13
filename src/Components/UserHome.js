@@ -15,7 +15,6 @@ const UserHome = () => {
   const navigate = useNavigate()
 var eventInfo = Events()
 
-
   const[myEvent, setMyEvent] = useState(true)
   const[allEvents, setAllEvent] = useState(false)
 
@@ -79,6 +78,17 @@ var eventInfo = Events()
   }, [getId])
 
 
+    const logOut = async ()=>{
+    try {
+        const { error } = await supabase.auth.signOut()
+      
+            console.log(error)
+    } catch (error) {
+      if(error){
+      }
+    }
+  }
+
   const createEvent = async () =>{
 
     try {
@@ -130,7 +140,7 @@ var eventInfo = Events()
     return (
 
     <div className='simple'>
-      
+        <button onClick={()=>{logOut()}}>Log out</button>
       <h1>Welcome, {userInfo}</h1>
       
     <div> <button onClick={()=>{setMyEvent(true);setAllEvent(false)}}>My Events</button> <button onClick={()=>{setMyEvent(false);setAllEvent(true)}}>All Events</button> </div>
