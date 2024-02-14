@@ -3,8 +3,8 @@ import { useState, useEffect} from 'react'
 import React from 'react'
 import { supabase } from '../supabaseClient'
 import { useNavigate} from 'react-router-dom';
-import Events from '../events';
-// import Rsvp from './Rsvp';
+// import Events from '../events';
+import Rsvp from './Rsvp';
 
 
 
@@ -13,7 +13,7 @@ import Events from '../events';
 const UserHome = () => {
 
   const navigate = useNavigate()
-var eventInfo = Events()
+var eventInfo = Rsvp()
 
   const[myEvent, setMyEvent] = useState(true)
   const[allEvents, setAllEvent] = useState(false)
@@ -99,7 +99,8 @@ var eventInfo = Events()
           UserName : userInfo,
           // eventDescp : eventDescp
           EventName : eventName,
-          Rsvp : 0
+          Rsvp : 1,
+          Rsvp_names : [getId]
         }
       ])
       
@@ -109,21 +110,11 @@ var eventInfo = Events()
     } catch (error) {
     }
   }
-  // const rsvp = async () =>{
 
-  //   try {
-  //     const {data: {user}} = await supabase.from('event').insert([
-  //       {
-  //         Rsvp : Rsvp + 1
-  //       }
-        
-  //     ]).eq('id', eventId)
-  //     console.log(user)
-      
-  //   } catch (error) {
-  //   }
-  // }
-// rsvp()
+
+    
+
+ 
   const deleteEvent = async () =>{
 
     try {
@@ -141,7 +132,7 @@ var eventInfo = Events()
 
     <div className='simple'>
         <button onClick={()=>{logOut()}}>Log out</button>
-      <h1>Welcome, {userInfo}</h1>
+      <p>Welcome, {userInfo}</p>
       
     <div> <button onClick={()=>{setMyEvent(true);setAllEvent(false)}}>My Events</button> <button onClick={()=>{setMyEvent(false);setAllEvent(true)}}>All Events</button> </div>
     
