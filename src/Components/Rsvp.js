@@ -44,6 +44,7 @@ useEffect(()=>{  const fetchData = async ()=>{
         getData(response)
 
   } catch (error) {
+    getMapUsers()
   }
 }
 fetchData()
@@ -95,7 +96,6 @@ const setRsvp = async (event, userId)=>{
                               {info.Rsvp_names ? info.Rsvp_names.map((e)=>{
                                       if(e === userId){ 
                                         var ans = "Rsvp'd"
-                                        getMapUsers()
                                       }
                                 return <div>{ans}</div>
                               }):null}
