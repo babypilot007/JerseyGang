@@ -15,6 +15,10 @@ function Rsvp() {
     const[data, getData] = useState('')
     const[userId, getUserId] = useState('')
     const[map_users, getMapUsers] = useState('')
+    const[userNames, getUserNames] = useState('')
+
+
+
 
 
 
@@ -22,12 +26,12 @@ function Rsvp() {
       const fetchData = async ()=>{
         try {
           const {data: {user},} = await supabase.auth.getUser()
-              console.log(user.user_metadata.firstnName)
             if(user === null){
               navigate ('/auth')
             }else{
               console.log(user.user_metadata.firstName)
               getUserId(user.id)
+              getUserNames(user.user_metadata.firstName)
               if(userId === map_users){}
               navigate('/userhome')
             }
@@ -52,7 +56,7 @@ fetchData()
 
 
 
-const setRsvp = async (event, userId)=>{
+const setRsvp = async (event)=>{
 
   var count = 0
   var map_rsvp_users
@@ -70,20 +74,56 @@ const setRsvp = async (event, userId)=>{
     
       const response = await supabase.from('event').update({Rsvp : count}).eq('id',event)
     
-      const updateUser = await supabase.from('event').update({Rsvp_names : [...map_rsvp_users,userId]}).eq('id',event)
+      const updateUser = await supabase.from('event').update({Rsvp_names : [...map_rsvp_users,userNames]}).eq('id',event)
           
       console.log(response)
 
           console.log(updateUser)
 
-
   } catch (error) {
   }
 }
+
+setRsvp()
   
   var details = data.data
+
+
+if(details){
+
+      details.map((e)=>{
+
+
+            var findOut = e.Rsvp_names
+
+          const found = findOut.find((element) => element === 'Victor');
+          if(found){
+
+          return console.log(found)
+          
+            
+
+          }
+          return console.log(found)
+
+
+      })
+}
+
+
+  // details.map((e)=>{
+                                       
+  // })
+  // const found = details.find((element) => element === 'Victor');
+  // if(found){
+       
+  //     console.log(found)
+  // }
   
-  if(details){
+  console.log(details)
+
+  
+  if(details !== undefined){
     return ( 
             details.map((info)=>{
                 return(
@@ -93,12 +133,7 @@ const setRsvp = async (event, userId)=>{
 
                         RSVP'd : {info.Rsvp}
 
-                              {info.Rsvp_names ? info.Rsvp_names.map((e)=>{
-                                      if(e === userId){ 
-                                        var ans = "Rsvp'd"
-                                      }
-                                return <div>{ans}</div>
-                              }):null}
+
 
 
 
@@ -107,18 +142,19 @@ const setRsvp = async (event, userId)=>{
                                     console.log(info.id)
                                     navigate('details',{state:info.id})
                         }}>Details</button> 
-                        <button className='details' onClick = {()=>{
-                                    setRsvp(info.id, userId)
+                       <div>
 
-                        }}>RSVP</button><div><h2><span>Created By:</span><br />{info.UserName}</h2></div>
+                        {/* {isRsvp ? <div><button>Un-RSVP</button></div>: <div><button>RSVP</button></div>} */}
+
+                        <h2><span>Created By:</span><br />{info.UserName}</h2></div>
                      </div>   
                         </div>
                 )
             }))
 
-}else return  (
+}else if(details === undefined){return  (
         <div  className='event_details'>No Events
-        </div>)
+        </div>)}
     
 
 

@@ -19,7 +19,9 @@ var eventInfo = Rsvp()
   const[allEvents, setAllEvent] = useState(false)
 
 
+  // const[getName, setName] = useState('')
   const[getId, setId] = useState('')
+
   // const[name, getName] = useState('')
 
   const[userInfo, setUserInfo] = useState('')
@@ -44,6 +46,7 @@ var eventInfo = Rsvp()
         const {data: {user},} = await supabase.auth.getUser()
         
              setUserInfo(user.user_metadata.firstName)
+
           console.log(user.user_metadata.firstName)
 
           setId(user.id)
@@ -100,7 +103,8 @@ var eventInfo = Rsvp()
           // eventDescp : eventDescp
           EventName : eventName,
           Rsvp : 1,
-          Rsvp_names : [getId]
+          Rsvp_names : [userInfo],
+          Rsvp_Id : [getId]
         }
       ])
       
