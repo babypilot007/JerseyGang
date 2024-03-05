@@ -1,16 +1,37 @@
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from "react-router-dom";
+import { supabase } from './supabaseClient';
+
+const DeleteEvents = () => {
+  const navigate = useNavigate()
+
+  const location = useLocation()
+  
+  var id = location.state
+
+  const [data, getData] = useState('')
 
 
-const DeleteEvents = (id) => {
+        useEffect( () => { 
 
+            async function fetchData() {
+                try {
 
-    fetch(`http://localhost:2000/api/jersey-gang-events/` + id, {
+                    const response = await supabase.from('event').select('*').eq('id',id)
 
-    method: "DELETE",
-    headers: {
-      'Content-type': 'application/json'
-    },
-    
-  })
+                    getData(response)
+
+                    if(response){
+                    console.log(response.data)}
+                } catch (err) {
+                    console.log(err);
+                }
+                
+            }
+
+            fetchData();
+
+        }, [id]);
 
 
 }

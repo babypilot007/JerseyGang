@@ -1,5 +1,6 @@
 import { supabase } from "./supabaseClient"
 import { useNavigate} from 'react-router-dom';
+import Navbar from "./Components/Navbar";
 
 import React from 'react'
 import {useState} from 'react'
@@ -38,7 +39,7 @@ const navigate = useNavigate()
 
     } else {
     setLoading(true)
-
+      navigate('/userhome')
     }
 
   
@@ -63,6 +64,7 @@ const navigate = useNavigate()
 
      <div className='signuphead'>
 
+     <Navbar />
 
      <div className='header'>
                         <h1>Login</h1>
@@ -94,7 +96,7 @@ const navigate = useNavigate()
 
   
          
-            <button className='form_btn' disabled={loading}>
+            <button className='form_btn' disabled={loading} >
               {loading ? <span>Loading</span> : <span>Log me in</span>}
             </button>
 

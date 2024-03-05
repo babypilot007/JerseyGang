@@ -406,3 +406,49 @@ font-weight: 600;
 
 }
 
+
+.nav{
+  background-color: rgba(0, 0, 0, 0.568);
+  padding: 8px;
+  border-radius: 5px;
+  box-shadow: 0px 5px 5px #010102;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  button{
+      font-size: 12px;
+      height: fit-content;
+      width:fit-content ;
+      padding: 0px;
+      padding-top: 0px;
+      padding-bottom : 0px;
+      background-color: rgba(255, 255, 255, 0);
+      box-shadow: none;
+      margin: 0;
+
+      p{
+        color: white;
+        font-size: larger;
+
+      }
+
+  }
+}
+
+.navUser{
+  color: white;
+  background-color: #010102;
+  border-radius: 5px;
+  margin: 0;
+  display: flex;
+  justify-content: right;
+
+   button{
+    width: fit-content;
+    padding: 5px;
+    border-radius: 20px;
+    height: fit-content;
+    margin-top: 13px;
+   }
+}

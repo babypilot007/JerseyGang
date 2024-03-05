@@ -61,9 +61,9 @@ const setRsvp = async (event)=>{
   var count = 0
   var map_rsvp_users
   try {
-      const getRsvpCount = await supabase.from('event').select('Rsvp').eq('id',event)
+      const getRsvpCount = "await supabase.from('event').select('Rsvp').eq('id',event)"
 
-      const getRsvpUsers = await supabase.from('event').select('Rsvp_names').eq('id',event)
+      const getRsvpUsers = "await supabase.from('event').select('Rsvp_names').eq('id',event)"
       
       console.log(getRsvpUsers.data[0].Rsvp_names)
 
@@ -135,7 +135,7 @@ if(details){
 
 
 
-
+                  
 
                     <div className='btn_grp'>
                         <button className='details' onClick = {()=>{
@@ -152,9 +152,9 @@ if(details){
                 )
             }))
 
-}else if(details === undefined){return  (
+}else return  (
         <div  className='event_details'>No Events
-        </div>)}
+        </div>)
     
 
 
