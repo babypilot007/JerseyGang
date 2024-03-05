@@ -438,15 +438,20 @@ font-weight: 600;
 
 .navUser{
   color: white;
-  background-color: #010102;
+  background-color: rgba(0, 0, 0, 0.568);
+  box-shadow: 0px 5px 5px #010102;
   border-radius: 5px;
   margin: 0;
   display: flex;
   justify-content: right;
+  font-weight: 600;
 
    button{
     width: fit-content;
     padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: rgb(59, 30, 30);
     border-radius: 20px;
     height: fit-content;
     margin-top: 13px;
