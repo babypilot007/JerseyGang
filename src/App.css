@@ -59,11 +59,6 @@ p a {
   text-decoration: none;
 }
 
-.simple{
-  color:rgb(220, 209, 188);
-  padding: 10px;
-  text-align: center;
-}
 
 
 
@@ -136,13 +131,11 @@ button:hover {
 
 .forms{
   position: relative;
-  padding: 20px;
-  margin: 5px;
   color: wheat;
   font-size: 20px;
-  display: flex;
-  justify-content: center;
   font-weight: lighter;
+  display: block;
+
 }
 
 
@@ -456,4 +449,24 @@ font-weight: 600;
     height: fit-content;
     margin-top: 13px;
    }
+}
+
+
+.userButton{
+
+    display: flex;
+    position: relative;
+    margin-top: 40px;
+    justify-content: space-evenly;
+
+    button{
+        width: 100px;
+        padding: 10px;
+      }
+}
+
+.btn{
+  display: flex;
+  margin-top: 10px;
+  justify-content:center ;
 }

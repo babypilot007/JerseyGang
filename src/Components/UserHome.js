@@ -18,7 +18,6 @@ var eventInfo = Rsvp()
   const[myEvent, setMyEvent] = useState(true)
   const[allEvents, setAllEvent] = useState(false)
 
-  const[getmyEvent, setGetMyEvent] = useState(false)
 
 
 
@@ -86,7 +85,7 @@ var eventInfo = Rsvp()
       
     }}
     fetchData()
-  }, [getmyEvent, getId])
+  }, [getId])
 
 
     const logOut = async ()=>{
@@ -120,7 +119,6 @@ var eventInfo = Rsvp()
           }
         ])
           
-          setGetMyEvent(true)
           setUserInfo(user.user_matadata)
 
       } catch (error) {
@@ -130,8 +128,11 @@ var eventInfo = Rsvp()
     }
 
 
- useEffect(()=>{
+
+
   const deleteEvent = async () =>{
+
+    console.log(eventId)
 
     try {
       const {data: {user}} = await supabase.from('event').delete().eq('id', eventId)
@@ -142,10 +143,8 @@ var eventInfo = Rsvp()
 
   }
 
-  deleteEvent()
+  
 
-
- },[eventId])
  
 
 var eventyes = ''
@@ -161,15 +160,12 @@ var eventyes = ''
   <div className='navUser'>
   <p>{userInfo}</p><button onClick={()=>{logOut()}}>Log out</button>
     </div>       
+    <div className='userButton'> <button onClick={()=>{setMyEvent(true);setAllEvent(false)}}>My Events</button> <button onClick={()=>{setMyEvent(false);setAllEvent(true)}}>All Events</button> <button>Rsvp'd</button> </div>
 
     <div className='simple'>
-      
-      
-    <div> <button onClick={()=>{setMyEvent(true);setAllEvent(false)}}>My Events</button> <button onClick={()=>{setMyEvent(false);setAllEvent(true)}}>All Events</button> </div>
-   
 
     {myEvent ? 
-    <div>
+    <div className='forms'>
 
       {eventyes ?  <div className='event_details'>
             {  
@@ -183,10 +179,10 @@ var eventyes = ''
                           <p>RSVP'd : {inf.Rsvp}</p>                          
 
                     <div className='btn_grp'>
-                        <button className='details'>Details</button> 
                         <button className='details' onClick = {()=>{
-                                    getEventId(inf.id)
-                                     window.location.reload();
+                                    getEventId(inf.id);
+                                    deleteEvent()
+                                    window.location.reload();
 
 
                         }}>Delete</button> 
@@ -202,7 +198,7 @@ var eventyes = ''
         </div>}
 
 
-        <form className="signupform" onSubmit={createEvent}>
+ <form className="signupform" onSubmit={createEvent}>
 
 <input
     className="inputField"
@@ -224,9 +220,12 @@ var eventyes = ''
 <br></br>
 </form>
 
-    <button className='form_btn' onClick={createEvent}>
+      <div className='btn'>
+    <button onClick={createEvent}>
              <span>create an Event</span>
           </button>
+        </div>
+        
       </div> :null}
  
       {allEvents ? <div className='event_details'>

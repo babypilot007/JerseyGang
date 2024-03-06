@@ -61,9 +61,9 @@ const setRsvp = async (event)=>{
   var count = 0
   var map_rsvp_users
   try {
-      const getRsvpCount = "await supabase.from('event').select('Rsvp').eq('id',event)"
+      const getRsvpCount = await supabase.from('event').select('Rsvp').eq('id',event)
 
-      const getRsvpUsers = "await supabase.from('event').select('Rsvp_names').eq('id',event)"
+      const getRsvpUsers = await supabase.from('event').select('Rsvp_names').eq('id',event)
       
       console.log(getRsvpUsers.data[0].Rsvp_names)
 
@@ -84,31 +84,30 @@ const setRsvp = async (event)=>{
   }
 }
 
-setRsvp()
   
   var details = data.data
 
 
-if(details){
+// if(details){
 
-      details.map((e)=>{
+//       details.map((e)=>{
 
 
-            var findOut = e.Rsvp_names
+//             var findOut = e.Rsvp_names
 
-          const found = findOut.find((element) => element === 'Victor');
-          if(found){
+//           const found = findOut.find((element) => element === 'Victor');
+//           if(found){
 
-          return console.log(found)
+//           return console.log(found)
           
             
 
-          }
-          return console.log(found)
+//           }
+//           return console.log(found)
 
 
-      })
-}
+//       })
+// }
 
 
   // details.map((e)=>{
@@ -120,7 +119,7 @@ if(details){
   //     console.log(found)
   // }
   
-  console.log(details)
+  // console.log(details)
 
   
   if(details !== undefined){
@@ -128,23 +127,27 @@ if(details){
             details.map((info)=>{
                 return(
                     <div className='event_hover' key = {info.id}>
-                        <div className='event_header'><h1>{info.EventName}</h1> </div>
-                        <p>{info.EventLocation}</p>
+                        <div className='event_header'>
+                          <h1>{info.EventName}</h1> </div>
+                          <p>{info.EventLocation}</p>
 
                         RSVP'd : {info.Rsvp}
+                        <p><br></br>Attendees : {info.Rsvp_names}</p>
 
 
-
+                        <div><button onClick={()=>{
+                              console.log(info.id)
+                              setRsvp(info.id)}}>RSVP</button></div>
                   
 
                     <div className='btn_grp'>
                         <button className='details' onClick = {()=>{
                                     console.log(info.id)
-                                    navigate('details',{state:info.id})
+                                    navigate('/details',{state:info.id})
                         }}>Details</button> 
+
                        <div>
 
-                        {/* {isRsvp ? <div><button>Un-RSVP</button></div>: <div><button>RSVP</button></div>} */}
 
                         <h2><span>Created By:</span><br />{info.UserName}</h2></div>
                      </div>   
