@@ -88,6 +88,7 @@ button:hover {
   color: white;
   box-shadow: 0 0 20px rgba(53, 21, 21, 0.546);
   background-color: rgb(49, 12, 12);
+  border: 2px solid rgb(255, 255, 255);
 }
 
 
@@ -451,7 +452,6 @@ font-weight: 600;
 
    button:hover{
     color: white;
-
    }
 }
 
