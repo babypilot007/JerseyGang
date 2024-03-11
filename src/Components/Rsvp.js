@@ -108,22 +108,21 @@ const fetchRsvp = async (id)=>{
     var data = response.data
 
 
-    data.map((e)=> { 
+     data.map((e)=> { 
       
           getInfoId(e.id)
 
 
-      if(id === e.id){
-        getRsvpNames(e.Rsvp_names)
-      }
-      return null
+        // getRsvpNames(e.Rsvp_names)
+
+      return (<li key={e.id}>{getRsvpNames(e.Rsvp_names)}</li>)
     }
     )
   } catch (error) {
   }
 }
 
-
+console.log(rsvpnames)
 
 function show(){
   showAttend(!attend)
@@ -146,8 +145,15 @@ function show(){
                         <p>{info.id}</p>
                         <button value={info.id} onClick={()=>{fetchRsvp(info.id);show()}}> Get names</button>
 
-                        
-                          {attend ? <div>{(info.id === infoId) ?<div><p>{rsvpnames}</p></div> :null}</div>:null}
+                         {attend ? <div><div>{(info.id === infoId) ?<div>{info.Rsvp_names.map((e)=>{
+                              return (<div>
+                                <br></br><li>{e}</li></div>
+                              )
+                          })}</div> :null}</div>
+                          
+                         </div> :null } 
+
+                          <br></br>
 
                         <div><button onClick={()=>{
                               console.log(info.id)
