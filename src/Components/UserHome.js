@@ -17,25 +17,23 @@ var eventInfo = Rsvp()
 
   const[myEvent, setMyEvent] = useState(true)
   const[allEvents, setAllEvent] = useState(false)
+  const[rsvpd, setRsvpd] = useState(false)
+
 
 
 
 
   // const[getName, setName] = useState('')
   const[getId, setId] = useState('')
-
   // const[name, getName] = useState('')
-
   const[userInfo, setUserInfo] = useState('')
-
+  const[userid, getUserId] = useState('')
   const[info, setInfo] = useState('')
-
   const[eventName, getEventName] = useState('')
-
-
   const[location, getLocation] = useState('')
   // const[eventDescp, getdescp] = useState('')
 
+  const[foundId, setFoundId] = useState(false)
 
 
 
@@ -49,8 +47,9 @@ var eventInfo = Rsvp()
         const {data: {user},} = await supabase.auth.getUser()
         
              setUserInfo(user.user_metadata.firstName)
+             getUserId(user.id)
 
-          console.log(user.user_metadata.firstName)
+
 
           setId(user.id)
 
@@ -66,27 +65,25 @@ var eventInfo = Rsvp()
 
   useEffect(()=>{
     const fetchData = async ()=>{
-
-    
       try {
         if(getId){
         const response = await supabase.from('event').select('*').eq('UserId',getId)
-
-
+          var match = response.data[0].Rsvp_Id
+            if(match.includes(userid))
+            {
+              setFoundId(true)
+            }else setFoundId(false)
+            console.log(response.data[0].Rsvp_Id)
             if(response.data !== null){
-
             setInfo(response.data)
-
-
             }
             else setInfo(null)
-
         } 
       } catch (error) {
       
     }}
     fetchData()
-  }, [getId])
+  }, [getId,userid])
 
 
     const logOut = async ()=>{
@@ -144,10 +141,6 @@ var eventInfo = Rsvp()
 
   }
 
-  
-
- 
-
 var eventyes = ''
 
  if(info.length === 0){
@@ -161,7 +154,11 @@ var eventyes = ''
   <div className='navUser'>
   <p>{userInfo}</p><button onClick={()=>{logOut()}}>Log out</button>
     </div>       
-    <div className='userButton'> <button onClick={()=>{setMyEvent(true);setAllEvent(false)}}>My Events</button> <button onClick={()=>{setMyEvent(false);setAllEvent(true)}}>All Events</button> <button>Rsvp'd</button> </div>
+    <div className='userButton'> 
+    <button onClick={()=>{setMyEvent(true);setAllEvent(false);setRsvpd(false)}}>My Events
+    </button> 
+    <button onClick={()=>{setMyEvent(false);setAllEvent(true);setRsvpd(false)}}>All Events</button> 
+    <button onClick={()=>{setMyEvent(false);setAllEvent(false);setRsvpd(true)}}>Rsvp'd</button> </div>
 
     <div className='simple'>
 
@@ -227,8 +224,13 @@ var eventyes = ''
       </div> :null}
  
       {allEvents ? <div className='event_details'>
+      
+
       <p>{eventInfo}</p>
       </div>:null}
+
+
+      {rsvpd ? <div className='event_details'>{foundId ? <div>Found</div>:<div>Not Found</div>}</div> :null}
     </div>
     </>
   )

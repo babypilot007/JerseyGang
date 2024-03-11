@@ -68,34 +68,27 @@ fetchData()
 
 
 const setRsvp = async (event)=>{
-
   var count = 0
   var map_rsvp_users
+  var map_rsvp_id
   try {
       const getRsvpCount = await supabase.from('event').select('Rsvp').eq('id',event)
-
       const getRsvpUsers = await supabase.from('event').select('Rsvp_names').eq('id',event)
-      
-      console.log(getRsvpUsers.data[0].Rsvp_names)
-
+      const getRsvpId = await supabase.from('event').select('Rsvp_Id').eq('id',event)
        map_rsvp_users = getRsvpUsers.data[0].Rsvp_names
-
+       map_rsvp_id = getRsvpId.data[0].Rsvp_Id
       count = getRsvpCount.data[0].Rsvp + 1
       console.log(count)
-    
       const response = await supabase.from('event').update({Rsvp : count}).eq('id',event)
-    
       const updateUser = await supabase.from('event').update({Rsvp_names : [...map_rsvp_users,userNames]}).eq('id',event)
-          
+      const updateId = await supabase.from('event').update({Rsvp_Id : [...map_rsvp_id,userId]}).eq('id',event)
+      console.log(updateId)
       console.log(response)
 
           console.log(updateUser)
-
   } catch (error) {
   }
-
   window.location.reload();
-
 }
 
 
@@ -106,7 +99,7 @@ const fetchRsvp = async (id)=>{
     const response = await supabase.from('event').select('*').eq('id',id)
     var data = response.data
 
-
+      console.log(data)
      data.map((e)=> { 
       
          return getInfoId(e.id)
