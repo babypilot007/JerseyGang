@@ -19,7 +19,6 @@ function Rsvp() {
 
     const[attend, showAttend] = useState(false)
 
-    const[rsvpnames, getRsvpNames] = useState('')
 
     const[infoId, getInfoId] = useState('')
 
@@ -110,19 +109,14 @@ const fetchRsvp = async (id)=>{
 
      data.map((e)=> { 
       
-          getInfoId(e.id)
+         return getInfoId(e.id)
 
-
-        // getRsvpNames(e.Rsvp_names)
-
-      return (<li key={e.id}>{getRsvpNames(e.Rsvp_names)}</li>)
     }
     )
   } catch (error) {
   }
 }
 
-console.log(rsvpnames)
 
 function show(){
   showAttend(!attend)
@@ -135,24 +129,24 @@ function show(){
 
   if(details !== undefined){
     return ( 
-            details.map((info)=>{
+            details.map((info,ind)=>{
                 return(
-                    <div className='event_hover' key = {info.id}>
+                    <div className='event_hover' key = {ind}>
                         <div className='event_header'>
                           <h1>{info.EventName}</h1> </div>
                           <p>{info.EventLocation}</p>
                         RSVP'd : {info.Rsvp}
-                        <p>{info.id}</p>
-                        <button value={info.id} onClick={()=>{fetchRsvp(info.id);show()}}> Get names</button>
+                        <button className="listbtn" value={info.id} onClick={()=>{fetchRsvp(info.id);show()}}>Guest List</button>
 
-                         {attend ? <div><div>{(info.id === infoId) ?<div>{info.Rsvp_names.map((e)=>{
-                              return (<div>
-                                <br></br><li>{e}</li></div>
+                       
+                        <div >
+                         {attend ? <div> <div>{(info.id === infoId) ?<div className='nameList'>{info.Rsvp_names.map((e,idx)=>{
+                              return (<div >
+                                <br></br><li key={idx}>{e}</li></div>
                               )
                           })}</div> :null}</div>
-                          
                          </div> :null } 
-
+                         </div>
                           <br></br>
 
                         <div><button onClick={()=>{

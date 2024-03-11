@@ -48,7 +48,7 @@ var eventInfo = Rsvp()
       try {
         const {data: {user},} = await supabase.auth.getUser()
         
-             setUserInfo(user.user_metadata.firstName)
+             setUserInfo(user.user_metadata.firstName,"(Host)")
 
           console.log(user.user_metadata.firstName)
 
@@ -72,6 +72,8 @@ var eventInfo = Rsvp()
         if(getId){
         const response = await supabase.from('event').select('*').eq('UserId',getId)
 
+
+        console.log(response)
             if(response.data !== null){
 
             setInfo(response.data)

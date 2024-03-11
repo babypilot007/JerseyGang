@@ -470,3 +470,27 @@ font-weight: 600;
   margin-top: 10px;
   justify-content:center ;
 }
+
+
+.nameList{
+  background-color: rgb(28, 26, 26);
+  border-radius: 5px;
+  height: 10vh;
+  padding: 10px;
+  margin-top: 5px;
+  text-align: left;
+}
+
+.listbtn{
+  background-color: #01010200;
+  color: aliceblue;
+  box-shadow: none;
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+.listbtn:hover{
+  background-color: #01010200;
+  color: aliceblue;
+  box-shadow: none;
+}
