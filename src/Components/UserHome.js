@@ -176,7 +176,7 @@ var eventyes = ''
                         <div className='event_header'>
                           <h1>{inf.EventName}</h1>
                            </div>
-                          <p>RSVP'd : {inf.Rsvp}</p>                          
+                          <button><p>RSVP'd </p>    </button>     <p> {inf.Rsvp}</p>                 
 
                     <div className='btn_grp'>
                         <button className='details' onClick = {()=>{
@@ -225,7 +225,7 @@ var eventyes = ''
              <span>create an Event</span>
           </button>
         </div>
-        
+
       </div> :null}
  
       {allEvents ? <div className='event_details'>

@@ -5,17 +5,29 @@ import { supabase } from '../supabaseClient';
 
 
 
+
 function Rsvp() {
 
   const navigate = useNavigate()
   
-
 
     
     const[data, getData] = useState('')
     const[userId, getUserId] = useState('')
     const[map_users, getMapUsers] = useState('')
     const[userNames, getUserNames] = useState('')
+
+    const[attend, showAttend] = useState(false)
+
+    const[rsvpnames, getRsvpNames] = useState('')
+
+    const[infoId, getInfoId] = useState('')
+
+
+
+
+
+
 
 
 
@@ -82,46 +94,46 @@ const setRsvp = async (event)=>{
 
   } catch (error) {
   }
+
+  window.location.reload();
+
+}
+
+
+const fetchRsvp = async (id)=>{
+ 
+  try {
+    
+    const response = await supabase.from('event').select('*').eq('id',id)
+    var data = response.data
+
+
+    data.map((e)=> { 
+      
+          getInfoId(e.id)
+
+
+      if(id === e.id){
+        getRsvpNames(e.Rsvp_names)
+      }
+      return null
+    }
+    )
+  } catch (error) {
+  }
+}
+
+
+
+function show(){
+  showAttend(!attend)
+
 }
 
   
   var details = data.data
 
 
-// if(details){
-
-//       details.map((e)=>{
-
-
-//             var findOut = e.Rsvp_names
-
-//           const found = findOut.find((element) => element === 'Victor');
-//           if(found){
-
-//           return console.log(found)
-          
-            
-
-//           }
-//           return console.log(found)
-
-
-//       })
-// }
-
-
-  // details.map((e)=>{
-                                       
-  // })
-  // const found = details.find((element) => element === 'Victor');
-  // if(found){
-       
-  //     console.log(found)
-  // }
-  
-  // console.log(details)
-
-  
   if(details !== undefined){
     return ( 
             details.map((info)=>{
@@ -130,10 +142,12 @@ const setRsvp = async (event)=>{
                         <div className='event_header'>
                           <h1>{info.EventName}</h1> </div>
                           <p>{info.EventLocation}</p>
-
                         RSVP'd : {info.Rsvp}
-                        <p><br></br>Attendees : {info.Rsvp_names}</p>
+                        <p>{info.id}</p>
+                        <button value={info.id} onClick={()=>{fetchRsvp(info.id);show()}}> Get names</button>
 
+                        
+                          {attend ? <div>{(info.id === infoId) ?<div><p>{rsvpnames}</p></div> :null}</div>:null}
 
                         <div><button onClick={()=>{
                               console.log(info.id)
