@@ -70,7 +70,6 @@ button {
   margin: 0 10px;
   width: 150px;
   padding: 10px 0;
-  box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
   transition: 0.4s;
 }
 
@@ -87,8 +86,8 @@ button {
 
 button:hover {
   color: white;
-  box-shadow: 0 0 20px rgba(157, 153, 176, 0.546);
-  background-color: rgba(104, 85, 224, 1);
+  box-shadow: 0 0 20px rgba(53, 21, 21, 0.546);
+  background-color: rgb(49, 12, 12);
 }
 
 
@@ -448,6 +447,11 @@ font-weight: 600;
     border-radius: 20px;
     height: fit-content;
     margin-top: 13px;
+   }
+
+   button:hover{
+    color: white;
+
    }
 }
 

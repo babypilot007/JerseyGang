@@ -27,11 +27,11 @@ var eventInfo = Rsvp()
   // const[name, getName] = useState('')
 
   const[userInfo, setUserInfo] = useState('')
+
   const[info, setInfo] = useState('')
 
   const[eventName, getEventName] = useState('')
 
-  const[eventId, getEventId] = useState('')
 
   const[location, getLocation] = useState('')
   // const[eventDescp, getdescp] = useState('')
@@ -48,7 +48,7 @@ var eventInfo = Rsvp()
       try {
         const {data: {user},} = await supabase.auth.getUser()
         
-             setUserInfo(user.user_metadata.firstName,"(Host)")
+             setUserInfo(user.user_metadata.firstName)
 
           console.log(user.user_metadata.firstName)
 
@@ -73,7 +73,6 @@ var eventInfo = Rsvp()
         const response = await supabase.from('event').select('*').eq('UserId',getId)
 
 
-        console.log(response)
             if(response.data !== null){
 
             setInfo(response.data)
@@ -116,13 +115,11 @@ var eventInfo = Rsvp()
             // eventDescp : eventDescp
             EventName : eventName,
             Rsvp : 1,
-            Rsvp_names : [userInfo],
+            Rsvp_names : [userInfo + " (Host)"],
             Rsvp_Id : [getId]
           }
         ])
-          
-          setUserInfo(user.user_matadata)
-
+        console.log(user)
       } catch (error) {
       }
       window.location.reload();
@@ -132,16 +129,18 @@ var eventInfo = Rsvp()
 
 
 
-  const deleteEvent = async () =>{
+  const deleteEvent = async (id) =>{
 
-    console.log(eventId)
 
     try {
-      const {data: {user}} = await supabase.from('event').delete().eq('id', eventId)
+      const {data: {user}} = await supabase.from('event').delete().eq('id', id)
         console.log(user)
 
     } catch (error) {
     }
+    console.log(id)
+    window.location.reload();
+
 
   }
 
@@ -171,21 +170,18 @@ var eventyes = ''
 
       {eventyes ?  <div className='event_details'>
             {  
-            info.map((inf)=>{
+            info.map((inf,ind)=>{
              
              return(
-               <div className='event_hover' key = {info.id}>
+               <div className='event_hover' key = {ind}>
                         <div className='event_header'>
                           <h1>{inf.EventName}</h1>
                            </div>
-                          <button><p>RSVP'd </p>    </button>     <p> {inf.Rsvp}</p>                 
+                           <h3>{inf.EventLocation}</h3>
 
                     <div className='btn_grp'>
                         <button className='details' onClick = {()=>{
-                                    getEventId(inf.id);
-                                    deleteEvent()
-                                    window.location.reload();
-
+                                    deleteEvent(inf.id)
 
                         }}>Delete</button> 
 
