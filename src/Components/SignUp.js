@@ -68,7 +68,8 @@ const navigate = useNavigate()
 
 
   return (
-    <>
+<>
+      
        <div className='nav'>
         
         <button onClick={goHome}><p>Home</p></button>
@@ -149,8 +150,6 @@ const navigate = useNavigate()
      <div className='disclaimer'>
       <p>We will <span>NEVER</span> sell your personal information to any 3rd party organisation... </p>
       <h3>We Promise</h3></div>
-     
     </>
-    
   )
 }

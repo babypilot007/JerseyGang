@@ -400,14 +400,14 @@ font-weight: 600;
 
 .disclaimer{
   position: absolute;
-  margin-bottom: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
-
+  display: block;
+  justify-content:center ;
   text-align: center;
   color: rgb(243, 255, 183);
   background-color: #17171a;
   padding: 5px;
+  bottom: 0;
+  width: fit-content
   
 
   span{
