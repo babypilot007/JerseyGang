@@ -9,7 +9,6 @@ import Rsvp from './Rsvp';
 
 
 
-
 const UserHome = () => {
 
   const navigate = useNavigate()
@@ -36,7 +35,34 @@ var eventInfo = Rsvp()
   const[foundId, setFoundId] = useState(false)
 
 
+  // function sendEmail(){
 
+  //   const axios = require('axios')
+  //   const sgMail = require('@sendgrid/mail')
+  //   sgMail.setApiKey("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")
+  //   const msg = {
+  //   to: 'cfihimalay@gmail.com', // Change to your recipient
+  //   from: 'indianjerseygang@gmail.com', // Change to your verified sender
+  //   subject: 'Sending with SendGrid is Fun',
+  //   text: 'and easy to do anywhere, even with Node.js',
+  //   html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+  // }
+  // const send = async () => {
+  //   try {
+  //     await sgMail.send(msg);
+  //   } catch (error) {
+  //     console.error(error);
+  
+  //     if (error.response) {
+  //       console.error(error.response.body)
+  //     }
+  //   }
+  // };
+
+  // send()
+  // }
+  
+  // sendEmail()
 
 
 
@@ -152,6 +178,7 @@ var eventyes = ''
     return (
 <>
   <div className='navUser'>
+
   <p>{userInfo}</p><button onClick={()=>{logOut()}}>Log out</button>
     </div>       
     <div className='userButton'> 
