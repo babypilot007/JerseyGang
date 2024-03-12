@@ -400,7 +400,10 @@ font-weight: 600;
 
 .disclaimer{
   position: absolute;
-  bottom: 0;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+
   text-align: center;
   color: rgb(243, 255, 183);
   background-color: #17171a;
