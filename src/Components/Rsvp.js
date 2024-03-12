@@ -8,6 +8,7 @@ import { supabase } from '../supabaseClient';
 
 function Rsvp() {
 
+
   const navigate = useNavigate()
   
 
@@ -19,14 +20,15 @@ function Rsvp() {
 
     const[attend, showAttend] = useState(false)
 
+    const[rsvpBtn, setRsvpBtn] = useState(true)
+
+
 
     const[infoId, getInfoId] = useState('')
 
+    // const[newRsvpName, setNewRsvpName] = useState('')
 
-
-
-
-
+    // const[idforUnRsvp, setIdforUnrsvp] = useState('')
 
 
 
@@ -52,12 +54,21 @@ function Rsvp() {
       fetchData()
     }, [navigate, userId, map_users])
   
-useEffect(()=>{  const fetchData = async ()=>{
+
+useEffect(()=>{  const fetchData = async (event)=>{
   try {
     
     const response = await supabase.from('event').select('*')
-        getData(response)
 
+    const rNames = await supabase.from('event').select('Rsvp_names')
+
+        getData(response)
+        const oldArray = rNames.data[0].Rsvp_names
+        var isThere = oldArray.includes('Himalay')
+        // console.log(isThere)
+
+        if(isThere){setRsvpBtn(false)}
+      
   } catch (error) {
     getMapUsers()
   }
@@ -86,10 +97,34 @@ const setRsvp = async (event)=>{
       console.log(response)
 
           console.log(updateUser)
+
+
+          const oldArray = getRsvpUsers.data[0].Rsvp_names
+      
+          var isThere = oldArray.includes('Himalay')
+        console.log(isThere)
+        
+
+  
   } catch (error) {
   }
-  window.location.reload();
+  // window.location.reload();
+  setRsvpBtn(false)
+
 }
+
+const unRsvp = async(event)=>{
+
+  const getRsvpUsers = await supabase.from('event').select("Rsvp_names").eq('id',event)
+      console.log(getRsvpUsers.data[0].Rsvp_names)
+      const oldArray = getRsvpUsers.data[0].Rsvp_names
+
+      const newArray = oldArray.filter((item, i)=> item !== 'Himalay')
+      
+  const updateRsvpNames = await supabase.from('event').update({Rsvp_names : newArray}).eq('id',event)
+  
+      console.log(updateRsvpNames)
+} 
 
 
 const fetchRsvp = async (id)=>{
@@ -113,7 +148,6 @@ const fetchRsvp = async (id)=>{
 
 function show(){
   showAttend(!attend)
-
 }
 
   
@@ -142,10 +176,13 @@ function show(){
                          </div>
                           <br></br>
 
-                        <div><button onClick={()=>{
+                          {rsvpBtn ? <div><button onClick={()=>{
                               console.log(info.id)
-                              setRsvp(info.id)}}>RSVP</button></div>
-                  
+                              setRsvp(info.id)}}>RSVP</button></div> : <div><button onClick={()=>{
+                                console.log(info.id)
+                                unRsvp(info.id)}}>UnRSVP</button></div>}
+
+
 
                     <div className='btn_grp'>
                         <button className='details' onClick = {()=>{
