@@ -182,6 +182,7 @@ var eventyes = ''
 
   <p>{userInfo}</p><button onClick={()=>{logOut()}}>Log out</button>
     </div>       
+
     <div className='userButton'> 
     <button onClick={()=>{setMyEvent(true);setAllEvent(false);setRsvpd(false)}}>My Events
     </button> 
@@ -236,51 +237,50 @@ var eventyes = ''
       </div>:null}
 
 
-      {rsvpd ? <div className='event_details'>
+  {rsvpd ? <div className='formDiv'>
       <form className="signupform" onSubmit={createEvent}>
 
-<input
-    className="inputField"
-    type="EventName"
-    placeholder="Event Name"
-    value={eventName}
-    required={true}
-    onChange={(e) => getEventName(e.target.value)}
-  />
-<br></br>
-<input
-    className="inputField"
-    type="Username"
-    placeholder="Event Location"
-    value={location}
-    required={true}
-    onChange={(e) => getLocation(e.target.value)}
-  />
-<br></br>
-<input
-    className="inputField"
-    type="Username"
-    placeholder="Date"
-    value={eventDate}
-    required={true}
-    onChange={(e) => getEventDate(e.target.value)}
-  />
+        <input
+            className="inputField"
+            type="EventName"
+            placeholder="Event Name"
+            value={eventName}
+            required={true}
+            onChange={(e) => getEventName(e.target.value)}
+          />
+        <br></br>
+        <input
+            className="inputField"
+            type="Username"
+            placeholder="Event Location"
+            value={location}
+            required={true}
+            onChange={(e) => getLocation(e.target.value)}
+          />
+        <br></br>
+        <input
+            className="inputField"
+            type="Username"
+            placeholder="Date"
+            value={eventDate}
+            required={true}
+            onChange={(e) => getEventDate(e.target.value)}
+          />
 
-<div className='signupform_textbox' >
-<textarea rows='20' cols='20' 
-placeholder='Describe the Event'
-value={eventDescp}
-onChange={(e) => getdescp(e.target.value)}
-/>
+        <textarea rows='20' cols='20' 
+        className='inputField_textbox'
+        placeholder='Describe the Event'
+        value={eventDescp}
+        onChange={(e) => getdescp(e.target.value)
+        }
+        />
 
-</div>
-</form>
 
-      <div className='btn'>
-    <button onClick={createEvent}>
+      <button onClick={createEvent}>
              <span>create an Event</span>
           </button>
-        </div>
+
+      </form>
       </div> :null}
     </div>
     </>

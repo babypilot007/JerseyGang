@@ -388,11 +388,12 @@ font-weight: 600;
 }
 
 
-.signupform_textbox{
+.inputField_textbox{
   position: relative;
   display: flex;
-  justify-content: center;
   margin-top: 20px;
+  margin-bottom: 20px;
+  
 }
 
 .failedLogin{

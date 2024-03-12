@@ -82,9 +82,7 @@ const navigate = useNavigate()
      <div className='header'>
                         <h1>Sign Up</h1>
       </div>
-      <form>
-      {/* <iframe  src="https://cdn.forms-content-1.sg-form.com/00206797-e099-11ee-be37-16ecdcb4dee8"></iframe> */}
-      </form>
+      
       <div className='formDiv'>
         <form className="signupform" onSubmit={handleLogin}>
 
