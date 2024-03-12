@@ -1,9 +1,13 @@
 import { useState } from 'react'
 import React from 'react'
 import { supabase } from '../supabaseClient'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function SignUp() {
+
+const navigate = useNavigate()
+
   const [loading, setLoading] = useState(false)
   const [getEmail, setEmail] = useState('')
   const [getPassword, setPassword] = useState('')
@@ -43,6 +47,11 @@ export default function SignUp() {
     if (error) {
       alert(error.error_description || error.message)
     } else {
+      setEmail("")
+      setFirstName("")
+      setLastName("")
+      setPassword("")
+      setphone("")
       alert('Check your email for the login link!')
 
     }
@@ -50,14 +59,20 @@ export default function SignUp() {
 
   }
 
- 
+  function goHome(){
+
+    navigate('/')
+  }
 
 
 
 
   return (
     <>
-     
+       <div className='nav'>
+        
+        <button onClick={goHome}><p>Home</p></button>
+</div>
      <div className='signuphead'>
 
 
@@ -129,12 +144,13 @@ export default function SignUp() {
           
         </form>
         </div>
-     
      </div>
 
-      <div className='disclaimer'><p>We will <span>NEVER</span> sell your personal information to any 3rd party organisation... </p>
+     <div className='disclaimer'>
+      <p>We will <span>NEVER</span> sell your personal information to any 3rd party organisation... </p>
       <h3>We Promise</h3></div>
      
     </>
+    
   )
 }

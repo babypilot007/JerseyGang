@@ -13,6 +13,11 @@ const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
   const [getEmail, setEmail] = useState('')
   const [getPassword, setPassword] = useState('')
+  const [loginError, setLoginError] = useState(false)
+
+  const [createAcc, setCreateAcc] = useState(false)
+
+
 
   const [loginStat, setLoginStat] = useState(false)
 
@@ -27,14 +32,14 @@ const navigate = useNavigate()
       password: getPassword
       
     })
-
-
-    
     
     if (error) {
       
       setLoading(false)
-
+      setLoginError(true)
+      setCreateAcc(true)
+      setEmail("")
+      setPassword("")
 
     } else {
     setLoading(true)
@@ -57,22 +62,27 @@ const navigate = useNavigate()
 
   }
 
+  function goHome(){
+
+    navigate('/')
+  }
+
   return (
     <>
      
 
      <div className='signuphead'>
 
-     {/* <Navbar /> */}
 
      <div className='nav'>
-            {/* <button onClick={navigate('/auth')}><p>Home</p></button> */}
+        
+            <button onClick={goHome}><p>Home</p></button>
     </div>
 
      <div className='header'>
                         <h1>Login</h1>
       </div>
-
+    <div className="formDiv">
         <form className="signupform" onSubmit={handleLogin}>
 
            <input
@@ -105,7 +115,16 @@ const navigate = useNavigate()
 
           
         </form>
-     
+
+
+        </div>
+
+
+        {loginError?<div className="failedLogin"><p>User not found. Please try again or Create an Account</p></div>:null}
+
+          <div>        
+            {createAcc?<div className="formDiv"><button onClick={()=>{navigate('/signup')}}>Create Account</button></div>:null}
+</div>
      
      </div>
 
