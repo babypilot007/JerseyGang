@@ -1,6 +1,5 @@
 import { supabase } from "./supabaseClient"
 import { useNavigate} from 'react-router-dom';
-import Navbar from "./Components/Navbar";
 
 import React from 'react'
 import {useState} from 'react'
@@ -64,7 +63,11 @@ const navigate = useNavigate()
 
      <div className='signuphead'>
 
-     <Navbar />
+     {/* <Navbar /> */}
+
+     <div className='nav'>
+            {/* <button onClick={navigate('/auth')}><p>Home</p></button> */}
+    </div>
 
      <div className='header'>
                         <h1>Login</h1>

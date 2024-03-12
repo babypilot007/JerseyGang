@@ -357,20 +357,22 @@ font-weight: 600;
 
   input{
     margin-top: calc(5px + 4vw);
-    height:  calc(5px + 4vw);
-    position: relative;
+    height:  calc(5px + 4vh);
+    width:  calc(15px + 65vw);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.498);
     padding: 5px;
-    width: 60vw;
-    font-weight: 600;
+    font-weight: 500;
+    font-size: calc(5px + 4vw);
 
   }
 
   input::placeholder{
-    color: rgb(20, 7, 7);
+    color: rgb(101, 101, 101);
     font-style: italic ;
     font-weight: 500;
+    font-size: calc(5px + 4vw);
+
   }
   button{
     margin-left: 30%;
@@ -384,7 +386,20 @@ font-weight: 600;
 
 }
 
+.disclaimer{
+  margin-top: 10%;
+  margin-bottom: 0;
+  text-align: center;
+  color: rgb(243, 255, 183);
 
+  span{
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
+    font-weight: 600;
+    background-color:rgb(248, 110, 110) ;
+    padding: 2px;
+  }
+}
 
 .signuphead{
   position: relative;
