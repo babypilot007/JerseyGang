@@ -22,15 +22,15 @@ var eventInfo = Rsvp()
 
 
 
-  // const[getName, setName] = useState('')
   const[getId, setId] = useState('')
-  // const[name, getName] = useState('')
   const[userInfo, setUserInfo] = useState('')
   const[userid, getUserId] = useState('')
   const[info, setInfo] = useState('')
   const[eventName, getEventName] = useState('')
   const[location, getLocation] = useState('')
-  // const[eventDescp, getdescp] = useState('')
+  const[eventDescp, getdescp] = useState('')
+  const[eventDate, getEventDate] = useState('')
+
 
   const[foundId, setFoundId] = useState(false)
 
@@ -135,9 +135,10 @@ var eventInfo = Rsvp()
             EventLocation : location,
             UserId : getId,
             UserName : userInfo,
-            // eventDescp : eventDescp
+            Event_descp : eventDescp,
             EventName : eventName,
             Rsvp : 1,
+            EventDate: eventDate,
             Rsvp_names : [userInfo + " (Host)"],
             Rsvp_Id : [getId]
           }
@@ -185,7 +186,7 @@ var eventyes = ''
     <button onClick={()=>{setMyEvent(true);setAllEvent(false);setRsvpd(false)}}>My Events
     </button> 
     <button onClick={()=>{setMyEvent(false);setAllEvent(true);setRsvpd(false)}}>All Events</button> 
-    <button onClick={()=>{setMyEvent(false);setAllEvent(false);setRsvpd(true)}}>Rsvp'd</button> </div>
+    <button onClick={()=>{setMyEvent(false);setAllEvent(false);setRsvpd(true)}}>Create Event</button> </div>
 
     <div className='simple'>
 
@@ -202,6 +203,10 @@ var eventyes = ''
                           <h1>{inf.EventName}</h1>
                            </div>
                            <h3>{inf.EventLocation}</h3>
+                           <p>{inf.Event_descp}</p>
+                           <p>{inf.EventDate}</p>
+
+
 
                     <div className='btn_grp'>
                         <button className='details' onClick = {()=>{
@@ -220,7 +225,19 @@ var eventyes = ''
         </div>}
 
 
- <form className="signupform" onSubmit={createEvent}>
+ 
+
+      </div> :null}
+ 
+      {allEvents ? <div className='event_details'>
+      
+
+      <p>{eventInfo}</p>
+      </div>:null}
+
+
+      {rsvpd ? <div className='event_details'>
+      <form className="signupform" onSubmit={createEvent}>
 
 <input
     className="inputField"
@@ -240,6 +257,23 @@ var eventyes = ''
     onChange={(e) => getLocation(e.target.value)}
   />
 <br></br>
+<input
+    className="inputField"
+    type="Username"
+    placeholder="Date"
+    value={eventDate}
+    required={true}
+    onChange={(e) => getEventDate(e.target.value)}
+  />
+
+<div className='signupform_textbox' >
+<textarea rows='20' cols='20' 
+placeholder='Describe the Event'
+value={eventDescp}
+onChange={(e) => getdescp(e.target.value)}
+/>
+
+</div>
 </form>
 
       <div className='btn'>
@@ -247,17 +281,7 @@ var eventyes = ''
              <span>create an Event</span>
           </button>
         </div>
-
       </div> :null}
- 
-      {allEvents ? <div className='event_details'>
-      
-
-      <p>{eventInfo}</p>
-      </div>:null}
-
-
-      {rsvpd ? <div className='event_details'>{foundId ? <div>Found</div>:<div>Not Found</div>}</div> :null}
     </div>
     </>
   )
