@@ -54,6 +54,8 @@ const navigate = useNavigate()
       setphone("")
       alert('Check your email for the login link!')
 
+      navigate('/auth')
+
     }
     setLoading(false)
 
