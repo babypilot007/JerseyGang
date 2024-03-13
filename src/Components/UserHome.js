@@ -3,25 +3,27 @@ import { useState, useEffect} from 'react'
 import React from 'react'
 import { supabase } from '../supabaseClient'
 import { useNavigate} from 'react-router-dom';
-// import Events from '../events';
 import Rsvp from './Rsvp';
+// import DateTimePicker from 'react-datetime-picker';
+import 'react-datetime-picker/dist/DateTimePicker.css';
+import 'react-calendar/dist/Calendar.css';
+import 'react-clock/dist/Clock.css';
+
+
 
 
 
 
 const UserHome = () => {
 
+  
+
   const navigate = useNavigate()
-var eventInfo = Rsvp()
+  var eventInfo = Rsvp()
 
   const[myEvent, setMyEvent] = useState(true)
   const[allEvents, setAllEvent] = useState(false)
   const[rsvpd, setRsvpd] = useState(false)
-
-
-
-
-
   const[getId, setId] = useState('')
   const[userInfo, setUserInfo] = useState('')
   const[userid, getUserId] = useState('')
@@ -31,39 +33,7 @@ var eventInfo = Rsvp()
   const[eventDescp, getdescp] = useState('')
   const[eventDate, getEventDate] = useState('')
 
-
-  const[foundId, setFoundId] = useState(false)
-
-
-  // function sendEmail(){
-
-  //   const axios = require('axios')
-  //   const sgMail = require('@sendgrid/mail')
-  //   sgMail.setApiKey("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")
-  //   const msg = {
-  //   to: 'cfihimalay@gmail.com', // Change to your recipient
-  //   from: 'indianjerseygang@gmail.com', // Change to your verified sender
-  //   subject: 'Sending with SendGrid is Fun',
-  //   text: 'and easy to do anywhere, even with Node.js',
-  //   html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-  // }
-  // const send = async () => {
-  //   try {
-  //     await sgMail.send(msg);
-  //   } catch (error) {
-  //     console.error(error);
-  
-  //     if (error.response) {
-  //       console.error(error.response.body)
-  //     }
-  //   }
-  // };
-
-  // send()
-  // }
-  
-  // sendEmail()
-
+  // const [dateValue, onchange] = useState(new Date());
 
 
     useEffect(()=>{
@@ -97,9 +67,7 @@ var eventInfo = Rsvp()
           var match = response.data[0].Rsvp_Id
             if(match.includes(userid))
             {
-              setFoundId(true)
-            }else setFoundId(false)
-            console.log(response.data[0].Rsvp_Id)
+            }            console.log(response.data[0].Rsvp_Id)
             if(response.data !== null){
             setInfo(response.data)
             }
@@ -267,6 +235,8 @@ var eventyes = ''
             onChange={(e) => getEventDate(e.target.value)}
           />
 
+
+
         <textarea rows='20' cols='20' 
         className='inputField_textbox'
         placeholder='Describe the Event'
@@ -279,10 +249,14 @@ var eventyes = ''
       <button onClick={createEvent}>
              <span>create an Event</span>
           </button>
-
+          {/* <div>
+    <DateTimePicker onChange={onchange} value={''}/>
+    </div> */}
       </form>
       </div> :null}
+
     </div>
+        
     </>
   )
 

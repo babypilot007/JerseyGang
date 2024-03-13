@@ -65,7 +65,8 @@ const [data, getData] = useState('')
                                         <p>Event Created by : {info.UserName}</p>
 
                                         <div>
-                                          <p>{info.EventDescp}</p>
+                                            <h3>Event Decription</h3>
+                                          <p>{info.Event_descp}</p>
                                         </div>
 
                                     </div>
