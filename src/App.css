@@ -49,15 +49,7 @@ body {
 
 }
 
-p {
-  position: relative;
 
-}
-
-p a {
-  color: black;
-  text-decoration: none;
-}
 
 
 
@@ -211,8 +203,11 @@ font-weight: 600;
 
   }
 
- 
+}
 
+.eventDetails {
+  text-align: left;
+  margin-left: 5px;
 }
 
 .event_hover{
@@ -227,11 +222,7 @@ font-weight: 600;
   line-height: 10px;
   margin-top: 10px;
 
-  p{
-    font-size: calc(15px + 2vmin);
-    padding-left: 10px;
-    
-  }
+  
 
  
 

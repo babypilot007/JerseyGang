@@ -171,10 +171,12 @@ var eventyes = ''
                         <div className='event_header'>
                           <h1>{inf.EventName}</h1>
                            </div>
-                           <h3>{inf.EventLocation}</h3>
-                           <p>{inf.Event_descp}</p>
-                           <p>{inf.EventDate}</p>
 
+                           <div className='eventDetails'>
+                              <h3>{inf.EventLocation}</h3>
+                              <p>{inf.Event_descp}</p>
+                              <p>{inf.EventDate}</p>
+                           </div>
 
 
                     <div className='btn_grp'>

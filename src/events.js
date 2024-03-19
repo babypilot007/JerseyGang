@@ -30,7 +30,7 @@ useEffect(()=>{
                 return(
                     <div className='event_hover' key = {info.id}>
                         <div className='event_header'><h1>{info.EventName}</h1> </div>
-                        <p>{info.EventLocation}</p>
+                        <h3>{info.EventLocation}</h3>
                         RSVP'd : {info.Rsvp}
 
                     <div className='btn_grp'>
