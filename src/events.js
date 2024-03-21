@@ -39,16 +39,19 @@ useEffect(()=>{
                        
 
                     <div className='btn_grp'>
+                    <h3 className='rsvp'>Attending : {info.Rsvp}</h3>
+
                         {/* <button className='details' onClick = {()=>{
                                     console.log(info.id)
                                     navigate('details',{state:info.id})
                         }}>Details</button>  */}
-                        <h3 className='rsvp'>Attending : {info.Rsvp}</h3>
 
                         <div>
                           
-                          <h3>Created By:<br />
-                          {info.UserName}</h3 ></div>
+                          <h3>Created By : <span> {info.UserName}</span>
+                          </h3 >
+                          
+                          </div>
                      </div>   
                         </div>
                 )
