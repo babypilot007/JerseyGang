@@ -199,7 +199,7 @@ function show(){
                       <div >
                        {attend ? <div> <div>{(info.id === infoId) ?<div className='nameList'>{info.Rsvp_names.map((e,idx)=>{
                             return (<div >
-                              <br></br><li key={idx}>{e}</li></div>
+                             <li key={idx}>{e}</li></div>
                             )
                         })}</div> :null}</div>
                        </div> :null } 
@@ -213,7 +213,7 @@ function show(){
                                   console.log(info.id)
                                   navigate('/details',{state:info.id})
                       }}>Details</button> 
-                         <div className='rsvpBtn'>
+              <div className='rsvpBtn'>
                         { (info.Rsvp_Id.includes(userid)) ?    //RSVP button
                         <div> 
                           <button className='notInterested' onClick={()=>{
