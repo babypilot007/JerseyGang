@@ -2,8 +2,8 @@
   position: relative;
     font-family: 'Roboto', sans-serif;
   background-color: rgb(13, 11, 11);
-  height: 100vh;
   overflow: auto;
+  height: 100vh;
   scroll-behavior: smooth;
   }
   
@@ -62,7 +62,7 @@ button {
   cursor: pointer;
   padding: 5px;
   margin: 2px;
-  border: 0;
+  border: none;
   border-radius: 4px;
   transition: 0.4s;
 }
@@ -71,6 +71,18 @@ button {
   color: white;
   background-color: rgba(104, 85, 224, 1);
 }
+
+.reg::after {
+  position: absolute;
+  content: '';
+  background-color: rgb(255, 255, 255);
+  height: 2px;
+  margin: 22px 20px 20px -33%;
+  margin-right: 50%;
+width: 30%;
+  color: white;
+}
+
 
 .log {
   color: rgb(104, 85, 224);
@@ -121,6 +133,14 @@ button:hover {
 
 .form_btn{
   margin: 10px;
+  border-radius: 50px;
+  border: none;
+}
+
+.form_btn button{
+  margin: 10px;
+  border-radius: 50px;
+  border: none;
 }
 
 .forms{
@@ -166,10 +186,10 @@ font-weight: 600;
 
   background-color: rgb(28, 26, 26);
   color: rgb(255, 243, 243);
-  padding: 10px;
+  padding: 2px;
   border-radius: 10px;
   font-size: 18px;
-  line-height: 30px;
+  line-height: 25px;
   height: fit-content;
   position: relative;
   justify-content:  center ;
@@ -214,21 +234,9 @@ font-weight: 600;
   background-color: rgb(46, 40, 40);
   color: aliceblue;
   border-radius: 10px ;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(157, 153, 176, 0.546);
-  height: fit-content;
-  line-height: 10px;
-  margin-top: 10px;
-
-  
-
- 
-
-  :hover{
-      cursor: pointer;
-  }
-
-
+  padding: 5px;
+  box-shadow: 0 0 5px rgba(157, 153, 176, 0.546);
+  margin: 15px;
  
 }
 
@@ -238,16 +246,9 @@ font-weight: 600;
   position: relative;
   display: flex;
   justify-content: space-between;
-  width:100% ;
-  height: fit-content;
 
 
-  div{
-    position: relative;
-    width: fit-content;
-    line-height: 25px;
-    
-  }
+
 
   h2{
     font-size: calc(12px + 2vmin);
@@ -286,8 +287,7 @@ font-weight: 600;
 .details{
   width: fit-content;
   margin-top: 20px;
-  font-weight: 900;
-  padding: 5px;
+  font-weight: 600;
   border-radius: 10px;
   text-wrap: nowrap;
   height: fit-content;
@@ -433,23 +433,25 @@ font-weight: 600;
   padding: 5px 20px 10px 20px;
   display: flex;
   justify-content: space-between;
-  color: wheat;
+  color: rgb(243, 238, 227);
 
-  button{
-    color: white;
-    background-color: rgba(104, 85, 224, 1);
-  }
+ 
 }
 
 .nav{
   background-color: rgb(25, 21, 21);
   box-shadow: 0px 5px 5px #010102;
-  position: fixed;
+  position: sticky;
   z-index: 999;
   display: flex;
   justify-content:space-between ;
   font-size: medium;
-  width: 100%;
+  padding-right: 10px;
+}
+
+.nav h3{
+  margin-right: 20px;
+  color: white;
 }
 
 .navButton{
@@ -458,6 +460,7 @@ font-weight: 600;
   width: fit-content;
   height: fit-content;
   top: 10px;
+  padding-left: 10px;
 }
 
 .nav button{
@@ -557,4 +560,11 @@ font-weight: 600;
   background-color: #01010200;
   color: aliceblue;
   box-shadow: none;
+}
+
+
+.rsvp{
+  position: relative;
+  display: flex;
+  justify-content: center;
 }

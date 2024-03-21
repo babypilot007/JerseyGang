@@ -73,16 +73,14 @@ const navigate = useNavigate()
 <>
       
        <div className='nav'>
-        
-        <button onClick={goHome}><p>Home</p></button>
-        <h2>Sign up</h2>
-</div>
-     <div className='signuphead'>
+          <div className='navButton'>
+        <button className='log' onClick={goHome}>Home</button>
+        </div>
+        <h3>Sign up</h3>
+          </div>
 
 
-     <div className='header'>
-                        <h1>Sign Up</h1>
-      </div>
+
       
       <div className='formDiv'>
         <form className="signupform" onSubmit={handleLogin}>
@@ -146,7 +144,6 @@ const navigate = useNavigate()
           
         </form>
         </div>
-     </div>
 
      <div className='disclaimer'>
       <p>We will <span>NEVER</span> sell your personal information to any 3rd party organisation... </p>

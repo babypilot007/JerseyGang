@@ -201,7 +201,7 @@ var eventyes = ''
 
       </div> :null}
  
-      {allEvents ? <div className='event_details'>
+      {allEvents ? <div className=''>
       
 
       <p>{eventInfo}</p>

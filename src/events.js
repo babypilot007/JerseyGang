@@ -24,14 +24,14 @@ useEffect(()=>{
   var details = data.data
   
   if(details){
-    return (<div className='App'> 
+    return (<div className=''> 
             {details.map((info)=>{
 
                 return(
                     <div className='event_hover' key = {info.id}>
                         <div className='event_header'><h1>{info.EventName}</h1> </div>
                         <h3>{info.EventLocation}</h3>
-                        RSVP'd : {info.Rsvp}
+                        <p className='rsvp'>Attending : {info.Rsvp}</p>
 
                     <div className='btn_grp'>
                         <button className='details' onClick = {()=>{

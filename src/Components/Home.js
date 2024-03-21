@@ -7,16 +7,12 @@ import Navbar from './Navbar';
 const Home = () => {
 var eventInfo = Events()
 
-
-
   return (
 <>
 <Navbar/>
-<div className='App'>
 
-          <div className='event_backdrop'>{eventInfo}</div> 
+          <div className=''>{eventInfo}</div> 
           
-          </div>
         </>
   )
 }

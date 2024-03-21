@@ -69,15 +69,19 @@ const navigate = useNavigate()
 
   return (
     <>
+
+    
+<div className='nav'>
+     <div className="navButton">
+        <button className="log" onClick={goHome}>Home</button>
+            </div>
+                        <h3>Login</h3>
+    </div>
+     
+     
      <div className="App">
 
 
-     <div className='SignupNav'>
-     
-     <button onClick={goHome}><p>Home</p></button>
-
-                        <h3>Login</h3>
-    </div>
 
     
     <div className="formDiv">
