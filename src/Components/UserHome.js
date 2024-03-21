@@ -178,9 +178,10 @@ var eventyes = ''
                            </div>
 
                            <div className='eventDetails'>
-                              <h3>{inf.EventLocation}</h3>
-                              <p>{inf.Event_descp}</p>
-                              <p>{inf.EventDate}</p>
+                              <h3>Location : {inf.EventLocation}</h3>
+                              <p>Date : {inf.EventDate}</p>
+
+                              <p>Decription : <br></br>{inf.Event_descp}</p>
                            </div>
 
 
@@ -205,7 +206,7 @@ var eventyes = ''
 
       </div> :null}
  
-      {allEvents ? <div className='alleventDiv'>
+      {allEvents ? <div className='event_details'>
       
 
       <p>{eventInfo}</p>

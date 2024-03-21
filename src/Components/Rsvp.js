@@ -20,17 +20,13 @@ function Rsvp(userid) {
     const[attend, showAttend] = useState(false)
 
 
+    const[pressBtn, setPressBtn] = useState(0)
+
 
 
 
 
     const[infoId, getInfoId] = useState('')
-
-    // const[newRsvpName, setNewRsvpName] = useState('')
-
-    // const[idforUnRsvp, setIdforUnrsvp] = useState('')
-
-
 
     const[idForRsvp, getRsvpId] = useState('')
 
@@ -77,11 +73,15 @@ useEffect(()=>{  const fetchData = async (event)=>{
   }
 }
 fetchData()
-},[])
+},[pressBtn])
 
 console.log(idForRsvp)
 
 const setRsvp = async (event)=>{
+
+
+
+
   var count = 0
   var map_rsvp_users
   var map_rsvp_id
@@ -94,7 +94,6 @@ const setRsvp = async (event)=>{
        map_rsvp_users = getRsvpUsers.data[0].Rsvp_names
        map_rsvp_id = getRsvpId.data[0].Rsvp_Id
       count = getRsvpCount.data[0].Rsvp + 1
-      console.log(count)
       const response = await supabase.from('event').update({Rsvp : count}).eq('id',event)
       const updateUser = await supabase.from('event').update({Rsvp_names : [...map_rsvp_users,userNames]}).eq('id',event)
       const updateId = await supabase.from('event').update({Rsvp_Id : [...map_rsvp_id,userId]}).eq('id',event)
@@ -102,7 +101,8 @@ const setRsvp = async (event)=>{
       console.log(response)
 
           console.log(updateUser)
-
+          setPressBtn(2)
+          console.log(pressBtn)
 
           const oldArray = getRsvpUsers.data[0].Rsvp_names
       
@@ -122,30 +122,25 @@ const unRsvp = async(event)=>{
   const getRsvpUsers = await supabase.from('event').select("Rsvp_names").eq('id',event)
       console.log(getRsvpUsers.data[0].Rsvp_names)
       const oldArray = getRsvpUsers.data[0].Rsvp_names
-
       const newArray = oldArray.filter((item, i)=> item !== 'Himalay')
-
     const deleteRsvpId = await supabase.from('event').select("Rsvp_Id").eq('id',event)
-
           const oldRsvpIdArray = deleteRsvpId.data[0].Rsvp_Id
-
           const newRsvpIdArray = oldRsvpIdArray.filter((item,i)=> item !== userId)
-
           const updateRsvpId = await supabase.from('event').update({Rsvp_Id : newRsvpIdArray}).eq('id',event)
-
-      
   const updateRsvpNames = await supabase.from('event').update({Rsvp_names : newArray}).eq('id',event)
-  
-
   const getRsvpCount = await supabase.from('event').select('Rsvp').eq('id',event)
 
   let count = getRsvpCount.data[0].Rsvp - 1
   const response = await supabase.from('event').update({Rsvp : (count)}).eq('id',event)
   console.log(response)
-  
   console.log(updateRsvpId)
+  console.log(updateRsvpNames)
 
-      console.log(updateRsvpNames)
+  setPressBtn(2)
+
+  console.log(pressBtn)
+
+
 } 
 
 
@@ -165,12 +160,18 @@ const fetchRsvp = async (id)=>{
     )
   } catch (error) {
   }
+
+  setPressBtn(3)
+
+  console.log(pressBtn)
 }
 
 
 function show(){
   showAttend(!attend)
 }
+
+
 
   
   var details = data.data
@@ -191,16 +192,26 @@ function show(){
                       RSVP'd : {info.Rsvp}
                       <button className="listbtn" value={info.id} onClick={()=>{fetchRsvp(info.id);show()}}>Guest List</button>
 
+
+
                         { (info.Rsvp_Id.includes(userid)) ?    //RSVP button
-                        <div><button onClick={()=>{
-                          console.log(info.Rsvp_Id)
-                          unRsvp(info.id)}}>UnRSVP</button></div>
+                        <div> 
+                          <button className='notInterested' onClick={()=>{
+                          unRsvp(info.id)
+                          fetchRsvp(info.id);
+
+                          }}>Not Interested</button></div>
                        :
-                       <div><button onClick={()=>{
-                        console.log(info.id)
-                        setRsvp(info.id)}}>RSVP</button></div>
+                       <div>
+                        <button className='interested' onClick={()=>{
+                        setRsvp(info.id);
+                        fetchRsvp(info.id);
+
+                        }}>Interested</button></div>
                        }                      
                      
+
+
                       <div >
                        {attend ? <div> <div>{(info.id === infoId) ?<div className='nameList'>{info.Rsvp_names.map((e,idx)=>{
                             return (<div >
@@ -209,7 +220,6 @@ function show(){
                         })}</div> :null}</div>
                        </div> :null } 
                        </div>
-                        <br></br>
 
 
 
@@ -220,11 +230,11 @@ function show(){
                                   navigate('/details',{state:info.id})
                       }}>Details</button> 
 
-                     <div>
+                    <h3>Created By:<br />{info.UserName}</h3>
 
-
-                      <h2><span>Created By:</span><br />{info.UserName}</h2></div>
+                    
                    </div>   
+
                       </div>
               )
             }))

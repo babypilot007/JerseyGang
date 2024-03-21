@@ -143,14 +143,7 @@ button:hover {
   border: none;
 }
 
-.forms{
-  position: relative;
-  color: wheat;
-  font-size: 20px;
-  font-weight: lighter;
-  display: block;
-  
-}
+
 
 
 
@@ -184,7 +177,6 @@ font-weight: 600;
 
 .event_details{
 
-  background-color: rgb(28, 26, 26);
   color: rgb(255, 243, 243);
   padding: 2px;
   border-radius: 10px;
@@ -225,7 +217,7 @@ font-weight: 600;
 
 .eventDetails {
   text-align: left;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
 .event_hover{
@@ -246,23 +238,12 @@ font-weight: 600;
   position: relative;
   display: flex;
   justify-content: space-between;
+  padding-bottom: 5px;
+  margin-left: 10px;
 
-
-
-
-  h2{
-    font-size: calc(12px + 2vmin);
-    position: relative;
-    text-align: right;
-
-
-    
-    span{
-      font-size: small;
-
-    }
-  
-    }
+   h3{
+    font-size: medium;
+   }
  }
 
 .delete{
@@ -286,13 +267,13 @@ font-weight: 600;
 
 .details{
   width: fit-content;
-  margin-top: 20px;
   font-weight: 600;
   border-radius: 10px;
   text-wrap: nowrap;
   height: fit-content;
   border: 3px solid  rgb(113, 42, 42);
   font-size: calc(15px + .5vmin);
+  margin-top:20px;
 }
 
 
@@ -600,8 +581,8 @@ font-weight: 600;
   margin-top: 120px;
 }
 
-.alleventDiv{
-  padding: 10px;
+.event{
+  margin-top: 20px
 }
 
 
@@ -610,4 +591,17 @@ font-weight: 600;
   box-shadow: 0 0 20px rgba(53, 21, 21, 0.546);
   background-color: rgb(49, 12, 12);
   border: 2px solid rgb(255, 255, 255);
+}
+
+.notInterested{
+  background-color: rgb(243, 74, 74);
+  color: white;
+  padding: 10px;
+}
+
+.interested{
+  background-color: green;
+  color: white;
+  padding: 10px;
+
 }
