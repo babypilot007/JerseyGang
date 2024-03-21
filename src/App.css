@@ -231,6 +231,8 @@ font-weight: 600;
   margin: 15px 15px 15px 15px;
   
   p{
+    padding-left: 20px;
+    text-align: left;
   }
 
 }
@@ -592,6 +594,7 @@ font-weight: 600;
   position: relative;
   display: flex;
   justify-content: center;
+  padding-left: 20px;
 }
 
 .simple{
