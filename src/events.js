@@ -25,12 +25,15 @@ useEffect(()=>{
   
   if(details){
     return (<div className=''> 
+            <p>Please <span> Login</span> or <span>Sign Up</span> to Rsvp</p>
             {details.map((info)=>{
 
                 return(
                     <div className='event_hover' key = {info.id}>
                         <div className='event_header'><h1>{info.EventName}</h1> </div>
-                        <h3>{info.EventLocation}</h3>
+                        
+                        <h3> Location : {info.EventLocation}</h3>
+                       
                         <p className='rsvp'>Attending : {info.Rsvp}</p>
 
                     <div className='btn_grp'>
@@ -38,10 +41,9 @@ useEffect(()=>{
                                     console.log(info.id)
                                     navigate('details',{state:info.id})
                         }}>Details</button> 
-                        <button className='details' onClick = {()=>{
-                                    console.log(info.id)
-                                    navigate('/rsvp')
-                        }}>RSVP</button><div><h2><span>Created By:</span><br />{info.UserName}</h2></div>
+                        <div>
+                          <h3>Created By:<br />
+                          {info.UserName}</h3 ></div>
                      </div>   
                         </div>
                 )

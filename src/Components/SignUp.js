@@ -144,9 +144,9 @@ const navigate = useNavigate()
         </form>
         </div>
 
-     <div className='disclaimer'>
+     {/* <div className='disclaimer'>
       <p>We will <span>NEVER</span> sell your personal information to any 3rd party organisation... </p>
-      <h3>We Promise</h3></div>
+      <p>We Promise </p></div> */}
     
       </>
   )

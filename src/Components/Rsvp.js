@@ -189,8 +189,8 @@ function show(){
                       <div className='event_header'>
                         <h1>{info.EventName}</h1> </div>
                         <p>{info.EventLocation}</p>
-                      RSVP'd : {info.Rsvp}
-                      <button className="listbtn" value={info.id} onClick={()=>{fetchRsvp(info.id);show()}}>Guest List</button>
+                      Attending : {info.Rsvp}
+                      <br></br><button className="listbtn" value={info.id} onClick={()=>{fetchRsvp(info.id);show()}}>Guest List</button>
 
 
                      
@@ -220,14 +220,14 @@ function show(){
                           unRsvp(info.id)
                           fetchRsvp(info.id);
 
-                          }}>Not going</button></div>
+                          }}>Cancel RSVP</button></div>
                        :
                        <div>
                         <button className='interested' onClick={()=>{
                         setRsvp(info.id);
                         fetchRsvp(info.id);
 
-                        }}>Going</button></div>
+                        }}>Want to attend</button></div>
                        }                      
                      </div>
 

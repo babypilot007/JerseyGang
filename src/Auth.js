@@ -79,12 +79,9 @@ const navigate = useNavigate()
     </div>
      
      
-     <div className="App">
-
-
+     <div className="formDiv">
 
     
-    <div className="formDiv">
         <form className="signupform" onSubmit={handleLogin}>
 
            <input
@@ -119,7 +116,6 @@ const navigate = useNavigate()
         </form>
 
 
-        </div>
 
 
         {loginError?<div className="failedLogin"><p>User not found. Please try again or Create an Account</p></div>:null}

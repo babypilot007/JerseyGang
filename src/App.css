@@ -228,8 +228,11 @@ font-weight: 600;
   border-radius: 10px ;
   padding: 5px;
   box-shadow: 0 0 5px rgba(157, 153, 176, 0.546);
-  margin: 15px;
- 
+  margin: 15px 15px 15px 15px;
+  
+  p{
+  }
+
 }
 
 
@@ -238,7 +241,6 @@ font-weight: 600;
   position: relative;
   display: flex;
   justify-content: space-between;
-
    h3{
     font-size: medium;
    }
@@ -308,7 +310,7 @@ font-weight: 600;
   position: relative;
   display: flex;
   justify-content: center;
-  
+  top:20%;
 }
 
 .signupform{
@@ -393,15 +395,13 @@ font-weight: 600;
 }
 
 .disclaimer{
-  position: relative;
-  display: block;
-  justify-content:center ;
+  position: fixed;
   text-align: center;
   color: rgb(253, 254, 251);
   background-color: #17171a;
   padding: 5px;
-  margin-top: 30px;  
-
+  bottom: 0;
+  width: 99vw;
  
 }
 
@@ -606,6 +606,18 @@ font-weight: 600;
   padding: 10px;
   border-radius: 50px;
   font-size: medium;
+
+  
+}
+
+.notInterested:focus{
+  background-color: rgb(243, 74, 74);
+  color: white;
+  padding: 10px;
+  border-radius: 50px;
+  font-size: medium;
+
+  
 }
 
 .interested{
@@ -614,7 +626,12 @@ font-weight: 600;
   padding: 10px;
   border-radius: 50px;
   font-size: medium;
+}
 
-
-
+.interested:focus{
+  background-color: green;
+  color: white;
+  padding: 10px;
+  border-radius: 50px;
+  font-size: medium;
 }
