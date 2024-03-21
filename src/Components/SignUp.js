@@ -13,7 +13,7 @@ const navigate = useNavigate()
   const [getPassword, setPassword] = useState('')
   const [getFirstName, setFirstName] = useState('')
   const [getLastName, setLastName] = useState('')
-  const [getphone, setphone] = useState('')
+  // const [getphone, setphone] = useState('')
 
 
 
@@ -51,7 +51,7 @@ const navigate = useNavigate()
       setFirstName("")
       setLastName("")
       setPassword("")
-      setphone("")
+      // setphone("")
       alert('Check your email for the login link!')
 
       navigate('/auth')
@@ -102,7 +102,7 @@ const navigate = useNavigate()
               onChange={(e) => setLastName(e.target.value)}
             />
         <br></br>
-        <input
+        {/* <input
               className="inputField"
               type="Phone"
               placeholder="phone"
@@ -110,7 +110,7 @@ const navigate = useNavigate()
               required={true}
               onChange={(e) => setphone(e.target.value)}
             />
-        <br></br>
+        <br></br> */}
 
            <input
               className="inputField"
