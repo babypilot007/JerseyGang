@@ -69,19 +69,17 @@ const navigate = useNavigate()
 
   return (
     <>
+     <div className="App">
+
+
+     <div className='SignupNav'>
      
+     <button onClick={goHome}><p>Home</p></button>
 
-     <div className='signuphead'>
-
-
-     <div className='nav'>
-        
-            <button onClick={goHome}><p>Home</p></button>
+                        <h3>Login</h3>
     </div>
 
-     <div className='header'>
-                        <h1>Login</h1>
-      </div>
+    
     <div className="formDiv">
         <form className="signupform" onSubmit={handleLogin}>
 
@@ -126,9 +124,8 @@ const navigate = useNavigate()
             {createAcc?<div className="formDiv"><button onClick={()=>{navigate('/signup')}}>Create Account</button></div>:null}
 </div>
      
-     </div>
 
-        
+     </div>
      
     </>
   )

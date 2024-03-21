@@ -24,8 +24,8 @@ useEffect(()=>{
   var details = data.data
   
   if(details){
-    return ( 
-            details.map((info)=>{
+    return (<div className='App'> 
+            {details.map((info)=>{
 
                 return(
                     <div className='event_hover' key = {info.id}>
@@ -45,7 +45,10 @@ useEffect(()=>{
                      </div>   
                         </div>
                 )
-            }))
+                
+            })}
+           </div> 
+            )
 
 }else return  (
         <div  className='event_details'>No Events

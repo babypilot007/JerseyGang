@@ -75,6 +75,7 @@ const navigate = useNavigate()
        <div className='nav'>
         
         <button onClick={goHome}><p>Home</p></button>
+        <h2>Sign up</h2>
 </div>
      <div className='signuphead'>
 

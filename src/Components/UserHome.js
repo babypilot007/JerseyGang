@@ -19,7 +19,6 @@ const UserHome = () => {
   
 
   const navigate = useNavigate()
-  var eventInfo = Rsvp()
 
   const[myEvent, setMyEvent] = useState(true)
   const[allEvents, setAllEvent] = useState(false)
@@ -57,6 +56,8 @@ const UserHome = () => {
     loggedIn()
 
   }, [navigate])
+
+  var eventInfo = Rsvp(userid)
 
 
   useEffect(()=>{

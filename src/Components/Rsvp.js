@@ -6,8 +6,7 @@ import { supabase } from '../supabaseClient';
 
 
 
-function Rsvp() {
-
+function Rsvp(userid) {
 
   const navigate = useNavigate()
   
@@ -20,7 +19,8 @@ function Rsvp() {
 
     const[attend, showAttend] = useState(false)
 
-    const[rsvpBtn, setRsvpBtn] = useState(true)
+
+
 
 
 
@@ -32,6 +32,7 @@ function Rsvp() {
 
 
 
+    const[idForRsvp, getRsvpId] = useState('')
 
 
 
@@ -60,14 +61,17 @@ useEffect(()=>{  const fetchData = async (event)=>{
     
     const response = await supabase.from('event').select('*')
 
-    const rNames = await supabase.from('event').select('Rsvp_names')
+    const rNames = await supabase.from('event').select('Rsvp_Id')
 
+        getRsvpId(rNames.data[0].Rsvp_Id)
+        
+
+       
         getData(response)
-        const oldArray = rNames.data[0].Rsvp_names
-        var isThere = oldArray.includes('Himalay')
-        // console.log(isThere)
+         
 
-        if(isThere){setRsvpBtn(false)}
+
+      
       
   } catch (error) {
     getMapUsers()
@@ -76,7 +80,7 @@ useEffect(()=>{  const fetchData = async (event)=>{
 fetchData()
 },[])
 
-
+console.log(idForRsvp)
 
 const setRsvp = async (event)=>{
   var count = 0
@@ -86,6 +90,8 @@ const setRsvp = async (event)=>{
       const getRsvpCount = await supabase.from('event').select('Rsvp').eq('id',event)
       const getRsvpUsers = await supabase.from('event').select('Rsvp_names').eq('id',event)
       const getRsvpId = await supabase.from('event').select('Rsvp_Id').eq('id',event)
+
+
        map_rsvp_users = getRsvpUsers.data[0].Rsvp_names
        map_rsvp_id = getRsvpId.data[0].Rsvp_Id
       count = getRsvpCount.data[0].Rsvp + 1
@@ -109,7 +115,6 @@ const setRsvp = async (event)=>{
   } catch (error) {
   }
   // window.location.reload();
-  setRsvpBtn(false)
 
 }
 
@@ -120,9 +125,27 @@ const unRsvp = async(event)=>{
       const oldArray = getRsvpUsers.data[0].Rsvp_names
 
       const newArray = oldArray.filter((item, i)=> item !== 'Himalay')
+
+    const deleteRsvpId = await supabase.from('event').select("Rsvp_Id").eq('id',event)
+
+          const oldRsvpIdArray = deleteRsvpId.data[0].Rsvp_Id
+
+          const newRsvpIdArray = oldRsvpIdArray.filter((item,i)=> item !== userId)
+
+          const updateRsvpId = await supabase.from('event').update({Rsvp_Id : newRsvpIdArray}).eq('id',event)
+
       
   const updateRsvpNames = await supabase.from('event').update({Rsvp_names : newArray}).eq('id',event)
   
+
+  const getRsvpCount = await supabase.from('event').select('Rsvp').eq('id',event)
+
+  let count = getRsvpCount.data[0].Rsvp - 1
+  const response = await supabase.from('event').update({Rsvp : (count)}).eq('id',event)
+  console.log(response)
+  
+  console.log(updateRsvpId)
+
       console.log(updateRsvpNames)
 } 
 
@@ -165,6 +188,15 @@ function show(){
                         RSVP'd : {info.Rsvp}
                         <button className="listbtn" value={info.id} onClick={()=>{fetchRsvp(info.id);show()}}>Guest List</button>
 
+                          { (info.Rsvp_Id.includes(userid)) ?    //RSVP button
+                          <div><button onClick={()=>{
+                            console.log(info.Rsvp_Id)
+                            unRsvp(info.id)}}>UnRSVP</button></div>
+                         :
+                         <div><button onClick={()=>{
+                          console.log(info.id)
+                          setRsvp(info.id)}}>RSVP</button></div>
+                         }                      
                        
                         <div >
                          {attend ? <div> <div>{(info.id === infoId) ?<div className='nameList'>{info.Rsvp_names.map((e,idx)=>{
@@ -176,11 +208,6 @@ function show(){
                          </div>
                           <br></br>
 
-                          {rsvpBtn ? <div><button onClick={()=>{
-                              console.log(info.id)
-                              setRsvp(info.id)}}>RSVP</button></div> : <div><button onClick={()=>{
-                                console.log(info.id)
-                                unRsvp(info.id)}}>UnRSVP</button></div>}
 
 
 
