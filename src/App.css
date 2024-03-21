@@ -238,8 +238,6 @@ font-weight: 600;
   position: relative;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 5px;
-  margin-left: 10px;
 
    h3{
     font-size: medium;
@@ -355,6 +353,7 @@ font-weight: 600;
   font-size: calc(5px + 4vw);
   background-color: rgba(0, 0, 0, 0);
   color: white;
+  border: solid rgb(255, 255, 255);
 }
 
 .signupform input::placeholder{
@@ -362,6 +361,7 @@ font-weight: 600;
   font-style: italic ;
   font-weight: 500;
   font-size: calc(5px + 4vw);
+  
 
 }
 
@@ -376,6 +376,7 @@ font-weight: 600;
   font-weight: 400;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   width:  calc(12px + 65vw);
+  border: solid rgb(255, 255, 255);
   
 }
 
@@ -593,15 +594,26 @@ font-weight: 600;
   border: 2px solid rgb(255, 255, 255);
 }
 
+.rsvpBtn{
+  z-index: 3;
+  margin-top:15px;
+}
+
 .notInterested{
   background-color: rgb(243, 74, 74);
   color: white;
   padding: 10px;
+  border-radius: 50px;
+  font-size: medium;
 }
 
 .interested{
   background-color: green;
   color: white;
   padding: 10px;
+  border-radius: 50px;
+  font-size: medium;
+
+
 
 }

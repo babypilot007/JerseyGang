@@ -55,9 +55,9 @@ function Rsvp(userid) {
 useEffect(()=>{  const fetchData = async (event)=>{
   try {
     
-    const response = await supabase.from('event').select('*')
+    const response = await supabase.from('event').select('*').order('id', {Ascending: false })
 
-    const rNames = await supabase.from('event').select('Rsvp_Id')
+    const rNames = await supabase.from('event').select('Rsvp_Id').order('id', {Ascending: false })
 
         getRsvpId(rNames.data[0].Rsvp_Id)
         
@@ -193,22 +193,6 @@ function show(){
                       <button className="listbtn" value={info.id} onClick={()=>{fetchRsvp(info.id);show()}}>Guest List</button>
 
 
-
-                        { (info.Rsvp_Id.includes(userid)) ?    //RSVP button
-                        <div> 
-                          <button className='notInterested' onClick={()=>{
-                          unRsvp(info.id)
-                          fetchRsvp(info.id);
-
-                          }}>Not Interested</button></div>
-                       :
-                       <div>
-                        <button className='interested' onClick={()=>{
-                        setRsvp(info.id);
-                        fetchRsvp(info.id);
-
-                        }}>Interested</button></div>
-                       }                      
                      
 
 
@@ -229,6 +213,23 @@ function show(){
                                   console.log(info.id)
                                   navigate('/details',{state:info.id})
                       }}>Details</button> 
+                         <div className='rsvpBtn'>
+                        { (info.Rsvp_Id.includes(userid)) ?    //RSVP button
+                        <div> 
+                          <button className='notInterested' onClick={()=>{
+                          unRsvp(info.id)
+                          fetchRsvp(info.id);
+
+                          }}>Not going</button></div>
+                       :
+                       <div>
+                        <button className='interested' onClick={()=>{
+                        setRsvp(info.id);
+                        fetchRsvp(info.id);
+
+                        }}>Going</button></div>
+                       }                      
+                     </div>
 
                     <h3>Created By:<br />{info.UserName}</h3>
 
