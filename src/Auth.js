@@ -107,10 +107,11 @@ const navigate = useNavigate()
   <br></br>
 
   
-         
-            <button className='form_btn' disabled={loading} >
-              {loading ? <span>Loading</span> : <span>Log me in</span>}
-            </button>
+         {loading ? <div>
+          <button >Loading</button>
+         </div> : <div>
+         <button className='form_btn' disabled={loading} >Log Me In</button></div>}
+           
 
           
         </form>
@@ -120,9 +121,9 @@ const navigate = useNavigate()
 
         {loginError?<div className="failedLogin"><p>User not found. Please try again or Create an Account</p></div>:null}
 
-          <div>        
-            {createAcc?<div className="formDiv"><button onClick={()=>{navigate('/signup')}}>Create Account</button></div>:null}
-</div>
+          <div >        
+            {createAcc?<div className="createAct" ><button  onClick={()=>{navigate('/signup')}}>Create Account</button></div>:null}
+         </div>
      
 
      </div>

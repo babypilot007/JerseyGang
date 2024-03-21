@@ -132,9 +132,9 @@ button:hover {
 }
 
 .form_btn{
-  margin: 10px;
   border-radius: 50px;
   border: none;
+  font-weight: 100;
 }
 
 .form_btn button{
@@ -308,10 +308,25 @@ font-weight: 600;
 
 .formDiv{
   position: relative;
-  display: flex;
+  display: block;
   justify-content: center;
   top:20%;
+
 }
+
+.createAct{
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+   button{
+    border-radius: 50px;
+    padding: 10px;
+    font-weight: 600;
+   }
+}
+
+
 
 .signupform{
   position: relative;
@@ -347,7 +362,7 @@ font-weight: 600;
 .signupform input{
   margin-top: calc(5px + 4vw);
   height:  calc(5px + 4vh);
-  width:  calc(15px + 65vw);
+  width:  calc(60px + 65vw);
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.498);
   padding: 5px;
