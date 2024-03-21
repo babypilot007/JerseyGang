@@ -394,7 +394,7 @@ font-weight: 600;
   color: white;
   font-weight: 400;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  width:  calc(12px + 65vw);
+  width:  calc(13vw + 65vw);
   border: solid rgb(255, 255, 255);
   
 }
