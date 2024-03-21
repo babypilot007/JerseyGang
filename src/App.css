@@ -149,7 +149,7 @@ button:hover {
   font-size: 20px;
   font-weight: lighter;
   display: block;
-
+  
 }
 
 
@@ -194,7 +194,7 @@ font-weight: 600;
   position: relative;
   justify-content:  center ;
   text-align: center;
-  margin: 10px;
+  margin-top: 80px;
    
 }
 
@@ -346,13 +346,15 @@ font-weight: 600;
 
 
 .signupform button{
-  margin-left: 30%;
+  margin-left: calc(18vw + 1vw);
+
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.498);
-  margin-bottom: 30px;
-  width: calc(40%);
+  width: calc(50%);
   font-size: calc(10px + 1vw);
   font-weight: 800;
-  padding: 10px;
+  padding: 5px;
+  height: 40px;
+  border-radius: 50px;
 }
 
 .signupform button:hover{
@@ -388,6 +390,11 @@ font-weight: 600;
   display: flex;
   margin-top: 20px;
   margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  font-weight: 400;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  width:  calc(12px + 65vw);
   
 }
 
@@ -441,12 +448,13 @@ font-weight: 600;
 .nav{
   background-color: rgb(25, 21, 21);
   box-shadow: 0px 5px 5px #010102;
-  position: sticky;
+  position: fixed;
   z-index: 999;
   display: flex;
   justify-content:space-between ;
   font-size: medium;
   padding-right: 10px;
+  width: 100vw;
 }
 
 .nav h3{
@@ -493,8 +501,13 @@ font-weight: 600;
 }
 
 .navUser{
+  position: fixed;
+  width: 100vw;
+
   color: white;
-  background-color: rgba(0, 0, 0, 0.568);
+  background-color: rgb(25, 21, 21);
+  z-index: 999;
+
   box-shadow: 0px 5px 5px #010102;
   border-radius: 5px;
   margin: 0;
@@ -516,20 +529,34 @@ font-weight: 600;
    button:hover{
     color: white;
    }
+
+   p{
+    margin-right: 10px;
+   }
 }
 
 
 .userButton{
 
     display: flex;
-    position: relative;
-    margin-top: 40px;
+    position: fixed;
+    margin-top: 50px;
     justify-content: space-evenly;
+    width: 100vw;
+    z-index: 999;
+    height: fit-content ;  
+    background-color: #07030397;
+    padding-top: 20px;
+    padding-bottom: 10px;
 
     button{
-        width: 100px;
-        padding: 10px;
-      }
+      height: 40px;
+      width: 100px;
+    }
+}
+
+.userButton button:focus{
+  height: 40px;
 }
 
 .btn{
@@ -567,4 +594,20 @@ font-weight: 600;
   position: relative;
   display: flex;
   justify-content: center;
+}
+
+.simple{
+  margin-top: 120px;
+}
+
+.alleventDiv{
+  padding: 10px;
+}
+
+
+.myeventBtn[myBtn='0']{
+  color: white;
+  box-shadow: 0 0 20px rgba(53, 21, 21, 0.546);
+  background-color: rgb(49, 12, 12);
+  border: 2px solid rgb(255, 255, 255);
 }

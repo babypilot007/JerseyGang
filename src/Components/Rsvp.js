@@ -65,8 +65,7 @@ useEffect(()=>{  const fetchData = async (event)=>{
 
         getRsvpId(rNames.data[0].Rsvp_Id)
         
-
-       
+      
         getData(response)
          
 
@@ -180,51 +179,56 @@ function show(){
   if(details !== undefined){
     return ( 
             details.map((info,ind)=>{
-                return(
-                    <div className='event_hover' key = {ind}>
-                        <div className='event_header'>
-                          <h1>{info.EventName}</h1> </div>
-                          <p>{info.EventLocation}</p>
-                        RSVP'd : {info.Rsvp}
-                        <button className="listbtn" value={info.id} onClick={()=>{fetchRsvp(info.id);show()}}>Guest List</button>
+                
+                  if(info.UserId === userId)
+                  {
+                    return null
+                } else return(
+                  <div className='event_hover' key = {ind}>
+                      <div className='event_header'>
+                        <h1>{info.EventName}</h1> </div>
+                        <p>{info.EventLocation}</p>
+                      RSVP'd : {info.Rsvp}
+                      <button className="listbtn" value={info.id} onClick={()=>{fetchRsvp(info.id);show()}}>Guest List</button>
 
-                          { (info.Rsvp_Id.includes(userid)) ?    //RSVP button
-                          <div><button onClick={()=>{
-                            console.log(info.Rsvp_Id)
-                            unRsvp(info.id)}}>UnRSVP</button></div>
-                         :
-                         <div><button onClick={()=>{
-                          console.log(info.id)
-                          setRsvp(info.id)}}>RSVP</button></div>
-                         }                      
-                       
-                        <div >
-                         {attend ? <div> <div>{(info.id === infoId) ?<div className='nameList'>{info.Rsvp_names.map((e,idx)=>{
-                              return (<div >
-                                <br></br><li key={idx}>{e}</li></div>
-                              )
-                          })}</div> :null}</div>
-                         </div> :null } 
-                         </div>
-                          <br></br>
-
-
-
-
-                    <div className='btn_grp'>
-                        <button className='details' onClick = {()=>{
-                                    console.log(info.id)
-                                    navigate('/details',{state:info.id})
-                        }}>Details</button> 
-
-                       <div>
+                        { (info.Rsvp_Id.includes(userid)) ?    //RSVP button
+                        <div><button onClick={()=>{
+                          console.log(info.Rsvp_Id)
+                          unRsvp(info.id)}}>UnRSVP</button></div>
+                       :
+                       <div><button onClick={()=>{
+                        console.log(info.id)
+                        setRsvp(info.id)}}>RSVP</button></div>
+                       }                      
+                     
+                      <div >
+                       {attend ? <div> <div>{(info.id === infoId) ?<div className='nameList'>{info.Rsvp_names.map((e,idx)=>{
+                            return (<div >
+                              <br></br><li key={idx}>{e}</li></div>
+                            )
+                        })}</div> :null}</div>
+                       </div> :null } 
+                       </div>
+                        <br></br>
 
 
-                        <h2><span>Created By:</span><br />{info.UserName}</h2></div>
-                     </div>   
-                        </div>
-                )
+
+
+                  <div className='btn_grp'>
+                      <button className='details' onClick = {()=>{
+                                  console.log(info.id)
+                                  navigate('/details',{state:info.id})
+                      }}>Details</button> 
+
+                     <div>
+
+
+                      <h2><span>Created By:</span><br />{info.UserName}</h2></div>
+                   </div>   
+                      </div>
+              )
             }))
+
 
 }else return  (
         <div  className='event_details'>No Events

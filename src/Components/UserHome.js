@@ -32,6 +32,9 @@ const UserHome = () => {
   const[eventDescp, getdescp] = useState('')
   const[eventDate, getEventDate] = useState('')
 
+  const[onRefresh, setRefresh] = useState(0)
+
+
   // const [dateValue, onchange] = useState(new Date());
 
 
@@ -149,15 +152,16 @@ var eventyes = ''
 <>
   <div className='navUser'>
 
-  <p>{userInfo}</p><button onClick={()=>{logOut()}}>Log out</button>
+  <p>{userInfo} </p><button onClick={()=>{logOut()}}>Log out</button>
     </div>       
 
     <div className='userButton'> 
-    <button onClick={()=>{setMyEvent(true);setAllEvent(false);setRsvpd(false)}}>My Events
+    <button  className="myeventBtn" myBtn = {onRefresh} onClick={()=>{setMyEvent(true);setAllEvent(false);setRsvpd(false)}}>My Events
     </button> 
-    <button onClick={()=>{setMyEvent(false);setAllEvent(true);setRsvpd(false)}}>All Events</button> 
-    <button onClick={()=>{setMyEvent(false);setAllEvent(false);setRsvpd(true)}}>Create Event</button> </div>
-
+    <button onClick={()=>{setMyEvent(false);setAllEvent(true);setRsvpd(false);setRefresh(1)}}>All Events</button> 
+    <button onClick={()=>{setMyEvent(false);setAllEvent(false);setRsvpd(true)}}>Create Event</button> 
+    </div>
+  
     <div className='simple'>
 
     {myEvent ? 
@@ -201,7 +205,7 @@ var eventyes = ''
 
       </div> :null}
  
-      {allEvents ? <div className=''>
+      {allEvents ? <div className='alleventDiv'>
       
 
       <p>{eventInfo}</p>
@@ -244,17 +248,15 @@ var eventyes = ''
         className='inputField_textbox'
         placeholder='Describe the Event'
         value={eventDescp}
+        required={true}
         onChange={(e) => getdescp(e.target.value)
         }
         />
 
 
-      <button onClick={createEvent}>
-             <span>create an Event</span>
-          </button>
-          {/* <div>
-    <DateTimePicker onChange={onchange} value={''}/>
-    </div> */}
+      <button>
+             create an Event
+         </button>
       </form>
       </div> :null}
 

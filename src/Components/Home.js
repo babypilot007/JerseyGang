@@ -11,7 +11,7 @@ var eventInfo = Events()
 <>
 <Navbar/>
 
-          <div className=''>{eventInfo}</div> 
+          <div className='event_details'>{eventInfo}</div> 
           
         </>
   )

@@ -81,7 +81,6 @@ const navigate = useNavigate()
 
 
 
-      
       <div className='formDiv'>
         <form className="signupform" onSubmit={handleLogin}>
 
@@ -148,6 +147,7 @@ const navigate = useNavigate()
      <div className='disclaimer'>
       <p>We will <span>NEVER</span> sell your personal information to any 3rd party organisation... </p>
       <h3>We Promise</h3></div>
-    </>
+    
+      </>
   )
 }
