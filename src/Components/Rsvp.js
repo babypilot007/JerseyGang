@@ -19,6 +19,9 @@ function Rsvp(userid) {
 
     const[attend, showAttend] = useState(false)
 
+    const[showDets, setShowDets] = useState(false)
+
+
 
     const[pressBtn, setPressBtn] = useState(0)
 
@@ -122,10 +125,13 @@ const unRsvp = async(event)=>{
   const getRsvpUsers = await supabase.from('event').select("Rsvp_names").eq('id',event)
       console.log(getRsvpUsers.data[0].Rsvp_names)
       const oldArray = getRsvpUsers.data[0].Rsvp_names
-      const newArray = oldArray.filter((item, i)=> item !== 'Himalay')
+      const newArray = oldArray.filter((item, i)=> item !== userNames)
     const deleteRsvpId = await supabase.from('event').select("Rsvp_Id").eq('id',event)
+
           const oldRsvpIdArray = deleteRsvpId.data[0].Rsvp_Id
+
           const newRsvpIdArray = oldRsvpIdArray.filter((item,i)=> item !== userId)
+
           const updateRsvpId = await supabase.from('event').update({Rsvp_Id : newRsvpIdArray}).eq('id',event)
   const updateRsvpNames = await supabase.from('event').update({Rsvp_names : newArray}).eq('id',event)
   const getRsvpCount = await supabase.from('event').select('Rsvp').eq('id',event)
@@ -171,6 +177,12 @@ function show(){
   showAttend(!attend)
 }
 
+function dets()
+{
+  setShowDets(!showDets)
+
+}
+
 
 
   
@@ -209,10 +221,14 @@ function show(){
 
 
                   <div className='btn_grp'>
+
                       <button className='details' onClick = {()=>{
-                                  console.log(info.id)
-                                  navigate('/details',{state:info.id})
+                        dets()
                       }}>Details</button> 
+
+                 
+
+
               <div className='rsvpBtn'>
                         { (info.Rsvp_Id.includes(userid)) ?    //RSVP button
                         <div> 
@@ -231,11 +247,16 @@ function show(){
                        }                      
                      </div>
 
-                    <h3>Created By:<br />{info.UserName}</h3>
 
                     
                    </div>   
-
+                   {showDets ?
+                              <div className='evnt_details'>
+                                <p>Date : {info.EventDate}</p>
+                                <p>Time : {info.EventTime}</p>
+                                    <h3>Event Decription</h3>
+                                  <p>{info.Event_descp}</p>
+                            </div>:null }
                       </div>
               )
             }))

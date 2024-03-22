@@ -156,7 +156,7 @@ var eventyes = ''
     </div>       
 
     <div className='userButton'> 
-    <button  className="myeventBtn" myBtn = {onRefresh} onClick={()=>{setMyEvent(true);setAllEvent(false);setRsvpd(false)}}>My Events
+    <button  className="myeventBtn" mybtn = {onRefresh} onClick={()=>{setMyEvent(true);setAllEvent(false);setRsvpd(false)}}>My Events
     </button> 
     <button onClick={()=>{setMyEvent(false);setAllEvent(true);setRsvpd(false);setRefresh(1)}}>All Events</button> 
     <button onClick={()=>{setMyEvent(false);setAllEvent(false);setRsvpd(true)}}>Create Event</button> 

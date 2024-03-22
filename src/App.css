@@ -245,7 +245,7 @@ font-weight: 600;
   justify-content: space-between;
   border: solid black 1px;
   margin-top: 5px;
-  padding: 5px;
+  padding: 10px;
   border-radius: 20px;
 
    h3{
@@ -281,7 +281,6 @@ font-weight: 600;
   height: fit-content;
   border: 3px solid  rgb(113, 42, 42);
   font-size: calc(15px + .5vmin);
-  margin-top:20px;
 }
 
 
@@ -617,7 +616,7 @@ font-weight: 600;
 }
 
 
-.myeventBtn[myBtn='0']{
+.myeventBtn[mybtn='0']{
   color: white;
   box-shadow: 0 0 20px rgba(53, 21, 21, 0.546);
   background-color: rgb(49, 12, 12);
@@ -626,7 +625,6 @@ font-weight: 600;
 
 .rsvpBtn{
   z-index: 3;
-  margin-top:15px;
 }
 
 .notInterested{
@@ -635,7 +633,7 @@ font-weight: 600;
   padding: 10px;
   border-radius: 50px;
   font-size: medium;
-
+  border: solid wheat 1px;
   
 }
 
@@ -655,6 +653,8 @@ font-weight: 600;
   padding: 10px;
   border-radius: 50px;
   font-size: medium;
+  border: solid wheat 1px;
+
 }
 
 .interested:focus{
