@@ -255,7 +255,7 @@ var eventyes = ''
         />
 
 
-      <button>
+      <button type='submit'>
              create an Event
          </button>
       </form>

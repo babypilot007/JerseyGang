@@ -222,7 +222,8 @@ function dets()
 
                   <div className='btn_grp'>
 
-                      <button className='details' onClick = {()=>{
+                      <button className='details' value={info.id} onClick = {()=>{
+                        fetchRsvp(info.id)
                         dets()
                       }}>Details</button> 
 
