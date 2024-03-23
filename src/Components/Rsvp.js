@@ -31,7 +31,6 @@ function Rsvp(userid) {
 
     const[infoId, getInfoId] = useState('')
 
-    const[idForRsvp, getRsvpId] = useState('')
 
 
 
@@ -60,9 +59,7 @@ useEffect(()=>{  const fetchData = async (event)=>{
     
     const response = await supabase.from('event').select('*').order('id', {Ascending: false })
 
-    const rNames = await supabase.from('event').select('Rsvp_Id').order('id', {Ascending: false })
 
-        getRsvpId(rNames.data[0].Rsvp_Id)
         
       
         getData(response)
@@ -78,7 +75,6 @@ useEffect(()=>{  const fetchData = async (event)=>{
 fetchData()
 },[pressBtn])
 
-console.log(idForRsvp)
 
 const setRsvp = async (event)=>{
 
@@ -144,7 +140,6 @@ const unRsvp = async(event)=>{
 
   setPressBtn(2)
 
-  console.log(pressBtn)
 
 
 } 
@@ -169,7 +164,6 @@ const fetchRsvp = async (id)=>{
 
   setPressBtn(3)
 
-  console.log(pressBtn)
 }
 
 
@@ -202,13 +196,11 @@ function dets()
                         <h1>{info.EventName}</h1> </div>
                         <p>{info.EventLocation}</p>
                       Attending : {info.Rsvp}
-                      <br></br><button className="listbtn" value={info.id} onClick={()=>{fetchRsvp(info.id);show()}}>Guest List</button>
+                      <br></br><button className="listbtn" value={info.id} onClick={()=>{show();fetchRsvp(info.id);}}>Guest List</button>
 
+                      
 
-                     
-
-
-                      <div >
+                       <div >
                        {attend ? <div> <div>{(info.id === infoId) ?<div className='nameList'>{info.Rsvp_names.map((e,idx)=>{
                             return (<div >
                              <li key={idx}>{e}</li></div>
@@ -218,11 +210,9 @@ function dets()
                        </div>
 
 
-
-
                   <div className='btn_grp'>
 
-                      <button className='details' value={info.id} onClick = {()=>{
+                      <button className='details'  onClick = {()=>{
                         fetchRsvp(info.id)
                         dets()
                       }}>Details</button> 
@@ -251,7 +241,18 @@ function dets()
 
                     
                    </div> 
-                  
+                   <div >
+
+
+                       {showDets ? <div> <div>{(info.id === infoId) ?<div className='descp'>
+                       <p>Date : {info.EventDate}</p>
+                                <p>Time : {info.EventTime}</p>
+                                    <h3>Event Decription</h3>
+                                  <p>{info.Event_descp}</p>
+                       </div> :null}</div>
+                       </div> :null } 
+                       </div>
+               
                  
                       </div>
               )

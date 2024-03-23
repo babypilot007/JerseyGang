@@ -48,7 +48,8 @@ useEffect(()=>{
                           </div>
                      </div>   
                         <div className='descp'>
-                        <p>Description :  <br></br>{info.Event_descp}</p>
+                        <p className='descp_head'>Description </p>
+                        <p>{info.Event_descp}</p>
                        </div>
                        
 
