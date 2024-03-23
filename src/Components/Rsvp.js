@@ -250,14 +250,9 @@ function dets()
 
 
                     
-                   </div>   
-                   {showDets ?
-                              <div className='evnt_details'>
-                                <p>Date : {info.EventDate}</p>
-                                <p>Time : {info.EventTime}</p>
-                                    <h3>Event Decription</h3>
-                                  <p>{info.Event_descp}</p>
-                            </div>:null }
+                   </div> 
+                  
+                 
                       </div>
               )
             }))

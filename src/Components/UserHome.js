@@ -180,8 +180,9 @@ var eventyes = ''
                            <div className='eventDetails'>
                               <h3>Location : {inf.EventLocation}</h3>
                               <p>Date : {inf.EventDate}</p>
-
+                            <div className='descp'>
                               <p>Decription : <br></br>{inf.Event_descp}</p>
+                              </div>
                            </div>
 
 
