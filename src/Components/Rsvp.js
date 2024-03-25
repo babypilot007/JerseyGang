@@ -94,7 +94,7 @@ const setRsvp = async (event)=>{
        map_rsvp_id = getRsvpId.data[0].Rsvp_Id
       count = getRsvpCount.data[0].Rsvp + 1
       const response = await supabase.from('event').update({Rsvp : count}).eq('id',event)
-      const updateUser = await supabase.from('event').update({Rsvp_names : [...map_rsvp_users,userNames]}).eq('id',event)
+      const updateUser = await supabase.from('event').update({Rsvp_names : [...map_rsvp_users,{"name":userNames,"id":userId}]}).eq('id',event)
       const updateId = await supabase.from('event').update({Rsvp_Id : [...map_rsvp_id,userId]}).eq('id',event)
       console.log(updateId)
       console.log(response)
@@ -112,23 +112,31 @@ const setRsvp = async (event)=>{
   
   } catch (error) {
   }
-  // window.location.reload();
-
 }
 
 const unRsvp = async(event)=>{
 
   const getRsvpUsers = await supabase.from('event').select("Rsvp_names").eq('id',event)
-      console.log(getRsvpUsers.data[0].Rsvp_names)
-      const oldArray = getRsvpUsers.data[0].Rsvp_names
-      const newArray = oldArray.filter((item, i)=> item !== userNames)
-    const deleteRsvpId = await supabase.from('event').select("Rsvp_Id").eq('id',event)
+  console.log(getRsvpUsers.data[0].Rsvp_names)
+  const oldArray = getRsvpUsers.data[0].Rsvp_names
+  console.log(oldArray)
 
-          const oldRsvpIdArray = deleteRsvpId.data[0].Rsvp_Id
+      let myArray = [userNames,userId]
+      console.log(myArray)
 
-          const newRsvpIdArray = oldRsvpIdArray.filter((item,i)=> item !== userId)
+      const newArray = oldArray.filter(function(itm){
+        return itm.id !== userId
+      })
 
-          const updateRsvpId = await supabase.from('event').update({Rsvp_Id : newRsvpIdArray}).eq('id',event)
+      console.log(newArray)
+
+  const deleteRsvpId = await supabase.from('event').select("Rsvp_Id").eq('id',event)
+
+  const oldRsvpIdArray = deleteRsvpId.data[0].Rsvp_Id
+
+  const newRsvpIdArray = oldRsvpIdArray.filter((item,i)=> item !== userId)
+
+  const updateRsvpId = await supabase.from('event').update({Rsvp_Id : newRsvpIdArray}).eq('id',event)
   const updateRsvpNames = await supabase.from('event').update({Rsvp_names : newArray}).eq('id',event)
   const getRsvpCount = await supabase.from('event').select('Rsvp').eq('id',event)
 
@@ -203,7 +211,7 @@ function dets()
                        <div >
                        {attend ? <div> <div>{(info.id === infoId) ?<div className='nameList'>{info.Rsvp_names.map((e,idx)=>{
                             return (<div >
-                             <li key={idx}>{e}</li></div>
+                             <li key={idx}>{e.name}</li></div>
                             )
                         })}</div> :null}</div>
                        </div> :null } 

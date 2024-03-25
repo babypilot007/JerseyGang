@@ -6,7 +6,6 @@
   height: 100vh;
   scroll-behavior: smooth;
   }
-  
 
 .App-header {
   background-color: #282c34;
@@ -217,7 +216,6 @@ font-weight: 600;
 
 .eventDetails {
   text-align: left;
-  margin-left: 10px;
 }
 
 .event_hover{
@@ -244,9 +242,6 @@ font-weight: 600;
   display: flex;
   justify-content: space-between;
   background-color: rgb(104, 55, 0);
-  margin-top: 5px;
-  border-radius: 10px;
-  padding: 5px;
 
    h3{
     font-size: large;
@@ -283,6 +278,30 @@ font-weight: 600;
   border: 3px solid  rgb(113, 42, 42);
   font-size: calc(15px + .5vmin);
   padding: 5px;
+  
+}
+
+
+
+.deleteBtnBackground{
+  position: relative;
+  display: flex;
+  justify-content: right;
+  height: fit-content;
+  background-color: #817a3d;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  border-top: 2px solid rgb(113, 42, 42);
+}
+.deleteBtn{
+  width: fit-content;
+  font-weight: 600;
+  border-radius: 10px;
+  text-wrap: nowrap;
+  height: fit-content;
+  border: 3px solid  rgb(113, 42, 42);
+  font-size: calc(15px + .5vmin);
 }
 
 
@@ -394,10 +413,14 @@ font-weight: 600;
 .descp{
   border: solid black 1px;
   margin-top: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
+  border: 1px solid rgb(37, 7, 7);
   color: #010102;
   font-weight: 600;
   background-color: rgb(246, 232, 189);
+  position: relative;
+  display: block;
+  justify-content: left;
 }
 
 .descp_head{
@@ -538,6 +561,9 @@ font-weight: 600;
   justify-content: right;
   font-weight: 600;
 
+  p{
+    font-size: large;
+  }
    button{
     width: fit-content;
     padding: 5px;
@@ -547,6 +573,10 @@ font-weight: 600;
     border-radius: 20px;
     height: fit-content;
     margin-top: 13px;
+    font-size: large;
+    margin-right: 10px;
+    font-weight: 600;
+    border: solid 2px rgb(59, 30, 30);
    }
 
    button:hover{
@@ -563,7 +593,7 @@ font-weight: 600;
 
     display: flex;
     position: fixed;
-    margin-top: 50px;
+    margin-top: 60px;
     justify-content: space-evenly;
     width: 100vw;
     z-index: 999;
@@ -677,4 +707,8 @@ font-weight: 600;
   padding: 10px;
   border-radius: 50px;
   font-size: medium;
+}
+
+.locDiv{
+  margin-top: 10px;
 }

@@ -4,10 +4,9 @@ import React from 'react'
 import { supabase } from '../supabaseClient'
 import { useNavigate} from 'react-router-dom';
 import Rsvp from './Rsvp';
-// import DateTimePicker from 'react-datetime-picker';
-import 'react-datetime-picker/dist/DateTimePicker.css';
-import 'react-calendar/dist/Calendar.css';
-import 'react-clock/dist/Clock.css';
+import loc from './location.png'
+import cal from './calendar.png'
+
 
 
 
@@ -177,22 +176,24 @@ var eventyes = ''
                           <h1>{inf.EventName}</h1>
                            </div>
 
-                           <div className='eventDetails'>
-                              <h3>Location : {inf.EventLocation}</h3>
-                              <p>Date : {inf.EventDate}</p>
-                            <div className='descp'>
-                              <p>Decription : <br></br>{inf.Event_descp}</p>
+                              
+                          <div className='descp'>
+
+                               <p><img className='locImg' src={loc} alt='location' height="30px"></img> -  {inf.EventLocation}</p>
+                                      <p><img src={cal} alt='location' height="30px"></img> - {inf.EventDate}</p>
+                                    <p>Decription : <br></br>{inf.Event_descp}</p>
+                              
+                                   <div className='deleteBtnBackground'>
+                                          <button className='deleteBtn' onClick = {()=>{
+                                              deleteEvent(inf.id)
+
+                                      }}>Delete</button> 
+                                            </div>
                               </div>
-                           </div>
 
 
-                    <div className='btn_grp'>
-                        <button className='details' onClick = {()=>{
-                                    deleteEvent(inf.id)
 
-                        }}>Delete</button> 
-
-                     </div>   
+                    
                         </div>
               )
             })
@@ -243,9 +244,6 @@ var eventyes = ''
             required={true}
             onChange={(e) => getEventDate(e.target.value)}
           />
-
-
-
         <textarea rows='20' cols='20' 
         className='inputField_textbox'
         placeholder='Describe the Event'
