@@ -237,6 +237,7 @@ function dets()
 
 
               <div className='rsvpBtn'>
+
                         { (info.Rsvp_Id.includes(userid)) ?    //RSVP button
                         <div> 
                           <button className='notInterested' onClick={()=>{
@@ -261,9 +262,7 @@ function dets()
 
 
                        {showDets ? <div> <div>{(info.id === infoId) ?<div className='descp'>
-                       <p>Date : {info.EventDate}</p>
-                                <p>Time : {info.EventTime}</p>
-                                    <h3>Event Decription</h3>
+                                    <h2>About :</h2>
                                   <p>{info.Event_descp}</p>
                        </div> :null}</div>
                        </div> :null } 
