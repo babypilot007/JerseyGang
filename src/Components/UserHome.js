@@ -172,12 +172,11 @@ var eventyes = ''
              
              return(
                <div className='event_hover' key = {ind}>
-                        <div className='event_header'>
-                          <h1>{inf.EventName}</h1>
-                           </div>
-
                               
                           <div className='descp'>
+
+                          <h2>{inf.EventName}</h2>
+
 
                                <p><img className='locImg' src={loc} alt='location' height="30px"></img> -  {inf.EventLocation}</p>
                                       <p><img src={cal} alt='location' height="30px"></img> - {inf.EventDate}</p>

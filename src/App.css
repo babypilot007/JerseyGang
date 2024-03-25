@@ -293,6 +293,8 @@ font-weight: 600;
   padding-bottom: 5px;
 
   border-top: 2px solid rgb(113, 42, 42);
+
+  border-radius: 10px;
 }
 .deleteBtn{
   width: fit-content;
@@ -414,13 +416,20 @@ font-weight: 600;
   border: solid black 1px;
   margin-top: 10px;
   border-radius: 10px;
-  border: 1px solid rgb(37, 7, 7);
+  border: 1px solid rgb(194, 194, 194);
   color: #010102;
   font-weight: 600;
   background-color: rgb(246, 232, 189);
   position: relative;
   display: block;
   justify-content: left;
+
+    h2{
+      background-color: rgb(168, 168, 168);
+      padding: 5px;
+      text-align: left;
+      padding-left: 25px;
+    }
 }
 
 .descp_head{
