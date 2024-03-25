@@ -545,7 +545,7 @@ font-weight: 600;
   
   font-size: calc(15px + 1vmin);
   color: white;
-  text-shadow: 0.05em 0.1em #4b5d83;
+  text-shadow: 0.05em 0.1em #ff9d26;
   backdrop-filter: blur(10px) saturate(70%);
   margin-top: 20px;
   padding-left: 20px
