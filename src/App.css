@@ -200,7 +200,7 @@ font-weight: 600;
 .event_header{
   display: flex;
   position: relative;
-  background-color: rgba(11, 10, 10, 0.772);
+  background-color: rgba(10, 9, 9, 0.895);
   padding-left: 15px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -240,7 +240,10 @@ font-weight: 600;
   background-color:#ff9d26;
   border-bottom-left-radius: 10px ;
   border-bottom-right-radius: 10px ;
-
+  height: fit-content;
+  padding: 5px;
+  border-top: 2px solid rgb(113, 42, 42);
+  border-radius: 10px;
 
    h3{
     font-size: medium;
@@ -287,9 +290,8 @@ font-weight: 600;
   display: flex;
   justify-content: right;
   height: fit-content;
-  background-color: #817a3d;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  background-color:#ff9d26;
+  padding: 5px;
 
   border-top: 2px solid rgb(113, 42, 42);
 
@@ -626,18 +628,18 @@ font-weight: 600;
 
 
 .nameList{
-  background-color: rgb(28, 26, 26);
-  border-radius: 5px;
+  background-color: rgb(49, 47, 47);
+  color:rgb(248, 234, 208);
   height: fit-content;
   padding: 10px;
   margin-top: 5px;
   text-align: left;
   padding-top: 10px;
+  font-weight: 100;
 }
 
 .listbtn{
   background-color: #01010200;
-  color: aliceblue;
   box-shadow: none;
   font-size: 18px;
   text-decoration: underline;
@@ -645,7 +647,7 @@ font-weight: 600;
 
 .listbtn:hover{
   background-color: #01010200;
-  color: aliceblue;
+  color: rgb(50, 1, 1);
   box-shadow: none;
 }
 
@@ -675,6 +677,7 @@ font-weight: 600;
 
 .rsvpBtn{
   z-index: 3;
+  
 }
 
 .notInterested{

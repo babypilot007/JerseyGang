@@ -2,6 +2,8 @@ import React from 'react'
 import { useNavigate} from 'react-router-dom';
 import { useEffect, useState} from 'react'
 import { supabase } from '../supabaseClient';
+import loc from './location.png'
+import cal from './calendar.png'
 
 
 
@@ -199,10 +201,16 @@ function dets()
                   {
                     return null
                 } else return(
+
                   <div className='event_hover' key = {ind}>
+
+              <div className='descp'>
+
                       <div className='event_header'>
                         <h1>{info.EventName}</h1> </div>
-                        <p>{info.EventLocation}</p>
+                        <p><img src={loc} alt='location' height="30px"></img> - {info.EventLocation}</p>
+                        <p><img src={cal} alt='location' height="30px"></img> - {info.EventDate}</p>
+
                       Attending : {info.Rsvp}
                       <br></br><button className="listbtn" value={info.id} onClick={()=>{show();fetchRsvp(info.id);}}>Guest List</button>
 
@@ -262,6 +270,7 @@ function dets()
                        </div>
                
                  
+                      </div>
                       </div>
               )
             }))
