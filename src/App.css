@@ -68,13 +68,13 @@ button {
 
 .reg {
   color: white;
-  background-color: rgba(104, 85, 224, 1);
+  background-color: rgb(248, 235, 91);
 }
 
 .reg::after {
   position: absolute;
   content: '';
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 187, 50);
   height: 2px;
   margin: 22px 20px 20px -33%;
   margin-right: 50%;
@@ -86,7 +86,7 @@ width: 30%;
 .log {
   color: rgb(104, 85, 224);
   background-color: rgba(255, 255, 255, 1);
-  border: 1px solid rgba(104, 85, 224, 1);
+  border: 1px solid rgb(254, 192, 58);
 }
 
 button:hover {
@@ -200,16 +200,13 @@ font-weight: 600;
 .event_header{
   display: flex;
   position: relative;
-  justify-content: space-between;
-  align-content: center;
-  background-color: rgba(48, 27, 25, 0.459);
-  border-radius: 10px;
-  padding-left: 10px;
-
-
+  background-color: rgba(11, 10, 10, 0.772);
+  padding-left: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: wheat;
     h1{
     font-size: calc(15px + 2vmin);
-
   }
 
 }
@@ -241,10 +238,11 @@ font-weight: 600;
   position: relative;
   display: flex;
   justify-content: space-between;
-  background-color: rgb(104, 55, 0);
+  background-color: rgb(253, 168, 70);
+  border-radius: 10px;
 
    h3{
-    font-size: large;
+    font-size: medium;
     padding-right: 10px;
 
    }
@@ -433,12 +431,8 @@ font-weight: 600;
 }
 
 .descp_head{
-  color: white;
-  background-color: rgb(61, 63, 21);
-  margin-left: 5px;
-  margin-right: 5px;
+  color: rgb(86, 31, 14);
   border-radius: 10px;
-  padding: 5px;
 }
 
 .inputField_textbox{
@@ -524,6 +518,7 @@ font-weight: 600;
   height: fit-content;
   top: 10px;
   padding-left: 10px;
+
 }
 
 .nav button{
@@ -533,6 +528,7 @@ font-weight: 600;
   margin: 5px;
   padding: 5px;
   color: white;
+  font-size: large;
 }
 
 .nav h2{

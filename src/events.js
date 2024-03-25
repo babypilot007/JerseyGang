@@ -29,31 +29,29 @@ useEffect(()=>{
             {details.map((info)=>{
 
                 return(
-                    <div className='event_hover' key = {info.id}>
+
+                    <>
+
+
+<div className='event_hover' key = {info}>
+                              
+                          <div className='descp'>
+
                         <div className='event_header'><h1>{info.EventName}</h1> </div>
-                        
+                        <p className='descp_head'>Event Info : <br></br>{info.Event_descp}</p>
+                   
                     <div className='btn_grp'>
-                    <h3 className='rsvp'>Attending : {info.Rsvp}</h3>
-
-                        {/* <button className='details' onClick = {()=>{
-                                    console.log(info.id)
-                                    navigate('details',{state:info.id})
-                        }}>Details</button>  */}
-
-                        <div>
+                         <h3 className='rsvp'>Attending : {info.Rsvp}</h3>
+                           <div>
                           
-                          <h3>Created By : <span> {info.UserName}</span>
+                          <h3>Created By : {info.UserName}
                           </h3 >
-                          
                           </div>
                      </div>   
-                        <div className='descp'>
-                        <p className='descp_head'>Description </p>
-                        <p>{info.Event_descp}</p>
-                       </div>
                        
-
-                        </div>
+                              </div>
+                        </div>  
+                        </>
                 )
                 
             })}
