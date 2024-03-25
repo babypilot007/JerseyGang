@@ -12,7 +12,8 @@ function Navbar() {
 
   return (
     <div className='nav'>
-          <p>Desi Jersey Gang</p>
+          <p>Desi Gang of Jersey </p>
+
           <div className='navButton'>
                         <button className="log" onClick={()=>{navigate('/auth')}}>Login</button>
                         <button className="reg" onClick={()=>{navigate('/signup')}}>Sign up</button>

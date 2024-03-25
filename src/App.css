@@ -204,7 +204,7 @@ font-weight: 600;
   padding-left: 15px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  color: wheat;
+  color: rgb(251, 226, 180);
     h1{
     font-size: calc(15px + 2vmin);
   }
@@ -221,7 +221,6 @@ font-weight: 600;
   background-color: rgb(46, 40, 40);
   color: aliceblue;
   border-radius: 10px ;
-  padding: 5px;
   box-shadow: 0 0 5px rgba(157, 153, 176, 0.546);
   margin: 15px 15px 15px 15px;
   
@@ -238,8 +237,10 @@ font-weight: 600;
   position: relative;
   display: flex;
   justify-content: space-between;
-  background-color: rgb(253, 168, 70);
-  border-radius: 10px;
+  background-color:#ff9d26;
+  border-bottom-left-radius: 10px ;
+  border-bottom-right-radius: 10px ;
+
 
    h3{
     font-size: medium;
@@ -548,7 +549,7 @@ font-weight: 600;
   text-shadow: 0.05em 0.1em #ff9d26;
   backdrop-filter: blur(10px) saturate(70%);
   margin-top: 20px;
-  padding-left: 20px
+  padding-left: 10px
 }
 
 .navUser{

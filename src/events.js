@@ -38,6 +38,7 @@ useEffect(()=>{
                           <div className='descp'>
 
                         <div className='event_header'><h1>{info.EventName}</h1> </div>
+                        
                         <p className='descp_head'>Event Info : <br></br>{info.Event_descp}</p>
                    
                     <div className='btn_grp'>
