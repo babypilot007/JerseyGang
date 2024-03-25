@@ -110,7 +110,7 @@ const UserHome = () => {
             EventName : eventName,
             Rsvp : 1,
             EventDate: eventDate,
-            Rsvp_names : [userInfo + " (Host)"],
+            Rsvp_names : {"name" : userInfo + " (Host)" , "id" : userid},
             Rsvp_Id : [getId]
           }
         ])
@@ -177,10 +177,8 @@ var eventyes = ''
 
                           <div className='event_header'><h1>{inf.EventName}</h1></div>
 
-
-                                      
-                                      <p><img src={cal} alt='location' height="30px"></img> - {inf.EventDate}</p>
                                       <p><img src={loc} alt='location' height="30px"></img> - {inf.EventLocation}</p>
+                                      <p><img src={cal} alt='location' height="30px"></img> - {inf.EventDate}</p>
 
                                     <p>Decription : <br></br>{inf.Event_descp}</p>
 
