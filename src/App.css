@@ -743,6 +743,29 @@ font-weight: 600;
   color: #010102;
   background-color: #ff9d26;
   border: solid 1px rgb(0, 0, 0);
-  padding: 5px;
-  border-radius: 50%;
+  border-radius: 100px;
+  padding: 3px;
+  padding-top: 5px;
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+  text-align:center;
+
+    
+}
+
+.nameIcon_nav{
+  margin-right: 5px;
+  margin-top: 10px;
+  color: #010102;
+  background-color: #ff9d26;
+  border: solid 1px rgb(0, 0, 0);
+  border-radius: 100px;
+  width: 36px;
+  height: 30px;
+  display: inline-block;
+  text-align:center;
+  padding-top: 8px;
+
+    
 }

@@ -154,7 +154,7 @@ var eventyes = ''
 <>
   <div className='navUser'>
 
-  <p><span className='nameIcon'>{userInfo[0]}{userLastName[0]}</span>{userInfo} </p><button onClick={()=>{logOut()}}>Log out</button>
+  <span className='nameIcon_nav'>{userInfo[0]}{userLastName[0]}</span><p>{userInfo} </p><button onClick={()=>{logOut()}}>Log out</button>
     </div>       
 
     <div className='userButton'> 
