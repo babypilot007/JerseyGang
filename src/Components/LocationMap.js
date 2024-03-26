@@ -3,12 +3,13 @@ import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 
 const libraries = ['places'];
 const mapContainerStyle = {
-  width: '80vw',
+  width: '95%',
   height: '20vh',
+  border : 'solid black 1px'
 };
 const center = {
-  lat: 40.43536, // default latitude
-  lng: 74.02054, // default longitude
+  lat: 40.727667, // default latitude
+  lng: -74.030865, // default longitude
 };
 
 const LocationMap = () => {
@@ -26,8 +27,8 @@ const LocationMap = () => {
   }
 
   return (
-    <div>
-      <GoogleMap
+    <div className='map'>
+      <GoogleMap className='map'
         mapContainerStyle={mapContainerStyle}
         zoom={10}
         center={center}

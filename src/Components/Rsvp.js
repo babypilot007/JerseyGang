@@ -4,6 +4,7 @@ import { useEffect, useState} from 'react'
 import { supabase } from '../supabaseClient';
 import loc from './location.png'
 import cal from './calendar.png'
+import LocationMap from './LocationMap';
 
 
 
@@ -11,6 +12,7 @@ import cal from './calendar.png'
 function Rsvp(userid) {
 
   const navigate = useNavigate()
+  const locationMap = LocationMap()
   
 
     
@@ -201,7 +203,7 @@ function dets()
 
                       <div className='event_header'>
                         <h1>{info.EventName}</h1> </div>
-                        <p><img src={loc} alt='location' height="30px"></img> - {info.EventLocation}</p>
+                        <p><img src={loc} alt='location' height="30px"></img> - {info.EventLocation} {locationMap}</p>
                         <p><img src={cal} alt='location' height="30px"></img> - {info.EventDate}</p>
 
                       Attending : {info.Rsvp}
