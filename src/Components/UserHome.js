@@ -113,7 +113,7 @@ const UserHome = () => {
             EventName : eventName,
             Rsvp : 1,
             EventDate: eventDate,
-            Rsvp_names : {"name" : userInfo + " (Host)" , "id" : userid},
+            Rsvp_names : {"firstName" : userInfo + " (Host)" , "id" : userid,"lastName" :userLastName},
             Rsvp_Id : [getId]
           }
         ])
