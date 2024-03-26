@@ -89,7 +89,7 @@ const setRsvp = async (event)=>{
        map_rsvp_id = getRsvpId.data[0].Rsvp_Id
       count = getRsvpCount.data[0].Rsvp + 1
       const response = await supabase.from('event').update({Rsvp : count}).eq('id',event)
-      const updateUser = await supabase.from('event').update({Rsvp_names : [...map_rsvp_users,{"firstName":userfirstNames,"id":userId, "lastName":userlastNames}]}).eq('id',event)
+      const updateUser = await supabase.from('event').update({Rsvp_names : [...map_rsvp_users,{"id":userId,"firstName":userfirstNames, "lastName":userlastNames}]}).eq('id',event)
       const updateId = await supabase.from('event').update({Rsvp_Id : [...map_rsvp_id,userId]}).eq('id',event)
       console.log(updateId)
       console.log(response)
