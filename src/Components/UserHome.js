@@ -6,6 +6,7 @@ import { useNavigate} from 'react-router-dom';
 import Rsvp from './Rsvp';
 import loc from './location.png'
 import cal from './calendar.png'
+import LocationMap from './LocationMap';
 
 
 
@@ -15,7 +16,7 @@ import cal from './calendar.png'
 
 const UserHome = () => {
 
-  
+  const locationMap = LocationMap()
 
   const navigate = useNavigate()
 
@@ -180,7 +181,7 @@ var eventyes = ''
 
                           <div className='event_header'><h1>{inf.EventName}</h1></div>
 
-                                      <p><img src={loc} alt='location' height="30px"></img> - {inf.EventLocation}</p>
+                                      <p><img src={loc} alt='location' height="30px"></img> - {locationMap}</p>
                                       <p><img src={cal} alt='location' height="30px"></img> - {inf.EventDate}</p>
 
                                     <p>Decription : <br></br>{inf.Event_descp}</p>
