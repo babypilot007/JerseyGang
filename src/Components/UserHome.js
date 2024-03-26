@@ -24,6 +24,8 @@ const UserHome = () => {
   const[rsvpd, setRsvpd] = useState(false)
   const[getId, setId] = useState('')
   const[userInfo, setUserInfo] = useState('')
+  const[userLastName, setUserLastName] = useState('')
+
   const[userid, getUserId] = useState('')
   const[info, setInfo] = useState('')
   const[eventName, getEventName] = useState('')
@@ -45,6 +47,7 @@ const UserHome = () => {
         
              setUserInfo(user.user_metadata.firstName)
              getUserId(user.id)
+             setUserLastName(user.user_metadata.lastName)
 
 
 
@@ -151,7 +154,7 @@ var eventyes = ''
 <>
   <div className='navUser'>
 
-  <p>{userInfo} </p><button onClick={()=>{logOut()}}>Log out</button>
+  <p><span className='nameIcon'>{userInfo[0]}{userLastName[0]}</span>{userInfo} </p><button onClick={()=>{logOut()}}>Log out</button>
     </div>       
 
     <div className='userButton'> 

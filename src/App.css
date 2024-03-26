@@ -425,12 +425,28 @@ font-weight: 600;
   justify-content: left;
 
     h2{
-      background-color: rgb(168, 168, 168);
-      padding: 5px;
+      /* rgb(255, 153, 0) */
+      
+      background: linear-gradient(0.25turn,rgb(255, 153, 0),rgba(255, 153, 0, 0));
       text-align: left;
       padding-left: 25px;
       font-size: large;
+      color: #010102;
+      border-radius: 5px
     }
+}
+
+.descp_details{
+  background-color: rgb(37, 36, 34);
+  min-height: 10vh;
+  padding: 5px;
+  color: aliceblue;
+  border-radius: 10px;
+  margin: 5px;
+
+  h2{
+    margin: 5px 15px 15px 0px;
+  }
 }
 
 .descp_head{
@@ -720,4 +736,13 @@ font-weight: 600;
 
 .locDiv{
   margin-top: 10px;
+}
+
+.nameIcon{
+  margin-right: 5px;
+  color: #010102;
+  background-color: #ff9d26;
+  border: solid 1px rgb(0, 0, 0);
+  padding: 5px;
+  border-radius: 50%;
 }

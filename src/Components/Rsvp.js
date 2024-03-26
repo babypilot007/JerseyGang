@@ -17,22 +17,13 @@ function Rsvp(userid) {
     const[data, getData] = useState('')
     const[userId, getUserId] = useState('')
     const[map_users, getMapUsers] = useState('')
-    const[userNames, getUserNames] = useState('')
+    const[userfirstNames, getUserfirstNames] = useState('')
+    const[userlastNames, getUserLastNames] = useState('')
 
     const[attend, showAttend] = useState(false)
-
     const[showDets, setShowDets] = useState(false)
-
-
-
     const[pressBtn, setPressBtn] = useState(0)
-
-
-
-
-
     const[infoId, getInfoId] = useState('')
-
 
 
 
@@ -45,7 +36,9 @@ function Rsvp(userid) {
             }else{
               console.log(user.user_metadata.firstName)
               getUserId(user.id)
-              getUserNames(user.user_metadata.firstName)
+              getUserfirstNames(user.user_metadata.firstName)
+              getUserLastNames(user.user_metadata.lastName)
+
               if(userId === map_users){}
               navigate('/userhome')
             }
@@ -96,7 +89,7 @@ const setRsvp = async (event)=>{
        map_rsvp_id = getRsvpId.data[0].Rsvp_Id
       count = getRsvpCount.data[0].Rsvp + 1
       const response = await supabase.from('event').update({Rsvp : count}).eq('id',event)
-      const updateUser = await supabase.from('event').update({Rsvp_names : [...map_rsvp_users,{"name":userNames,"id":userId}]}).eq('id',event)
+      const updateUser = await supabase.from('event').update({Rsvp_names : [...map_rsvp_users,{"firstName":userfirstNames,"id":userId, "lastName":userlastNames}]}).eq('id',event)
       const updateId = await supabase.from('event').update({Rsvp_Id : [...map_rsvp_id,userId]}).eq('id',event)
       console.log(updateId)
       console.log(response)
@@ -123,7 +116,7 @@ const unRsvp = async(event)=>{
   const oldArray = getRsvpUsers.data[0].Rsvp_names
   console.log(oldArray)
 
-      let myArray = [userNames,userId]
+      let myArray = [userlastNames,userfirstNames,userId]
       console.log(myArray)
 
       const newArray = oldArray.filter(function(itm){
@@ -219,7 +212,7 @@ function dets()
                        <div >
                        {attend ? <div> <div>{(info.id === infoId) ?<div className='nameList'>{info.Rsvp_names.map((e,idx)=>{
                             return (<div >
-                             <li key={idx}>{e.name}</li></div>
+                             <li key={idx}><span className='nameIcon'>{e.firstName[0]}{e.lastName[0]}</span>{e.firstName}</li></div>
                             )
                         })}</div> :null}</div>
                        </div> :null } 
@@ -262,8 +255,9 @@ function dets()
 
 
                        {showDets ? <div> <div>{(info.id === infoId) ?<div className='descp'>
-                                    <h2>About :</h2>
-                                  <p>{info.Event_descp}</p>
+                                  <div className='descp_details'>
+                                  <h2>About</h2>
+                                    <p>{info.Event_descp}</p></div>
                        </div> :null}</div>
                        </div> :null } 
                        </div>
