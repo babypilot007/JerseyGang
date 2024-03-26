@@ -30,7 +30,7 @@ const LocationMap = () => {
     <div className='map'>
       <GoogleMap className='map'
         mapContainerStyle={mapContainerStyle}
-        zoom={10}
+        zoom={16}
         center={center}
       >
         <Marker position={center} />
