@@ -622,7 +622,7 @@ font-weight: 600;
     width: 100vw;
     z-index: 999;
     height: fit-content ;  
-    background-color: #07030397;
+    background-color: #070303;
     padding-top: 20px;
     padding-bottom: 10px;
 
@@ -768,4 +768,8 @@ font-weight: 600;
   padding-top: 8px;
 
     
+}
+
+li{
+  list-style-type: none;
 }
