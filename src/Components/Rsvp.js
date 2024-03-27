@@ -205,12 +205,13 @@ function dets()
                         <h1>{info.EventName}</h1> 
                         </div>
 
-                        <div className='event_middle'>
-                          
-                        <p>{locationMap}</p>
-                        <p>  <img  src={loc} alt='location' height="30px"></img> - {info.EventLocation} </p>
-                        <p ><img  src={cal} alt='location' height="30px"></img> - {info.EventDate}</p>
+                        <div>
 
+                          <div className='event_middle'>
+                                <p>{locationMap}</p>
+                                <p>  <img  src={loc} alt='location' height="30px"></img> - {info.EventLocation} </p>
+                                <p ><img  src={cal} alt='location' height="30px"></img> - {info.EventDate}</p>
+                        </div>
                       Attending : {info.Rsvp}
                       <br></br><button className="listbtn" value={info.id} onClick={()=>{show();fetchRsvp(info.id);}}>Guest List</button>
 

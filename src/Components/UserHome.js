@@ -180,15 +180,17 @@ var eventyes = ''
                           <div className='descp'>
 
                           <div className='event_header'><h1>{inf.EventName}</h1></div>
+
+                          <div className='event_middle'>
+                                <p>{locationMap}</p>
+                                <p>  <img  src={loc} alt='location' height="30px"></img> - {inf.EventLocation} </p>
+                                <p ><img  src={cal} alt='location' height="30px"></img> - {inf.EventDate}</p>
+                        </div>
                           
-                          <p>{locationMap}</p>
-                          <p>  <img  src={loc} alt='location' height="30px"></img> - {inf.EventLocation} </p>
-                          <p ><img  src={cal} alt='location' height="30px"></img> - {inf.EventDate}</p>
 
-                                      
-
-                                    <p>Decription : <br></br>{inf.Event_descp}</p>
-
+                                <div className='descp_header'>
+                                    <p><span>Decription : </span><br></br>{inf.Event_descp}</p>
+                                    </div>
                                    <div className='deleteBtnBackground'>
 
                                    <button className='deleteBtn' onClick = {()=>{

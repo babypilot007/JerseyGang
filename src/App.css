@@ -449,9 +449,17 @@ font-weight: 600;
   }
 }
 
-.descp_head{
-  color: rgb(86, 31, 14);
-  border-radius: 10px;
+.descp_header{
+  color: rgb(252, 231, 176);
+  margin-right: 20px;
+  background-color: #000000da;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  padding-bottom: 1px;
+  padding-top: 1px;
+
 }
 
 .inputField_textbox{
@@ -778,4 +786,15 @@ li{
   border: 2px solid rgb(0, 0, 0);
   border-radius: 10px;
   box-shadow: 1px 1px 10px black;
+}
+
+.event_middle::after{
+  position: absolute;
+  content: '';
+  background-color: rgba(42, 41, 41, 0.507);
+  height: 1px;
+  width: 80%;
+  transform: translate(-50%,-10px);
+  color: white;
+
 }
