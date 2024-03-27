@@ -12,9 +12,13 @@ const center = {
   lng: -74.030865, // default longitude
 };
 
+const locApi = process.env.REACT_APP_MAP_API    
 const LocationMap = () => {
+
+console.log(locApi)
+
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyB4xmI2KDHHEAQcP1I3iIDWhb_c-yubzTk',
+    googleMapsApiKey: process.env.mapApi,
     libraries,
   });
 
