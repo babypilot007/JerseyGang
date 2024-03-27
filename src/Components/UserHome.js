@@ -33,6 +33,10 @@ const UserHome = () => {
   const[location, getLocation] = useState('')
   const[eventDescp, getdescp] = useState('')
   const[eventDate, getEventDate] = useState('')
+  const[uRl, getUrl] = useState('')
+  const[addInfo, getAddInfo] = useState('')
+
+
 
   const[onRefresh, setRefresh] = useState(0)
 
@@ -252,10 +256,28 @@ var eventyes = ''
         <input
             className="inputField"
             type="Username"
+            placeholder="Additional info (Rooftop, floor 15)"
+            value={addInfo}
+            onChange={(e) => getAddInfo(e.target.value)}
+          />
+
+        <input
+            className="inputField"
+            type="Username"
             placeholder="Date"
             value={eventDate}
             required={true}
             onChange={(e) => getEventDate(e.target.value)}
+          />
+          
+
+<br></br>
+        <input
+            className="inputField"
+            type="Username"
+            placeholder="Event URL https://"
+            value={uRl}
+            onChange={(e) => getUrl(e.target.value)}
           />
         <textarea rows='20' cols='20' 
         className='inputField_textbox'
