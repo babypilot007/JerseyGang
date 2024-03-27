@@ -7,6 +7,7 @@ import Rsvp from './Rsvp';
 import loc from './location.png'
 import cal from './calendar.png'
 import LocationMap from './LocationMap';
+import Autocomplete from "react-google-autocomplete";
 
 
 
@@ -15,6 +16,7 @@ import LocationMap from './LocationMap';
 
 
 const UserHome = () => {
+  const locApi = process.env.REACT_APP_MAP_API    
 
   const locationMap = LocationMap()
 
@@ -233,8 +235,9 @@ var eventyes = ''
 
 
   {rsvpd ? <div className='formDiv'>
+ 
       <form className="signupform" onSubmit={createEvent}>
-
+    
         <input
             className="inputField"
             type="EventName"
@@ -243,16 +246,16 @@ var eventyes = ''
             required={true}
             onChange={(e) => getEventName(e.target.value)}
           />
-        <br></br>
-        <input
-            className="inputField"
-            type="Username"
-            placeholder="Event Location"
-            value={location}
-            required={true}
-            onChange={(e) => getLocation(e.target.value)}
-          />
-        <br></br>
+     
+        <Autocomplete
+        apiKey={locApi}
+        defaultValue={'Jersey City'}
+        placeholder="Location"
+        onPlaceSelected={(place) => {
+          getLocation(place.formatted_address)
+          }}
+        />;
+
         <input
             className="inputField"
             type="Username"
@@ -270,8 +273,6 @@ var eventyes = ''
             onChange={(e) => getEventDate(e.target.value)}
           />
           
-
-<br></br>
         <input
             className="inputField"
             type="Username"

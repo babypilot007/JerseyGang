@@ -1,5 +1,6 @@
 import React from 'react';
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
+// import { Autocomplete } from '@react-google-maps/api';
 
 const libraries = ['places'];
 const mapContainerStyle = {
@@ -15,7 +16,6 @@ const center = {
 const locApi = process.env.REACT_APP_MAP_API    
 const LocationMap = () => {
 
-console.log(locApi)
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: locApi,
@@ -30,7 +30,8 @@ console.log(locApi)
     return <div>Loading maps</div>;
   }
 
-  return (
+  return (<>
+   
       <GoogleMap className='map'
         mapContainerStyle={mapContainerStyle}
         zoom={16}
@@ -39,6 +40,7 @@ console.log(locApi)
       >
         <Marker position={center} />
       </GoogleMap>
+      </>
   );
 };
 
