@@ -18,7 +18,7 @@ const LocationMap = () => {
 console.log(locApi)
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.mapApi,
+    googleMapsApiKey: locApi,
     libraries,
   });
 
