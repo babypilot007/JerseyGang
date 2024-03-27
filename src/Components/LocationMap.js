@@ -3,9 +3,9 @@ import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 
 const libraries = ['places'];
 const mapContainerStyle = {
-  width: '95%',
+  width: '100%',
   height: '20vh',
-  border : 'solid black 1px'
+  right:'10px'
 };
 const center = {
   lat: 40.727667, // default latitude
@@ -31,15 +31,14 @@ console.log(locApi)
   }
 
   return (
-    <div className='map'>
       <GoogleMap className='map'
         mapContainerStyle={mapContainerStyle}
         zoom={16}
         center={center}
+        mapContainerClassName='map'
       >
         <Marker position={center} />
       </GoogleMap>
-    </div>
   );
 };
 

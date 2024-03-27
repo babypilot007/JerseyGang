@@ -197,14 +197,19 @@ function dets()
                     return null
                 } else return(
 
-                  <div className='event_hover' key = {ind}>
+   <div className='event_hover' key = {ind}>
 
               <div className='descp'>
 
                       <div className='event_header'>
-                        <h1>{info.EventName}</h1> </div>
-                        <p><img src={loc} alt='location' height="30px"></img> - {info.EventLocation} {locationMap}</p>
-                        <p><img src={cal} alt='location' height="30px"></img> - {info.EventDate}</p>
+                        <h1>{info.EventName}</h1> 
+                        </div>
+
+                        <div className='event_middle'>
+                          
+                        <p>{locationMap}</p>
+                        <p>  <img  src={loc} alt='location' height="30px"></img> - {info.EventLocation} </p>
+                        <p ><img  src={cal} alt='location' height="30px"></img> - {info.EventDate}</p>
 
                       Attending : {info.Rsvp}
                       <br></br><button className="listbtn" value={info.id} onClick={()=>{show();fetchRsvp(info.id);}}>Guest List</button>
@@ -265,8 +270,9 @@ function dets()
                        </div>
                
                  
-                      </div>
-                      </div>
+                        </div>
+              </div>
+    </div>
               )
             }))
 

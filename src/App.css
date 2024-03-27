@@ -208,8 +208,8 @@ font-weight: 600;
     h1{
     font-size: calc(15px + 2vmin);
   }
-
 }
+
 
 .eventDetails {
   text-align: left;
@@ -288,7 +288,7 @@ font-weight: 600;
 .deleteBtnBackground{
   position: relative;
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
   height: fit-content;
   background-color:#ff9d26;
   padding: 5px;
@@ -775,5 +775,7 @@ li{
 }
 
 .map{
-  border-radius: 50px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px black;
 }
