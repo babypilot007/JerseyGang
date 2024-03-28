@@ -14,12 +14,13 @@ import Autocomplete from "react-google-autocomplete";
 
 
 
-
 const UserHome = () => {
   const locApi = process.env.REACT_APP_MAP_API
       
   const[lat, getLat] = useState(40.728157)
   const[long, getLong] = useState(-74.077644)
+  const[placeId, setPlaceId] = useState(-74.077644)
+
 
   const navigate = useNavigate()
 
@@ -41,7 +42,7 @@ const UserHome = () => {
 
   
 
-
+const mapId = 'https://www.google.com/maps/search/query_place_id=' + placeId
 
 
   const[onRefresh, setRefresh] = useState(0)
@@ -127,7 +128,8 @@ const UserHome = () => {
             Rsvp_names : [{"firstName" : userInfo + " (Host)" , "id" : userid,"lastName" :userLastName}],
             Rsvp_Id : [getId],
             lat: lat,
-            long:long
+            long:long,
+            placeId : placeId
           }
         ])
         console.log(user)
@@ -154,6 +156,9 @@ const UserHome = () => {
 
 
   }
+
+
+  
 
 var eventyes = ''
 
@@ -197,7 +202,8 @@ var eventyes = ''
                           <p>{<LocationMap
                           lat = {inf.lat}
                           lng = {inf.long}/>}</p>
-                                <p>  <img  src={loc} alt='location' height="30px"></img> - {inf.EventLocation} </p>
+                          {console.log(mapId)}
+                                <p>  <img  src={loc} alt='location' height="30px"></img> - <a href={mapId}>{inf.EventLocation}</a></p>
                                 <p ><img  src={cal} alt='location' height="30px"></img> - {inf.EventDate}</p>
                         </div>
                           
@@ -256,6 +262,7 @@ var eventyes = ''
           />
      
         <Autocomplete
+        
         apiKey={locApi}
         defaultValue={'Jersey City'}
         placeholder="Location"
@@ -268,6 +275,7 @@ var eventyes = ''
           console.log(place)
           getLat(place.geometry.location.lat())
           getLong(place.geometry.location.lng())
+          setPlaceId(place.place_id)
           
           }}
         />;
