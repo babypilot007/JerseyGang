@@ -42,6 +42,8 @@ const UserHome = () => {
   const[uRl, getUrl] = useState('')
   const[addInfo, getAddInfo] = useState('')
 
+
+
   
 
 
@@ -130,7 +132,8 @@ const UserHome = () => {
             Rsvp_Id : [getId],
             lat: lat,
             long:long,
-            placeId : placeId
+            placeId : placeId,
+            URL : uRl
           }
         ])
         console.log(user)
@@ -205,6 +208,8 @@ var eventyes = ''
                           lng = {inf.long}/>}</p>
                                 <p>  <img  src={loc} alt='location' height="30px"></img> - <a href={ 'https://www.google.com/maps/search/?api=1&query=Jersey+City,+NJ/&query_place_id=' + inf.placeId}>{inf.EventLocation}</a></p>
                                 <p ><img  src={cal} alt='location' height="30px"></img> - {inf.EventDate}</p>
+                                <p>  Link - <a href={inf.URL}> Click for the Link</a></p>
+
                         </div>
                           
 
