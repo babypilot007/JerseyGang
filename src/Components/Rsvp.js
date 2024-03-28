@@ -211,8 +211,9 @@ function dets()
                           lat = {info.lat}
                           lng = {info.long}/>}</p>
                                 <p>  <img  src={loc} alt='location' height="30px"></img> - <a href={ 'https://www.google.com/maps/search/?api=1&query=Jersey+City,+NJ/&query_place_id=' + info.placeId}>{info.EventLocation}</a></p>
-
                                 <p ><img  src={cal} alt='location' height="30px"></img> - {info.EventDate}</p>
+                                <p>  Link - <a href={info.URL}> Click for the Link</a></p>
+
                         </div>
                       Attending : {info.Rsvp}
                       <br></br><button className="listbtn" value={info.id} onClick={()=>{show();fetchRsvp(info.id);}}>Guest List</button>
