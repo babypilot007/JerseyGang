@@ -12,7 +12,6 @@ import LocationMap from './LocationMap';
 function Rsvp(userid) {
 
   const navigate = useNavigate()
-  const locationMap = LocationMap()
   
 
     
@@ -208,7 +207,9 @@ function dets()
                         <div>
 
                           <div className='event_middle'>
-                                <p>{locationMap}</p>
+                          <p>{<LocationMap
+                          lat = {info.lat}
+                          lng = {info.long}/>}</p>
                                 <p>  <img  src={loc} alt='location' height="30px"></img> - {info.EventLocation} </p>
                                 <p ><img  src={cal} alt='location' height="30px"></img> - {info.EventDate}</p>
                         </div>

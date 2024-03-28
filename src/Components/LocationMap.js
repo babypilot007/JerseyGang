@@ -8,13 +8,23 @@ const mapContainerStyle = {
   height: '20vh',
   right:'10px'
 };
-const center = {
-  lat: 40.727667, // default latitude
-  lng: -74.030865, // default longitude
-};
 
-const locApi = process.env.REACT_APP_MAP_API    
-const LocationMap = () => {
+
+
+const locApi = process.env.REACT_APP_MAP_API 
+   
+const LocationMap = (props) => {
+
+
+    const center = {
+
+        lat: parseFloat(props.lat), // default latitude
+        lng: parseFloat(props.lng), // default longitude
+
+      };
+
+
+
 
 
   const { isLoaded, loadError } = useLoadScript({

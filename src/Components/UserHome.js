@@ -16,9 +16,10 @@ import Autocomplete from "react-google-autocomplete";
 
 
 const UserHome = () => {
-  const locApi = process.env.REACT_APP_MAP_API    
-
-  const locationMap = LocationMap()
+  const locApi = process.env.REACT_APP_MAP_API
+      
+  const[lat, getLat] = useState(40.728157)
+  const[long, getLong] = useState(-74.077644)
 
   const navigate = useNavigate()
 
@@ -37,6 +38,9 @@ const UserHome = () => {
   const[eventDate, getEventDate] = useState('')
   const[uRl, getUrl] = useState('')
   const[addInfo, getAddInfo] = useState('')
+
+  
+
 
 
 
@@ -121,7 +125,9 @@ const UserHome = () => {
             Rsvp : 1,
             EventDate: eventDate,
             Rsvp_names : [{"firstName" : userInfo + " (Host)" , "id" : userid,"lastName" :userLastName}],
-            Rsvp_Id : [getId]
+            Rsvp_Id : [getId],
+            lat: lat,
+            long:long
           }
         ])
         console.log(user)
@@ -188,7 +194,9 @@ var eventyes = ''
                           <div className='event_header'><h1>{inf.EventName}</h1></div>
 
                           <div className='event_middle'>
-                                <p>{locationMap}</p>
+                          <p>{<LocationMap
+                          lat = {inf.lat}
+                          lng = {inf.long}/>}</p>
                                 <p>  <img  src={loc} alt='location' height="30px"></img> - {inf.EventLocation} </p>
                                 <p ><img  src={cal} alt='location' height="30px"></img> - {inf.EventDate}</p>
                         </div>
@@ -251,10 +259,22 @@ var eventyes = ''
         apiKey={locApi}
         defaultValue={'Jersey City'}
         placeholder="Location"
+        componentRestrictions={{ country: "us , ind" }}
+          options={{
+            types: ["geocode", "establishment"],
+          }}
         onPlaceSelected={(place) => {
           getLocation(place.formatted_address)
+          console.log(place)
+          getLat(place.geometry.location.lat())
+          getLong(place.geometry.location.lng())
+          
           }}
         />;
+
+<p>{<LocationMap
+       lat = {lat}
+       lng = {long}/>}</p>
 
         <input
             className="inputField"
@@ -294,6 +314,9 @@ var eventyes = ''
              create an Event
          </button>
       </form>
+
+      
+
       </div> :null}
 
     </div>
