@@ -8,11 +8,9 @@ import loc from './location.png'
 import cal from './calendar.png'
 import LocationMap from './LocationMap';
 import Autocomplete from "react-google-autocomplete";
-
-
-
-
-
+import 'react-calendar/dist/Calendar.css';
+import 'C:/Users/Himalay/JerseyGang/node_modules/react-datetime-picker/src/DateTimePicker.css'
+import DateTimePicker from 'react-datetime-picker';
 
 const UserHome = () => {
   const locApi = process.env.REACT_APP_MAP_API
@@ -42,9 +40,7 @@ const UserHome = () => {
   const[uRl, getUrl] = useState('')
   const[addInfo, getAddInfo] = useState('')
 
-
-
-  
+  const [startDate, setStartDate] = useState(new Date());
 
 
 
@@ -191,15 +187,17 @@ var eventyes = ''
 
     {myEvent ? 
     <div className='forms'>
-
       {eventyes ?  <div className='event_details'>
             {  
             info.map((inf,ind)=>{
              
              return(
                <div className='event_hover' key = {ind}>
-                              
+        
                           <div className='descp'>
+
+             
+                              
 
                           <div className='event_header'><h1>{inf.EventName}</h1></div>
 
@@ -215,10 +213,11 @@ var eventyes = ''
                           
 
                                 <div className='descp_header'>
-                                    <p><span>Decription : </span><br></br>{inf.Event_descp}</p>
-                                    <p><span>Additional Info : </span><br></br>{inf.AddInfo}</p>
-
+                                   <div className='descp_after'> <p><span>Decription : </span></p> <div className='beforeafter'><p>{inf.Event_descp}</p></div></div>
+                                    <p className='infoAfter'><span>Additional Info : </span><br></br>{inf.AddInfo}</p>
                                     </div>
+
+
                                    <div className='deleteBtnBackground'>
 
                                    <button className='deleteBtn' onClick = {()=>{
@@ -299,8 +298,28 @@ var eventyes = ''
             value={addInfo}
             onChange={(e) => getAddInfo(e.target.value)}
           />
+             {/* <DateTimePicker
+             calendarClassName='calendar'
+             clockClassName='calendar'
+             className='calendar'
+             showTimeSelect
+                  onSelect={startDate}
+                  onChange={(date)=>{setStartDate(date)}} value={startDate}/> */}
+                  
+                  <div>
 
+                    
+                  <DateTimePicker
+                         onSelect={()=>{return startDate}}
+                         onChange={(date)=>{setStartDate(date)}} value={startDate}/>
+
+                 
+                  
+           
+
+</div>
         <input
+        
             className="inputField"
             type="Username"
             placeholder="Date"
@@ -334,7 +353,8 @@ var eventyes = ''
       
 
       </div> :null}
-
+         
+     
     </div>
         
     </>

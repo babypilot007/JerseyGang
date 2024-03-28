@@ -456,11 +456,61 @@ font-weight: 600;
   width: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-
   padding-bottom: 1px;
   padding-top: 1px;
 
 }
+
+.beforeafter{
+  padding-right: 10px;
+}
+
+.calendarOpen{
+  font-size: small;
+  border-radius: 20px;
+    input{
+      background-color: rgba(235, 195, 195, 0);
+      height: 20px;
+      width: 300px;
+      border: none;
+      color: #ffe8cd;
+    }
+}
+
+
+
+.beforeafter::after{
+  position: absolute;
+  content: '';
+  background-color: rgb(234, 222, 222);
+  height: 1px;
+  width: 80%;
+  transform: translate(-50%,-10px);
+  color: white;
+}
+
+.beforeafter::before{
+  position: absolute;
+  content: '';
+  background-color: rgb(234, 222, 222);
+  height: 1px;
+  width: 80%;
+  transform: translate(-50%,-10px);
+  color: white;
+}
+
+
+
+.infoAfter::after{
+  position: absolute;
+  content: '';
+  background-color: rgb(42, 41, 41);
+  height: 1px;
+  width: 80%;
+  transform: translate(-50%,-10px);
+  color: white;
+}
+
 
 .inputField_textbox{
   position: relative;
