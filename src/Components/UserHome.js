@@ -44,7 +44,6 @@ const UserHome = () => {
 
   
 
-const mapId = 'https://www.google.com/maps/search/?api=1&query=Jersey+City,+NJ/&query_place_id=' + placeId
 
 
   const[onRefresh, setRefresh] = useState(0)
@@ -204,7 +203,6 @@ var eventyes = ''
                           <p>{<LocationMap
                           lat = {inf.lat}
                           lng = {inf.long}/>}</p>
-                          {console.log(mapId)}
                                 <p>  <img  src={loc} alt='location' height="30px"></img> - <a href={ 'https://www.google.com/maps/search/?api=1&query=Jersey+City,+NJ/&query_place_id=' + inf.placeId}>{inf.EventLocation}</a></p>
                                 <p ><img  src={cal} alt='location' height="30px"></img> - {inf.EventDate}</p>
                         </div>

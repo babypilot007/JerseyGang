@@ -210,7 +210,8 @@ function dets()
                           <p>{<LocationMap
                           lat = {info.lat}
                           lng = {info.long}/>}</p>
-                                <p>  <img  src={loc} alt='location' height="30px"></img> - {info.EventLocation} </p>
+                                <p>  <img  src={loc} alt='location' height="30px"></img> - <a href={ 'https://www.google.com/maps/search/?api=1&query=Jersey+City,+NJ/&query_place_id=' + info.placeId}>{info.EventLocation}</a></p>
+
                                 <p ><img  src={cal} alt='location' height="30px"></img> - {info.EventDate}</p>
                         </div>
                       Attending : {info.Rsvp}
