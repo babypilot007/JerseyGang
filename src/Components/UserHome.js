@@ -19,7 +19,9 @@ const UserHome = () => {
       
   const[lat, getLat] = useState(40.728157)
   const[long, getLong] = useState(-74.077644)
-  const[placeId, setPlaceId] = useState(-74.077644)
+  const[placeId, setPlaceId] = useState('')
+
+
 
 
   const navigate = useNavigate()
@@ -42,7 +44,7 @@ const UserHome = () => {
 
   
 
-const mapId = 'https://www.google.com/maps/search/query_place_id=' + placeId
+const mapId = 'https://www.google.com/maps/search/?api=1&query=Jersey+City,+NJ/&query_place_id=' + placeId
 
 
   const[onRefresh, setRefresh] = useState(0)
@@ -203,7 +205,7 @@ var eventyes = ''
                           lat = {inf.lat}
                           lng = {inf.long}/>}</p>
                           {console.log(mapId)}
-                                <p>  <img  src={loc} alt='location' height="30px"></img> - <a href={mapId}>{inf.EventLocation}</a></p>
+                                <p>  <img  src={loc} alt='location' height="30px"></img> - <a href={ 'https://www.google.com/maps/search/?api=1&query=Jersey+City,+NJ/&query_place_id=' + inf.placeId}>{inf.EventLocation}</a></p>
                                 <p ><img  src={cal} alt='location' height="30px"></img> - {inf.EventDate}</p>
                         </div>
                           
