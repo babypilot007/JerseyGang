@@ -268,7 +268,12 @@ function dets()
                        {showDets ? <div> <div>{(info.id === infoId) ?<div className='descp'>
                                   <div className='descp_details'>
                                   <h2>About</h2>
-                                    <p>{info.Event_descp}</p></div>
+                                  
+                                    <p>{info.Event_descp}</p>
+                                    <div className='descp_details'>
+                                  <h2>Add'nal Info</h2>
+                                    <p>{info.AddInfo}</p></div></div>
+                                 
                        </div> :null}</div>
                        </div> :null } 
                        </div>

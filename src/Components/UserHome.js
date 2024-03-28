@@ -133,7 +133,8 @@ const UserHome = () => {
             lat: lat,
             long:long,
             placeId : placeId,
-            URL : uRl
+            URL : uRl,
+            AddInfo : addInfo
           }
         ])
         console.log(user)
@@ -215,6 +216,8 @@ var eventyes = ''
 
                                 <div className='descp_header'>
                                     <p><span>Decription : </span><br></br>{inf.Event_descp}</p>
+                                    <p><span>Additional Info : </span><br></br>{inf.AddInfo}</p>
+
                                     </div>
                                    <div className='deleteBtnBackground'>
 
