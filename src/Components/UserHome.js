@@ -8,8 +8,6 @@ import loc from './location.png'
 import cal from './calendar.png'
 import LocationMap from './LocationMap';
 import Autocomplete from "react-google-autocomplete";
-// import DateTimePicker from 'react-datetime-picker';
-// import DatePicker from 'react-date-picker';
 import Datetime from 'react-datetime';
 import moment from 'moment';
 
@@ -306,33 +304,7 @@ var eventyes = ''
                   
                   </div>
         
-          
-{/* <DateTimePicker    className='signupform_date'
-                        calendarIcon = {false}
-                        clearIcon={false}
-                        showTimeSelect
-                        locale='us'
-                        value={startDate}
-                        minDate={new Date()}
-                        required = {true}
-                        showLeadingZeros ={true}
-                         onSelect={()=>{return startDate}}
-                         onChange={(date)=>{setStartDate(date)
-                           }} /> */}
-
-                           {/* <DatePicker 
-                           className='signupform_date'
-                           calendarIcon = {false}
-                           clearIcon={false}
-                           showTimeSelect
-                           locale='us'
-                           value={startDate}
-                           minDate={new Date()}
-                           required = {true}
-                           showLeadingZeros ={true}
-                           utc
-                            onSelect={()=>{return startDate}}
-                            onChange={(date)=>{setStartDate(date)}} /> */}
+        
     <Datetime 
     type = 'input'
     className='rdt'
@@ -350,7 +322,6 @@ var eventyes = ''
       onChange={(date)=>{setStartDate(date)
         moment(startDate).format('dddd, MMMM Do YYYY, h:mm:ss a')
         }}/>
-                           {console.log(moment(startDate).format('dddd, MMMM Do YYYY, h:mm:ss a'))}
 
         <input
             className="inputField"
