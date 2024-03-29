@@ -8,9 +8,8 @@ import loc from './location.png'
 import cal from './calendar.png'
 import LocationMap from './LocationMap';
 import Autocomplete from "react-google-autocomplete";
-import 'react-calendar/dist/Calendar.css';
-import 'C:/Users/Himalay/JerseyGang/node_modules/react-datetime-picker/src/DateTimePicker.css'
 import DateTimePicker from 'react-datetime-picker';
+
 
 const UserHome = () => {
   const locApi = process.env.REACT_APP_MAP_API
@@ -171,10 +170,12 @@ var eventyes = ''
   
     return (
 <>
+
   <div className='navUser'>
 
   <span className='nameIcon_nav'>{userInfo[0]}{userLastName[0]}</span><p>{userInfo} </p><button onClick={()=>{logOut()}}>Log out</button>
-    </div>       
+    </div>    
+
 
     <div className='userButton'> 
     <button  className="myeventBtn" mybtn = {onRefresh} onClick={()=>{setMyEvent(true);setAllEvent(false);setRsvpd(false)}}>My Events
@@ -298,26 +299,11 @@ var eventyes = ''
             value={addInfo}
             onChange={(e) => getAddInfo(e.target.value)}
           />
-             {/* <DateTimePicker
-             calendarClassName='calendar'
-             clockClassName='calendar'
-             className='calendar'
-             showTimeSelect
-                  onSelect={startDate}
-                  onChange={(date)=>{setStartDate(date)}} value={startDate}/> */}
+            
                   
                   <div>
-
-                    
-                  <DateTimePicker
-                         onSelect={()=>{return startDate}}
-                         onChange={(date)=>{setStartDate(date)}} value={startDate}/>
-
-                 
                   
-           
-
-</div>
+                  </div>
         <input
         
             className="inputField"
@@ -328,6 +314,15 @@ var eventyes = ''
             onChange={(e) => getEventDate(e.target.value)}
           />
           
+<DateTimePicker    className='signupform_date'
+                        calendarIcon = {false}
+                        clearIcon={false}
+                        value={startDate}
+                         onSelect={()=>{return startDate}}
+                         onChange={(date)=>{setStartDate(date)
+                           }} />
+
+
         <input
             className="inputField"
             type="Username"
@@ -349,6 +344,7 @@ var eventyes = ''
              create an Event
          </button>
       </form>
+      
 
       
 
