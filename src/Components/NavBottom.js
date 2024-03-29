@@ -9,7 +9,7 @@ export default function NavBottom() {
      url={'https://jerseygang.netlify.app/'}>
 
 <WhatsappIcon 
-size='40px'
+size='50px'
 round = {true}/>
 
      </WhatsappShareButton>

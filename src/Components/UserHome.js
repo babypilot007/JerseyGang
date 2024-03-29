@@ -352,10 +352,12 @@ var eventyes = ''
       </div> :null}
       
 
-      <NavBottom/>
     
     </div>
+    <NavBottom/>
+
     </>
+    
   )
 
 }

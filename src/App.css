@@ -2,12 +2,11 @@
 .eventbottom{
   position: sticky;
   display: flex;
-  justify-content: center;
-  bottom: 0px;
-  background-color: #000000c7;
-  width: 100%;
+  bottom: 0;
+  background-color: #000000dc;
   z-index: 999;
-  height: 70px ;
+  width: fit-content;
+  border-radius: 50px
 }
 .App{
   position: relative;
