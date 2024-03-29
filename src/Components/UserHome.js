@@ -8,8 +8,9 @@ import loc from './location.png'
 import cal from './calendar.png'
 import LocationMap from './LocationMap';
 import Autocomplete from "react-google-autocomplete";
-import DateTimePicker from 'react-datetime-picker';
-
+// import DateTimePicker from 'react-datetime-picker';
+// import DatePicker from 'react-date-picker';
+import Datetime from 'react-datetime';
 
 const UserHome = () => {
   const locApi = process.env.REACT_APP_MAP_API
@@ -35,7 +36,6 @@ const UserHome = () => {
   const[eventName, getEventName] = useState('')
   const[location, getLocation] = useState('')
   const[eventDescp, getdescp] = useState('')
-  const[eventDate, getEventDate] = useState('')
   const[uRl, getUrl] = useState('')
   const[addInfo, getAddInfo] = useState('')
 
@@ -122,7 +122,7 @@ const UserHome = () => {
             Event_descp : eventDescp,
             EventName : eventName,
             Rsvp : 1,
-            EventDate: eventDate,
+            EventDate: startDate,
             Rsvp_names : [{"firstName" : userInfo + " (Host)" , "id" : userid,"lastName" :userLastName}],
             Rsvp_Id : [getId],
             lat: lat,
@@ -304,25 +304,54 @@ var eventyes = ''
                   <div>
                   
                   </div>
-        <input
         
-            className="inputField"
-            type="Username"
-            placeholder="Date"
-            value={eventDate}
-            required={true}
-            onChange={(e) => getEventDate(e.target.value)}
-          />
           
-<DateTimePicker    className='signupform_date'
+{/* <DateTimePicker    className='signupform_date'
                         calendarIcon = {false}
                         clearIcon={false}
+                        showTimeSelect
+                        locale='us'
                         value={startDate}
+                        minDate={new Date()}
+                        required = {true}
+                        showLeadingZeros ={true}
                          onSelect={()=>{return startDate}}
                          onChange={(date)=>{setStartDate(date)
-                           }} />
+                           }} /> */}
 
+                           {/* <DatePicker 
+                           className='signupform_date'
+                           calendarIcon = {false}
+                           clearIcon={false}
+                           showTimeSelect
+                           locale='us'
+                           value={startDate}
+                           minDate={new Date()}
+                           required = {true}
+                           showLeadingZeros ={true}
+                           utc
+                            onSelect={()=>{return startDate}}
+                            onChange={(date)=>{setStartDate(date)}} /> */}
+    <Datetime 
+     calendarIcon = {false}
+     clearIcon={false}
+     showTimeSelect
+     locale='us'
+     value={startDate}
+     minDate={new Date()}
+     required = {true}
+     utc = {false}
+     initialViewDate={new Date()}
+     showLeadingZeros ={true}
+      onSelect={()=>{return startDate}}
+      onChange={(date)=>{setStartDate(date)
+        }}/>
+                           {console.log(startDate._d)}
 
+        <input value={startDate._d}
+         
+        
+          />
         <input
             className="inputField"
             type="Username"
