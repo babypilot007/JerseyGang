@@ -927,7 +927,7 @@ margin-left: 0;
 
 
 .react-datetime-picker__inputGroup__divider {
-  margin: 0;
+  margin: 0px;
   width: 0;
   padding: 0;
 }
@@ -977,6 +977,9 @@ margin-left: 0;
   -moz-appearance: menulist;
   appearance: menulist;
   color: rgb(241, 235, 225);
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 10px;
 }
 
 .react-datetime-picker__button {
