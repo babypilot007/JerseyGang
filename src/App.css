@@ -889,7 +889,7 @@ margin-left: 0;
   font-size: calc(18px);
   background-color: rgba(0, 0, 0, 0);
   color: white;
-  border: solid rgba(255, 228, 228, 0.183);
+  border: solid rgba(255, 228, 228, 0);
 }
 
 .react-datetime-picker {
@@ -929,7 +929,9 @@ margin-left: 0;
 .react-datetime-picker__inputGroup__divider {
   margin: 0px;
   width: 0;
-  padding: 0;
+  padding: 3px;
+  color: rgb(255, 255, 255);
+  content: '/';
 }
 
 .react-datetime-picker__inputGroup__divider,
@@ -977,7 +979,7 @@ margin-left: 0;
   -moz-appearance: menulist;
   appearance: menulist;
   color: rgb(241, 235, 225);
-  margin-left: 10px;
+  margin-left: 0%;
   padding: 5px;
   border-radius: 10px;
 }
