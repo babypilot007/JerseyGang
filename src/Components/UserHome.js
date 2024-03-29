@@ -10,6 +10,7 @@ import LocationMap from './LocationMap';
 import Autocomplete from "react-google-autocomplete";
 import Datetime from 'react-datetime';
 import moment from 'moment';
+import NavBottom from './NavBottom';
 
 const UserHome = () => {
   const locApi = process.env.REACT_APP_MAP_API
@@ -349,10 +350,11 @@ var eventyes = ''
       
 
       </div> :null}
-         
-     
+      
+
+      <NavBottom/>
+    
     </div>
-        
     </>
   )
 

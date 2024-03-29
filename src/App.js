@@ -27,7 +27,6 @@ function App() {
             <Route path = '/userhome' element ={<UserHome />} />
             <Route path = '/rsvp' element ={<Rsvp />} />
 
-
         </Routes>
 
       

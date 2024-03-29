@@ -3,15 +3,13 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
 import { supabase } from './supabaseClient';
 
-const EventDetails = () => {
+function EventDetails (id) {
 
 const navigate = useNavigate()
 
 const location = useLocation()
 
-var id = location.state
-
-
+console.log(location)
 const [data, getData] = useState('')
 
 
@@ -79,7 +77,7 @@ const [data, getData] = useState('')
             )
     
     }else return  <div  className='event_details'>Redirecting ...
-                {navigate("/")}
+                {navigate("")}
     </div>
     
 }

@@ -1,5 +1,14 @@
 
-
+.eventbottom{
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  bottom: 0px;
+  background-color: #000000c7;
+  width: 100%;
+  z-index: 999;
+  height: 70px ;
+}
 .App{
   position: relative;
     font-family: 'Roboto', sans-serif;
