@@ -503,17 +503,23 @@ font-weight: 600;
 }
 
 
-
-.infoAfter::after{
-  position: absolute;
-  content: '';
-  background-color: rgb(42, 41, 41);
-  height: 1px;
-  width: 80%;
-  transform: translate(-50%,-10px);
-  color: white;
+.infoAfter
+{display: block;
+ padding:   5px;
+ border-radius: 10px;
+ margin-right:10px ;
+ margin-left: 10px;
 }
 
+.infoAfter span
+{display: block;
+ background-color: rgb(54, 53, 53);
+ padding:   5px;
+ border-radius: 10px;
+ margin-right:10px ;
+ padding-left: 10px;
+
+}
 
 .inputField_textbox{
   position: relative;
@@ -1300,7 +1306,12 @@ margin-left: 0;
  */
 
  .rdt {
+  background-color: red;
   position: relative;
+  display: flex;
+  justify-content: center;
+
+
 }
 .rdtPicker {
   display: none;
@@ -1313,6 +1324,7 @@ margin-left: 0;
   box-shadow: 0 1px 3px rgba(0,0,0,.1);
   border: 2px solid #000000;
   border-radius: 10px;
+  
 }
 .rdtOpen .rdtPicker {
   display: block;

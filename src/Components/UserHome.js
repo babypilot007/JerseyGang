@@ -11,6 +11,7 @@ import Autocomplete from "react-google-autocomplete";
 // import DateTimePicker from 'react-datetime-picker';
 // import DatePicker from 'react-date-picker';
 import Datetime from 'react-datetime';
+import moment from 'moment';
 
 const UserHome = () => {
   const locApi = process.env.REACT_APP_MAP_API
@@ -122,7 +123,7 @@ const UserHome = () => {
             Event_descp : eventDescp,
             EventName : eventName,
             Rsvp : 1,
-            EventDate: startDate,
+            EventDate: moment(startDate).format('dddd, MMMM Do YYYY, h:mm a'),
             Rsvp_names : [{"firstName" : userInfo + " (Host)" , "id" : userid,"lastName" :userLastName}],
             Rsvp_Id : [getId],
             lat: lat,
@@ -333,6 +334,8 @@ var eventyes = ''
                             onSelect={()=>{return startDate}}
                             onChange={(date)=>{setStartDate(date)}} /> */}
     <Datetime 
+    type = 'input'
+    className='rdt'
      calendarIcon = {false}
      clearIcon={false}
      showTimeSelect
@@ -345,13 +348,10 @@ var eventyes = ''
      showLeadingZeros ={true}
       onSelect={()=>{return startDate}}
       onChange={(date)=>{setStartDate(date)
+        moment(startDate).format('dddd, MMMM Do YYYY, h:mm:ss a')
         }}/>
-                           {console.log(startDate._d)}
+                           {console.log(moment(startDate).format('dddd, MMMM Do YYYY, h:mm:ss a'))}
 
-        <input value={startDate._d}
-         
-        
-          />
         <input
             className="inputField"
             type="Username"
