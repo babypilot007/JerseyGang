@@ -35,10 +35,10 @@ function EditInfo() {
     const[uRl, getUrl] = useState('')
   
 
-    // let inputProps = {
-    //     placeholder: 'Change Date',
-    //     disabled: false,
-    // };
+    let inputProps = {
+        placeholder: 'Change Date',
+        disabled: false,
+    };
 
   useEffect(()=>{
     const fetchData = async ()=>{
@@ -67,9 +67,8 @@ function EditInfo() {
 
 console.log(oldDate)
 
-  console.log(moment(oldDate).format())
   
-  const [startDate, setStartDate] = useState(new Date('03/17/2020 11:00 PM'));
+  const [startDate, setStartDate] = useState(new Date(oldDate));
 
 
  
@@ -160,6 +159,7 @@ className='rdt'
  required = {true}
  utc = {false}
  value={startDate}
+ inputProps = {inputProps}
  showLeadingZeros ={true}
   onSelect={()=>{return startDate}}
   onChange={(date)=>{setStartDate(date)
