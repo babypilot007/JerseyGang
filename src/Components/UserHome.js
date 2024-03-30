@@ -24,12 +24,15 @@ const UserHome = () => {
 
   const navigate = useNavigate()
 
+
   const[myEvent, setMyEvent] = useState(true)
   const[allEvents, setAllEvent] = useState(false)
   const[rsvpd, setRsvpd] = useState(false)
   const[getId, setId] = useState('')
   const[userInfo, setUserInfo] = useState('')
   const[userLastName, setUserLastName] = useState('')
+
+
 
   const[userid, getUserId] = useState('')
   const[info, setInfo] = useState('')
@@ -158,6 +161,9 @@ const UserHome = () => {
   }
 
 
+
+ 
+
   
 
 var eventyes = ''
@@ -221,9 +227,9 @@ var eventyes = ''
 
                                    <div className='deleteBtnBackground'>
 
-                                   <button className='deleteBtn' onClick = {()=>{
+                                   <button className='deleteBtn' onClick = {()=>{navigate("/editdetail", {state : {id : inf.id}})}}>Edit</button> 
 
-                                      }}>Edit</button> 
+
                                           <button className='deleteBtn' onClick = {()=>{
                                               deleteEvent(inf.id)
 

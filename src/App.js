@@ -7,6 +7,7 @@ import Auth from './Auth';
 import SignUp from './Components/SignUp';
 import UserHome from './Components/UserHome';
 import Rsvp from './Components/Rsvp';
+import EditInfo from './Components/EditInfo';
 
 
 
@@ -26,6 +27,8 @@ function App() {
             <Route path = '/details' element ={<EventDetails />} />
             <Route path = '/userhome' element ={<UserHome />} />
             <Route path = '/rsvp' element ={<Rsvp />} />
+            <Route path = '/editdetail' element ={<EditInfo />} />
+
 
         </Routes>
 
