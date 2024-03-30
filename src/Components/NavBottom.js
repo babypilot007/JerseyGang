@@ -5,9 +5,12 @@ export default function NavBottom() {
   return (
     <div className='eventbottom'>
         <WhatsappShareButton 
-     title="whatsapp" 
+     title="Join these fun Meetup Group - 
+     Create, Meet, Explore !
+     " 
      url={'https://jerseygang.netlify.app/'}>
 
+        
 <WhatsappIcon 
 size='50px'
 round = {true}/>
