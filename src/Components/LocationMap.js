@@ -4,9 +4,9 @@ import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 
 const libraries = ['places'];
 const mapContainerStyle = {
-  width: '100%',
+  width: '95%',
   height: '20vh',
-  right:'10px'
+
 };
 
 
