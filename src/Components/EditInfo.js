@@ -9,15 +9,14 @@ import Autocomplete from "react-google-autocomplete";
 import Datetime from 'react-datetime';
 import moment from 'moment';
 import { useLocation } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 
 function EditInfo() {
 
     const locationId = useLocation()
     const id = locationId.state.id
-    const navigate = useNavigate()
-
+    // const navigate = useNavigate()
     const locApi = process.env.REACT_APP_MAP_API
       
     const[lat, getLat] = useState('')
@@ -90,7 +89,8 @@ function EditInfo() {
       
     } catch (error) {
     }
-navigate(-1)
+    window.location.reload();
+
   }
   return (
 
