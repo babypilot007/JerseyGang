@@ -9,21 +9,20 @@ import Autocomplete from "react-google-autocomplete";
 import Datetime from 'react-datetime';
 import moment from 'moment';
 import { useLocation } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 
 
 function EditInfo() {
 
     const locationId = useLocation()
     const id = locationId.state.id
-
+    const navigate = useNavigate()
 
     const locApi = process.env.REACT_APP_MAP_API
       
-    const[lat, getLat] = useState(40.728157)
-    const[long, getLong] = useState(-74.077644)
+    const[lat, getLat] = useState('')
+    const[long, getLong] = useState('')
     const[placeId, setPlaceId] = useState('')
-  
   
   
   
@@ -50,8 +49,12 @@ function EditInfo() {
         // setStartDate(response.data[0].EventDate)
         getUrl(response.data[0].URL)
        setOldDate(response.data[0].EventDate)
-       
+      setPlaceId(response.data[0].placeId)
+       getLat((response.data[0].lat))
+       getLong(response.data[0].long)
+
         getLocation(response.data[0].EventLocation)
+
         
       } catch (error) {
       
@@ -65,7 +68,7 @@ function EditInfo() {
   const [startDate, setStartDate] = useState(new Date());
 
 
-
+ 
 
   const createEvent = async () =>{
 
@@ -87,8 +90,7 @@ function EditInfo() {
       
     } catch (error) {
     }
-    window.location.reload();
-
+navigate(-1)
   }
   return (
 
@@ -115,19 +117,19 @@ function EditInfo() {
       options={{
         types: ["geocode", "establishment"],
       }}
+
     onPlaceSelected={(place) => {
       getLocation(place.formatted_address)
       console.log(place)
       getLat(place.geometry.location.lat())
       getLong(place.geometry.location.lng())
       setPlaceId(place.place_id)
-      
+            console.log(placeId)
       }}
     />;
-
 <p>{<LocationMap
-   lat = {lat}
-   lng = {long}/>}</p>
+   lat = {parseFloat(lat)}
+   lng = {parseFloat(long)}/>}</p>
 
     <input
         className="inputField"
@@ -178,7 +180,7 @@ className='rdt'
     />
 
 
-  <button type='submit'>
+  <button type='submit' >
          Update
      </button>
   </form>
