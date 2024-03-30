@@ -15,6 +15,7 @@
   overflow: auto;
   height: 100vh;
   scroll-behavior: smooth;
+  white-space: pre-line;
   }
 
 .App-header {
