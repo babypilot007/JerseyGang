@@ -23,6 +23,7 @@ function EditInfo() {
     const[long, getLong] = useState('')
     const[placeId, setPlaceId] = useState('')
   
+    const [oldDate, setOldDate] = useState('');
   
   
   
@@ -34,7 +35,10 @@ function EditInfo() {
     const[uRl, getUrl] = useState('')
   
 
-
+    // let inputProps = {
+    //     placeholder: 'Change Date',
+    //     disabled: false,
+    // };
 
   useEffect(()=>{
     const fetchData = async ()=>{
@@ -61,10 +65,11 @@ function EditInfo() {
     fetchData()
   }, [id])
 
-  const [oldDate, setOldDate] = useState('');
+console.log(oldDate)
 
-
-  const [startDate, setStartDate] = useState(new Date());
+  console.log(moment(oldDate).format())
+  
+  const [startDate, setStartDate] = useState(new Date('03/17/2020 11:00 PM'));
 
 
  
@@ -152,15 +157,15 @@ className='rdt'
  clearIcon={false}
  showTimeSelect
  locale='us'
- value={startDate}
- minDate={new Date()}
  required = {true}
  utc = {false}
- initialViewDate={oldDate}
+ value={startDate}
  showLeadingZeros ={true}
   onSelect={()=>{return startDate}}
   onChange={(date)=>{setStartDate(date)
+    console.log(date)
     moment(startDate).format('dddd, MMMM Do YYYY, h:mm:ss a')
+
     }}/>
 
     <input

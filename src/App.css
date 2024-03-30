@@ -1333,7 +1333,9 @@ margin-left: 0;
   box-shadow: 0 1px 3px rgba(0,0,0,.1);
   border: 2px solid #000000;
   border-radius: 10px;
-  
+   placeholder{
+    color: red;
+   }
 }
 .rdtOpen .rdtPicker {
   display: block;
