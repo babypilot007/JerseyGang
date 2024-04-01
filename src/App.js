@@ -8,6 +8,7 @@ import SignUp from './Components/SignUp';
 import UserHome from './Components/UserHome';
 import Rsvp from './Components/Rsvp';
 import EditInfo from './Components/EditInfo';
+import PassUpdate from './Components/PassUpdate';
 
 
 
@@ -28,6 +29,8 @@ function App() {
             <Route path = '/userhome' element ={<UserHome />} />
             <Route path = '/rsvp' element ={<Rsvp />} />
             <Route path = '/editdetail' element ={<EditInfo />} />
+            <Route path = '/updatepass' element ={<PassUpdate />} />
+
 
 
         </Routes>

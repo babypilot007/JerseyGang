@@ -122,7 +122,11 @@ const navigate = useNavigate()
         {loginError?<div className="failedLogin"><p>User not found. Please try again or Create an Account</p></div>:null}
 
           <div >        
-            {createAcc?<div className="createAct" ><button  onClick={()=>{navigate('/signup')}}>Create Account</button></div>:null}
+            {createAcc?<div className="createAct" >
+              
+              <button  onClick={()=>{navigate('/signup')}}>Create Account</button>
+              <button onClick={()=>{navigate('/updatepass')}}>Forgot Password</button>
+              </div>:null}
          </div>
      
 
