@@ -10,6 +10,7 @@ import Datetime from 'react-datetime';
 import moment from 'moment';
 import { useLocation } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
+import xtype from 'xtypejs'
 
 
 function EditInfo() {
@@ -23,7 +24,10 @@ function EditInfo() {
     const[long, getLong] = useState('')
     const[placeId, setPlaceId] = useState('')
   
-    const [oldDate, setOldDate] = useState('');
+
+
+
+
   
   
   
@@ -35,10 +39,6 @@ function EditInfo() {
     const[uRl, getUrl] = useState('')
   
 
-    let inputProps = {
-        placeholder: 'Change Date',
-        disabled: false,
-    };
 
   useEffect(()=>{
     const fetchData = async ()=>{
@@ -49,9 +49,9 @@ function EditInfo() {
         getEventName(response.data[0].EventName)
         setInfo(response.data[0].AddInfo)
         getdescp(response.data[0].Event_descp)
-        // setStartDate(response.data[0].EventDate)
+        setStartDate(response.data[0].FormatDate)
         getUrl(response.data[0].URL)
-       setOldDate(response.data[0].EventDate)
+    //    setOldDate(response.data[0].EventDate)
       setPlaceId(response.data[0].placeId)
        getLat((response.data[0].lat))
        getLong(response.data[0].long)
@@ -65,15 +65,36 @@ function EditInfo() {
     fetchData()
   }, [id])
 
-console.log(oldDate)
+  const [startDate, setStartDate] = useState();
 
-  
-  const [startDate, setStartDate] = useState(new Date(oldDate));
+
+  let changeDate =   new Date(startDate)
+
+  changeDate = changeDate.toDateString()
+
+
+console.log(changeDate)
+
+console.log(xtype(changeDate))
+
+
+
+function onchange (date){
+
+    setStartDate(moment(date).format('llll'))
+
+
+
+}
+
+
+
 
 
  
 
-  const createEvent = async () =>{
+  const createEvent = async (event) =>{
+    event.preventDefault()
 
     try {
       const {data: {user}} = await supabase.from('event').update([
@@ -81,12 +102,14 @@ console.log(oldDate)
           EventLocation : location,
           Event_descp : eventDescp,
           EventName : eventName,
-          EventDate: moment(startDate).format('dddd, MMMM Do YYYY, h:mm a'),
+          EventDate: moment(startDate).format('llll'),
           lat: lat,
           long:long,
           placeId : placeId,
           URL : uRl,
-          AddInfo : info
+          AddInfo : info,
+          FormatDate : moment(startDate).format('llll')
+
         }
       ]).eq('id',id)
       console.log(user)
@@ -96,6 +119,15 @@ console.log(oldDate)
     window.location.reload();
 
   }
+
+
+  
+  let inputProps = {
+    disabled: false,
+    placeholder:startDate,
+    value : startDate,
+    require : true
+};
   return (
 
         <div className=''>
@@ -158,15 +190,19 @@ className='rdt'
  locale='us'
  required = {true}
  utc = {false}
- value={startDate}
- inputProps = {inputProps}
+ inputProps={inputProps}
  showLeadingZeros ={true}
-  onSelect={()=>{return startDate}}
-  onChange={(date)=>{setStartDate(date)
-    console.log(date)
-    moment(startDate).format('dddd, MMMM Do YYYY, h:mm:ss a')
 
-    }}/>
+//  onSelect={()=>{return startDate}}
+ onChange={(date)=>{
+    
+        onchange(date)
+    // setChangeFormat(moment(startDate).format('llll'))
+    
+
+   console.log( date)
+//    moment(startDate).format('dddd, MMMM Do YYYY, h:mm:ss a')
+   }}/>
 
     <input
         className="inputField"

@@ -43,6 +43,8 @@ const UserHome = () => {
   const[addInfo, getAddInfo] = useState('')
 
   const [startDate, setStartDate] = useState(new Date());
+  const [dateFormat, setDateFormat] = useState('');
+
 
 
 
@@ -132,7 +134,8 @@ const UserHome = () => {
             long:long,
             placeId : placeId,
             URL : uRl,
-            AddInfo : addInfo
+            AddInfo : addInfo,
+            FormatDate : dateFormat
           }
         ])
         console.log(user)
@@ -320,13 +323,13 @@ var eventyes = ''
      showTimeSelect
      locale='us'
      value={startDate}
-     minDate={new Date()}
      required = {true}
      utc = {false}
-     initialViewDate={new Date()}
      showLeadingZeros ={true}
       onSelect={()=>{return startDate}}
       onChange={(date)=>{setStartDate(date)
+        setDateFormat(date._d)
+        console.log(date)
         moment(startDate).format('dddd, MMMM Do YYYY, h:mm:ss a')
         }}/>
 
