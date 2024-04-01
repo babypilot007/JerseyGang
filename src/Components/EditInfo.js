@@ -19,19 +19,9 @@ function EditInfo() {
     const id = locationId.state.id
     // const navigate = useNavigate()
     const locApi = process.env.REACT_APP_MAP_API
-      
     const[lat, getLat] = useState('')
     const[long, getLong] = useState('')
     const[placeId, setPlaceId] = useState('')
-  
-
-
-
-
-  
-  
-  
-  
     const[info, setInfo] = useState('')
     const[eventName, getEventName] = useState('')
     const[location, getLocation] = useState('')

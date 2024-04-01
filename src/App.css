@@ -318,6 +318,11 @@ font-weight: 600;
   font-size: calc(15px + .5vmin);
 }
 
+.delBtn{
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
 
 .evnt_details{
     line-height: 15px;
@@ -1544,3 +1549,24 @@ td.rdtYear:hover {
   cursor: default;
 }
 
+
+
+.popUp{
+  z-index: 9999;
+  position:absolute;
+  height: 200vh;
+  width: 100vw;
+  margin-left: 0px;
+  background-color: rgba(0, 0, 0, 0.97);
+  transform: translate(-20px,-200px);
+  color: wheat;
+  border-radius: 20px;
+
+  h3{ position: relative;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      margin-top: 50vh;
+      background-color: #000000;
+  }
+}

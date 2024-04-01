@@ -150,14 +150,13 @@ const UserHome = () => {
 
   const deleteEvent = async (id) =>{
 
-
+    
     try {
       const {data: {user}} = await supabase.from('event').delete().eq('id', id)
         console.log(user)
 
     } catch (error) {
     }
-    console.log(id)
     window.location.reload();
 
 
@@ -326,8 +325,10 @@ var eventyes = ''
      required = {true}
      utc = {false}
      showLeadingZeros ={true}
+
       onSelect={()=>{return startDate}}
-      onChange={(date)=>{setStartDate(date)
+      onChange={(date)=>{
+        setStartDate(date)
         setDateFormat(date._d)
         console.log(date)
         moment(startDate).format('dddd, MMMM Do YYYY, h:mm:ss a')
