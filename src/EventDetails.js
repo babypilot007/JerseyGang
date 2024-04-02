@@ -6,6 +6,7 @@ import { supabase } from './supabaseClient';
 function EventDetails () {
 
 const navigate = useNavigate()
+
 const params = useParams()
 const [data, getData] = useState('')
 
@@ -35,47 +36,48 @@ const [data, getData] = useState('')
 
 
 
-        
-        if(details){
-        console.log(details);
+                if(details){
+    return (<div className=''> 
+            {details.map((info)=>{
 
-            
-            return (
-               <div className='event_hover'>
+                return(
 
-                        { details.map((info)=>{
-
-                        return(
-                                     <div className='evnt_details'>
-
-                                        <h1>Event Details</h1>
-
-                                        <h2>{info.EventName}</h2>
-
-                                        <p>Location : {info.EventLocation}</p>
-                                        <p>Date : {info.EventDate}</p>
-                                        <p>Time : {info.EventTime}</p>
+                    <>
 
 
-                                        <p>Event Created by : {info.UserName}</p>
+<div className='event_hover' key = {info}>
+                              
+                            <div className='descp'>
 
-                                        <div>
-                                            <h3>Event Decription</h3>
-                                          <p>{info.Event_descp}</p>
-                                        </div>
+                        <div className='event_header'><h1>{info.EventName}</h1> </div>
+                        
+                        <p>Event Info : <br></br>{info.Event_descp}</p>
+                   
+                    <div className='btn_grp'>
+                         <h3 className='rsvp'>Attending : {info.Rsvp} <br></br> Spots Left : {info.GuestLimit - info.Rsvp_Id.length} </h3>
+                           <div>
+                          
+                          <h3>Created By : {info.UserName}
+                          </h3 >
+                          </div>
+                     </div>   
+                       
+                              </div>
+                      <p className='event_hover_p'>Please <span><button onClick={()=>{navigate('/auth')}} >Login</button></span> or <span><button onClick={()=>{navigate('/signup')}}>SignUp</button></span> for more Details</p>
 
-                                    </div>
-                        )
-                        })  }
-
-                      
-
-                </div>
+                        </div>  
+                        </>
+                )
+                
+            })}
+           </div> 
             )
-    
-    }else return  <div  className='event_details'>Redirecting ...
-                {navigate("")}
-    </div>
+
+}else return  (
+        <div  className='event_details'>No Events
+        </div>)
+
+
     
 }
 

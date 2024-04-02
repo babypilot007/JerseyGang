@@ -12,7 +12,8 @@ import Datetime from 'react-datetime';
 import moment from 'moment';
 import NavBottom from './NavBottom';
 import share from './share.png'
-import { Link } from 'react-router-dom';
+import { WhatsappShareButton } from 'react-share';
+
 
 
 const UserHome = () => {
@@ -238,7 +239,17 @@ var eventyes = ''
                               
 
                           <div className='event_header'>
-                            <h1>{inf.EventName}</h1>  <Link to={`/eventdetails/${inf.id}`}><img  src={share} alt='share' height="30px"></img></Link>
+                            <h1>{inf.EventName}</h1>  
+                            
+                            <WhatsappShareButton 
+                              title="Join these fun Meetup Group - 
+
+                              Create, Meet, Explore !" 
+
+                              url={`https://desigangjc.com/eventdetails/${inf.id}`}>
+                                <img  src={share} alt='share' height="40px"></img>
+                              </WhatsappShareButton>
+                            
                             </div>
 
                           <div className='event_middle'>
