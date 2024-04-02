@@ -28,6 +28,7 @@ function Rsvp(userid) {
     const[pressBtn, setPressBtn] = useState(0)
     const[infoId, getInfoId] = useState('')
 
+   let isAvailable
 
 
     useEffect(()=>{
@@ -228,6 +229,11 @@ function dets()
                         </div>
 
                     Attending : {info.Rsvp}     <span className='span'>____</span> Spots Left : {info.GuestLimit - info.Rsvp_Id.length}
+
+                                    {((info.GuestLimit - info.Rsvp_Id.length)) === 0 ? <div>{isAvailable = true }</div>: <div>{isAvailable = false}</div>}
+
+                                  
+
                       <br></br><button className="listbtn" value={info.id} onClick={()=>{show();fetchRsvp(info.id);}}>Guest List</button>
 
                       
@@ -263,10 +269,11 @@ function dets()
                           }}>Cancel RSVP</button></div>
                        :
                        <div>
-                        <button className='interested' onClick={()=>{
+                        <button className='interested' 
+                        disabled = {isAvailable}
+                        onClick={()=>{
                         setRsvp(info.id);
                         fetchRsvp(info.id);
-
                         }}>Want to attend</button></div>
                        }                      
                      </div>
