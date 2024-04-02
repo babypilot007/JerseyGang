@@ -10,7 +10,6 @@ import LocationMap from './LocationMap';
 import Autocomplete from "react-google-autocomplete";
 import Datetime from 'react-datetime';
 import moment from 'moment';
-import NavBottom from './NavBottom';
 import share from './share.png'
 import { WhatsappShareButton } from 'react-share';
 
@@ -428,7 +427,6 @@ var eventyes = ''
 
     
     </div>
-    <NavBottom/>
 
     </>
     
