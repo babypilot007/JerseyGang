@@ -21,6 +21,7 @@ function Rsvp(userid) {
     const[userfirstNames, getUserfirstNames] = useState('')
     const[userlastNames, getUserLastNames] = useState('')
 
+
     const[attend, showAttend] = useState(false)
     const[showDets, setShowDets] = useState(false)
     const[pressBtn, setPressBtn] = useState(0)
@@ -35,7 +36,6 @@ function Rsvp(userid) {
             if(user === null){
               navigate ('/auth')
             }else{
-              console.log(user.user_metadata.firstName)
               getUserId(user.id)
               getUserfirstNames(user.user_metadata.firstName)
               getUserLastNames(user.user_metadata.lastName)
@@ -215,7 +215,8 @@ function dets()
                                 <p>  Link - <a href={info.URL}> Click for the Link</a></p>
 
                         </div>
-                      Attending : {info.Rsvp}
+
+                    Attending : {info.Rsvp}     <span className='span'>____</span> Spots Left : {info.GuestLimit - info.Rsvp_Id.length}
                       <br></br><button className="listbtn" value={info.id} onClick={()=>{show();fetchRsvp(info.id);}}>Guest List</button>
 
                       

@@ -27,6 +27,8 @@ function EditInfo() {
     const[location, getLocation] = useState('')
     const[eventDescp, getdescp] = useState('')
     const[uRl, getUrl] = useState('')
+  const[guestLimit, setGuestLimt] = useState('')
+
   
 
 
@@ -45,7 +47,7 @@ function EditInfo() {
       setPlaceId(response.data[0].placeId)
        getLat((response.data[0].lat))
        getLong(response.data[0].long)
-
+        setGuestLimt(response.data[0].GuestLimit)
         getLocation(response.data[0].EventLocation)
 
         
@@ -98,7 +100,8 @@ function onchange (date){
           placeId : placeId,
           URL : uRl,
           AddInfo : info,
-          FormatDate : moment(startDate).format('llll')
+          FormatDate : moment(startDate).format('llll'),
+          GuestLimit : guestLimit
 
         }
       ]).eq('id',id)
@@ -164,7 +167,13 @@ function onchange (date){
         value={info}
         onChange={(e) => setInfo(e.target.value)}
       />
-        
+        <input
+            className="inputField"
+            type="number"
+            placeholder="Guest Limit"
+            value={guestLimit}
+            onChange={(e) => setGuestLimt(e.target.value)}
+          />
               
               <div>
               

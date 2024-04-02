@@ -23,6 +23,7 @@ const UserHome = () => {
 
 
   const navigate = useNavigate()
+  const[infoId, getInfoId] = useState('')
 
 
   const[myEvent, setMyEvent] = useState(true)
@@ -33,6 +34,7 @@ const UserHome = () => {
   const[userLastName, setUserLastName] = useState('')
   const[guestLimit, setGuestLimt] = useState('')
 
+  const[attend, showAttend] = useState(false)
 
 
   const[userid, getUserId] = useState('')
@@ -89,7 +91,7 @@ const UserHome = () => {
           var match = response.data[0].Rsvp_Id
             if(match.includes(userid))
             {
-            }            console.log(response.data[0].Rsvp_Id)
+            }            
             if(response.data !== null){
             setInfo(response.data)
             }
@@ -164,8 +166,29 @@ const UserHome = () => {
 
   }
 
+  const fetchRsvp = async (id)=>{
+ 
+    try {
+      
+      const response = await supabase.from('event').select('*').eq('id',id)
+      var data = response.data
+  
+        console.log(data)
+       data.map((e)=> { 
+        
+           return getInfoId(e.id)
+  
+      }
+      )
+    } catch (error) {
+    }
+  
+  
+  }
 
-
+  function show(){
+    showAttend(!attend)
+  }
  
 
   
@@ -222,8 +245,21 @@ var eventyes = ''
 
                         </div>
                           
+                        Attending : {inf.Rsvp}     <span className='span'>____</span> Spots Left : {inf.GuestLimit - inf.Rsvp_Id.length}
+
+                      <br></br><button className="listbtn" value={info.id} onClick={()=>{show();fetchRsvp(inf.id)}}>Guest List</button>
+
+                      <div >
+                       {attend ? <div> <div>{(inf.id === infoId) ?<div className='nameList'>{inf.Rsvp_names.map((e,idx)=>{
+                            return (<div >
+                             <li key={idx}><span className='nameIcon'>{e.firstName[0]}{e.lastName[0]}</span>{e.firstName}</li></div>
+                            )
+                        })}</div> :null}</div>
+                       </div> :null } 
+                       </div>
 
                                 <div className='descp_header'>
+
                                    <div className='descp_after'> <p><span>Decription : </span></p> <div className='beforeafter'><p>{inf.Event_descp}</p></div></div>
                                     <p className='infoAfter'><span>Additional Info : </span><br></br>{inf.AddInfo}</p>
                                     </div>
@@ -262,7 +298,7 @@ var eventyes = ''
       {allEvents ? <div className='event_details'>
       
 
-      <p>{eventInfo}</p>
+      {eventInfo}
       </div>:null}
 
 
@@ -290,7 +326,6 @@ var eventyes = ''
           }}
         onPlaceSelected={(place) => {
           getLocation(place.formatted_address)
-          console.log(place)
           getLat(place.geometry.location.lat())
           getLong(place.geometry.location.lng())
           setPlaceId(place.place_id)
@@ -340,8 +375,7 @@ var eventyes = ''
       onChange={(date)=>{
         setStartDate(date)
         setDateFormat(date._d)
-        console.log(date)
-        moment(startDate).format('dddd, MMMM Do YYYY, h:mm:ss a')
+            moment(startDate).format('dddd, MMMM Do YYYY, h:mm:ss a')
         }}/>
 
         <input
