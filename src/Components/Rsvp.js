@@ -232,7 +232,7 @@ function dets()
                           lng = {info.long}/>}</p>
                                 <p>  <img  src={loc} alt='location' height="30px"></img> - <a href={ 'https://www.google.com/maps/search/?api=1&query=Jersey+City,+NJ/&query_place_id=' + info.placeId}>{info.EventLocation}</a></p>
                                 <p ><img  src={cal} alt='location' height="30px"></img> - {info.EventDate}</p>
-                                <p>  Link - <a href={info.URL}> Click for the Link</a></p>
+                                {info.URL !==null ? <div>not null</div> : <div>null</div>}<p>  Link - <a href={info.URL}> Click for the Link</a></p>
 
                         </div>
 
