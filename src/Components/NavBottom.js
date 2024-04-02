@@ -8,7 +8,7 @@ export default function NavBottom() {
      title="Join these fun Meetup Group - 
      Create, Meet, Explore !
      " 
-     url={'https://jerseygang.netlify.app/'}>
+     url={'https://desigangjc.com/'}>
 
         
 <WhatsappIcon 
