@@ -173,7 +173,8 @@ const UserHome = () => {
       const response = await supabase.from('event').select('*').eq('id',id)
       var data = response.data
   
-        console.log(data)
+        console.log(data.length)
+
        data.map((e)=> { 
         
            return getInfoId(e.id)
