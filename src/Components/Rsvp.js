@@ -5,6 +5,7 @@ import { supabase } from '../supabaseClient';
 import loc from './location.png'
 import cal from './calendar.png'
 import LocationMap from './LocationMap';
+import share from './share.png'
 
 
 
@@ -201,7 +202,8 @@ function dets()
               <div className='descp'>
 
                       <div className='event_header'>
-                        <h1>{info.EventName}</h1> 
+                        <h1>{info.EventName}</h1>    <p ><img  src={share} alt='share' height="30px"></img></p>
+
                         </div>
 
                         <div>

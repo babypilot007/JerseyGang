@@ -11,6 +11,8 @@ import Autocomplete from "react-google-autocomplete";
 import Datetime from 'react-datetime';
 import moment from 'moment';
 import NavBottom from './NavBottom';
+import share from './share.png'
+
 
 const UserHome = () => {
   const locApi = process.env.REACT_APP_MAP_API
@@ -234,7 +236,7 @@ var eventyes = ''
              
                               
 
-                          <div className='event_header'><h1>{inf.EventName}</h1></div>
+                          <div className='event_header'><h1>{inf.EventName}</h1>  <a href='home'><img  src={share} alt='share' height="40px"></img></a></div>
 
                           <div className='event_middle'>
                           <p>{<LocationMap
