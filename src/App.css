@@ -251,6 +251,7 @@ font-weight: 600;
   
   p{
     padding-left: 20px;
+    text-align: left;
   }
 
 }
