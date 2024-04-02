@@ -94,18 +94,22 @@ const setRsvp = async (event)=>{
       const response = await supabase.from('event').update({Rsvp : count}).eq('id',event)
       const updateUser = await supabase.from('event').update({Rsvp_names : [...map_rsvp_users,{"id":userId,"firstName":userfirstNames, "lastName":userlastNames}]}).eq('id',event)
       const updateId = await supabase.from('event').update({Rsvp_Id : [...map_rsvp_id,userId]}).eq('id',event)
+      
+      if(!response){
       console.log(updateId)
       console.log(response)
 
           console.log(updateUser)
+      }
           setPressBtn(2)
-          console.log(pressBtn)
 
           const oldArray = getRsvpUsers.data[0].Rsvp_names
       
           var isThere = oldArray.includes('Himalay')
+
+          if(isThere===5){
         console.log(isThere)
-        
+          }
 
   
   } catch (error) {
@@ -115,18 +119,19 @@ const setRsvp = async (event)=>{
 const unRsvp = async(event)=>{
 
   const getRsvpUsers = await supabase.from('event').select("Rsvp_names").eq('id',event)
-  console.log(getRsvpUsers.data[0].Rsvp_names)
+
+  
   const oldArray = getRsvpUsers.data[0].Rsvp_names
-  console.log(oldArray)
 
       let myArray = [userlastNames,userfirstNames,userId]
-      console.log(myArray)
+
+      if(!myArray){
+      console.log(myArray)}
 
       const newArray = oldArray.filter(function(itm){
         return itm.id !== userId
       })
 
-      console.log(newArray)
 
   const deleteRsvpId = await supabase.from('event').select("Rsvp_Id").eq('id',event)
 
@@ -140,10 +145,12 @@ const unRsvp = async(event)=>{
 
   let count = getRsvpCount.data[0].Rsvp - 1
   const response = await supabase.from('event').update({Rsvp : (count)}).eq('id',event)
+
+  if(!response){
   console.log(response)
   console.log(updateRsvpId)
   console.log(updateRsvpNames)
-
+  }
   setPressBtn(2)
 
 
@@ -158,7 +165,8 @@ const fetchRsvp = async (id)=>{
     const response = await supabase.from('event').select('*').eq('id',id)
     var data = response.data
 
-      console.log(data.length)
+
+
      data.map((e)=> { 
       
          return getInfoId(e.id)

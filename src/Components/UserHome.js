@@ -112,7 +112,7 @@ const UserHome = () => {
     try {
         const { error } = await supabase.auth.signOut()
       
-            console.log(error)
+            console.log(error.name)
        navigate('/auth')
             
     } catch (error) {
