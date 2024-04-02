@@ -6,7 +6,7 @@ import loc from './location.png'
 import cal from './calendar.png'
 import LocationMap from './LocationMap';
 import share from './share.png'
-
+import { Link } from 'react-router-dom';
 
 
 
@@ -202,7 +202,7 @@ function dets()
               <div className='descp'>
 
                       <div className='event_header'>
-                        <h1>{info.EventName}</h1>    <p ><img  src={share} alt='share' height="30px"></img></p>
+                        <h1>{info.EventName}</h1>    <p ><Link to={`/${info.id}`}><img  src={share} alt='share' height="30px"></img></Link></p>
 
                         </div>
 

@@ -42,7 +42,6 @@ useEffect(()=>{
                    
                     <div className='btn_grp'>
                          <h3 className='rsvp'>Attending : {info.Rsvp} <br></br> Spots Left : {info.GuestLimit - info.Rsvp_Id.length} </h3>
-                         <h3></h3>
                            <div>
                           
                           <h3>Created By : {info.UserName}

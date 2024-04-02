@@ -1,15 +1,12 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { supabase } from './supabaseClient';
 
-function EventDetails (id) {
+function EventDetails () {
 
 const navigate = useNavigate()
-
-const location = useLocation()
-
-console.log(location)
+const params = useParams()
 const [data, getData] = useState('')
 
 
@@ -18,7 +15,7 @@ const [data, getData] = useState('')
             async function fetchData() {
                 try {
 
-                    const response = await supabase.from('event').select('*').eq('id',id)
+                    const response = await supabase.from('event').select('*').eq('id',params.id)
 
                     getData(response)
 
@@ -32,7 +29,7 @@ const [data, getData] = useState('')
 
             fetchData();
 
-        }, [id]);
+        }, [params]);
 
         var details = data.data
 

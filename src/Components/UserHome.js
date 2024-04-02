@@ -12,6 +12,7 @@ import Datetime from 'react-datetime';
 import moment from 'moment';
 import NavBottom from './NavBottom';
 import share from './share.png'
+import { Link } from 'react-router-dom';
 
 
 const UserHome = () => {
@@ -236,7 +237,9 @@ var eventyes = ''
              
                               
 
-                          <div className='event_header'><h1>{inf.EventName}</h1>  <a href='home'><img  src={share} alt='share' height="40px"></img></a></div>
+                          <div className='event_header'>
+                            <h1>{inf.EventName}</h1>  <Link to={`/eventdetails/${inf.id}`}><img  src={share} alt='share' height="30px"></img></Link>
+                            </div>
 
                           <div className='event_middle'>
                           <p>{<LocationMap
