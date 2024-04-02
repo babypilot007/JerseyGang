@@ -30,7 +30,7 @@ function Rsvp(userid) {
 
    let isAvailable
 
-
+    let clsname =''
     useEffect(()=>{
       const fetchData = async ()=>{
         try {
@@ -230,7 +230,7 @@ function dets()
 
                     Attending : {info.Rsvp}     <span className='span'>____</span> Spots Left : {info.GuestLimit - info.Rsvp_Id.length}
 
-                                    {((info.GuestLimit - info.Rsvp_Id.length)) === 0 ? <div>{isAvailable = true }</div>: <div>{isAvailable = false}</div>}
+                                    {((info.GuestLimit - info.Rsvp_Id.length)) === 0 ? <div>{isAvailable = true }</div>: <div>{isAvailable = false}{clsname='interested'}</div>}
 
                                   
 
@@ -269,7 +269,7 @@ function dets()
                           }}>Cancel RSVP</button></div>
                        :
                        <div>
-                        <button className='interested' 
+                        <button className={clsname} 
                         disabled = {isAvailable}
                         onClick={()=>{
                         setRsvp(info.id);

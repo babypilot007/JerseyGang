@@ -1,3 +1,35 @@
+.btnDisabled{
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 50px;
+  font-size: medium;
+  background-color: rgb(81, 83, 86);
+
+  
+}
+
+.btnDisabled:hover{
+  background-color: rgb(81, 83, 86);
+  border: none;
+}
+
+button:disabled{
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 50px;
+  font-size: medium;
+  background-color: rgb(81, 83, 86);
+
+}
+
+button:disabled:hover{
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 50px;
+  font-size: medium;
+  background-color: rgb(81, 83, 86);
+  border: none;
+}
 
 .eventbottom{
   position: sticky;
