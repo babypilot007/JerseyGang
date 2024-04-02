@@ -31,6 +31,7 @@ const UserHome = () => {
   const[getId, setId] = useState('')
   const[userInfo, setUserInfo] = useState('')
   const[userLastName, setUserLastName] = useState('')
+  const[guestLimit, setGuestLimt] = useState('')
 
 
 
@@ -135,7 +136,8 @@ const UserHome = () => {
             placeId : placeId,
             URL : uRl,
             AddInfo : addInfo,
-            FormatDate : dateFormat
+            FormatDate : dateFormat,
+            GuestLimit : guestLimit
           }
         ])
         console.log(user)
@@ -302,10 +304,18 @@ var eventyes = ''
 
         <input
             className="inputField"
-            type="Username"
+            type="text"
             placeholder="Additional info (Rooftop, floor 15)"
             value={addInfo}
             onChange={(e) => getAddInfo(e.target.value)}
+          />
+
+<input
+            className="inputField"
+            type="number"
+            placeholder="Guest Limit"
+            value={guestLimit}
+            onChange={(e) => setGuestLimt(e.target.value)}
           />
             
                   
