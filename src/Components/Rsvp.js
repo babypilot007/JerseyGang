@@ -197,6 +197,7 @@ function dets()
   var details = data.data
 
 
+  console.log(details)
   if(details !== undefined){
     return ( 
             details.map((info,ind)=>{

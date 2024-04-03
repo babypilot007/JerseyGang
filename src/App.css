@@ -411,10 +411,8 @@ font-weight: 600;
 
 .formDiv{
   position: relative;
-  display: block;
+  display: flex;
   justify-content: center;
-  top:20%;
-
 }
 
 .createAct{
@@ -433,12 +431,13 @@ font-weight: 600;
 
 .signupform{
   position: relative;
+  display: inline-block;
   justify-content: center;
-  padding: 30px;
   margin-top: 20px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.498);
   backdrop-filter: blur(10px);
+  width: 90%;
 }
 
 
@@ -446,8 +445,8 @@ font-weight: 600;
 
 
 .signupform button{
-  margin-left: calc(18vw + 1vw);
-
+  
+color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.498);
   width: calc(50%);
   font-size: calc(10px + 1vw);
@@ -455,33 +454,40 @@ font-weight: 600;
   padding: 5px;
   height: 40px;
   border-radius: 50px;
+  background-color: rgba(255, 166, 0, 0);
+  border: solid orange;
+  transform: translate(50%);
 }
 
 .signupform button:hover{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.498);
   margin-bottom: 30px;
   font-size: calc(10px + 1vw);
+  background-color: orange;
+  color: rgb(0, 0, 0);
+  border: solid rgb(255, 255, 255);
 }
 
 .signupform input{
   margin-top: calc(5px + 4vw);
   height:  calc(5px + 4vh);
-  width:  calc(60px + 65vw);
+  width: 95%;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.498);
-  padding: 5px;
-  font-weight: 200;
   font-size: calc(5px + 4vw);
   background-color: rgba(0, 0, 0, 0);
   color: white;
   border: solid rgb(255, 255, 255);
 }
+.signupform input:focus{
+  border: solid orange;
+}
 
 .signupform input::placeholder{
-  color: rgba(250, 242, 242, 0.349);
+  color: rgba(250, 242, 242, 0.194);
   font-style: italic ;
-  font-weight: 500;
-  font-size: calc(5px + 4vw);
+  font-weight: 100;
+  font-size: calc(5px + 3vw);
   
 
 }

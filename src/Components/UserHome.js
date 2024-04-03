@@ -111,7 +111,7 @@ const UserHome = () => {
     try {
         const { error } = await supabase.auth.signOut()
       
-            console.log(error.name)
+            console.log(error)
        navigate('/auth')
             
     } catch (error) {
@@ -314,11 +314,14 @@ var eventyes = ''
 
       </div> :null}
  
-      {allEvents ? <div className='event_details'>
+
+ 
+      {allEvents? <div className='event_details'>
       
 
       {eventInfo}
-      </div>:null}
+
+      </div>:<div>No Events</div>}
 
 
   {rsvpd ? <div className='formDiv'>
