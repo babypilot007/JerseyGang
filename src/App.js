@@ -31,46 +31,7 @@ function App() {
             <Route path = '/editdetail' element ={<EditInfo />} />
             <Route path = '/updatepass' element ={<PassUpdate />} />
 
-
-
         </Routes>
-
-      
-
-
-      
-        
-
-
-      
-      {/* <div >
-        
-        {eventBtn ? <div className = 'event'> 
-
-        <button type="submit" onClick ={()=>{
-
-          setEvent(true); setEventBtn(false);setHeader(false);setHomeBtn(false);
-            setEventConsol(false); navigate('login')
-
-          
-          }} >
-          <h2>Create Event</h2></button>
-
-          
-         </div>: null }
-
-         {<div>  {eventConsol ? <div className = 'event_create'>{}</div>:null}</div> 
-}
-
-         
-
-      </div> */}
-
-
-      <div className='event'>
-          <div className='event_create'>
-    </div>
-    </div>
     </div>
   );
 }
