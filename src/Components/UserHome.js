@@ -340,8 +340,7 @@ var eventyes = ''
         <Autocomplete
         
         apiKey={locApi}
-        defaultValue={'Jersey City'}
-        placeholder="Location"
+        placeholder="Jersey City"
         componentRestrictions={{ country: "us , ind" }}
           options={{
             types: ["geocode", "establishment"],
