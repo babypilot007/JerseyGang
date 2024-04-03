@@ -37,7 +37,7 @@ const UserHome = () => {
   const[getId, setId] = useState('')
   const[userInfo, setUserInfo] = useState('')
   const[userLastName, setUserLastName] = useState('')
-  const[guestLimit, setGuestLimt] = useState('')
+  const[guestLimit, setGuestLimt] = useState(2)
 
   const[attend, showAttend] = useState(false)
 
@@ -143,7 +143,7 @@ const UserHome = () => {
             placeId : placeId,
             URL : uRl,
             AddInfo : addInfo,
-            FormatDate : dateFormat,
+            FormatDate : moment(startDate).format('dddd, MMMM Do YYYY, h:mm a'),
             GuestLimit : guestLimit
           }
         ])
@@ -373,7 +373,8 @@ var eventyes = ''
 <input
             className="inputField"
             type="number"
-            placeholder="Guest Limit"
+            placeholder="Guest Limit (Min 2)"
+            min={2}
             value={guestLimit}
             onChange={(e) => setGuestLimt(e.target.value)}
           />

@@ -123,7 +123,7 @@ function onchange (date){
 };
   return (
 
-        <div className=''>
+        <div className='formDiv'>
 
 
             <form className="signupform" onSubmit={createEvent}>
