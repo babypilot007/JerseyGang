@@ -11,6 +11,8 @@ import Autocomplete from "react-google-autocomplete";
 import Datetime from 'react-datetime';
 import moment from 'moment';
 import share from './share.png'
+import people from './people.png'
+
 import { WhatsappShareButton } from 'react-share';
 
 
@@ -264,9 +266,11 @@ var eventyes = ''
 
                         </div>
                           
-                        Attending : {inf.Rsvp}     <span className='span'>____</span> Spots Left : {inf.GuestLimit - inf.Rsvp_Id.length}
+                       <div className='guestImg'><img  className='peopleImg' src={people} alt='people' height="30px"></img>  : {inf.Rsvp}   <span className='span'>____</span> Spots Left : {inf.GuestLimit - inf.Rsvp_Id.length}</div> 
 
-                      <br></br><button className="listbtn" value={info.id} onClick={()=>{show();fetchRsvp(inf.id)}}>Guest List</button>
+                      
+                      
+                    <button className="listbtn" value={info.id} onClick={()=>{show();fetchRsvp(inf.id)}}>Guest List</button>
 
                       <div >
                        {attend ? <div> <div>{(inf.id === infoId) ?<div className='nameList'>{inf.Rsvp_names.map((e,idx)=>{

@@ -7,6 +7,7 @@ import cal from './calendar.png'
 import LocationMap from './LocationMap';
 import share from './share.png'
 import { WhatsappShareButton } from 'react-share';
+import people from './people.png'
 
 
 
@@ -30,7 +31,7 @@ function Rsvp(userid) {
 
    let isAvailable
 
-    let clsname =''
+    let clsname ='interested'
     useEffect(()=>{
       const fetchData = async ()=>{
         try {
@@ -233,17 +234,21 @@ function dets()
                           lng = {info.long}/>}</p>
                                 <p>  <img  src={loc} alt='location' height="30px"></img> - <a href={ 'https://www.google.com/maps/search/?api=1&query=Jersey+City,+NJ/&query_place_id=' + info.placeId}>{info.EventLocation}</a></p>
                                 <p ><img  src={cal} alt='location' height="30px"></img> - {info.EventDate}</p>
-                                {info.URL !==null ? <div>not null</div> : <div>null</div>}<p>  Link - <a href={info.URL}> Click for the Link</a></p>
+                                {info.URL !== '' ? <div><p>  Link - <a href={info.URL}> Click for the Link</a> </p></div> : <div><p>  Link - None</p> </div>}
+                                
+                                
 
                         </div>
 
-                    Attending : {info.Rsvp}     <span className='span'>____</span> Spots Left : {info.GuestLimit - info.Rsvp_Id.length}
+                       <div className='guestImg'><img  className='peopleImg' src={people} alt='people' height="30px"></img>  : {info.Rsvp}   <span className='span'>____</span> Spots Left : {info.GuestLimit - info.Rsvp_Id.length}</div> 
 
-                                    {((info.GuestLimit - info.Rsvp_Id.length)) === 0 ? <div>{isAvailable = true }</div>: <div>{isAvailable = false}{clsname='interested'}</div>}
+
+
+                                    {((info.GuestLimit - info.Rsvp_Id.length)) === 0 ? <div>{isAvailable = true }</div>: <div>{isAvailable = false}</div>}
 
                                   
 
-                      <br></br><button className="listbtn" value={info.id} onClick={()=>{show();fetchRsvp(info.id);}}>Guest List</button>
+                      <button className="listbtn" value={info.id} onClick={()=>{show();fetchRsvp(info.id);}}>Guest List</button>
 
                       
 

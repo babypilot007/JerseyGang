@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 // import {  useNavigate} from 'react-router-dom';
 import { supabase } from './supabaseClient';
+import people from './Components/people.png'
 
 
 const Events = () => {
@@ -38,15 +39,17 @@ useEffect(()=>{
 
                         <div className='event_header'><h1>{info.EventName}</h1> </div>
                         
+                        <div className='guestImg'>
+
                         <p>Event Info : <br></br>{info.Event_descp}</p>
+                          
+                          
+                          <img  className='peopleImg' src={people} alt='people' height="30px"></img>  : {info.Rsvp}   <span className='span'>____</span> Spots Left : {info.GuestLimit - info.Rsvp_Id.length}</div> 
                    
-                    <div className='btn_grp'>
-                         <h3 className='rsvp'>Attending : {info.Rsvp} <br></br> Spots Left : {info.GuestLimit - info.Rsvp_Id.length} </h3>
-                           <div>
+                    <div className='btn_grp_home'>
                           
                           <h3>Created By : {info.UserName}
                           </h3 >
-                          </div>
                      </div>   
                        
                               </div>
