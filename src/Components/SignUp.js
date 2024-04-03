@@ -82,7 +82,7 @@ const navigate = useNavigate()
 
 
       <div className='formDiv'>
-        <form className="signupform" onSubmit={handleLogin}>
+        <form className="signupform_auth" onSubmit={handleLogin}>
 
           <input
               className="inputField"

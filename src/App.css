@@ -440,10 +440,6 @@ font-weight: 600;
   width: 90%;
 }
 
-
-
-
-
 .signupform button{
   
 color: white;
@@ -484,13 +480,110 @@ color: white;
 }
 
 .signupform input::placeholder{
-  color: rgba(255, 255, 255, 0.454);
+  color: rgba(255, 255, 255, 0.422);
   font-style: italic ;
   font-weight: 100;
   font-size: calc(5px + 3vw);
   
 
 }
+
+.signupform button{
+  
+  color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.498);
+    width: calc(50%);
+    font-size: calc(10px + 1vw);
+    font-weight: 800;
+    padding: 5px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: rgba(255, 166, 0, 0);
+    border: solid orange;
+    transform: translate(50%);
+  }
+
+
+
+
+
+  .signupform_auth{
+    position: relative;
+    display: inline-block;
+    justify-content: center;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.498);
+    backdrop-filter: blur(10px);
+    width: 90%;
+    margin-top:50%
+  }
+  
+  .signupform_auth button{
+    
+  color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.498);
+    width: calc(50%);
+    font-size: calc(10px + 1vw);
+    font-weight: 800;
+    padding: 5px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: rgba(255, 166, 0, 0);
+    border: solid orange;
+    transform: translate(50%);
+    margin-bottom: 20px;
+  }
+  
+  .signupform_auth button:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.498);
+    background-color: orange;
+    color: rgb(0, 0, 0);
+    border: solid rgb(255, 255, 255);
+  }
+  
+  .signupform_auth input{
+    margin-top: calc(5px + 4vw);
+    height:  calc(5px + 4vh);
+    width: 95%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.498);
+    font-size: calc(5px + 4vw);
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    border: solid rgb(255, 255, 255);
+  }
+  .signupform_auth input:focus{
+    border: solid orange;
+  }
+  
+  .signupform_auth input::placeholder{
+    color: rgba(255, 255, 255, 0.422);
+    font-style: italic ;
+    font-weight: 100;
+    font-size: calc(5px + 3vw);
+    
+  
+  }
+  
+  .signupform_auth button{
+    
+    color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.498);
+      width: calc(50%);
+      font-size: calc(10px + 1vw);
+      font-weight: 800;
+      padding: 5px;
+      height: 40px;
+      border-radius: 50px;
+      background-color: rgba(255, 166, 0, 0);
+      border: solid orange;
+      transform: translate(50%);
+    }
+  
+
+
+
 
 .descp{
   border: solid black 1px;
@@ -669,6 +762,7 @@ color: white;
   width: 100vw;
 }
 
+
 .nav h3{
   margin-right: 20px;
   color: white;
@@ -706,12 +800,12 @@ color: white;
 
 .nav p{
   
-  font-size: calc(15px + 1vmin);
+  font-size: calc(17px + 1vmin);
   color: white;
   text-shadow: 0.05em 0.1em #ff9d26;
   backdrop-filter: blur(10px) saturate(70%);
   margin-top: 20px;
-  padding-left: 10px
+  padding-left: 20px
 }
 
 .navUser{
