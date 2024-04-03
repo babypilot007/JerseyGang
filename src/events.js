@@ -41,11 +41,14 @@ useEffect(()=>{
                         
                         <div className='guestImg'>
 
-                        <p>Event Info : <br></br>{info.Event_descp}</p>
+                        <p className='eventInfo_head'>Event Info : </p>
+                        <p className='descp_after'>{info.Event_descp}</p>
                           
                           
                           <img  className='peopleImg' src={people} alt='people' height="30px"></img>  : {info.Rsvp}   <span className='span'>____</span> Spots Left : {info.GuestLimit - info.Rsvp_Id.length}</div> 
                    
+
+
                     <div className='btn_grp_home'>
                           
                           <h3>Created By : {info.UserName}
