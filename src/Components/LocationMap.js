@@ -10,7 +10,6 @@ const mapContainerStyle = {
 };
 
 
-
 const locApi = process.env.REACT_APP_MAP_API 
    
 const LocationMap = (props) => {
@@ -26,11 +25,13 @@ const LocationMap = (props) => {
 
 
 
-
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: locApi,
     libraries,
   });
+
+console.log()
+
 
   if (loadError) {
     return <div>Error loading maps</div>;

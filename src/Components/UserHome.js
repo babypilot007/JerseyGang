@@ -51,7 +51,7 @@ const UserHome = () => {
   const[addInfo, getAddInfo] = useState('')
 
   const [startDate, setStartDate] = useState(new Date());
-  const [dateFormat, setDateFormat] = useState('');
+  // const [dateFormat, setDateFormat] = useState('');
 
 
 
@@ -369,7 +369,7 @@ var eventyes = ''
             value={addInfo}
             onChange={(e) => getAddInfo(e.target.value)}
           />
-
+      
 <input
             className="inputField"
             type="number"
@@ -400,7 +400,7 @@ var eventyes = ''
       onSelect={()=>{return startDate}}
       onChange={(date)=>{
         setStartDate(date)
-        setDateFormat(date._d)
+        // setDateFormat(date._d)
             moment(startDate).format('dddd, MMMM Do YYYY, h:mm:ss a')
         }}/>
 
