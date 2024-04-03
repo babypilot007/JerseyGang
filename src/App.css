@@ -484,7 +484,7 @@ color: white;
 }
 
 .signupform input::placeholder{
-  color: rgba(250, 242, 242, 0.194);
+  color: rgba(255, 255, 255, 0.454);
   font-style: italic ;
   font-weight: 100;
   font-size: calc(5px + 3vw);
@@ -603,7 +603,7 @@ color: white;
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: rgba(0, 0, 0, 0);
-  color: white;
+  color: rgb(255, 255, 255);
   font-weight: 100;
   font-style: italic;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
