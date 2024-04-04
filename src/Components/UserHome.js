@@ -357,12 +357,10 @@ var eventyes = ''
 
         onPlaceSelected={(place) => 
           {
-          getLocation(place.name + ',' + place.formatted_address)
+          getLocation(place.name + ', ' + place.formatted_address)
           getLat(place.geometry.location.lat())
           getLong(place.geometry.location.lng())
           setPlaceId(place.place_id)
-            console.log(place)
-
 
           }}
 
