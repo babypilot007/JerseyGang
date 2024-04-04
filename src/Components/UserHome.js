@@ -55,7 +55,6 @@ const UserHome = () => {
 
 
 
-
   const[onRefresh, setRefresh] = useState(0)
 
 
@@ -341,23 +340,36 @@ var eventyes = ''
             onChange={(e) => getEventName(e.target.value)}
           />
      
+       
+        
         <Autocomplete
         
         apiKey={locApi}
         placeholder="Jersey City"
         componentRestrictions={{ country: "us , ind" }}
-          options={{
+        options={{
             types: ["geocode", "establishment"],
+            fields : ['']
           }}
-        onPlaceSelected={(place) => {
-          getLocation(place.formatted_address)
+
+        
+
+
+        onPlaceSelected={(place) => 
+          {
+          getLocation(place.name + ',' + place.formatted_address)
           getLat(place.geometry.location.lat())
           getLong(place.geometry.location.lng())
           setPlaceId(place.place_id)
-          
-          }}
-        />;
+            console.log(place)
 
+
+          }}
+
+
+
+        />
+{console.log(location)}
 <p>{<LocationMap
        lat = {lat}
        lng = {long}/>}</p>

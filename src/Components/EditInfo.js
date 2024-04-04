@@ -145,15 +145,15 @@ function onchange (date){
     componentRestrictions={{ country: "us , ind" }}
       options={{
         types: ["geocode", "establishment"],
+        fields : ['']
+
       }}
 
     onPlaceSelected={(place) => {
-      getLocation(place.formatted_address)
-      console.log(place)
+      getLocation(place.name +', ' + place.formatted_address)
       getLat(place.geometry.location.lat())
       getLong(place.geometry.location.lng())
       setPlaceId(place.place_id)
-            console.log(placeId)
       }}
     />;
 <p>{<LocationMap

@@ -25,12 +25,12 @@ const LocationMap = (props) => {
 
 
 
+
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: locApi,
     libraries,
   });
 
-console.log()
 
 
   if (loadError) {
