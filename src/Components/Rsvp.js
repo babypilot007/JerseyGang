@@ -325,11 +325,9 @@ function dets()
             }))
 
 }else if(len === 0) return  (
-        <div  className='event_details'>
- { console.log("outside")}
 
-          <p>No Events</p>
-        </div>)
+ <div className='noEvent'><p>No Events near by</p></div>
+       )
     
 
 

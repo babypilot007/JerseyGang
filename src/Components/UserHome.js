@@ -309,8 +309,10 @@ var eventyes = ''
         }  
       
         
-        </div> : <div  className='event_details'><p>No Events<br></br>create an Event to Social Up</p>
-        </div>}
+        </div> : <>
+          <div className='noMyEvent'>
+          <p>No Events<br></br>create an Event to Social Up</p>
+        </div></>}
 
 
  

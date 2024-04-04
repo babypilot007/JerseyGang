@@ -48,7 +48,19 @@
   color: #000000;
   border-top: dashed black;
   border-bottom: dashed black;
-  margin-top: 20%;
+  margin-top: 10%;
+  width: 110vw;
+  margin-left: -10px;
+}
+
+.noMyEvent{
+  text-align: center;
+  font-size: large;
+  background-color: orange  ;
+  color: #000000;
+  border-top: dashed black;
+  border-bottom: dashed black;
+  margin-top: 40%;
   width: 100%;
 }
 
