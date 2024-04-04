@@ -222,9 +222,8 @@ function dets()
                         <h1>{info.EventName}</h1>     
                         
                         <WhatsappShareButton 
-                              title="Join these fun Meetup Group - 
+                              title={info.EventName}
 
-                              Create, Meet, Explore !" 
                               
                               url={`https://desigangjc.com/eventdetails/${info.id}`}>
                                 <img  src={share} alt='share' height="40px"></img>

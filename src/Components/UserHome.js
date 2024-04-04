@@ -242,9 +242,8 @@ var eventyes = ''
                             <h1>{inf.EventName}</h1>  
                             
                             <WhatsappShareButton 
-                              title="Join these fun Meetup Group - 
+                              title={inf.EventName}  
 
-                              Create, Meet, Explore !" 
 
                               url={`https://desigangjc.com/eventdetails/${inf.id}`}>
                                 <img  src={share} alt='share' height="40px"></img>
