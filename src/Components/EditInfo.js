@@ -13,6 +13,7 @@ import { useLocation } from 'react-router-dom';
 import xtype from 'xtypejs'
 
 
+
 function EditInfo() {
 
     const locationId = useLocation()
@@ -30,6 +31,7 @@ function EditInfo() {
   const[guestLimit, setGuestLimt] = useState('')
 
   
+  const[hostNumber, getHostNumber] = useState('')
 
 
   useEffect(()=>{
@@ -210,6 +212,15 @@ className='rdt'
         value={uRl}
         onChange={(e) => getUrl(e.target.value)}
       />
+
+        <input
+            type="number"
+            min = "0"
+            pattern='[0-9]{3}-[0-9]{2}-[0-9]{3}'
+            placeholder="Contact"
+            value={hostNumber}
+            onChange={(e) => getHostNumber(e.target.value)}
+          />
     <textarea rows='20' cols='20' 
     className='inputField_textbox'
     placeholder='Describe the Event'

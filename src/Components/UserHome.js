@@ -49,6 +49,8 @@ const UserHome = () => {
   const[eventDescp, getdescp] = useState('')
   const[uRl, getUrl] = useState('')
   const[addInfo, getAddInfo] = useState('')
+  const[hostNumber, getHostNumber] = useState('')
+
 
   const [startDate, setStartDate] = useState(new Date());
   // const [dateFormat, setDateFormat] = useState('');
@@ -143,7 +145,8 @@ const UserHome = () => {
             URL : uRl,
             AddInfo : addInfo,
             FormatDate : moment(startDate).format('dddd, MMMM Do YYYY, h:mm a'),
-            GuestLimit : guestLimit
+            GuestLimit : guestLimit,
+            HostNumber : hostNumber
           }
         ])
         console.log(user)
@@ -260,6 +263,8 @@ var eventyes = ''
                                 
                                 {console.log(inf.URL)}
                                 
+                                <p>Contact : <a href={'tel:' + inf.HostNumber}>{inf.HostNumber}</a></p>
+
                                  {inf.URL !== '' ? <div><p>  Link - <a href={inf.URL}> Click for the Link</a> </p></div> : <div><p>  Link - None</p> </div>}
 
                         </div>
@@ -422,6 +427,16 @@ var eventyes = ''
             value={uRl}
             onChange={(e) => getUrl(e.target.value)}
           />
+
+            <input
+            type="number"
+            min = "0"
+            pattern='[0-9]{3}-[0-9]{2}-[0-9]{3}'
+            placeholder="Contact"
+            value={hostNumber}
+            onChange={(e) => getHostNumber(e.target.value)}
+          />
+
         <textarea rows='20' cols='20' 
         className='inputField_textbox'
         placeholder='Describe the Event'
