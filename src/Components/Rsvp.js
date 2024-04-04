@@ -195,17 +195,23 @@ function dets()
 
 
   
+
+  if(data.data){
   var details = data.data
 
+  var len = details.length
+  }
 
   console.log(details)
-  if(details !== undefined){
+
+
+  if(len >= 1){
     return ( 
             details.map((info,ind)=>{
                 
                   if(info.UserId === userId)
                   {
-                    return null
+                    return (<><div className='noEvent'><p>No Events near by</p></div></>)
                 } else return(
 
    <div className='event_hover' key = {ind}>
@@ -318,9 +324,11 @@ function dets()
               )
             }))
 
+}else if(len === 0) return  (
+        <div  className='event_details'>
+ { console.log("outside")}
 
-}else return  (
-        <div  className='event_details'>No Events
+          <p>No Events</p>
         </div>)
     
 

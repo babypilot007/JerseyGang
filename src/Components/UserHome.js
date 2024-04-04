@@ -324,7 +324,7 @@ var eventyes = ''
 
       {eventInfo}
 
-      </div>:<div>No Events</div>}
+      </div>:null}
 
 
   {rsvpd ? <div className='formDiv'>
