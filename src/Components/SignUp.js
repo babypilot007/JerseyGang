@@ -15,6 +15,8 @@ const navigate = useNavigate()
   const [getLastName, setLastName] = useState('')
   // const [getphone, setphone] = useState('')
 
+  const [signedUp, setSignedUp] = useState(false)
+
 
 
 
@@ -51,10 +53,9 @@ const navigate = useNavigate()
       setFirstName("")
       setLastName("")
       setPassword("")
+      setSignedUp(true)
       // setphone("")
-      alert('Check your email for the login link!')
-
-      navigate('/auth')
+      
 
     }
     setLoading(false)
@@ -79,6 +80,11 @@ const navigate = useNavigate()
         <h3>Sign up</h3>
           </div>
 
+          {signedUp? <div className='success'>
+          <h3>Sign Up successful! </h3>
+          <p>Please, Check your Email to Confirm</p>
+          <button onClick={()=>{navigate('/auth')}}>Login?</button>
+        </div>:null}
 
 
       <div className='formDiv'>
@@ -142,6 +148,8 @@ const navigate = useNavigate()
 
           
         </form>
+
+        
         </div>
 
      {/* <div className='disclaimer'>

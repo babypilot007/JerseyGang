@@ -23,6 +23,26 @@
   border: solid orange;
 }
 
+.success{
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  margin-top: 20%;
+  background-color: orange;
+  z-index: 999;
+  color: rgb(0, 0, 0);
+   
+  p{
+    font-size: large;
+  }
+
+  button{
+    background-color: #00000000;
+    border: 1px solid black;
+    font-weight: 600;
+  }
+}
+
 .btnDisabled:hover{
   background-color: rgb(81, 83, 86);
   border: none;

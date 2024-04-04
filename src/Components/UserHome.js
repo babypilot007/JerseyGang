@@ -361,7 +361,7 @@ var eventyes = ''
           getLat(place.geometry.location.lat())
           getLong(place.geometry.location.lng())
           setPlaceId(place.place_id)
-
+            console.log(place)
           }}
 
 
