@@ -444,10 +444,16 @@ var eventyes = ''
           <PhoneInput
           className="number"
           country={"us"}
+          onlyCountries={["us"]}
+          placeholder='+1 {Contact}'
           value={hostNumber}
           onChange={getHostNumber}
-
+          countryCodeEditable = {false}
+          autoFormat = {false}
           />
+          {console.log(hostNumber)}
+          
+    
 
         <textarea rows='20' cols='20' 
         className='inputField_textbox'
