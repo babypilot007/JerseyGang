@@ -54,9 +54,9 @@ const UserHome = () => {
   // const [dateFormat, setDateFormat] = useState('');
 
 
-
-  const[onRefresh, setRefresh] = useState(0)
-
+  const[activeMyevent, setActiveMyevent] = useState('isActive')
+  const[activeAllevent, setActiveAllevent] = useState('notActive')
+  const[activeCreate, setActiveCreat] = useState('notActive')
 
   // const [dateValue, onchange] = useState(new Date());
 
@@ -216,10 +216,10 @@ var eventyes = ''
 
 
     <div className='userButton'> 
-    <button  className="myeventBtn" mybtn = {onRefresh} onClick={()=>{setMyEvent(true);setAllEvent(false);setRsvpd(false)}}>My Events
+    <button  className={activeMyevent} onClick={()=>{setMyEvent(true);setAllEvent(false);setRsvpd(false);setActiveMyevent('isActive');setActiveAllevent('notActive');setActiveCreat('notActive')}}>My Events
     </button> 
-    <button onClick={()=>{setMyEvent(false);setAllEvent(true);setRsvpd(false);setRefresh(1)}}>All Events</button> 
-    <button onClick={()=>{setMyEvent(false);setAllEvent(false);setRsvpd(true)}}>Create Event</button> 
+    <button className = {activeAllevent} onClick={()=>{setMyEvent(false);setAllEvent(true);setRsvpd(false);setActiveMyevent('notActive');setActiveAllevent('isActive');setActiveCreat('notActive')}}>All Events</button> 
+    <button className = {activeCreate} onClick={()=>{setMyEvent(false);setAllEvent(false);setRsvpd(true);setActiveMyevent('notActive');setActiveAllevent('notActive');setActiveCreat('isActive')}}>Create Event</button> 
     </div>
   
     <div className='simple'>
