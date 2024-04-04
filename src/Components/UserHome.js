@@ -12,6 +12,7 @@ import Datetime from 'react-datetime';
 import moment from 'moment';
 import share from './share.png'
 import people from './people.png'
+import PhoneInput from 'react-phone-input-2';
 
 import { WhatsappShareButton } from 'react-share';
 
@@ -124,6 +125,16 @@ const UserHome = () => {
     }
   }
 
+
+  const input = document.createElement('input');
+
+  input.type = 'tel'
+if (input.type === 'tel') {
+  console.log(input.type)
+} else {
+  console.log(input)
+  // The tel input is enabled.
+}
 
     const createEvent = async () =>{
 
@@ -386,9 +397,9 @@ var eventyes = ''
             onChange={(e) => getAddInfo(e.target.value)}
           />
       
-<input
+<input      
             className="inputField"
-            type="number"
+            type="tel"
             placeholder="Guest Limit (Min 2)"
             min={2}
             value={guestLimit}
@@ -428,13 +439,14 @@ var eventyes = ''
             onChange={(e) => getUrl(e.target.value)}
           />
 
-            <input
-            type="number"
-            min = "0"
-            pattern='[0-9]{3}-[0-9]{2}-[0-9]{3}'
-            placeholder="Contact"
-            value={hostNumber}
-            onChange={(e) => getHostNumber(e.target.value)}
+        
+
+          <PhoneInput
+          className="number"
+          country={"us"}
+          value={hostNumber}
+          onChange={getHostNumber}
+
           />
 
         <textarea rows='20' cols='20' 

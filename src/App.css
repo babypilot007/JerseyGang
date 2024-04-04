@@ -52,7 +52,10 @@
   width: 110vw;
   margin-left: -10px;
 }
-
+.number{
+  color: rgba(255, 166, 0, 0);
+  margin-top: -10px;
+}
 .noMyEvent{
   text-align: center;
   font-size: large;
