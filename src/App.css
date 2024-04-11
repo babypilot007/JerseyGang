@@ -993,7 +993,20 @@ color: white;
   border: rgb(255, 175, 4) solid;
 }
 
+.report{
+  width: fit-content;
+  font-weight: 500;
+  border-radius: 10px;
+  text-wrap: nowrap;
+  height: fit-content;
+  border: 3px solid  rgb(113, 42, 42);
+  font-size: calc(15px + .5vmin);
+  padding: 5px;
+  margin-top: 5px;
+  background-color: rgba(254, 254, 254, 0);
 
+
+}
 
 .rsvp{
   position: relative;

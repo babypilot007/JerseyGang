@@ -53,6 +53,7 @@ const UserHome = () => {
   const[hostNumber, getHostNumber] = useState('')
 
 
+
   const [startDate, setStartDate] = useState(new Date());
   // const [dateFormat, setDateFormat] = useState('');
 
@@ -158,7 +159,7 @@ if (input.type === 'tel') {
             AddInfo : addInfo,
             FormatDate : moment(startDate).format('dddd, MMMM Do YYYY, h:mm a'),
             GuestLimit : guestLimit,
-            HostNumber : '+' + hostNumber.slice(0,1) + ' '+ hostNumber.slice(1,4) + '-' + hostNumber.slice(4,7) + '-' + hostNumber.slice(7,11)
+            HostNumber : hostNumber,
           }
         ])
         console.log(user)
@@ -274,7 +275,7 @@ var eventyes = ''
                                 
                                 {console.log(inf.URL)}
                                 
-                                <p>Contact : <a href={'tel:' + inf.HostNumber}>{inf.HostNumber}</a></p>
+                                <p>Contact : <a href={'tel:' + inf.HostNumber}>+{inf.HostNumber.slice(0,1)}{inf.HostNumber.slice(1,4)}-{inf.HostNumber.slice(4,7)}-{inf.HostNumber.slice(7,11)}</a></p>
 
                                  {inf.URL !== '' ? <div><p>  Link - <a href={inf.URL}> Click for the Link</a> </p></div> : <div><p>  Link - None</p> </div>}
 
@@ -452,7 +453,6 @@ var eventyes = ''
           autoFormat = {true}
           />
 
-          {console.log('+' + hostNumber.slice(0,1) + ' '+ hostNumber.slice(1,4) + '-' + hostNumber.slice(4,7) + '-' + hostNumber.slice(7,11))}          
     
 
         <textarea rows='20' cols='20' 

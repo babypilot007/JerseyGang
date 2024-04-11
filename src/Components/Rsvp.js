@@ -193,6 +193,10 @@ function dets()
 }
 
 
+function report(){
+
+}
+
 
   
 
@@ -239,8 +243,9 @@ function dets()
                           lng = {info.long}/>}</p>
                                 <p>  <img  src={loc} alt='location' height="30px"></img> - <a href={ 'https://www.google.com/maps/search/?api=1&query=Jersey+City,+NJ/&query_place_id=' + info.placeId}>{info.EventLocation}</a></p>
                                 <p ><img  src={cal} alt='location' height="30px"></img> - {info.EventDate}</p>
+                                
+                                <p>Contact : <a href={'tel:' + info.HostNumber}>+{info.HostNumber.slice(0,1)}{info.HostNumber.slice(1,4)}-{info.HostNumber.slice(4,7)}-{info.HostNumber.slice(7,11)}</a></p>
                               
-                                <p>Contact : <a href={'tel:' + info.HostNumber}>{info.HostNumber}</a></p>
                               
                               
                                 {info.URL !== '' ? <div><p>  Link - <a href={info.URL}> Click for the Link</a> </p></div> : <div><p>  Link - None</p> </div>}
@@ -278,7 +283,9 @@ function dets()
                         dets()
                       }}>Details</button> 
 
-                 
+<button className='report'  onClick = {()=>{
+                report()
+                      }}>Report Event</button> 
 
 
               <div className='rsvpBtn'>

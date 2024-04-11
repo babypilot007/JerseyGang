@@ -11,6 +11,8 @@ import moment from 'moment';
 import { useLocation } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
 import xtype from 'xtypejs'
+import PhoneInput from 'react-phone-input-2';
+
 
 
 
@@ -32,6 +34,8 @@ function EditInfo() {
 
   
   const[hostNumber, getHostNumber] = useState('')
+  const[originalNumber, setHostNumber] = useState('')
+
 
 
   useEffect(()=>{
@@ -51,8 +55,9 @@ function EditInfo() {
        getLong(response.data[0].long)
         setGuestLimt(response.data[0].GuestLimit)
         getLocation(response.data[0].EventLocation)
+        getHostNumber(response.data[0].HostNumber)
+        setHostNumber(response.data[0].PhoneOriginal)
 
-        
       } catch (error) {
       
     }}
@@ -103,7 +108,8 @@ function onchange (date){
           URL : uRl,
           AddInfo : info,
           FormatDate : moment(startDate).format('llll'),
-          GuestLimit : guestLimit
+          GuestLimit : guestLimit,
+          HostNumber : hostNumber
 
         }
       ]).eq('id',id)
@@ -213,14 +219,18 @@ className='rdt'
         onChange={(e) => getUrl(e.target.value)}
       />
 
-        <input
-            type="number"
-            min = "0"
-            pattern='[0-9]{3}-[0-9]{2}-[0-9]{3}'
-            placeholder="Contact"
-            value={hostNumber}
-            onChange={(e) => getHostNumber(e.target.value)}
+<PhoneInput
+          className="number"
+          country={"us"}
+          onlyCountries={["us"]}
+          placeholder='+1 {Contact}'
+          value={'+' + hostNumber.slice(0,1) + ' '+ hostNumber.slice(1,4) + '-' + hostNumber.slice(4,7) + '-' + hostNumber.slice(7,11)}
+          onChange={getHostNumber}
+          countryCodeEditable = {false}
+          autoFormat = {true}
           />
+  {console.log(hostNumber)}
+
     <textarea rows='20' cols='20' 
     className='inputField_textbox'
     placeholder='Describe the Event'
