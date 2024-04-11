@@ -213,7 +213,10 @@ function report(){
     return ( 
             details.map((info,ind)=>{
                 
-                  return(
+                  if(info.UserId === userId)
+                  {
+                    return (<></>)
+                } else return(
 
    <div className='event_hover' key = {ind}>
 
@@ -232,7 +235,7 @@ function report(){
 
                         </div>
 
-                        <>
+                        <div>
 
                           <div className='event_middle'>
                           <p>{<LocationMap
@@ -263,14 +266,14 @@ function report(){
 
                       
 
-                       <>
+                       <div >
                        {attend ? <div> <div>{(info.id === infoId) ?<div className='nameList'>{info.Rsvp_names.map((e,idx)=>{
                             return (<div >
                              <li key={idx}><span className='nameIcon'>{e.firstName[0]}{e.lastName[0]}</span>{e.firstName}</li></div>
                             )
                         })}</div> :null}</div>
                        </div> :null } 
-                       </>
+                       </div>
 
 
                   <div className='btn_grp'>
@@ -308,7 +311,7 @@ function report(){
 
                     
                    </div> 
-                   <>
+                   <div >
 
 
                        {showDets ? <div> <div>{(info.id === infoId) ?<div className='descp'>
@@ -322,10 +325,10 @@ function report(){
                                  
                        </div> :null}</div>
                        </div> :null } 
-                       </>
+                       </div>
                
                  
-                        </>
+                        </div>
               </div>
     </div>
               )
@@ -333,7 +336,7 @@ function report(){
 
 }else if(len === 0) return  (
 
- <div className='noEvent'></div>
+ <div className='noEvent'><p>No Events near by</p></div>
        )
     
 
