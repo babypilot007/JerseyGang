@@ -9,6 +9,7 @@ import UserHome from './Components/UserHome';
 import Rsvp from './Components/Rsvp';
 import EditInfo from './Components/EditInfo';
 import PassUpdate from './Components/PassUpdate';
+import UpdatePassOnly from './Components/UpdatePassOnly';
 
 
 
@@ -30,6 +31,8 @@ function App() {
             <Route path = '/rsvp' element ={<Rsvp />} />
             <Route path = '/editdetail' element ={<EditInfo />} />
             <Route path = '/updatepass' element ={<PassUpdate />} />
+            <Route path = '/updatepassonly' element ={<UpdatePassOnly />} />
+
 
         </Routes>
     </div>

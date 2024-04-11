@@ -1,52 +1,64 @@
 import { useState } from 'react'
 import React from 'react'
 import { supabase } from '../supabaseClient'
-import { useNavigate } from 'react-router-dom'
 
 function PassUpdate() {
 
-    // const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-    //     redirectTo: 'https://example.com/update-password',
-    
-    //   })
 
-const [password, getPassword]  = useState('') 
-const [passwordReset, setPassword]  = useState('')   
+const [email, setEmail]  = useState('') 
 
-console.log(password,passwordReset)
-const navigate = useNavigate()
 
-    const handleLogin = async (event) => {
-        event.preventDefault()
-    
-        const {error } = await supabase.auth.updateUser(
-          
-          { 
-            password:getPassword
-          }
-            )
-    
+
+
+
+    const handleLogin = async () => {
+
+
+        await supabase.auth.resetPasswordForEmail({email}, {
+          redirectTo: 'http://localhost:3000/UpdatePassOnly',
+        })
        
-    
-    
-        if (error) {
-          alert(error.error_description || error.message)
-        } else {
-          setPassword("")
-          alert('Check your email for the login link!')
-    
-          navigate('/auth')
-    
-        }
     
       }
 
-      handleLogin()
 
   return (
     <div>
-        <h3>Enter Email to reset your password</h3>
-    </div>
+        <div className="formDivAuth">
+
+    
+<form className="signupform_auth" onSubmit={handleLogin}>
+
+
+<input
+      className="inputField"
+      type="text"
+      placeholder="Email"
+      value={email}
+      required={true}
+      onChange={(e) => setEmail(e.target.value)}
+    />
+<br></br>
+<br></br>
+
+
+  <div>
+ <button className='form_btn'  >Send Reset Link</button></div>
+   
+
+  
+</form>
+
+
+
+
+
+
+
+</div>
+
+
+ </div>
   )
 }
 
