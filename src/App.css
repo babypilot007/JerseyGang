@@ -976,6 +976,8 @@ color: white;
   box-shadow: none;
   font-size: 18px;
   text-decoration: underline;
+  border: dashed black;
+  margin-bottom: 10px;
 }
 
 .listbtn:hover{
@@ -983,6 +985,14 @@ color: white;
   color: rgb(50, 1, 1);
   box-shadow: none;
 }
+
+.listbtn:focus{
+  background-color: #01010200;
+  color: rgb(50, 1, 1);
+  box-shadow: none;
+  border: rgb(255, 175, 4) solid;
+}
+
 
 
 .rsvp{
