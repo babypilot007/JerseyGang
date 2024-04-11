@@ -14,8 +14,8 @@ const [email, setEmail]  = useState('')
     const handleLogin = async () => {
 
 
-        await supabase.auth.resetPasswordForEmail({email}, {
-          redirectTo: 'http://desigangjc/UpdatePassOnly',
+        await supabase.auth.resetPasswordForEmail(email, {
+          redirectTo: 'https://desigangjc.com/updatepassonly',
         })
        
     
