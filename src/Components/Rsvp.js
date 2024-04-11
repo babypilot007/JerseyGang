@@ -213,10 +213,7 @@ function report(){
     return ( 
             details.map((info,ind)=>{
                 
-                  if(info.UserId === userId)
-                  {
-                    return (<><div className='noEvent'><p>No Events near by</p></div></>)
-                } else return(
+                  return(
 
    <div className='event_hover' key = {ind}>
 
@@ -336,7 +333,7 @@ function report(){
 
 }else if(len === 0) return  (
 
- <div className='noEvent'><p>No Events near by</p></div>
+ <div className='noEvent'></div>
        )
     
 
