@@ -15,7 +15,7 @@ const [email, setEmail]  = useState('')
 
 
         await supabase.auth.resetPasswordForEmail({email}, {
-          redirectTo: 'http://localhost:3000/UpdatePassOnly',
+          redirectTo: 'http://desigangjc/UpdatePassOnly',
         })
        
     
