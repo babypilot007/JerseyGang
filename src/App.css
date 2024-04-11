@@ -490,6 +490,12 @@ font-weight: 600;
   justify-content: center;
 }
 
+.formDivAuth{
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
 .terms{
   position: relative;
   display: flex;
@@ -546,6 +552,9 @@ font-weight: 600;
     border-radius: 50px;
     padding: 10px;
     font-weight: 600;
+    background-color: #00000000;
+    color: wheat;
+    text-decoration: underline;
    }
 }
 

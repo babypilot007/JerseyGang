@@ -79,7 +79,7 @@ const navigate = useNavigate()
     </div>
      
      
-     <div className="formDiv">
+     <div className="formDivAuth">
 
     
         <form className="signupform_auth" onSubmit={handleLogin}>
@@ -119,18 +119,21 @@ const navigate = useNavigate()
 
 
 
-        {loginError?<div className="failedLogin"><p>User not found. Please try again or Create an Account</p></div>:null}
-
-          <div >        
-            {createAcc?<div className="createAct" >
-              
-              <button  onClick={()=>{navigate('/signup')}}>Create Account</button>
-              <button onClick={()=>{navigate('/updatepass')}}>Forgot Password</button>
-              </div>:null}
-         </div>
+        
      
 
      </div>
+
+     {loginError?<div className="failedLogin"><p>User not found. Please try again or Create an Account</p></div>:null}
+
+          <div className="createAct"  >        
+            {createAcc?<>
+              
+              <button  onClick={()=>{navigate('/signup')}}>Create Account</button>
+              </>:null}
+              <button onClick={()=>{navigate('/updatepass')}}>Forgot Password</button>
+
+         </div>
      
     </>
   )
