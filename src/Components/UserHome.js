@@ -250,9 +250,6 @@ var eventyes = ''
         
                           <div className='descp'>
 
-             
-                              
-
                           <div className='event_header'>
                             <h1>{inf.EventName}</h1>  
                             
@@ -287,14 +284,14 @@ var eventyes = ''
                       
                     <button className="listbtn" value={info.id} onClick={()=>{show();fetchRsvp(inf.id)}}>Guest List</button>
 
-                      <div >
+                      <>
                        {attend ? <div> <div>{(inf.id === infoId) ?<div className='nameList'>{inf.Rsvp_names.map((e,idx)=>{
                             return (<div >
                              <li key={idx}><span className='nameIcon'>{e.firstName[0]}{e.lastName[0]}</span>{e.firstName}</li></div>
                             )
                         })}</div> :null}</div>
                        </div> :null } 
-                       </div>
+                       </>
 
                                 <div className='descp_header'>
 
