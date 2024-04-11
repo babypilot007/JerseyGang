@@ -449,7 +449,7 @@ var eventyes = ''
           value={hostNumber}
           onChange={getHostNumber}
           countryCodeEditable = {false}
-          autoFormat = {false}
+          autoFormat = {true}
           />
           {console.log(hostNumber)}
           
