@@ -64,6 +64,7 @@ const UserHome = () => {
   // const [dateValue, onchange] = useState(new Date());
 
 
+
     useEffect(()=>{
 
       const loggedIn = async ()=>{
@@ -157,7 +158,7 @@ if (input.type === 'tel') {
             AddInfo : addInfo,
             FormatDate : moment(startDate).format('dddd, MMMM Do YYYY, h:mm a'),
             GuestLimit : guestLimit,
-            HostNumber : hostNumber
+            HostNumber : '+' + hostNumber.slice(0,1) + ' '+ hostNumber.slice(1,4) + '-' + hostNumber.slice(4,7) + '-' + hostNumber.slice(7,11)
           }
         ])
         console.log(user)
@@ -210,7 +211,6 @@ if (input.type === 'tel') {
   }
  
 
-  
 
 var eventyes = ''
 
@@ -451,8 +451,8 @@ var eventyes = ''
           countryCodeEditable = {false}
           autoFormat = {true}
           />
-          {console.log(hostNumber)}
-          
+
+          {console.log('+' + hostNumber.slice(0,1) + ' '+ hostNumber.slice(1,4) + '-' + hostNumber.slice(4,7) + '-' + hostNumber.slice(7,11))}          
     
 
         <textarea rows='20' cols='20' 
