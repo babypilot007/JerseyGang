@@ -34,7 +34,6 @@ function EditInfo() {
 
   
   const[hostNumber, getHostNumber] = useState('')
-  const[originalNumber, setHostNumber] = useState('')
 
 
 
@@ -56,7 +55,6 @@ function EditInfo() {
         setGuestLimt(response.data[0].GuestLimit)
         getLocation(response.data[0].EventLocation)
         getHostNumber(response.data[0].HostNumber)
-        setHostNumber(response.data[0].PhoneOriginal)
 
       } catch (error) {
       
