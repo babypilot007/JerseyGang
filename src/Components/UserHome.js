@@ -13,6 +13,8 @@ import moment from 'moment';
 import share from './share.png'
 import people from './people.png'
 import PhoneInput from 'react-phone-input-2';
+import Terms from './Terms';
+import Privacy from '../Privacy';
 
 import { WhatsappShareButton } from 'react-share';
 
@@ -61,6 +63,10 @@ const UserHome = () => {
   const[activeMyevent, setActiveMyevent] = useState('isActive')
   const[activeAllevent, setActiveAllevent] = useState('notActive')
   const[activeCreate, setActiveCreat] = useState('notActive')
+
+  const [className, setClassName] = useState("closedTerms");
+  const [classNamePrivacy, setClassNamePrivacy] = useState("closedTerms");
+
 
   // const [dateValue, onchange] = useState(new Date());
 
@@ -211,6 +217,9 @@ if (input.type === 'tel') {
     showAttend(!attend)
   }
  
+  function openTerms(){
+       setClassName('openTerms')
+  }
 
 
 var eventyes = ''
@@ -341,11 +350,55 @@ var eventyes = ''
 
       </div>:null}
 
+     
+  {rsvpd ? <div className=''>
+      
+      <div className='terms'>
+<button  onClick={()=>{openTerms()}}>
+             Terms of Use
+         </button>
 
-  {rsvpd ? <div className='formDiv'>
- 
+         <button  onClick={()=>{setClassNamePrivacy('openTerms')}}>
+             Privacy Policy
+         </button>
+         </div>
+
+         <div className={className}>
+
+          
+         <button onClick={()=>{
+          setClassName('closedTerms')
+         }}>Close</button>
+
+
+           <Terms />
+
+          <br></br> <button>Close</button>
+
+          </div>
+
+
+
+          <div className={classNamePrivacy}>
+
+          
+         <button onClick={()=>{
+          setClassNamePrivacy('closedTerms')
+         }}>Close</button>
+
+
+            <Privacy />
+
+          <br></br> <button>Close</button>
+
+          </div>
+
+<div className='formDiv'>
+
       <form className="signupform" onSubmit={createEvent}>
-    
+
+     
+
         <input
             className="inputField"
             type="EventName"
@@ -465,10 +518,12 @@ var eventyes = ''
       <button type='submit'>
              create an Event
          </button>
+
+     
+      
       </form>
       
-
-      
+      </div>
 
       </div> :null}
       

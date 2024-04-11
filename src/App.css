@@ -490,6 +490,53 @@ font-weight: 600;
   justify-content: center;
 }
 
+.terms{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  transform: translate(0,55%);
+   button{
+    background-color: #00000000;
+    color: wheat;
+    text-decoration: underline;
+   }
+}
+
+.openTerms{
+  z-index: 9999;
+  background-color: wheat;
+  position: absolute;
+  border-radius: 10px;
+  text-align: center;
+  width: 95%;
+  height: 90vw;
+  transition-duration: 0.5s;
+  transform: scale(1);
+  padding: 10px;
+  overflow-y:scroll;
+
+  button{
+    position: sticky;
+    background-color: #3a3a3a;
+    margin-left: 300px;
+    color: wheat;
+  }
+  
+}
+
+.closedTerms{
+  z-index: 9999;
+  position: absolute;
+  text-align: center;
+  background-color: wheat;
+  width: 95%;
+  height: 90vw;
+  overflow-y:scroll;
+
+  transition-duration: .5s;
+  transform: scale(0);
+}
+
 .createAct{
   position: relative;
   display: flex;
