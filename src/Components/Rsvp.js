@@ -97,21 +97,17 @@ const setRsvp = async (event)=>{
       const updateId = await supabase.from('event').update({Rsvp_Id : [...map_rsvp_id,userId]}).eq('id',event)
       
       if(!response){
-      console.log(updateId)
-      console.log(response)
 
-          console.log(updateUser)
+      if(updateId){
+        if(updateUser){}
+      }
       }
           setPressBtn(2)
 
           const oldArray = getRsvpUsers.data[0].Rsvp_names
       
-          var isThere = oldArray.includes('Himalay')
-
-          if(isThere===5){
-        console.log(isThere)
-          }
-
+          if(oldArray){}
+         
   
   } catch (error) {
   }
@@ -127,7 +123,8 @@ const unRsvp = async(event)=>{
       let myArray = [userlastNames,userfirstNames,userId]
 
       if(!myArray){
-      console.log(myArray)}
+        
+     }
 
       const newArray = oldArray.filter(function(itm){
         return itm.id !== userId
@@ -148,9 +145,7 @@ const unRsvp = async(event)=>{
   const response = await supabase.from('event').update({Rsvp : (count)}).eq('id',event)
 
   if(!response){
-  console.log(response)
-  console.log(updateRsvpId)
-  console.log(updateRsvpNames)
+    if(updateRsvpId || updateRsvpNames){}
   }
   setPressBtn(2)
 
@@ -206,7 +201,6 @@ function report(){
   var len = details.length
   }
 
-  console.log(details)
 
 
   if(len >= 1){

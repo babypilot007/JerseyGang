@@ -121,11 +121,10 @@ const UserHome = () => {
 
     const logOut = async ()=>{
     try {
-        const { error } = await supabase.auth.signOut()
+        const out = await supabase.auth.signOut()
       
-            console.log(error)
        navigate('/auth')
-            
+            if(out){}
     } catch (error) {
       if(error){
       }
@@ -134,15 +133,6 @@ const UserHome = () => {
   }
 
 
-  const input = document.createElement('input');
-
-  input.type = 'tel'
-if (input.type === 'tel') {
-  console.log(input.type)
-} else {
-  console.log(input)
-  // The tel input is enabled.
-}
 
     const createEvent = async () =>{
 
@@ -168,11 +158,12 @@ if (input.type === 'tel') {
             HostNumber : hostNumber,
           }
         ])
-        console.log(user)
+
+        if(user){}
       } catch (error) {
+        
       }
       window.location.reload();
-
     }
 
 
@@ -183,8 +174,7 @@ if (input.type === 'tel') {
     
     try {
       const {data: {user}} = await supabase.from('event').delete().eq('id', id)
-        console.log(user)
-
+      if(user){}
     } catch (error) {
     }
     window.location.reload();
@@ -199,8 +189,7 @@ if (input.type === 'tel') {
       const response = await supabase.from('event').select('*').eq('id',id)
       var data = response.data
   
-        console.log(data.length)
-
+        if(data){}
        data.map((e)=> { 
         
            return getInfoId(e.id)
@@ -279,7 +268,6 @@ var eventyes = ''
                                 <p>  <img  src={loc} alt='location' height="30px"></img> - <a href={ 'https://www.google.com/maps/search/?api=1&query=Jersey+City,+NJ/&query_place_id=' + inf.placeId}>{inf.EventLocation}</a></p>
                                 <p ><img  src={cal} alt='location' height="30px"></img> - {inf.EventDate}</p>
                                 
-                                {console.log(inf.URL)}
                                 
                                 <p>Contact : <a href={'tel:' + inf.HostNumber}>+{inf.HostNumber.slice(0,1)}{inf.HostNumber.slice(1,4)}-{inf.HostNumber.slice(4,7)}-{inf.HostNumber.slice(7,11)}</a></p>
 
@@ -429,13 +417,11 @@ var eventyes = ''
           getLat(place.geometry.location.lat())
           getLong(place.geometry.location.lng())
           setPlaceId(place.place_id)
-            console.log(place)
           }}
 
 
 
         />
-{console.log(location)}
 <p>{<LocationMap
        lat = {lat}
        lng = {long}/>}</p>

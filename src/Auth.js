@@ -27,7 +27,7 @@ const navigate = useNavigate()
     event.preventDefault()
 
 
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const {error } = await supabase.auth.signInWithPassword({
       email: getEmail,
       password: getPassword
       
@@ -49,7 +49,6 @@ const navigate = useNavigate()
   
 
 
-    console.log(data)
 
     setLoading(false)
     setLoginStat(true)
