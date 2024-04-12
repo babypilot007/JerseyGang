@@ -530,6 +530,8 @@ font-weight: 600;
   
 }
 
+
+
 .closedTerms{
   z-index: 9999;
   position: absolute;
@@ -541,6 +543,72 @@ font-weight: 600;
 
   transition-duration: .5s;
   transform: scale(0);
+}
+
+
+.openReport{
+  background-color: rgb(16, 16, 14);
+  position: absolute;
+  border-radius: 10px;
+  text-align: center;
+  width: 95%;
+  height: 90vw;
+  transition-duration: 0.5s;
+  transform: scale(1);
+  padding: 10px;
+  overflow-y:scroll;
+  transform: translate(0,-50vh);
+
+  
+  p{
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border-radius: 10px;
+    font-size: medium;
+    font-weight: 100;
+  }
+
+  button{
+    position: sticky;
+    background-color: #3a3a3a;
+    color: wheat;
+  }
+
+  h3 {
+    background-color: wheat;
+    border-radius: 10px;
+  }
+  
+}
+
+.radio{
+  position: relative;
+  display: flex;
+  color: wheat;
+  text-align: left;
+}
+
+.closedReport{
+  position: absolute;
+  text-align: center;
+  background-color: wheat;
+
+  transition-duration: .5s;
+  transform-origin: center;
+  transform: scale(000);
+
+  
+
+  button{
+    position: sticky;
+    background-color: #3a3a3a;
+    color: wheat;
+  }
+
+  h3 {
+    background-color: wheat;
+    border-radius: 10px;
+  }
 }
 
 .createAct{

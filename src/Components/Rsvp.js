@@ -15,6 +15,7 @@ function Rsvp(userid) {
 
   const navigate = useNavigate()
   
+  const [className, setClassName] = useState("closedReport");
 
     
     const[data, getData] = useState('')
@@ -29,9 +30,14 @@ function Rsvp(userid) {
     const[pressBtn, setPressBtn] = useState(0)
     const[infoId, getInfoId] = useState('')
 
+    const[reportype, setReporType] = useState('')
+
+
+
    let isAvailable
 
     let clsname ='interested'
+
     useEffect(()=>{
       const fetchData = async ()=>{
         try {
@@ -78,8 +84,6 @@ fetchData()
 const setRsvp = async (event)=>{
 
 
-
-
   var count = 0
   var map_rsvp_users
   var map_rsvp_id
@@ -88,7 +92,8 @@ const setRsvp = async (event)=>{
       const getRsvpUsers = await supabase.from('event').select('Rsvp_names').eq('id',event)
       const getRsvpId = await supabase.from('event').select('Rsvp_Id').eq('id',event)
 
-
+       
+      
        map_rsvp_users = getRsvpUsers.data[0].Rsvp_names
        map_rsvp_id = getRsvpId.data[0].Rsvp_Id
       count = getRsvpCount.data[0].Rsvp + 1
@@ -188,8 +193,29 @@ function dets()
 }
 
 
-function report(){
 
+const report = async (id)=>{
+
+  let repCount
+  let reptypeold
+  
+  try {
+      const rep = await supabase.from('event').select('report').eq('id',id)
+      const reptype = await supabase.from('event').select('reportType').eq('id',id)
+
+
+      reptypeold = reptype.data[0].reportType
+      repCount = rep.data[0].report + 1
+      
+      const addRepCount = await supabase.from('event').update({report : repCount}).eq('id',id)
+      const addRepType = await supabase.from('event').update({reportType : [...reptypeold, reportype]}).eq('id',id)
+
+        if(addRepCount){if(addRepType){}}
+
+
+  
+  } catch (error) {
+  }
 }
 
 
@@ -269,6 +295,37 @@ function report(){
                        </div> :null } 
                        </div>
 
+                       
+                       {(info.id === infoId) ?<div className={className}>
+                                  <h3>Report this event</h3>
+
+                                  <div onChange={(e)=>{ setReporType(e.target.value)}} className='radio'>
+                                          <ul>
+                                          <li><input type="radio" value="Inappropriate Content"   defaultChecked name="gender"/> Inappropriate Content</li>
+                                          <li>  <input type="radio" value="scam" name="gender"/> Scam</li>
+                                          <li>  <input type="radio" value="sus/danger" name="gender"/> Seems Suspicious/Dangerous</li>
+                                          <li>  <input type="radio" value="Other" name="gender"/> Other</li>
+
+                                         
+                                          </ul>
+
+                                  </div>
+                                      
+
+                                    <button className='report' onClick={()=>{
+
+                                          report(info.id)
+                                          setClassName('closedReport')
+                                          
+                                          }}>Report</button>
+
+                                                <button className='report'  onClick = {()=>{
+                setClassName('closedReport')
+
+                      }}>Cancel</button> 
+                                 
+                                    <p>Thank you for your response. Appropriate action will be taken. </p>
+                                            </div> :null}
 
                   <div className='btn_grp'>
 
@@ -278,9 +335,24 @@ function report(){
                       }}>Details</button> 
 
 <button className='report'  onClick = {()=>{
-                report()
-                      }}>Report Event</button> 
+                setClassName('openReport')
+                fetchRsvp(info.id)
 
+                      }}>Report Event</button> 
+                
+                                          {/* <div className={className}>
+
+                                                                    
+                                          <button onClick={()=>{
+                                          setClassName('closedTerms')
+                                          }}>Close</button>
+
+                           
+
+                                          <br></br> <button>Close</button>
+
+                                          </div> */}
+              
 
               <div className='rsvpBtn'>
 
@@ -302,12 +374,13 @@ function report(){
                        }                      
                      </div>
 
-
+                    
                     
                    </div> 
                    <div >
 
-
+                   
+                                            
                        {showDets ? <div> <div>{(info.id === infoId) ?<div className='descp'>
                                   <div className='descp_details'>
                                   <h2>About</h2>
