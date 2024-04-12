@@ -610,12 +610,13 @@ color: white;
   border: solid orange;
 }
 
+
+
 .signupform input::placeholder{
-  color: rgba(255, 255, 255, 0.422);
+  color: rgb(255, 190, 117);
   font-style: italic ;
   font-weight: 100;
   font-size: calc(5px + 3vw);
-  
 
 }
 
@@ -689,7 +690,8 @@ color: white;
   }
   
   .signupform_auth input::placeholder{
-    color: rgba(255, 255, 255, 0.422);
+  color: rgb(255, 190, 117);
+    
     font-style: italic ;
     font-weight: 100;
     font-size: calc(5px + 3vw);

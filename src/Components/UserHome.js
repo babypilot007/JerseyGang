@@ -487,6 +487,7 @@ var eventyes = ''
           onChange={getHostNumber}
           countryCodeEditable = {false}
           autoFormat = {true}
+          required = {true}
           />
 
     
