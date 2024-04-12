@@ -10,7 +10,6 @@ import Datetime from 'react-datetime';
 import moment from 'moment';
 import { useLocation } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
-import xtype from 'xtypejs'
 import PhoneInput from 'react-phone-input-2';
 
 
@@ -41,7 +40,6 @@ function EditInfo() {
     const fetchData = async ()=>{
       try {
         const response = await supabase.from('event').select('*').eq('id',id)
-        console.log(response.data)
 
         getEventName(response.data[0].EventName)
         setInfo(response.data[0].AddInfo)
@@ -66,13 +64,9 @@ function EditInfo() {
 
 
   let changeDate =   new Date(startDate)
-
+  if(changeDate){}
   changeDate = changeDate.toDateString()
 
-
-console.log(changeDate)
-
-console.log(xtype(changeDate))
 
 
 
@@ -111,8 +105,7 @@ function onchange (date){
 
         }
       ]).eq('id',id)
-      console.log(user)
-      
+if(user){}      
     } catch (error) {
     }
     window.location.reload();
@@ -205,7 +198,6 @@ className='rdt'
     // setChangeFormat(moment(startDate).format('llll'))
     
 
-   console.log( date)
 //    moment(startDate).format('dddd, MMMM Do YYYY, h:mm:ss a')
    }}/>
 
@@ -227,7 +219,6 @@ className='rdt'
           countryCodeEditable = {false}
           autoFormat = {true}
           />
-  {console.log(hostNumber)}
 
     <textarea rows='20' cols='20' 
     className='inputField_textbox'
