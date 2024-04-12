@@ -4,7 +4,7 @@ import shareImg from './Components/android-chrome-192x192.png'
 function ShareImg() {
   return (
     <>
-    <img src = {shareImg} alt = 'shareImg'></img>
+    <img src = {shareImg} height='50px' width='50px' alt = 'shareImg'></img>
     </>
   )
 }
