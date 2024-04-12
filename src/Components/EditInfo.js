@@ -1,3 +1,6 @@
+/* eslint-disable */
+
+
 import { useState, useEffect} from 'react'
 import React from 'react'
 import { supabase } from '../supabaseClient'
