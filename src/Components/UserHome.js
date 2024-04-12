@@ -252,10 +252,11 @@ var eventyes = ''
                             <h1>{inf.EventName}</h1>  
                             
                             <WhatsappShareButton 
-                              title={inf.EventName}  
-
+                              title= {inf.EventName + '\n\n' + inf.Event_descp} 
+                              separator={'\n' + inf.EventDate + '\n\nMore details : \n'}
 
                               url={`https://desigangjc.com/eventdetails/${inf.id}`}>
+                                
                                 <img  src={share} alt='share' height="40px"></img>
                               </WhatsappShareButton>
                             
