@@ -7,7 +7,7 @@ function Terms() {
 
 <h1>Terms of Use</h1>
 
-Desi Gang of Jersey (GGJ) WEBSITE TERMS OF USE
+Desi Gang of Jersey (DGJ) WEBSITE TERMS OF USE
 
 <h3>1. READ THIS:</h3>
 This Terms of Use Agreement (“Agreement” or “Terms of Use”) is made by and between Desi Gang of Jersey (DGJ), a New Jersey corporation, and you (“you,” “your” or “User”). This Agreement contains the terms and conditions that govern your use of this Website.
