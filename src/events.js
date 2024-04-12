@@ -45,7 +45,9 @@ useEffect(()=>{
                         <p className='descp_after'>{info.Event_descp}</p>
                           
                           
-                          <img  className='peopleImg' src={people} alt='people' height="30px"></img>  : {info.Rsvp}   <span className='span'>____</span> Spots Left : {info.GuestLimit - info.Rsvp_Id.length}</div> 
+                          <img  className='peopleImg' src={people} alt='people' height="30px"></img>  : {info.Rsvp}   
+                          <span className='span'>____</span> Spots Left : {info.GuestLimit - info.Rsvp_Id.length}
+                          </div> 
                    
 
 

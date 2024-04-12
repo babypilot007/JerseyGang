@@ -23,9 +23,8 @@ const [data, getData] = useState('')
                     getData(response)
 
                     if(response){
-                    console.log(response.data)}
+                    }
                 } catch (err) {
-                    console.log(err);
                 }
                 
             }
