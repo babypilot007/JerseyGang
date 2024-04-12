@@ -361,7 +361,9 @@ var eventyes = ''
 
            <Terms />
 
-          <br></br> <button>Close</button>
+          <br></br>  <button onClick={()=>{
+          setClassName('closedTerms')
+         }}>Close</button>
 
           </div>
 
@@ -377,7 +379,9 @@ var eventyes = ''
 
             <Privacy />
 
-          <br></br> <button>Close</button>
+          <br></br> <button onClick={()=>{
+          setClassNamePrivacy('closedTerms')
+         }}>Close</button>
 
           </div>
 
@@ -464,8 +468,6 @@ var eventyes = ''
       onSelect={()=>{return startDate}}
       onChange={(date)=>{
         setStartDate(date)
-
-            // moment(startDate).format('dddd, MMMM Do YYYY, h:mm:ss a')
         }}/>
 
         <input
