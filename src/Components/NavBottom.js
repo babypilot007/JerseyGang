@@ -3,6 +3,7 @@ import { WhatsappShareButton } from 'react-share';
 import { WhatsappIcon } from 'react-share';
 export default function NavBottom() {
   return (
+    
     <div className='eventbottom'>
         <WhatsappShareButton 
      title="Join these fun Meetup Group - 
