@@ -10,7 +10,7 @@ const [passwordReset, setPassword]  = useState('')
 const navigate = useNavigate()
 
 
-    const handleLogin = async (event) => {
+    const handleLogin = async () => {
 
     
         const {error } = await supabase.auth.updateUser(
@@ -21,10 +21,9 @@ const navigate = useNavigate()
             )
 
             if (error) {
-                alert(error.error_description || error.message)
               } else {
                 setPassword("")
-                alert('Check your email for the login link!')
+                alert('Password Reset')
           
                 navigate('/auth')
           
