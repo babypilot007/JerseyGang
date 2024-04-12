@@ -246,8 +246,8 @@ const report = async (id)=>{
                         <h1>{info.EventName}</h1>     
                         
                         <WhatsappShareButton 
-                               title= {info.EventName + '\n\n' + info.Event_descp} 
-                               separator={'\n' + info.EventDate + '\n\nMore details : \n'}
+                               title= {info.EventName + '\n\n' + info.Event_descp + '\n'} 
+                               separator={'\n\n' + info.EventDate + '\n\nMore details : \n'}
 
                               
                               url={`https://desigangjc.com/eventdetails/${info.id}`}>
