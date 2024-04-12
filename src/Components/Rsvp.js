@@ -238,7 +238,7 @@ function report(){
                                 <p>  <img  src={loc} alt='location' height="30px"></img> - <a href={ 'https://www.google.com/maps/search/?api=1&query=Jersey+City,+NJ/&query_place_id=' + info.placeId}>{info.EventLocation}</a></p>
                                 <p ><img  src={cal} alt='location' height="30px"></img> - {info.EventDate}</p>
                                 
-                                <p>Contact : <a href={'tel:' + info.HostNumber}>+{info.HostNumber.slice(0,1)}{info.HostNumber.slice(1,4)}-{info.HostNumber.slice(4,7)}-{info.HostNumber.slice(7,11)}</a></p>
+                                <p>Contact : <a href={'tel:' + info.HostNumber}>{info.HostNumber.slice(0,3)}-{info.HostNumber.slice(3,6)}-{info.HostNumber.slice(6,10)}</a></p>
                               
                               
                               

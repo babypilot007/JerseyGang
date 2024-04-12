@@ -269,7 +269,7 @@ var eventyes = ''
                                 <p ><img  src={cal} alt='location' height="30px"></img> - {inf.EventDate}</p>
                                 
                                 
-                                <p>Contact : <a href={'tel:' + inf.HostNumber}>+{inf.HostNumber.slice(0,1)}{inf.HostNumber.slice(1,4)}-{inf.HostNumber.slice(4,7)}-{inf.HostNumber.slice(7,11)}</a></p>
+                                <p>Contact : <a href={'tel:' + inf.HostNumber}>{inf.HostNumber.slice(0,3)}-{inf.HostNumber.slice(3,6)}-{inf.HostNumber.slice(6,10)}</a></p>
 
                                  {inf.URL !== '' ? <div><p>  Link - <a href={inf.URL}> Click for the Link</a> </p></div> : <div><p>  Link - None</p> </div>}
 
@@ -485,9 +485,9 @@ var eventyes = ''
           placeholder='+1 {Contact}'
           value={hostNumber}
           onChange={getHostNumber}
-          countryCodeEditable = {false}
           autoFormat = {true}
           required = {true}
+          disableCountryCode={true}
           />
 
     
