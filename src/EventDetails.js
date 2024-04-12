@@ -2,6 +2,8 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import { supabase } from './supabaseClient';
+import people from './Components/people.png'
+
 
 function EventDetails () {
 
@@ -37,24 +39,35 @@ const [data, getData] = useState('')
 
 
                 if(details){
-    return (<div className=''> 
+    return (<div className='event_hover'> 
             {details.map((info)=>{
 
                 return(
 
                     <>
 
+                    
 
-<div className='event_hover' key = {info}>
+
+<div className='' key = {info}>
                               
                             <div className='descp'>
 
-                        <div className='event_header'><h1>{info.EventName}</h1> </div>
+                        <div className='event_header'>
+                            <h1>{info.EventName}</h1> </div>
                         
-                        <p>Event Info : <br></br>{info.Event_descp}</p>
-                   
-                    <div className='btn_grp'>
-                         <h3 className='rsvp'>Attending : {info.Rsvp} <br></br> Spots Left : {info.GuestLimit - info.Rsvp_Id.length} </h3>
+                            <div className='guestImg_dets'>
+
+<p className='eventInfo_head'>Event Info : </p>
+<p className='descp_after'>{info.Event_descp}</p>
+  
+  <div className='detsImg'>
+  <img  className='peopleImg' src={people} alt='people' height="30px"></img>  : {info.Rsvp}   
+  <span className='span'>____</span> Spots Left : {info.GuestLimit - info.Rsvp_Id.length}
+  </div>
+  </div> 
+
+                    <div className='btn_grp_home'>
                            <div>
                           
                           <h3>Created By : {info.UserName}

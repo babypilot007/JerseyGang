@@ -1970,6 +1970,20 @@ td.rdtYear:hover {
   }
 }
 
+.guestImg_dets{
+
+  margin-bottom: 5px;
+  img {
+    transform: translate(-10px,-5px);
+  }
+}
+.detsImg{
+  position: relative;
+  display: flex;
+  justify-content:  center ;
+
+}
+
 .eventInfo_head::after{
   position: absolute;
   content: '';
