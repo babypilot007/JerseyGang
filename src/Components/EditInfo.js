@@ -34,6 +34,9 @@ function EditInfo() {
   
   const[hostNumber, getHostNumber] = useState('')
 
+  const [newDate, setNewDate] = useState();
+
+  const[oldDate, setOldDate] = useState('')
 
 
   useEffect(()=>{
@@ -44,9 +47,12 @@ function EditInfo() {
         getEventName(response.data[0].EventName)
         setInfo(response.data[0].AddInfo)
         getdescp(response.data[0].Event_descp)
-        setStartDate(response.data[0].FormatDate)
         getUrl(response.data[0].URL)
+
+        setOldDate(response.data[0].FormatDate)
+
     //    setOldDate(response.data[0].EventDate)
+
       setPlaceId(response.data[0].placeId)
        getLat((response.data[0].lat))
        getLong(response.data[0].long)
@@ -60,27 +66,26 @@ function EditInfo() {
     fetchData()
   }, [id])
 
-  const [startDate, setStartDate] = useState();
 
 
-  let changeDate =   new Date(startDate)
-  if(changeDate){}
-  changeDate = changeDate.toDateString()
-
-
-
-
-function onchange (date){
-
-    setStartDate(moment(date).format('llll'))
-
-
-
-}
+  // let changeDate =   new Date(startDate)
+  // if(changeDate){}
+  // changeDate = changeDate.toDateString()
 
 
 
 
+
+
+const handleChange = (event) => {
+
+  
+  if(event._d === oldDate){
+    alert('no')
+  }
+  setNewDate(moment(event._d).format('dddd, MMMM Do YYYY, h:mm a'));
+  setOldDate(event._d)
+};
 
  
 
@@ -93,13 +98,15 @@ function onchange (date){
           EventLocation : location,
           Event_descp : eventDescp,
           EventName : eventName,
-          EventDate: moment(startDate).format('llll'),
+          EventDate:newDate,
+          // EventDate: newDate,
+
           lat: lat,
           long:long,
           placeId : placeId,
           URL : uRl,
           AddInfo : info,
-          FormatDate : moment(startDate).format('llll'),
+          FormatDate : oldDate,
           GuestLimit : guestLimit,
           HostNumber : hostNumber
 
@@ -114,11 +121,14 @@ if(user){}
 
 
   
+  
   let inputProps = {
     disabled: false,
-    placeholder:startDate,
-    value : startDate,
-    require : true
+    placeholder:moment(oldDate).format('dddd, MMMM Do YYYY, h:mm a'),
+    require : true,
+    value : newDate,
+
+
 };
   return (
 
@@ -186,20 +196,11 @@ className='rdt'
  clearIcon={false}
  showTimeSelect
  locale='us'
- required = {true}
  utc = {false}
  inputProps={inputProps}
  showLeadingZeros ={true}
 
-//  onSelect={()=>{return startDate}}
- onChange={(date)=>{
-    
-        onchange(date)
-    // setChangeFormat(moment(startDate).format('llll'))
-    
-
-//    moment(startDate).format('dddd, MMMM Do YYYY, h:mm:ss a')
-   }}/>
+ onChange={handleChange}/>
 
     <input
         className="inputField"

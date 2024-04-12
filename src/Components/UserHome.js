@@ -153,7 +153,7 @@ const UserHome = () => {
             placeId : placeId,
             URL : uRl,
             AddInfo : addInfo,
-            FormatDate : moment(startDate).format('dddd, MMMM Do YYYY, h:mm a'),
+            FormatDate : startDate,
             GuestLimit : guestLimit,
             HostNumber : hostNumber,
           }
@@ -464,8 +464,8 @@ var eventyes = ''
       onSelect={()=>{return startDate}}
       onChange={(date)=>{
         setStartDate(date)
-        // setDateFormat(date._d)
-            moment(startDate).format('dddd, MMMM Do YYYY, h:mm:ss a')
+
+            // moment(startDate).format('dddd, MMMM Do YYYY, h:mm:ss a')
         }}/>
 
         <input
