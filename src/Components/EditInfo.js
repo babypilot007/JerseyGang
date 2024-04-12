@@ -17,6 +17,13 @@ import PhoneInput from 'react-phone-input-2';
 
 function EditInfo() {
 
+  if (process.env.NODE_ENV !== "development") {
+    console.log = () => {};
+    console.debug = () => {};
+    console.info = () => {};
+    console.warn = () => {};
+}
+
     const locationId = useLocation()
     const id = locationId.state.id
     // const navigate = useNavigate()

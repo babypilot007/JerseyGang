@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import './App.css';
 import { Route, Routes} from 'react-router-dom';
 import EventDetails from './EventDetails';
@@ -15,12 +17,12 @@ import UpdatePassOnly from './Components/UpdatePassOnly';
 
 function App() {
 
-  if (process.env.NODE_ENV !== "development") {
-    console.log = () => {};
-    console.debug = () => {};
-    console.info = () => {};
-    console.warn = () => {};
-}
+    if (process.env.NODE_ENV !== "development") {
+      console.log = () => {};
+      console.debug = () => {};
+      console.info = () => {};
+      console.warn = () => {};
+  }
 
   
   return (

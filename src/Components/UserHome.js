@@ -1,3 +1,4 @@
+/* eslint-disable */
 
 import { useState, useEffect} from 'react'
 import React from 'react'
@@ -21,6 +22,14 @@ import { WhatsappShareButton } from 'react-share';
 
 
 const UserHome = () => {
+
+  if (process.env.NODE_ENV !== "development" ) {
+    console.log = () => {};
+    console.debug = () => {};
+    console.info = () => {};
+    console.warn = () => {};
+}
+
   const locApi = process.env.REACT_APP_MAP_API
       
   const[lat, getLat] = useState(40.728157)
@@ -252,8 +261,8 @@ var eventyes = ''
                             <h1>{inf.EventName}</h1>  
                             
                             <WhatsappShareButton 
-                              title= {inf.EventName + '\n\n' + inf.Event_descp} 
-                              separator={'\n' + inf.EventDate + '\n\nMore details : \n'}
+                              title= {inf.EventName + '\n\n' + inf.Event_descp + '\n'} 
+                              separator={'\n\n' + inf.EventDate + '\n\nMore details : \n'}
 
                               url={`https://desigangjc.com/eventdetails/${inf.id}`}>
                                 
