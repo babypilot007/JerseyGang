@@ -215,10 +215,11 @@ className='rdt'
           country={"us"}
           onlyCountries={["us"]}
           placeholder='+1 {Contact}'
-          value={'+' + hostNumber.slice(0,1) + ' '+ hostNumber.slice(1,4) + '-' + hostNumber.slice(4,7) + '-' + hostNumber.slice(7,11)}
+          value={hostNumber}
           onChange={getHostNumber}
-          countryCodeEditable = {false}
           autoFormat = {true}
+          required = {true}
+          disableCountryCode={true}
           />
 
     <textarea rows='20' cols='20' 
