@@ -12,7 +12,6 @@ import Rsvp from './Components/Rsvp';
 import EditInfo from './Components/EditInfo';
 import PassUpdate from './Components/PassUpdate';
 import UpdatePassOnly from './Components/UpdatePassOnly';
-import ShareImg from './ShareImg';
 
 
 
@@ -41,7 +40,6 @@ function App() {
             <Route path = '/editdetail' element ={<EditInfo />} />
             <Route path = '/updatepass' element ={<PassUpdate />} />
             <Route path = '/updatepassonly' element ={<UpdatePassOnly />} />
-            <Route path = '/shareimg' element ={<ShareImg />} />
 
 
 
