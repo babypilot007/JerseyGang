@@ -12,7 +12,7 @@ import Rsvp from './Components/Rsvp';
 import EditInfo from './Components/EditInfo';
 import PassUpdate from './Components/PassUpdate';
 import UpdatePassOnly from './Components/UpdatePassOnly';
-
+import WebImg from './Components/WebImg';
 
 
 function App() {
@@ -40,6 +40,8 @@ function App() {
             <Route path = '/editdetail' element ={<EditInfo />} />
             <Route path = '/updatepass' element ={<PassUpdate />} />
             <Route path = '/updatepassonly' element ={<UpdatePassOnly />} />
+            <Route path = '/webimg' element ={<WebImg />} />
+
 
 
 
