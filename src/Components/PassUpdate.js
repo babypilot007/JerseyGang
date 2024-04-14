@@ -6,24 +6,29 @@ function PassUpdate() {
 
 
 const [email, setEmail]  = useState('') 
+const [showemaildiv, setShowEmail]  = useState('closedDiv') 
 
 
 
 
 
-    const handleLogin = async () => {
 
+    const handleLogin = async (e) => {
 
-        await supabase.auth.resetPasswordForEmail(email, {
+      e.preventDefault()
+       const res =  await supabase.auth.resetPasswordForEmail(email, {
           redirectTo: 'https://desigangjc.com/updatepassonly',
         })
-       
-    
+        
+          if(res.data !== null){
+        setShowEmail('openDiv')
+          }
       }
 
+      
 
   return (
-    <div>
+    <>
         <div className="formDivAuth">
 
     
@@ -43,10 +48,8 @@ const [email, setEmail]  = useState('')
 
 
   <div>
- <button className='form_btn'  >Send Reset Link</button></div>
+ <button className='form_btn' onClick={handleLogin}>Send Reset Link</button></div>
    
-
-  
 </form>
 
 
@@ -56,9 +59,11 @@ const [email, setEmail]  = useState('')
 
 
 </div>
+ <div className={showemaildiv}>
+  <h3>Please check you Email for Password Reset link.</h3>
+</div>
 
-
- </div>
+ </>
   )
 }
 

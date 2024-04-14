@@ -1993,3 +1993,19 @@ td.rdtYear:hover {
 width: 80%;
 
 }
+
+
+.closedDiv{
+   transform: scale(0);
+}
+
+.openDiv{
+  transform: scale(1);
+  transition: ease-in 0.2s;
+  background-color: wheat;
+  margin: 10px;
+  padding: 1px;
+  font-size: small;
+  text-align: center;
+  border-radius: 20px;
+}
