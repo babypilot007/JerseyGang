@@ -2028,3 +2028,34 @@ margin-right: 50px;
     margin-top: 5px;
   }
 }
+
+.confirm{
+  text-align: center;
+  margin-top: 50%;
+  background-color: rgb(244, 158, 0);
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 20px;
+  padding: 10px;
+  border: solid rgb(0, 0, 0);
+
+  
+  button{
+    background-color: rgba(255, 0, 0, 0);
+    border: solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    font-size: larger;
+  }
+
+
+    h2 {
+      color: #000000;
+    }
+
+    p{
+      background-color: #000000;
+      color: white;
+      border-radius: 10px;
+      padding: 10px;
+    }
+}

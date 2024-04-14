@@ -13,6 +13,7 @@ import EditInfo from './Components/EditInfo';
 import PassUpdate from './Components/PassUpdate';
 import UpdatePassOnly from './Components/UpdatePassOnly';
 import WebImg from './Components/WebImg';
+import ConfirmUrl from './ConfirmUrl';
 
 
 function App() {
@@ -41,6 +42,8 @@ function App() {
             <Route path = '/updatepass' element ={<PassUpdate />} />
             <Route path = '/updatepassonly' element ={<UpdatePassOnly />} />
             <Route path = '/webimg' element ={<WebImg />} />
+            <Route path = '/confirmurl' element ={<ConfirmUrl />} />
+
 
 
 
