@@ -1,18 +1,22 @@
 import { useState } from 'react'
 import React from 'react'
 import { supabase } from '../supabaseClient'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function UpdatePassOnly() {
 
-const [passwordReset, setPassword]  = useState('')   
+const [passwordReset, setPassword]  = useState('')  
+const [resetSucces , setResetSucces]  = useState('noPass')   
 
-// const navigate = useNavigate()
+
+
+const navigate = useNavigate()
 
 
     const handleLogin = async (e) => {
 
     e.preventDefault()
+
         const data = await supabase.auth.updateUser(
           
           { 
@@ -20,11 +24,18 @@ const [passwordReset, setPassword]  = useState('')
           }
             )
 
-                console.log(data)
+            console.log(data.error)
+              if(data.error !== null){
+                  setResetSucces('errorPass')
+              }
+              else{
+                setResetSucces('yesPass')
+              }
         
     
     
       }
+
   return (
    <>
 
@@ -52,6 +63,13 @@ const [passwordReset, setPassword]  = useState('')
 
   
 </form>
+</div>
+
+<div className={resetSucces}>
+  <h3>Password reset successful</h3>
+  <span>Something Went wrong</span>
+  <button onClick={()=>{navigate('/auth')}}>Login?</button>
+
 </div>
 </>
   )

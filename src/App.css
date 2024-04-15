@@ -2059,3 +2059,41 @@ margin-right: 50px;
       padding: 10px;
     }
 }
+
+.yesPass{
+  transform: scale(1);
+  transition: 0.2s;
+  background-color: orange;
+  text-align: center;
+  margin-top: 50px;
+  padding: 10px;
+
+  span{
+    display: none;
+  }
+  button{
+    background-color: #00000000;
+    border: solid black 1px;
+  }
+}
+
+.errorPass{
+  transform: scale(1);
+  transition: 0.2s;
+  background-color: rgb(255, 0, 0);
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+  padding: 10px;
+
+  h3{
+    display: none;
+  }
+  button{
+    display: none;
+  }
+}
+
+.noPass{
+  transform: scale(0);
+}
