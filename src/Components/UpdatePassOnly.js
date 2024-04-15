@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import React from 'react'
 import { supabase } from '../supabaseClient'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 
 function UpdatePassOnly() {
 
 const [passwordReset, setPassword]  = useState('')   
 
-const navigate = useNavigate()
+// const navigate = useNavigate()
 
 
     const handleLogin = async (e) => {
@@ -19,6 +19,7 @@ const navigate = useNavigate()
             password: passwordReset
           }
             )
+
                 console.log(data)
         
     
