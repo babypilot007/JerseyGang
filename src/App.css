@@ -1722,7 +1722,7 @@ margin-left: 0;
   background: #ffcf7d;
   box-shadow: 0 1px 3px rgba(0,0,0,.1);
   border: 2px solid #000000;
-  transform: translate(10vw, -50vh) scale(1.2);
+  transform: translate(10vw,-30vh) scale(1.2);
 
   border-radius: 10px;
    placeholder{
