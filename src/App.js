@@ -28,6 +28,11 @@ function App() {
   
   return (
 
+    <>
+
+    <div className='noDisplay'>
+      <h2>This site is only optimized for small screens... :(</h2>
+    </div>
 
     <div className="App">
         <Routes>
@@ -50,6 +55,8 @@ function App() {
 
         </Routes>
     </div>
+
+    </>
   );
 }
 
