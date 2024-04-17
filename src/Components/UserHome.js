@@ -64,8 +64,9 @@ const UserHome = () => {
   const[hostNumber, getHostNumber] = useState('')
 
 
+const d = new Date();
 
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(d.setMinutes(0));
   // const [dateFormat, setDateFormat] = useState('');
 
 
@@ -474,6 +475,12 @@ var eventyes = ''
      required = {true}
      utc = {false}
      showLeadingZeros ={true}
+     
+
+     timeConstraints={{'minutes': {
+      'min': 0,
+      'step': 15
+    }}}
 
       onSelect={()=>{return startDate}}
       onChange={(date)=>{

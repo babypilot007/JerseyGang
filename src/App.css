@@ -1738,7 +1738,7 @@ margin-left: 0;
 
 .rdtPicker .rdtTimeToggle {
   text-align: center;
-  background-color: #000000d4;
+  background-color: #fa0e0ed4;
   color: white;
   border-radius: 10px;
 }
@@ -1821,10 +1821,23 @@ margin-left: 0;
   color: white;
   border-radius: 10px;
 }
+
+
+td.rdtSwitch{
+  background-color: #fa0e0ed4;
+  
+  color: rgb(255, 255, 254);
+  border-radius: 10px;
+  border: solid 1px black;
+}
+
 .rdtPicker th.rdtNext,
 .rdtPicker th.rdtPrev {
   font-size: 21px;
   vertical-align: top;
+  background-color: rgb(244, 157, 36);
+  border: solid black 1px;
+  border-radius: 10px;
 }
 
 .rdtPrev span,
@@ -1881,7 +1894,12 @@ td.rdtYear:hover {
 }
 
 .rdtCounters {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(6, 6, 6);
+  color: wheat;
+  border-radius: 10px;
+  width: 100%;
 }
 
 .rdtCounters > div {
@@ -1915,6 +1933,8 @@ td.rdtYear:hover {
 }
 .rdtCounter .rdtBtn:hover {
   background: #eee;
+  border-radius: 10px;
+  color: #000000;
 }
 .rdtCounter .rdtCount {
   height: 20%;

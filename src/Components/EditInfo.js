@@ -209,7 +209,10 @@ className='rdt'
  utc = {false}
  inputProps={inputProps}
  showLeadingZeros ={true}
-
+ timeConstraints={{'minutes': {
+  'min': 0,
+  'step': 15
+}}}
  onChange={handleChange}/>
 
     <input
