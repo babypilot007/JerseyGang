@@ -10,11 +10,9 @@ import { WhatsappShareButton } from 'react-share';
 import people from './people.png'
 
 
-
 function Rsvp(userid) {
 
   const navigate = useNavigate()
-  
   const [className, setClassName] = useState("closedReport");
 
     
@@ -26,11 +24,16 @@ function Rsvp(userid) {
 
 
     const[attend, showAttend] = useState(false)
-    const[showDets, setShowDets] = useState(false)
     const[pressBtn, setPressBtn] = useState(0)
     const[infoId, getInfoId] = useState('')
 
+    const[btnId, getBtnId] = useState('')
+
+
     const[reportype, setReporType] = useState('')
+
+    const[detailsClass, setDetailsClass] = useState('noDets')
+
 
 
 
@@ -186,11 +189,7 @@ function show(){
   showAttend(!attend)
 }
 
-function dets()
-{
-  setShowDets(!showDets)
 
-}
 
 
 
@@ -243,7 +242,7 @@ const report = async (id)=>{
               <div className='descp'>
 
                       <div className='event_header'>
-                        <h1>{info.EventName}</h1>     
+                        <h1 >{info.EventName}</h1>     
                         
                         <WhatsappShareButton 
                                title= {info.EventName + '\n\n' + info.Event_descp + '\n'} 
@@ -327,12 +326,41 @@ const report = async (id)=>{
                                  
                                     <p>Thank you for your response. Appropriate action will be taken. </p>
                                             </div> :null}
+                      
+
+                                            
+                             <div  className={detailsClass} onClick={()=>{
+                                  setDetailsClass('noDets')  }}>  
+
+                              {(info.id === btnId) ? 
+                                   
+                                   
+
+                              
+                              
+                                  <div className='descp_details'>
+                                  <h2>About</h2>
+                                  
+                                    <p>{info.Event_descp}</p>
+                                    <div className='descp_details'>
+                                  <h2>Add'nal Info</h2>
+                                    <p>{info.AddInfo}</p></div></div>
+
+                                :null}
+                            
+                                
+                            </div>
+ 
+
+
 
                   <div className='btn_grp'>
 
-                      <button className='details'  onClick = {()=>{
+                      <button id = {info.id} className='details'  onClick = {(e)=>{
                         fetchRsvp(info.id)
-                        dets()
+                        getBtnId(parseInt(e.target.id))
+                        setDetailsClass('yesDets')
+                       
                       }}>Details</button> 
 
 <button className='report'  onClick = {()=>{
@@ -381,18 +409,7 @@ const report = async (id)=>{
                    <div >
 
                    
-                                            
-                       {showDets ? <div> <div>{(info.id === infoId) ?<div className='descp'>
-                                  <div className='descp_details'>
-                                  <h2>About</h2>
-                                  
-                                    <p>{info.Event_descp}</p>
-                                    <div className='descp_details'>
-                                  <h2>Add'nal Info</h2>
-                                    <p>{info.AddInfo}</p></div></div>
-                                 
-                       </div> :null}</div>
-                       </div> :null } 
+                      
                        </div>
                
                  

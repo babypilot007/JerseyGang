@@ -1722,6 +1722,7 @@ margin-left: 0;
   background: #ffcf7d;
   box-shadow: 0 1px 3px rgba(0,0,0,.1);
   border: 2px solid #000000;
+  transform: translate(10vw,-60vh);
   border-radius: 10px;
    placeholder{
     color: red;
@@ -1773,7 +1774,7 @@ margin-left: 0;
   content: '';
   display: inline-block;
   border-left: 7px solid transparent;
-  border-bottom: 7px solid #428bca;
+  border-bottom: 7px solid #010101;
   border-top-color: rgba(0, 0, 0, 0.2);
   position: absolute;
   bottom: 4px;
@@ -1781,9 +1782,11 @@ margin-left: 0;
 }
 .rdtPicker td.rdtActive,
 .rdtPicker td.rdtActive:hover {
-  background-color: #428bca;
-  color: #fff;
+  background-color: #428bca01;
+  color: #0c0c0c;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  font-weight: bolder;
+  border: 1px black solid;
 }
 .rdtPicker td.rdtActive.rdtToday:before {
   border-bottom-color: #fff;
@@ -2097,3 +2100,22 @@ margin-right: 50px;
 .noPass{
   transform: scale(0);
 }
+
+
+.noDets{
+  transform: scaleY(0);
+  transition: .2s;
+  div{
+    display: none;
+  transition: .2s;
+
+  }
+  }
+
+.yesDets{
+  z-index: 999;
+  transform: scaleY(1);
+  transition: 0.2s;
+
+}
+
