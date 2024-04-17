@@ -1717,12 +1717,13 @@ margin-left: 0;
   position: absolute;
   min-width: 250px;
   padding: 4px;
-  margin-top: 1px;
+  margin-top: 0px;
   z-index: 99999 !important;
   background: #ffcf7d;
   box-shadow: 0 1px 3px rgba(0,0,0,.1);
   border: 2px solid #000000;
-  transform: translate(10vw,-60vh);
+  transform: translate(10vw, -50vh) scale(1.2);
+
   border-radius: 10px;
    placeholder{
     color: red;
