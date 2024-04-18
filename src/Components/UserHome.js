@@ -263,7 +263,8 @@ var eventyes = ''
                             
                             <WhatsappShareButton 
                              title = {'Event : ' + inf.EventName + '\n\n Description : ' + inf.Event_descp + '\n'} 
-                             separator={'\n Time : ' +  inf.EventDate + '\n\nMore details : \n\n'}
+                             separator={'\n Time : ' +  inf.EventDate + '\n\n Spots Left : ' + (inf.GuestLimit - inf.Rsvp_Id.length)  + ' \n\nMore details : \n\n'}
+                            
 
                               url={`https://desigangjc.com/eventdetails/${inf.id}`}>
                                 

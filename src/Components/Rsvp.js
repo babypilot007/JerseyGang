@@ -246,9 +246,11 @@ const report = async (id)=>{
                         
                         <WhatsappShareButton 
                               title = {'Event : ' + info.EventName + '\n\n Description : ' + info.Event_descp + '\n'} 
-                              separator={'\n Time : ' +  info.EventDate + '\n\nMore details : \n\n'}
+                              separator={'\n Time : ' +  info.EventDate + '\n\n Spots Left : ' + (info.GuestLimit - info.Rsvp_Id.length)  + ' \n\nMore details : \n\n'}
 
-                              url={`https://desigangjc.com/eventdetails/${info.id}`}>
+                              url={`https://desigangjc.com/eventdetails/${info.id}`}
+                              >
+                                
                                 
                                 <img  src={share} alt='share' height="40px"></img>
                               </WhatsappShareButton>
@@ -274,7 +276,7 @@ const report = async (id)=>{
 
                         </div>
 
-                       <div className='guestImg'><img  className='peopleImg' src={people} alt='people' height="30px"></img>  : {info.Rsvp}   <span className='span'>____</span> Spots Left : {info.GuestLimit - info.Rsvp_Id.length}</div> 
+                       <div className='guestImg'><img  className='peopleImg' src={people} alt='people' height="30px"></img>  : {info.Rsvp}   <span className='span'>____</span> Spots left : {info.GuestLimit - info.Rsvp_Id.length}</div> 
 
 
 
