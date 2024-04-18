@@ -262,8 +262,8 @@ var eventyes = ''
                             <h1>{inf.EventName}</h1>  
                             
                             <WhatsappShareButton 
-                              title = {'Event:' + inf.EventName + '\n\n' + inf.Event_descp + '\n'} 
-                              separator={'\n' + 'Time :' +  inf.EventDate + '\n\nMore details : \n\n'}
+                             title = {'Event : ' + inf.EventName + '\n\n Description : ' + inf.Event_descp + '\n'} 
+                             separator={'\n Time : ' +  inf.EventDate + '\n\nMore details : \n\n'}
 
                               url={`https://desigangjc.com/eventdetails/${inf.id}`}>
                                 
