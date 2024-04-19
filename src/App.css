@@ -63,6 +63,125 @@
   
 }
 
+.menuBtn{
+  background-color: rgba(220, 220, 1, 0);
+    
+
+    img{
+      margin-top: 15px;
+      margin-right: 10px;
+    }
+}
+
+
+
+.yesAnim{
+  transform: scale(1.2);
+  transition: transform .3s;
+  margin-left: 10px;
+
+}
+
+.noAnim{
+  margin-left: 10px;
+  transform: scale(1);
+  transition: transform .3s;
+}
+
+.sideNavDiv{
+  width: fit-content;
+  text-align: left;
+}
+.closedSideNav{
+  position: absolute;
+  display: flex;
+    justify-content: center;
+  z-index: 9999;
+  background-color: rgba(25, 21, 21, 0.584);
+  box-shadow: 0px 5px 5px #010102;
+  
+  color: wheat;
+  width: 100vw;
+  height: 40vh;
+  text-align: center;
+  transform: scaleY(0);
+  transform-origin: top;
+  margin-top: 50px;
+  transition: transform .3s;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+
+  
+  img{
+    height: 30px;
+    transform: translateY(10px);
+    margin-right: 10px;
+  }
+
+
+  button{
+    margin-top: 10px;
+    background-color: rgba(252, 108, 108, 0);
+    border: solid red 1px;
+    color: white;
+  }
+
+  table{
+    margin-top: 40px;
+  }
+
+
+}
+
+
+
+.openSideNav{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+  z-index: 9999;
+  background-color: rgb(25, 21, 21);
+  box-shadow: 0px 5px 5px #010102;
+  color: wheat;
+  width: 100vw;
+  height: 40vh;
+  text-align: center;
+  transform: scaleY(1);
+  transform-origin: top;
+  margin-top: 60px;
+  transition: transform .3s;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+
+  img{
+    height: 20px;
+    transform: translateY(5px);
+    margin-right: 10px;
+  }
+
+
+  button{
+    margin-top: 50px;
+    background-color: rgba(252, 108, 108, 0);
+    border: solid red 1px;
+    color: white;
+  }
+
+  table{
+    margin-top: 40px;
+  }
+
+}
+
+
+.logout{
+  margin-top: 40px;
+}
+
+.logoutTable{
+  transform: translateX(30vw);
+}
+
 .isActive{
   background-color: orange;
   color: black;
@@ -1074,6 +1193,7 @@ color: white;
 
   box-shadow: 0px 5px 5px #010102;
   border-radius: 5px;
+  padding-bottom: 5px;
   margin: 0;
   display: flex;
   justify-content: right;
@@ -1107,6 +1227,42 @@ color: white;
 }
 
 
+.navUserName{
+  width: 100vw; 
+  color: white;
+  z-index: 999;
+  border-radius: 5px;
+  margin: 10;
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+
+  p{
+    font-size: large;
+  }
+   button{
+    width: fit-content;
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: rgb(59, 30, 30);
+    border-radius: 20px;
+    height: fit-content;
+    margin-top: 13px;
+    font-size: large;
+    margin-right: 10px;
+    font-weight: 600;
+    border: solid 2px rgb(59, 30, 30);
+   }
+
+   button:hover{
+    color: white;
+   }
+
+   p{
+    margin-right: 10px;
+   }
+}
 .userButton{
 
     display: flex;

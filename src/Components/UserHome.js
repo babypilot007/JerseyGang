@@ -16,7 +16,10 @@ import people from './people.png'
 import PhoneInput from 'react-phone-input-2';
 import Terms from './Terms';
 import Privacy from '../Privacy';
-
+import menu from './menu.png'
+import logout from './logout.png'
+import account from './account.png'
+import connection from './connection.png'
 import { WhatsappShareButton } from 'react-share';
 
 
@@ -62,6 +65,12 @@ const UserHome = () => {
   const[uRl, getUrl] = useState('')
   const[addInfo, getAddInfo] = useState('')
   const[hostNumber, getHostNumber] = useState('')
+
+
+  const[sideNav, setSideNav] = useState('closedSideNav')
+  const[sideNavBtnAnimation, setSideNavBtnAnimation] = useState('noAnim')
+
+
 
 
 const d = new Date();
@@ -234,9 +243,25 @@ var eventyes = ''
 
   <div className='navUser'>
 
-  <span className='nameIcon_nav'>{userInfo[0]}{userLastName[0]}</span><p>{userInfo} </p><button onClick={()=>{logOut()}}>Log out</button>
+  <span className='nameIcon_nav'>{userInfo[0]}{userLastName[0]}</span>
+      
+      
+      <div className='menuBtn'>
+
+
+      <img  className={sideNavBtnAnimation} src={menu} alt='menu' height='30px' onClick={()=>{
+        setSideNav('openSideNav')
+        setSideNavBtnAnimation('yesAnim')
+
+      }}></img> 
+
+
+      </div>
+
+    
     </div>    
 
+   
 
     <div className='userButton'> 
     <button  className={activeMyevent} onClick={()=>{setMyEvent(true);setAllEvent(false);setRsvpd(false);setActiveMyevent('isActive');setActiveAllevent('notActive');setActiveCreat('notActive')}}>My Events
@@ -244,6 +269,41 @@ var eventyes = ''
     <button className = {activeAllevent} onClick={()=>{setMyEvent(false);setAllEvent(true);setRsvpd(false);setActiveMyevent('notActive');setActiveAllevent('isActive');setActiveCreat('notActive')}}>All Events</button> 
     <button className = {activeCreate} onClick={()=>{setMyEvent(false);setAllEvent(false);setRsvpd(true);setActiveMyevent('notActive');setActiveAllevent('notActive');setActiveCreat('isActive')}}>Create Event</button> 
     </div>
+
+    <div className={sideNav} onClick={()=>{
+      setSideNav('closedSideNav')
+      setSideNavBtnAnimation('noAnim')
+
+    }}>
+        <div className='sideNavDiv'>
+
+
+            <table>
+             
+                <tr>
+                  <th><img src={account} alt='account' height='25px'></img></th>
+                  <th>Profile</th>
+                </tr>
+
+                <tr>
+                  <th><img src={connection} alt='connection' height='25px'></img></th>
+                  <th>connections</th>
+                </tr>
+
+                <tr>
+                  
+                </tr>
+
+            </table>
+
+            <table className='logoutTable'>
+            <th><img className='logout' src={logout} alt='logout' height='25px'></img></th>
+                  <th><button onClick={()=>{logOut()}}>Log out</button></th>
+                  </table>
+            </div>
+           
+        </div>
+        
   
     <div className='simple'>
 
