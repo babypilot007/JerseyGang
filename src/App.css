@@ -177,7 +177,7 @@ table th{
 .logoutTable{
   display: flex;
   
-  transform: translate(30vw,20px);
+  transform: translate(30vw,0px);
 
   button{
     border: solid red 1px;

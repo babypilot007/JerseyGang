@@ -282,7 +282,7 @@ var eventyes = ''
              
                 <tr>
                   <th><img src={account} alt='account' ></img></th>
-                  <th>Profile</th>
+                  <th> <p onClick={()=>{navigate('userprofile')}}>Profile</p></th>
                 </tr>
 
                 <tr>
@@ -298,6 +298,7 @@ var eventyes = ''
 
             <table className='logoutTable'>
             <th><img className='logout' src={logout} alt='logout' ></img></th>
+            
                   <th><button onClick={()=>{logOut()}}>Log out</button></th>
                   </table>
             </div>

@@ -14,6 +14,7 @@ import PassUpdate from './Components/PassUpdate';
 import UpdatePassOnly from './Components/UpdatePassOnly';
 import WebImg from './Components/WebImg';
 import ConfirmUrl from './ConfirmUrl';
+import Profile from './Components/Profile';
 
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
     <>
 
     <div className='noDisplay'>
-      <h2>This site is only optimized for small screens... :(</h2>
+      <h2>This site is only optimized for small screens... :( </h2>
     </div>
 
     <div className="App">
@@ -48,7 +49,7 @@ function App() {
             <Route path = '/updatepassonly' element ={<UpdatePassOnly />} />
             <Route path = '/webimg' element ={<WebImg />} />
             <Route path = '/confirmurl' element ={<ConfirmUrl />} />
-
+            <Route path = '/userhome/userprofile' element ={<Profile />} />
 
 
 
