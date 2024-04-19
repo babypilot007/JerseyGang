@@ -154,18 +154,12 @@
   border-bottom-left-radius: 20px;
 
   img{
-    height: 20px;
-    transform: translateY(5px);
+    height: 25px;
     margin-right: 10px;
   }
 
 
-  button{
-    margin-top: 50px;
-    background-color: rgba(252, 108, 108, 0);
-    border: solid red 1px;
-    color: white;
-  }
+  
 
   table{
     margin-top: 40px;
@@ -173,14 +167,31 @@
 
 }
 
-
-.logout{
-  margin-top: 40px;
+table th{
+  font-size: 18px;
+  padding-top: 10px;
 }
+
+
 
 .logoutTable{
-  transform: translateX(30vw);
+  display: flex;
+  
+  transform: translate(30vw,20px);
+
+  button{
+    border: solid red 1px;
+    background-color: #00000000;
+    color: white;
+  }
+
+  img{
+    height: 30px;
+
+    }
 }
+
+
 
 .isActive{
   background-color: orange;

@@ -281,12 +281,12 @@ var eventyes = ''
             <table>
              
                 <tr>
-                  <th><img src={account} alt='account' height='25px'></img></th>
+                  <th><img src={account} alt='account' ></img></th>
                   <th>Profile</th>
                 </tr>
 
                 <tr>
-                  <th><img src={connection} alt='connection' height='25px'></img></th>
+                  <th><img src={connection} alt='connection'></img></th>
                   <th>connections</th>
                 </tr>
 
@@ -297,7 +297,7 @@ var eventyes = ''
             </table>
 
             <table className='logoutTable'>
-            <th><img className='logout' src={logout} alt='logout' height='25px'></img></th>
+            <th><img className='logout' src={logout} alt='logout' ></img></th>
                   <th><button onClick={()=>{logOut()}}>Log out</button></th>
                   </table>
             </div>
