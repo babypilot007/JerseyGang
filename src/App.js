@@ -15,7 +15,7 @@ import UpdatePassOnly from './Components/UpdatePassOnly';
 import WebImg from './Components/WebImg';
 import ConfirmUrl from './ConfirmUrl';
 import Profile from './Components/Profile';
-
+import UserProfile from './Components/UserProfile';
 
 function App() {
 
@@ -49,7 +49,9 @@ function App() {
             <Route path = '/updatepassonly' element ={<UpdatePassOnly />} />
             <Route path = '/webimg' element ={<WebImg />} />
             <Route path = '/confirmurl' element ={<ConfirmUrl />} />
-            <Route path = '/userhome/userprofile' element ={<Profile />} />
+            <Route path = '/userhome/profile' element ={<Profile />} />
+            <Route path = '/userprofile' element ={<UserProfile />} />
+
 
 
 

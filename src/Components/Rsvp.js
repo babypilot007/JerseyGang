@@ -10,7 +10,7 @@ import { WhatsappShareButton } from 'react-share';
 import people from './people.png'
 
 
-function Rsvp(userid) {
+function Rsvp(userid,navigation) {
 
   const navigate = useNavigate()
   const [className, setClassName] = useState("closedReport");
@@ -289,9 +289,15 @@ const report = async (id)=>{
                       
 
                        <div >
+
                        {attend ? <div> <div>{(info.id === infoId) ?<div className='nameList'>{info.Rsvp_names.map((e,idx)=>{
                             return (<div >
-                             <li key={idx}><span className='nameIcon'>{e.firstName[0]}{e.lastName[0]}</span>{e.firstName}</li></div>
+
+                             <li onClick={()=>{
+
+                              navigate('/userprofile',{state:info.id})}}
+                              
+                              key={idx}><span className='nameIcon'>{e.firstName[0]}{e.lastName[0]}</span>{e.firstName}</li></div>
                             )
                         })}</div> :null}</div>
                        </div> :null } 

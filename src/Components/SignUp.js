@@ -37,7 +37,7 @@ const navigate = useNavigate()
           data: {
            firstName: getFirstName,
             lastName: getLastName,
-            // phone : 7892,
+            myConnections : [['']]
           }
         }
       }

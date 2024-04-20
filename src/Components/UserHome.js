@@ -282,7 +282,7 @@ var eventyes = ''
              
                 <tr>
                   <th><img src={account} alt='account' ></img></th>
-                  <th> <p onClick={()=>{navigate('userprofile')}}>Profile</p></th>
+                  <th> <p onClick={()=>{navigate('profile')}}>Profile</p></th>
                 </tr>
 
                 <tr>
