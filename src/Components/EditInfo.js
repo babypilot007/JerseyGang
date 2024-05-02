@@ -169,7 +169,14 @@ if(user){}
       }}
 
     onPlaceSelected={(place) => {
-      getLocation(place.name +', ' + place.formatted_address)
+
+      if( place.formatted_address.includes(place.name))
+            {
+              getLocation(place.formatted_address)
+            } else{
+              getLocation(place.name + ', ' + place.formatted_address)
+
+            }
       getLat(place.geometry.location.lat())
       getLong(place.geometry.location.lng())
       setPlaceId(place.place_id)

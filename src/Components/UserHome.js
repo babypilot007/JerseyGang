@@ -44,7 +44,7 @@ const UserHome = () => {
 
   const navigate = useNavigate()
   const[infoId, getInfoId] = useState('')
-
+  const [file, setFile] = useState();
 
   const[myEvent, setMyEvent] = useState(true)
   const[allEvents, setAllEvent] = useState(false)
@@ -88,6 +88,10 @@ const d = new Date();
 
 
   // const [dateValue, onchange] = useState(new Date());
+
+
+
+
 
 
 
@@ -178,10 +182,24 @@ const d = new Date();
           }
         ])
 
+      
+             
+              const avatarFile = event.target.files[0]
+              const { data, error } = await supabase
+                .storage
+                .from('EventImage')
+                .upload('EventImage/img.png', file, {
+                  cacheControl: '3600',
+                  upsert: false
+                })
+
+
         if(user){}
       } catch (error) {
         
       }
+
+      
       window.location.reload();
     }
 
@@ -490,10 +508,22 @@ var eventyes = ''
 
         onPlaceSelected={(place) => 
           {
-          getLocation(place.name + ', ' + place.formatted_address)
+            if( place.formatted_address.includes(place.name))
+            {
+              getLocation(place.formatted_address)
+            } else{
+              getLocation(place.name + ', ' + place.formatted_address)
+
+            }
+
           getLat(place.geometry.location.lat())
           getLong(place.geometry.location.lng())
           setPlaceId(place.place_id)
+
+          console.log(place.name)
+          console.log(place.formatted_address)
+
+
           }}
 
 
@@ -508,7 +538,7 @@ var eventyes = ''
             type="text"
             placeholder="Additional info (Rooftop, floor 15)"
             value={addInfo}
-            onChange={(e) => getAddInfo(e.target.value)}
+            onChange={(e) => {getAddInfo(e.target.value)}}
           />
       
 <input      
@@ -581,6 +611,9 @@ var eventyes = ''
         onChange={(e) => getdescp(e.target.value)
         }
         />
+
+<input type="file"  />
+            <img src={file} />
 
 
       <button type='submit'>
