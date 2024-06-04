@@ -184,14 +184,7 @@ const d = new Date();
 
       
              
-              const avatarFile = event.target.files[0]
-              const { data, error } = await supabase
-                .storage
-                .from('EventImage')
-                .upload('EventImage/img.png', file, {
-                  cacheControl: '3600',
-                  upsert: false
-                })
+            
 
 
         if(user){}
@@ -203,6 +196,20 @@ const d = new Date();
       window.location.reload();
     }
 
+
+
+    const handleUpload = async (event) => {
+      console.log(event.target.files[0])
+
+      const file = event.target.files[0];
+  
+      const { error } = await supabase.storage.from('eventimage').upload(event.target.name, file);
+  
+      if (error) {
+        alert('Error uploading image: ', error.message);
+      } else {
+      }
+    };
 
 
 
@@ -612,7 +619,7 @@ var eventyes = ''
         }
         />
 
-<input type="file"  />
+<input type="file"  onChange={handleUpload} />
             <img src={file} />
 
 

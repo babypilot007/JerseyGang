@@ -1,57 +1,142 @@
-@media screen and (max-width: 349px) { 
+
+
+
+
+
+@media only screen and ( max-width: 10000px) and (min-width : 300px) {
   
   .App{
-    display: none;
-  }
-
-  .noDisplay{
-    position: absolute;
-    background-color: rgb(0, 0, 0);
-    color: wheat;
+    position: relative;
+      font-family: 'Roboto', sans-serif;
+    background-color: #fff9c9;
+    overflow: auto;
     height: 100vh;
-    text-align: center;
-    margin-top: 0;
-    width: 100vw;
+    scroll-behavior: smooth;
+    white-space: pre-line;
+    scrollbar-color: none;
+    scrollbar-width: 2px;
+    }
 
-     h2{
-      margin-top: 50vh;
-     }
-
-  }
-  
-}
-
-@media screen and (min-width: 501px) { 
-  
-  .App{
-    display: none;
-  }
-
-  .noDisplay{
-    position: absolute;
-    background-color: rgb(0, 0, 0);
-    color: wheat;
-    height: 100vh;
-    text-align: center;
-    margin-top: 0;
-    width: 100vw;
-
-     h2{
-      margin-top: 50vh;
-     }
-
-  }
-
-  
-}
-
-
-@media only screen and ( max-width: 500px) and (min-width : 350px) {
-  
-
+    .nav{
+      background-color: #e8702a;
+      box-shadow: 0px 5px 5px #010102;
+      position: fixed;
+      z-index: 999;
+      display: flex;
+      justify-content:space-between ;
+      font-size: medium;
+      padding-right: 10px;
+      width: 100vw;
+    }
+    .navButton{
+      position: relative;
+      display: flex;
+      width: fit-content;
+      height: fit-content;
+      top: 10px;
+      padding-left: 10px;
+    
+    }
   .noDisplay{
     display: none;
   }
+
+
+  
+   /* ---- event box ----*/
+
+
+
+  .event_hover{
+    position: relative;
+    justify-content: left;
+    color: aliceblue;
+    border-radius: 10px ;
+    box-shadow: 0 0 5px rgba(157, 153, 176, 0.546);
+    margin: 15px 15px 15px 15px;
+    
+    p{
+      padding-left: 20px;
+      text-align: left;
+    }
+  
+  }
+
+
+
+  .event_hover_p{
+    text-align: center;
+    padding-bottom: 10px;
+  
+    button{
+      background-color: rgba(255, 0, 0, 0);
+      border: solid rgb(244, 160, 34);
+      color: rgb(244, 160, 34);
+    }
+  
+  }
+
+  .event_header{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    background-color: #0c457d;
+    padding-left: 15px;
+    padding-right: 10px;
+    
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: rgb(251, 226, 180);
+      h1{
+      font-size: calc(15px + 2vmin);
+    }
+  
+    a{
+      margin-top: 5px;
+      height: auto;
+       img{
+        height: 35px;
+      border: solid 1px rgb(244, 173, 60);
+      border-radius: 20px;
+  
+       }
+    }
+  }
+
+  
+
+  .guestImg{
+    background-color: #ffbe4f;
+    padding-bottom: 10px;
+    img {
+      transform: translate(0,10px);
+    }
+  }
+
+
+
+  .btn_grp_home{
+    position: relative;
+    display: block;
+    text-align: right;
+    background-color:	#6bd2db;
+    height: 7vh;
+    border-top: 2px solid rgb(113, 42, 42);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+     h3{
+      font-size: medium;
+      padding-right: 15px;
+     }
+   }
+
+
+
+
+
+
+  
 
 .btnDisabled{
   color: rgb(255, 255, 255);
@@ -229,13 +314,7 @@ table th{
 }
 
 .noEvent{
-  background-color: orange  ;
-  color: #000000;
-  border-top: dashed black;
-  border-bottom: dashed black;
-  margin-top: 10%;
-  width: 110vw;
-  margin-left: -10px;
+ display: none;
 }
 .number{
   color: rgba(255, 166, 0, 0);
@@ -284,15 +363,7 @@ button:disabled:hover{
   width: fit-content;
   border-radius: 50px
 }
-.App{
-  position: relative;
-    font-family: 'Roboto', sans-serif;
-  background-color: #0d0b0b;
-  overflow: auto;
-  height: 100vh;
-  scroll-behavior: smooth;
-  white-space: pre-line;
-  }
+
 
 .App-header {
   background-color: #282c34;
@@ -482,65 +553,13 @@ font-weight: 600;
   height: 100vh;
 }
 
-.event_header{
-  display: flex;
-  position: relative;
-  justify-content: space-between;
-  background-color: rgba(10, 9, 9, 0.895);
-  padding-left: 15px;
-  padding-right: 10px;
-
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  color: rgb(251, 226, 180);
-    h1{
-    font-size: calc(15px + 2vmin);
-  }
-
-  a{
-    margin-top: 5px;
-    height: auto;
-     img{
-      height: 35px;
-    border: solid 1px rgb(244, 173, 60);
-    border-radius: 20px;
-
-     }
-  }
-}
 
 
 .eventDetails {
   text-align: left;
 }
 
-.event_hover{
-  position: relative;
-  justify-content: left;
-  background-color: rgb(46, 40, 40);
-  color: aliceblue;
-  border-radius: 10px ;
-  box-shadow: 0 0 5px rgba(157, 153, 176, 0.546);
-  margin: 15px 15px 15px 15px;
-  
-  p{
-    padding-left: 20px;
-    text-align: left;
-  }
 
-}
-
-.event_hover_p{
-  text-align: center;
-  padding-bottom: 10px;
-
-  button{
-    background-color: rgba(255, 0, 0, 0);
-    border: solid rgb(244, 160, 34);
-    color: rgb(244, 160, 34);
-  }
-
-}
 
 
 
@@ -563,21 +582,7 @@ font-weight: 600;
  }
 
 
- .btn_grp_home{
-  position: relative;
-  display: block;
-  text-align: right;
-  background-color:#ff9d26;
-  height: 7vh;
-  border-top: 2px solid rgb(113, 42, 42);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  
-   h3{
-    font-size: medium;
-    padding-right: 15px;
-   }
- }
+ 
 
 .delete{
   width: fit-content;
@@ -973,14 +978,14 @@ color: white;
 
 .descp{
   border: solid black 1px;
-  border-radius: 10px;
-  border: 1px solid rgb(194, 194, 194);
+  border-radius: 12px;
+  border: 2px solid rgb(0, 0, 0);
   color: #010102;
   font-weight: 600;
-  background-color: rgb(246, 232, 189);
   position: relative;
   display: block;
   justify-content: left;
+
 
     h2{
       /* rgb(255, 153, 0) */
@@ -1136,17 +1141,7 @@ color: white;
  
 }
 
-.nav{
-  background-color: rgb(25, 21, 21);
-  box-shadow: 0px 5px 5px #010102;
-  position: fixed;
-  z-index: 999;
-  display: flex;
-  justify-content:space-between ;
-  font-size: medium;
-  padding-right: 10px;
-  width: 100vw;
-}
+
 
 
 .nav h3{
@@ -1154,15 +1149,7 @@ color: white;
   color: white;
 }
 
-.navButton{
-  position: relative;
-  display: flex;
-  width: fit-content;
-  height: fit-content;
-  top: 10px;
-  padding-left: 10px;
 
-}
 
 .nav button{
   background-color: rgba(255, 255, 255, 0);
@@ -1189,7 +1176,6 @@ color: white;
   font-size: calc(17px + 1vmin);
   color: white;
   text-shadow: 0.05em 0.1em #ff9d26;
-  backdrop-filter: blur(10px) saturate(70%);
   margin-top: 20px;
   padding-left: 20px
 }
@@ -1776,13 +1762,7 @@ td.rdtYear:hover {
 
 }
 
-.guestImg{
 
-  margin-bottom: 5px;
-  img {
-    transform: translate(0,10px);
-  }
-}
 
 .guestImg_dets{
 
@@ -1798,15 +1778,7 @@ td.rdtYear:hover {
 
 }
 
-.eventInfo_head::after{
-  position: absolute;
-  content: '';
-  background-color: rgb(45, 45, 43);
-  height: 2px;
-  margin: 25px 20px 20px -25%;
-width: 80%;
 
-}
 
 
 .closedDiv{
@@ -1931,5 +1903,3 @@ margin-right: 50px;
 }
 
 }
-
-
