@@ -108,6 +108,8 @@
   .guestImg{
     background-color: #ffbe4f;
     padding-bottom: 10px;
+    margin-top: 1px;
+    border: solid #ffbe4f;
     img {
       transform: translate(0,10px);
     }
@@ -119,11 +121,12 @@
     position: relative;
     display: block;
     text-align: right;
-    background-color:	#6bd2db;
+    background-color:		#0c457d;
     height: 7vh;
     border-top: 2px solid rgb(113, 42, 42);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    color: 	#6bd2db;
     
      h3{
       font-size: medium;
