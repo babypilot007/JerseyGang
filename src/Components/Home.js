@@ -1,7 +1,7 @@
 import React from 'react'
 import Events from '../events';
 import Navbar from './Navbar';
-import { PageFrame, SectionIntro } from '../components/ui/AppShell';
+import { PageFrame, SectionIntro } from './ui/AppShell';
 
 
 

@@ -133,7 +133,7 @@ export function ExperienceCard({
             className="flex items-start gap-3 rounded-2xl bg-chai/80 p-3 font-semibold"
             href={`https://www.google.com/maps/search/?api=1&query=Jersey+City,+NJ/&query_place_id=${event.placeId || ''}`}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             <MapPin className="mt-0.5 text-rangoli" size={18} />
             <span>{event.EventLocation || 'Location coming soon'}</span>
@@ -147,7 +147,7 @@ export function ExperienceCard({
               className="flex items-center gap-3 rounded-2xl bg-chai/80 p-3 font-semibold text-ink"
               href={event.URL}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               <ExternalLink className="text-pista" size={18} />
               Event link

@@ -2,8 +2,8 @@ import { useState } from 'react'
 import React from 'react'
 import { supabase } from '../supabaseClient'
 import { useNavigate } from 'react-router-dom'
-import { BackNav, PageFrame } from '../components/ui/AppShell'
-import { buttonClass, FormCard, inputClass } from '../components/ui/FormCard'
+import { BackNav, PageFrame } from './ui/AppShell'
+import { buttonClass, FormCard, inputClass } from './ui/FormCard'
 
 
 export default function SignUp() {
@@ -62,11 +62,6 @@ const navigate = useNavigate()
     }
     setLoading(false)
 
-  }
-
-  function goHome(){
-
-    navigate('/')
   }
 
 

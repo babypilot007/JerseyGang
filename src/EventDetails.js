@@ -2,8 +2,8 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import { supabase } from './supabaseClient';
-import { BackNav, PageFrame } from './components/ui/AppShell';
-import { PublicEventCard } from './components/ui/EventCard';
+import { BackNav, PageFrame } from './Components/ui/AppShell';
+import { PublicEventCard } from './Components/ui/EventCard';
 
 
 function EventDetails () {

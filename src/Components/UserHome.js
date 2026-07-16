@@ -13,9 +13,9 @@ import PhoneInput from 'react-phone-input-2';
 import Terms from './Terms';
 import Privacy from '../Privacy';
 import { LogOut, Menu, Plus, ShieldCheck, User, Users } from './ui/Icons';
-import { PageFrame, BrandMark, SectionIntro } from '../components/ui/AppShell';
-import { ExperienceCard } from '../components/ui/EventCard';
-import { buttonClass, inputClass } from '../components/ui/FormCard';
+import { PageFrame, BrandMark, SectionIntro } from './ui/AppShell';
+import { ExperienceCard } from './ui/EventCard';
+import { buttonClass, inputClass } from './ui/FormCard';
 
 const tabClass = (active) =>
   `inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-extrabold transition ${

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { PageFrame } from './components/ui/AppShell'
+import { PageFrame } from './Components/ui/AppShell'
 
 
 function ConfirmUrl() {

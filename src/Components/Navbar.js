@@ -1,5 +1,5 @@
 import React from 'react';
-import { PublicNav } from '../components/ui/AppShell';
+import { PublicNav } from './ui/AppShell';
 
 function Navbar() {
   return <PublicNav />;

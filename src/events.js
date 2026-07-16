@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import { useNavigate} from 'react-router-dom';
 import { supabase } from './supabaseClient';
-import { PublicEventCard } from './components/ui/EventCard';
+import { PublicEventCard } from './Components/ui/EventCard';
 
 
 const Events = () => {

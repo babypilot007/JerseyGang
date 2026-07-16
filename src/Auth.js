@@ -3,8 +3,8 @@ import { useNavigate} from 'react-router-dom';
 
 import React from 'react'
 import {useState} from 'react'
-import { BackNav, PageFrame } from "./components/ui/AppShell";
-import { buttonClass, FormCard, inputClass } from "./components/ui/FormCard";
+import { BackNav, PageFrame } from "./Components/ui/AppShell";
+import { buttonClass, FormCard, inputClass } from "./Components/ui/FormCard";
 
 
 export default function Auth(){
@@ -61,11 +61,6 @@ const navigate = useNavigate()
     navigate('/userhome')
     }
 
-  }
-
-  function goHome(){
-
-    navigate('/')
   }
 
   return (

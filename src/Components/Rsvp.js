@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate} from 'react-router-dom';
 import { useEffect, useState} from 'react'
 import { supabase } from '../supabaseClient';
-import { ExperienceCard } from '../components/ui/EventCard';
+import { ExperienceCard } from './ui/EventCard';
 
 function Rsvp({ userId: providedUserId } = {}) {
   const navigate = useNavigate()
@@ -13,7 +13,6 @@ function Rsvp({ userId: providedUserId } = {}) {
   const[attend, showAttend] = useState(false)
   const[pressBtn, setPressBtn] = useState(0)
   const[infoId, getInfoId] = useState('')
-  const[btnId, getBtnId] = useState('')
   const[reportype, setReporType] = useState('Inappropriate Content')
   const[reportOpenId, setReportOpenId] = useState(null)
   const[detailsOpenId, setDetailsOpenId] = useState(null)
@@ -122,7 +121,7 @@ function Rsvp({ userId: providedUserId } = {}) {
         reportType={reportype}
         onReportType={setReporType}
         onGuestList={()=>{showAttend(!attend);fetchRsvp(info.id)}}
-        onDetails={()=>{fetchRsvp(info.id);getBtnId(info.id);setDetailsOpenId(detailsOpenId === info.id ? null : info.id)}}
+        onDetails={()=>{fetchRsvp(info.id);setDetailsOpenId(detailsOpenId === info.id ? null : info.id)}}
         onReport={()=>{setReportOpenId(info.id);fetchRsvp(info.id)}}
         onSubmitReport={()=>report(info.id)}
         onCancelReport={()=>setReportOpenId(null)}
