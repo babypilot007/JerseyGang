@@ -1,0 +1,14 @@
+
+DESI GANG BRAND KIT
+
+Palette
+#1B1A18 Charcoal
+#FFF8EE Chai
+#E8D9CB Warm Beige
+#8F4F3D Masala
+#B8D8C0 Pista
+#F6B6C9 Gulab
+
+Typography
+Headings: Playfair Display
+Body: Inter
