@@ -31,14 +31,12 @@ function App() {
 
     <>
 
-    <div className='noDisplay'>
-      <h2>This site is only optimized for small screens... :( </h2>
-    </div>
+    
 
     <div className="App">
         <Routes>
           <Route path='/' element = {<Home />}></Route>
-            <Route path = '/eventdetails/:id'element ={<EventDetails />} />
+            <Route path = '/eventdetails/:id' element ={<EventDetails />} />
             <Route path = '/auth' element ={<Auth />} />
             <Route path = '/signup' element ={<SignUp />} />
             <Route path = '/details' element ={<EventDetails />} />

@@ -10,6 +10,7 @@ function EventDetails () {
 const navigate = useNavigate()
 
 const params = useParams()
+
 const [data, getData] = useState('')
 
 
