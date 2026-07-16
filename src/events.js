@@ -1,73 +1,53 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-// import {  useNavigate} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import { supabase } from './supabaseClient';
-import people from './Components/people.png'
+import { PublicEventCard } from './components/ui/EventCard';
 
 
 const Events = () => {
     
-    // const navigate = useNavigate()
-    const[data, getData] = useState('')
+    const navigate = useNavigate()
+    const[data, getData] = useState([])
+    const[loading, setLoading] = useState(true)
 
 useEffect(()=>{
     const fetchData = async ()=>{
       try {
         const response = await supabase.from('event').select('*')
-            getData(response)
+            getData(response.data || [])
       } catch (error) {
+        getData([])
+      } finally {
+        setLoading(false)
       }
     }
     fetchData()
   }, [])
 
-  var details = data.data
-  
-  if(details){
-    return (<div className=''> 
-            <p>Please <span> Login</span> or <span>Sign Up</span> for more Details</p>
-            {details.map((info)=>{
+  if(loading){
+    return <div className="rounded-[2rem] bg-white/80 p-8 text-center font-bold text-masala shadow-card">Loading experiences...</div>
+  }
 
-                return(
-
-                    <>
-
-
-<div className='event_hover' key = {info}>
-                              
-                            <div className='descp'>
-
-                        <div className='event_header'><h1>{info.EventName}</h1> </div>
-                        
-                        <div className='guestImg'>
-
-                        <p className='eventInfo_head'>Event Info : </p>
-                        <p className='descp_after'>{info.Event_descp}</p>
-                          
-                          
-                          <img  className='peopleImg' src={people} alt='people' height="30px"></img>  : {info.Rsvp}   
-                          <span className='span'>____</span> Spots Left : {info.GuestLimit - info.Rsvp_Id.length}
-                          </div> 
-                   
-
-
-                    <div className='btn_grp_home'>
-                          
-                          <h3>Created By : {info.UserName}
-                          </h3 >
-                     </div>   
-                       
-                              </div>
-                        </div>  
-                        </>
-                )
-                
-            })}
-           </div> 
-            )
+  if(data.length){
+    return (
+      <div>
+        <div className="mb-6 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
+          <div>
+            <p className="text-sm font-extrabold uppercase tracking-wide text-rangoli">Open experiences</p>
+            <h2 className="font-display text-3xl font-extrabold text-ink">Explore what is coming up</h2>
+          </div>
+          <p className="max-w-md text-sm font-semibold leading-6 text-masala">
+            Login or sign up to see maps, contact hosts, create events, and RSVP.
+          </p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {data.map((info)=><PublicEventCard key={info.id} event={info} onDetails={(id)=>navigate(`/eventdetails/${id}`)} />)}
+        </div>
+      </div>
+    )
 
 }else return  (
-        <div  className='event_details'>No Events
-        </div>)
+        <div className="rounded-[2rem] bg-white/80 p-8 text-center font-bold text-masala shadow-card">No events yet. Be the first host to start the weekend.</div>)
 }
 export default Events

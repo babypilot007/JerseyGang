@@ -3,6 +3,8 @@ import { useNavigate} from 'react-router-dom';
 
 import React from 'react'
 import {useState} from 'react'
+import { BackNav, PageFrame } from "./components/ui/AppShell";
+import { buttonClass, FormCard, inputClass } from "./components/ui/FormCard";
 
 
 export default function Auth(){
@@ -67,74 +69,45 @@ const navigate = useNavigate()
   }
 
   return (
-    <>
-
-    
-<div className='nav'>
-     <div className="navButton">
-        <button className="log" onClick={goHome}>Home</button>
+    <PageFrame>
+      <BackNav title="Home" />
+      <section className="px-4 py-12 sm:px-6 lg:px-8">
+        <FormCard
+          eyebrow="Welcome back"
+          title="Log in to your next desi plan."
+          footer={
+            <div className="flex flex-wrap gap-3">
+              <button className="rounded-full bg-gulab/30 px-4 py-2 text-sm font-bold text-ink" onClick={()=>{navigate('/signup')}}>Create account</button>
+              <button className="rounded-full bg-pista/40 px-4 py-2 text-sm font-bold text-ink" onClick={()=>{navigate('/updatepass')}}>Forgot password</button>
             </div>
-                        <h3>Login</h3>
-    </div>
-     
-     
-     <div className="formDivAuth">
-
-    
-        <form className="signupform_auth" onSubmit={handleLogin}>
-
-           <input
-              className="inputField"
+          }
+        >
+          <form className="space-y-4" onSubmit={handleLogin}>
+            <input
+              className={inputClass}
               type="email"
               placeholder="Your email"
               value={getEmail}
               required={true}
               onChange={(e) => setEmail(e.target.value)}
             />
-         
-          <br></br>
-
-          <input
-              className="inputField"
+            <input
+              className={inputClass}
               type="password"
-              placeholder="password"
+              placeholder="Password"
               value={getPassword}
               required={true}
               onChange={(e) => setPassword(e.target.value)}
             />
-  <br></br>
-  <br></br>
-
-  
-         {loading ? <div>
-          <button >Loading</button>
-         </div> : <div>
-         <button className='form_btn' disabled={loading} >Log Me In</button></div>}
-           
-
-          
-        </form>
-
-
-
-
-        
-     
-
-     </div>
-
-     {loginError?<div className="failedLogin"><p>User not found. Please try again or Create an Account</p></div>:null}
-
-          <div className="createAct"  >        
-            {createAcc?<>
-              
-              <button  onClick={()=>{navigate('/signup')}}>Create Account</button>
-              </>:null}
-              <button onClick={()=>{navigate('/updatepass')}}>Forgot Password</button>
-
-         </div>
-     
-    </>
+            <button className={buttonClass} disabled={loading} >
+              {loading ? 'Loading...' : 'Log me in'}
+            </button>
+          </form>
+          {loginError?<div className="mt-5 rounded-2xl bg-rangoli/10 p-4 text-sm font-bold text-rangoli"><p>User not found. Please try again or create an account.</p></div>:null}
+          {createAcc ? null : null}
+        </FormCard>
+      </section>
+    </PageFrame>
   )
 
 }

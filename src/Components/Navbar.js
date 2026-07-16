@@ -1,25 +1,8 @@
-import React from 'react'
-import { useNavigate} from 'react-router-dom';
-import { useEffect } from 'react';
-
+import React from 'react';
+import { PublicNav } from '../components/ui/AppShell';
 
 function Navbar() {
-  const navigate = useNavigate()
-
-  useEffect(()=>{
-      
-  },[])
-
-  return (
-    <div className='nav'>
-          <p>Desi Gang of Jersey </p>
-
-          <div className='navButton'>
-                        <button className="log" onClick={()=>{navigate('/auth')}}>Login</button>
-                        <button className="reg" onClick={()=>{navigate('/signup')}}>Sign up</button>
-           </div>
-    </div>
-  )
+  return <PublicNav />;
 }
 
 export default Navbar

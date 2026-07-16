@@ -2,7 +2,8 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import { supabase } from './supabaseClient';
-import people from './Components/people.png'
+import { BackNav, PageFrame } from './components/ui/AppShell';
+import { PublicEventCard } from './components/ui/EventCard';
 
 
 function EventDetails () {
@@ -39,56 +40,32 @@ const [data, getData] = useState('')
 
 
                 if(details){
-    return (<div className='event_hover'> 
+    return (<PageFrame>
+      <BackNav title="Explore events" />
+      <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
             {details.map((info)=>{
 
                 return(
 
-                    <>
-
-                    
-
-
-<div className='' key = {info}>
-                              
-                            <div className='descp'>
-
-                        <div className='event_header'>
-                            <h1>{info.EventName}</h1> </div>
-                        
-                            <div className='guestImg_dets'>
-
-<p className='eventInfo_head'>Event Info : </p>
-<p className='descp_after'>{info.Event_descp}</p>
-  
-  <div className='detsImg'>
-  <img  className='peopleImg' src={people} alt='people' height="30px"></img>  : {info.Rsvp}   
-  <span className='span'>____</span> Spots Left : {info.GuestLimit - info.Rsvp_Id.length}
-  </div>
-  </div> 
-
-                    <div className='btn_grp_home'>
-                           <div>
-                          
-                          <h3>Created By : {info.UserName}
-                          </h3 >
-                          </div>
-                     </div>   
-                       
-                              </div>
-                      <p className='event_hover_p'>Please <span><button onClick={()=>{navigate('/auth')}} >Login</button></span> or <span><button onClick={()=>{navigate('/signup')}}>SignUp</button></span> for more Details</p>
-
-                        </div>  
-                        </>
+                    <div key={info.id} className="space-y-6">
+                      <PublicEventCard event={info} />
+                      <div className="rounded-[2rem] bg-white/85 p-6 text-center shadow-card">
+                        <p className="text-sm font-bold text-masala">Please login or sign up for maps, host contact, and RSVP.</p>
+                        <div className="mt-4 flex justify-center gap-3">
+                          <button className="rounded-full bg-ink px-5 py-3 text-sm font-extrabold text-white" onClick={()=>{navigate('/auth')}} >Login</button>
+                          <button className="rounded-full bg-rangoli px-5 py-3 text-sm font-extrabold text-white" onClick={()=>{navigate('/signup')}}>Sign up</button>
+                        </div>
+                      </div>
+                    </div>
                 )
                 
             })}
-           </div> 
+      </section>
+           </PageFrame> 
             )
 
 }else return  (
-        <div  className='event_details'>No Events
-        </div>)
+        <PageFrame><BackNav title="Explore events" /><div className="mx-auto max-w-4xl px-4 py-12"><div className="rounded-[2rem] bg-white/85 p-8 text-center font-bold text-masala shadow-card">No Events</div></div></PageFrame>)
 
 
     
