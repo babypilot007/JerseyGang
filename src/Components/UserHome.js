@@ -65,7 +65,11 @@ const UserHome = () => {
   useEffect(()=>{
     const loggedIn = async ()=>{
       try {
-        const {data: {user},} = await supabase.auth.getUser()
+        const {data: {user},} = await supabase
+        .from("profiles")
+        .select("*")
+        .eq("id", user.id)
+        .single();
         if(user === null){
           navigate('/auth')
           return
@@ -85,7 +89,7 @@ const UserHome = () => {
     const fetchData = async ()=>{
       try {
         if(getId){
-          const response = await supabase.from('event').select('*').eq('UserId',getId)
+          const response = await supabase.from('events').select('*').eq('UserId',getId)
           setInfo(response.data || [])
         }
       } catch (error) {
@@ -104,13 +108,13 @@ const UserHome = () => {
   const createEvent = async (event) =>{
     event.preventDefault()
     try {
-      await supabase.from('event').insert([
+      await supabase.from('events').insert([
         {
-          EventLocation : location,
-          UserId : getId,
+          location : location,
+          host_id : getId,
           UserName : userInfo,
-          Event_descp : eventDescp,
-          EventName : eventName,
+          description : eventDescp,
+          title : eventName,
           Rsvp : 1,
           EventDate: moment(startDate).format('dddd, MMMM Do YYYY, h:mm a'),
           Rsvp_names : [{"firstName" : userInfo + " (Host)" , "id" : userid,"lastName" :userLastName}],
@@ -141,14 +145,14 @@ const UserHome = () => {
 
   const deleteEvent = async (id) =>{
     try {
-      await supabase.from('event').delete().eq('id', id)
+      await supabase.from('events').delete().eq('id', id)
     } catch (error) {}
     window.location.reload();
   }
 
   const fetchRsvp = async (id)=>{
     try {
-      const response = await supabase.from('event').select('*').eq('id',id)
+      const response = await supabase.from('events').select('*').eq('id',id)
       const data = response.data || []
       data.map((e)=> getInfoId(e.id))
     } catch (error) {}
