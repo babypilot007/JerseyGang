@@ -29,22 +29,16 @@ const navigate = useNavigate()
 
     setLoading(true)
 
-    const {error } = await supabase.auth.signUp(
-      
-      { 
-        email: getEmail,
-        password:getPassword,
-
-        options: {
-          data: {
-           firstName: getFirstName,
-            lastName: getLastName,
-            myConnections : [['']]
-          }
+    const {error } = await supabase.auth.signUp({
+      email: getEmail,
+      password: getPassword,
+      options: {
+        data: {
+          first_name: getFirstName,
+          last_name: getLastName
         }
       }
-        )
-
+    });
    
 
 
