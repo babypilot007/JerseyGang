@@ -85,7 +85,7 @@ const UserHome = () => {
     const fetchData = async ()=>{
       try {
         if(getId){
-          const response = await supabase.from('event').select('*').eq('UserId',getId)
+          const response = await supabase.from('events').select('*').eq('host_id',getId)
           setInfo(response.data || [])
         }
       } catch (error) {
@@ -104,29 +104,31 @@ const UserHome = () => {
   const createEvent = async (event) =>{
     event.preventDefault()
     try {
-      await supabase.from('event').insert([
-        {
-          EventLocation : location,
-          UserId : getId,
-          UserName : userInfo,
-          Event_descp : eventDescp,
-          EventName : eventName,
-          Rsvp : 1,
-          EventDate: moment(startDate).format('dddd, MMMM Do YYYY, h:mm a'),
-          Rsvp_names : [{"firstName" : userInfo + " (Host)" , "id" : userid,"lastName" :userLastName}],
-          Rsvp_Id : [getId],
-          lat: lat,
-          long:long,
-          placeId : placeId,
-          URL : uRl,
-          AddInfo : addInfo,
-          FormatDate : startDate,
-          GuestLimit : guestLimit,
-          HostNumber : hostNumber,
-        }
-      ])
+      await supabase
+  .from("events")
+  .insert({
+    host_id: getId,
+    title: eventName,
+    description: eventDescp,
+    location,
+  })
+  .select();
+          // Rsvp : 1,
+          // EventDate: moment(startDate).format('dddd, MMMM Do YYYY, h:mm a'),
+          // Rsvp_names : [{"firstName" : userInfo + " (Host)" , "id" : userid,"lastName" :userLastName}],
+          // Rsvp_Id : [getId],
+          // lat: lat,
+          // long:long,
+          // placeId : placeId,
+          // URL : uRl,
+          // AddInfo : addInfo,
+          // FormatDate : startDate,
+          // GuestLimit : guestLimit,
+          // HostNumber : hostNumber,
+        
+    
     } catch (error) {}
-
+      
     window.location.reload();
   }
 
@@ -141,7 +143,7 @@ const UserHome = () => {
 
   const deleteEvent = async (id) =>{
     try {
-      await supabase.from('event').delete().eq('id', id)
+      await supabase.from('events').delete().eq('id', id)
     } catch (error) {}
     window.location.reload();
   }
