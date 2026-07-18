@@ -4,6 +4,7 @@ import { CalendarDays, ExternalLink, Flag, MapPin, Share2, Users } from './Icons
 import { WhatsappShareButton } from 'react-share';
 import LocationMap from '../LocationMap';
 
+
 export const shareUrlFor = (id) => `https://desigangjc.com/eventdetails/${id}`;
 
 export function spotsLeft(event) {
@@ -32,6 +33,10 @@ function ShareButton({ event }) {
     </WhatsappShareButton>
   );
 }
+
+
+  
+
 
 export function PublicEventCard({ event, onDetails }) {
   return (

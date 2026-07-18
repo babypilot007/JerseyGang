@@ -25,12 +25,12 @@ const tabClass = (active) =>
   }`;
 
 const UserHome = () => {
-  if (process.env.NODE_ENV !== "development" ) {
-    console.log = () => {};
-    console.debug = () => {};
-    console.info = () => {};
-    console.warn = () => {};
-}
+//   if (process.env.NODE_ENV !== "development" ) {
+//     console.log = () => {};
+//     console.debug = () => {};
+//     console.info = () => {};
+//     console.warn = () => {};
+// }
 
   const locApi = process.env.REACT_APP_MAP_API
   const navigate = useNavigate()
@@ -118,36 +118,48 @@ const UserHome = () => {
     } catch (error) {}
   }
 
-  const createEvent = async (event) =>{
-    event.preventDefault()
-    try {
-      await supabase
-  .from("events")
-  .insert({
-    host_id: getId,
-    title: eventName,
-    description: eventDescp,
-    location,
-  })
-  .select();
-          // Rsvp : 1,
-          // starts_at: startDate.toISOString()
-          // Rsvp_names : [{"firstName" : userInfo + " (Host)" , "id" : userid,"lastName" :userLastName}],
-          // Rsvp_Id : [getId],
-          // lat: lat,
-          // long:long,
-          // placeId : placeId,
-          // URL : uRl,
-          // AddInfo : addInfo,
-          // FormatDate : startDate,
-          // GuestLimit : guestLimit,
-          // HostNumber : hostNumber,
-        
-    
-    } catch (error) {}
-      
-    window.location.reload();
+
+
+const createEvent = async (e) => {
+  e.preventDefault();
+
+  try {
+    const { data: event, error: eventError } = await supabase
+      .from("events")
+      .insert({
+        title: eventName,
+        description: eventDescp,
+        host_id: getId,
+        location,
+      })
+      .select()
+      .single();
+
+    if (eventError) {
+      console.error(eventError);
+      alert(eventError.message);
+      return;
+    }
+
+    const { error: rsvpError } = await supabase
+      .from("event_rsvps")
+      .insert({
+        event_id: event.id,
+        user_id: getId,
+        status: "host",
+        rsvps: "1"
+      });
+
+    if (rsvpError) {
+      return;
+    }
+
+
+  } catch (err) {
   }
+    window.location.reload();
+
+};
 
   const handleUpload = async (event) => {
     const file = event.target.files[0];
