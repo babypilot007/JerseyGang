@@ -70,10 +70,9 @@ const UserHome = () => {
           navigate('/auth')
           return
         }
-        setUserInfo(user.user_metadata.firstName || '')
         getUserId(user.id)
-        setUserLastName(user.user_metadata.lastName || '')
         setId(user.id)
+
       } catch (error) {
         navigate('/auth')
       }
@@ -87,11 +86,30 @@ const UserHome = () => {
         if(getId){
           const response = await supabase.from('events').select('*').eq('host_id',getId)
           setInfo(response.data || [])
+
         }
       } catch (error) {
         setInfo([])
     }}
+    
     fetchData()
+
+    const fetchName = async ()=>{
+      try {
+        if(getId){
+          const response_name = await supabase.from('profiles').select('*').eq('id',getId)
+          // setInfo(response_name.data || [])
+
+        setUserInfo(response_name.data[0].first_name || '')
+        setUserLastName(response_name.data[0].last_name || '')
+
+        }
+      } catch (error) {
+        setInfo([])
+    }}
+    
+    fetchName()
+
   }, [getId,userid])
 
   const logOut = async ()=>{
@@ -164,7 +182,6 @@ const UserHome = () => {
 
   const initials = `${userInfo?.[0] || ''}${userLastName?.[0] || ''}` || 'DG'
   const eventyes = info.length > 0
-
   return (
     <PageFrame>
       <header className="sticky top-0 z-40 border-b border-white/70 bg-chai/80 backdrop-blur-xl">
