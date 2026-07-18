@@ -83,3 +83,33 @@
     backdrop-filter:blur(30px);
     border:1px solid rgba(255,255,255,.35);
 }
+
+.glass-date-picker{
+
+  width:100%;
+  
+  padding:16px 20px;
+  
+  font-size:16px;
+  
+  font-weight:600;
+  
+  color:#5C4033;
+  
+  background:rgba(255,255,255,.58);
+  
+  border:1px solid rgba(255,255,255,.6);
+  
+  border-radius:22px;
+  
+  backdrop-filter:blur(18px);
+  
+  box-shadow:
+  0 8px 24px rgba(92,64,51,.08),
+  inset 0 1px 0 rgba(255,255,255,.8);
+  
+  transition:.3s;
+  
+  outline:none;
+  
+  }

@@ -7,8 +7,8 @@ import { useNavigate} from 'react-router-dom';
 import Rsvp from './Rsvp';
 import LocationMap from './LocationMap';
 import Autocomplete from "react-google-autocomplete";
-import Datetime from 'react-datetime';
-import moment from 'moment';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import PhoneInput from 'react-phone-input-2';
 import Terms from './Terms';
 import Privacy from '../Privacy';
@@ -59,8 +59,7 @@ const UserHome = () => {
   const [className, setClassName] = useState("closedTerms");
   const [classNamePrivacy, setClassNamePrivacy] = useState("closedTerms");
 
-  const d = new Date();
-  const [startDate, setStartDate] = useState(d.setMinutes(0));
+  const [startDate, setStartDate] = useState(new Date());
 
   useEffect(()=>{
     const loggedIn = async ()=>{
@@ -87,7 +86,7 @@ const UserHome = () => {
           const response = await supabase.from('events').select('*').eq('host_id',getId)
           setInfo(response.data || [])
 
-        }
+        } 
       } catch (error) {
         setInfo([])
     }}
@@ -105,7 +104,7 @@ const UserHome = () => {
 
         }
       } catch (error) {
-        setInfo([])
+        
     }}
     
     fetchName()
@@ -132,7 +131,7 @@ const UserHome = () => {
   })
   .select();
           // Rsvp : 1,
-          // EventDate: moment(startDate).format('dddd, MMMM Do YYYY, h:mm a'),
+          // starts_at: startDate.toISOString()
           // Rsvp_names : [{"firstName" : userInfo + " (Host)" , "id" : userid,"lastName" :userLastName}],
           // Rsvp_Id : [getId],
           // lat: lat,
@@ -168,7 +167,7 @@ const UserHome = () => {
 
   const fetchRsvp = async (id)=>{
     try {
-      const response = await supabase.from('event').select('*').eq('id',id)
+      const response = await supabase.from('event_rsvps').select('*').eq('id',id)
       const data = response.data || []
       data.map((e)=> getInfoId(e.id))
     } catch (error) {}
@@ -264,7 +263,11 @@ const UserHome = () => {
           )
         ) : null}
 
-        {allEvents ? <div className="grid gap-6 lg:grid-cols-2"><Rsvp userId={userid} /></div> : null}
+        {allEvents ? <div className="grid gap-6 lg:grid-cols-2"><Rsvp userId={userid} />
+        
+
+        
+        </div> : null}
 
         {rsvpd ? (
           <div className="mx-auto max-w-3xl">
@@ -324,21 +327,16 @@ const UserHome = () => {
               <input className={inputClass} type="text" placeholder="Additional info (Rooftop, floor 15)" value={addInfo} onChange={(e) => {getAddInfo(e.target.value)}} />
               <input className={inputClass} type="number" placeholder="Guest Limit (Min 2)" min={2} value={guestLimit} onChange={(e) => setGuestLimt(e.target.value)} />
 
-              <Datetime
-                type='input'
-                className='rdt'
-                calendarIcon={false}
-                clearIcon={false}
-                showTimeSelect
-                locale='us'
-                value={startDate}
-                required={true}
-                utc={false}
-                showLeadingZeros={true}
-                timeConstraints={{'minutes': {'min': 0, 'step': 15}}}
-                onSelect={()=>startDate}
-                onChange={(date)=>setStartDate(date)}
-              />
+              <DatePicker
+    selected={startDate}
+    onChange={(date) => setStartDate(date)}
+    showTimeSelect
+    timeIntervals={15}
+    dateFormat="MMMM d, yyyy h:mm aa"
+    minDate={new Date()}
+    placeholderText="Select date & time"
+    className="glass-date-picker"
+/>
 
               <input className={inputClass} type="url" placeholder="Event URL https://" value={uRl} onChange={(e) => getUrl(e.target.value)} />
 
